@@ -24,6 +24,7 @@
 
         <!-- CSS Files
         ================================================== -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/styles.css">
 
         <!-- Favicons
@@ -48,9 +49,9 @@
             </div>
             <div id="navbar-wrapper">
                 <div id="navbar">
-                    <div class="navbar-entry">About</div>
-                    <div class="navbar-entry">Resume</div>
-                    <div class="navbar-entry">Contact</div>
+                    <div class="navbar-entry"><a href="#about">About</a></div>
+                    <div class="navbar-entry"><a href="#resume">Resume</a></div>
+                    <div class="navbar-entry"><a href="#contact">Contact</a></div>
                 </div>
             </div>
         </div>
@@ -62,6 +63,7 @@
             </div>
         </div>
 
+        <a name="about">
         <div id="section-about">
             <table id="about-wrapper">
                 <tr>
@@ -73,9 +75,10 @@
             </table>
 
             <hr size="1">
-
         </div>
+        </a>
 
+        <a name="resume">
         <div id="section-resume">
             <table id="resume-wrapper">
                 <tr>
@@ -83,10 +86,61 @@
                 </tr>
                 <!-- TODO -->
             </table>
-        </div>
 
+            <!-- <hr size="1"> -->
+        </div>
+        </a>
+
+        <a name="contact">
         <div id="section-contact">
-        </div>
+            <div id="contact-wrapper">
+                <div id="contact-icon-bar">
+                    <a href="mailto:zhang.michelle.d@gmail.com" target="_blank">
+                        <div id="contact-icon"><i class="fa fa-at fa-fw fa-2x"></i></div>
+                    </a>
+                    <a href="http://github.com/mdzhang" target="_blank">
+                        <div id="contact-icon"><i class="fa fa-github fa-fw fa-2x"></i></div>
+                    </a>
+                    <a href="http://www.linkedin.com/pub/michelle-zhang/4a/848/b20" target="_blank">
+                        <div id="contact-icon"><i class="fa fa-linkedin fa-fw fa-2x"></i></div>
+                    </a>
+                </div>
+            </div>
+            <!-- <table id="contact-wrapper">
+                <tr>
+                    <td style="vertical-align: top; width: 10%"><h1 id="contact-title">Contact</h1></td>
 
+                        <form id="contact-form" action="php/emailSender.php" method="post"
+                              enctype="text/plain">
+                            <table>
+                                <tr>
+                                    <td><label for="contactName">Name</label></td>
+                                    <td><input type="text" name="contactName" id="contactName" required></input></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="contactEmail">Email</label></td>
+                                    <td><input type="email" name="contactEmail" name="contactEmail" required></input></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="contactMessage">Message</label></td>
+                                    <td><textarea name="contactMessage" id="contactMessage" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><button type="submit">Submit</button></td>
+                                </tr>
+                            </table>
+                        </form>
+                    </td>
+                </tr>
+            </table> -->
+        </div>
+        </a>
+
+        <div id="section-footer">
+            <div id="section-footer-text">
+                @ 2014, Michelle D. Zhang
+            </div>
+        </div>
     </body>
 </html>

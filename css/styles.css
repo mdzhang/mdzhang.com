@@ -7,22 +7,30 @@
         3. About
         4. Resume
         5. Contact
+        6. Footer
 
     Color Scheme:
         Mint Green: 98FF98;
         Dark grey: 333333;
         Sandy Brown: AEAEAE;
         Dark Brown: 555555;
+        Light red: ff5d5d
+        Dark red: ab0000;
 
 -----------------------------------------------------------------------------*/
 body {
     color: #FFFFFF;
-    background-color: #333333;
-    font-family: 'Rokkitt', Helvetica, Arial,sans-serif;
+    background-color: #000;
+    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
 
     /* padding-top should be the height of the fixed position section-topbar */
     padding-top: 105px;
     margin: 0px;
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: #98FF98;
 }
 
 /*-----------------------------------------------------------------------------
@@ -34,7 +42,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background-color: #333333;
+    background-color: #000;
 
     /* height should match personal icon height */
     height: 75px;
@@ -101,10 +109,12 @@ body {
     }
         #section-banner #main-text-wrapper #name {
             font-size: 5em;
+            color: #98FF98;
         }
 
         #section-banner #main-text-wrapper #identity {
             font-size: 3em;
+            color: #98FF98;
         }
 
 /*-----------------------------------------------------------------------------
@@ -112,7 +122,7 @@ body {
 -----------------------------------------------------------------------------*/
 
 #section-about {
-     background-color: #AEAEAE;
+     background-color: #333333;
 }
     #section-about #about-wrapper {
         width: 90%;
@@ -124,32 +134,31 @@ body {
             font-size: 1.75em;
             width: 10%;
             text-align: left;
-            color: #333333;
+            color: #98FF98;
         }
 
         #section-about #about-wrapper #about-text {
             margin-left: 5%;
-            display: inline-block;
 
             font-size: 1.25em;
             line-height: 1.5;
             text-align: left;
-            color: #555555;
+            color: #AEAEAE;
         }
 
-    #section-about hr {
-        width: 70%;
-        border-color: #333333;
-        margin: 0px auto;
-    }
+hr {
+    width: 85%;
+    border-color: #AEAEAE;
+    margin: 0px auto;
+}
 
 /*-----------------------------------------------------------------------------
     4. Resume
 -----------------------------------------------------------------------------*/
 
 #section-resume {
-    background-color: #AEAEAE;
-    height: 100px;
+    background-color: #333333;
+    height: 200px; /* TODO: remove once finished */;
 }
     #section-resume #resume-wrapper {
         width: 90%;
@@ -161,7 +170,7 @@ body {
             font-size: 1.75em;
             width: 10%;
             text-align: left;
-            color: #333333;
+            color: #98FF98;
         }
 
 /*-----------------------------------------------------------------------------
@@ -169,5 +178,93 @@ body {
 -----------------------------------------------------------------------------*/
 
 #section-contact {
-
+    background-color: #000;
 }
+    #section-contact #contact-wrapper {
+        width: 90%;
+        margin: 0px auto;
+        padding: 30px;
+        text-align: center;
+    }
+        #section-contact #contact-wrapper #contact-title {
+            font-size: 1.75em;
+            text-align: left;
+            color: #98FF98;
+        }
+
+        #section-contact #contact-wrapper #contact-icon-bar {
+            padding: 10px;
+        }
+            #section-contact #contact-wrapper #contact-icon-bar #contact-icon {
+                display: inline;
+                height: 100%;
+                margin: 0px auto;
+                padding: 8px;
+                color: #FFF;
+            }
+                #section-contact #contact-wrapper #contact-icon-bar #contact-icon:hover {
+                    cursor: pointer;
+                    color: #98FF98;
+                }
+
+        #section-contact #contact-wrapper #contact-form {
+            margin-left: 5%;
+        }
+            #contact-form tr td label {
+                font-size: 1.35em;
+                text-align: left;
+                color: #AEAEAE;
+            }
+                #contact-form tr td label:after {
+                    content: ' *';
+                    color: #98FF98;
+                }
+
+            #contact-form tr td button {
+                background-color: #000;
+                color: #98FF98;
+                border: 2px solid #98FF98;
+                /*border-radius: 10px;*/
+                padding: 15px;
+                font-size: 1.45em;
+                margin: 20px 35px;
+                float: left;
+                font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+            }
+                #contact-form tr td button:hover {
+                    cursor: pointer;
+                    background-color: #98FF98;
+                    color: #000;
+                }
+
+            #contact-form tr td input, textarea {
+                background-color: #333333;
+                color: #AEAEAE;
+                border: none;
+                padding: 15px;
+                font-size: 1.15em;
+                margin: 5px 35px;
+                width: 500px;
+                font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+            }
+                #contact-form tr td input:focus, textarea:focus {
+                    background-color: #AEAEAE;
+                    color: #333333;
+                }
+
+
+/*-----------------------------------------------------------------------------
+    6. Footer
+-----------------------------------------------------------------------------*/
+
+#section-footer {
+    height: 20px;
+    /*border-top: 2px solid #98FF98;*/
+    background-color: #000;
+    color: #98FF98;
+    padding: 15px;
+}
+    #section-footer-text {
+        text-align: center;
+        font-size: 1.05em;
+    }
