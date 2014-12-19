@@ -28,9 +28,32 @@ body {
     margin: 0px;
 }
 
+.font-color-highlight {
+    color: #98FF98;
+}
+
+.font-color-white {
+    color: #FFF;
+}
+
+.vert-space-lg {
+    height: 40px;
+}
+
+.vert-space-md {
+    height: 30px;
+}
+
+
 a, a:visited {
     text-decoration: none;
     color: #98FF98;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    text-align: left;
 }
 
 /*-----------------------------------------------------------------------------
@@ -109,12 +132,12 @@ a, a:visited {
     }
         #section-banner #main-text-wrapper #name {
             font-size: 5em;
-            color: #98FF98;
+            color: #AEAEAE;
         }
 
         #section-banner #main-text-wrapper #identity {
             font-size: 3em;
-            color: #98FF98;
+            color: #AEAEAE;
         }
 
 /*-----------------------------------------------------------------------------
@@ -138,8 +161,6 @@ a, a:visited {
         }
 
         #section-about #about-wrapper #about-text {
-            margin-left: 5%;
-
             font-size: 1.25em;
             line-height: 1.5;
             text-align: left;
@@ -158,13 +179,13 @@ hr {
 
 #section-resume {
     background-color: #333333;
-    height: 200px; /* TODO: remove once finished */;
 }
     #section-resume #resume-wrapper {
         width: 90%;
         margin: 0px auto;
         padding: 50px;
         text-align: center;
+        font-size: 1.25em;
     }
         #section-resume #resume-wrapper #resume-title {
             font-size: 1.75em;
@@ -172,6 +193,31 @@ hr {
             text-align: left;
             color: #98FF98;
         }
+
+        #section-resume #resume-wrapper #resume-content-wrapper {
+            table-layout: fixed;
+            text-align: left;
+        }
+            .no-bullet {
+                list-style-type: none;
+            }
+
+        #section-resume #resume-wrapper #resume-content-wrapper tr td {
+            color: #AEAEAE;
+            vertical-align: top;
+            overflow: hidden;
+            padding: 10px;
+        }
+            #section-resume #resume-wrapper #resume-content-wrapper tr #resume-category {
+                color: #FFF;
+            }
+            #section-resume #resume-wrapper #resume-content-wrapper tr td ul {
+            }
+
+            .resume-item-location {
+                font-size: .85em;
+                font-style: italic;
+            }
 
 /*-----------------------------------------------------------------------------
     5. Contact
@@ -200,7 +246,7 @@ hr {
                 height: 100%;
                 margin: 0px auto;
                 padding: 8px;
-                color: #FFF;
+                color: #AEAEAE;
             }
                 #section-contact #contact-wrapper #contact-icon-bar #contact-icon:hover {
                     cursor: pointer;
