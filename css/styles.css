@@ -3,19 +3,26 @@
     Components:
         1. Top bar
         2. Banner
-        3. About Me
+            TODO: replace solid color background with dark/opaque image of self;
+        3. About
         4. Resume
         5. Contact
 
     Color Scheme:
         Mint Green: 98FF98;
         Dark grey: 333333;
+        Sandy Brown: AEAEAE;
+        Dark Brown: 555555;
 
 -----------------------------------------------------------------------------*/
 body {
     color: #FFFFFF;
     background-color: #333333;
     font-family: 'Rokkitt', Helvetica, Arial,sans-serif;
+
+    /* padding-top should be the height of the fixed position section-topbar */
+    padding-top: 105px;
+    margin: 0px;
 }
 
 /*-----------------------------------------------------------------------------
@@ -27,6 +34,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
+    background-color: #333333;
 
     /* height should match personal icon height */
     height: 75px;
@@ -80,3 +88,86 @@ body {
 /*-----------------------------------------------------------------------------
     2. Banner
 -----------------------------------------------------------------------------*/
+
+#section-banner {
+    height: 300px;
+    padding: 50px;
+}
+    #section-banner #main-text-wrapper {
+        width: 60%;
+        margin: 0px auto;
+        padding: 50px;
+        text-align: center;
+    }
+        #section-banner #main-text-wrapper #name {
+            font-size: 5em;
+        }
+
+        #section-banner #main-text-wrapper #identity {
+            font-size: 3em;
+        }
+
+/*-----------------------------------------------------------------------------
+    3. About
+-----------------------------------------------------------------------------*/
+
+#section-about {
+     background-color: #AEAEAE;
+}
+    #section-about #about-wrapper {
+        width: 90%;
+        margin: 0px auto;
+        padding: 50px;
+        text-align: center;
+    }
+        #section-about #about-wrapper #about-title {
+            font-size: 1.75em;
+            width: 10%;
+            text-align: left;
+            color: #333333;
+        }
+
+        #section-about #about-wrapper #about-text {
+            margin-left: 5%;
+            display: inline-block;
+
+            font-size: 1.25em;
+            line-height: 1.5;
+            text-align: left;
+            color: #555555;
+        }
+
+    #section-about hr {
+        width: 70%;
+        border-color: #333333;
+        margin: 0px auto;
+    }
+
+/*-----------------------------------------------------------------------------
+    4. Resume
+-----------------------------------------------------------------------------*/
+
+#section-resume {
+    background-color: #AEAEAE;
+    height: 100px;
+}
+    #section-resume #resume-wrapper {
+        width: 90%;
+        margin: 0px auto;
+        padding: 50px;
+        text-align: center;
+    }
+        #section-resume #resume-wrapper #resume-title {
+            font-size: 1.75em;
+            width: 10%;
+            text-align: left;
+            color: #333333;
+        }
+
+/*-----------------------------------------------------------------------------
+    5. Contact
+-----------------------------------------------------------------------------*/
+
+#section-contact {
+
+}
