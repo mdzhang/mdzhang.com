@@ -1,0 +1,82 @@
+/*-----------------------------------------------------------------------------
+
+    Components:
+        1. Top bar
+        2. Banner
+        3. About Me
+        4. Resume
+        5. Contact
+
+    Color Scheme:
+        Mint Green: 98FF98;
+        Dark grey: 333333;
+
+-----------------------------------------------------------------------------*/
+body {
+    color: #FFFFFF;
+    background-color: #333333;
+    font-family: 'Rokkitt', Helvetica, Arial,sans-serif;
+}
+
+/*-----------------------------------------------------------------------------
+    1. Top Bar
+-----------------------------------------------------------------------------*/
+
+#section-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    /* height should match personal icon height */
+    height: 75px;
+    padding: 15px 15px;
+}
+    #section-topbar #logo-wrapper {
+        position: relative;
+        display: inline-block;
+        float: left;
+        height: 100%;
+        width: 15%;
+    }
+        #section-topbar #logo-wrapper #personal-icon {
+            height: 75px;
+            width: 75px;
+            background-image: url('../images/personal_icon.png');
+            background-size: contain;
+            background-size: cover;
+        }
+
+    /* navbar-wrapper is for everything to the right of the personal icon */
+    #section-topbar #navbar-wrapper {
+        position: relative;
+        display: inline-block;
+        height: 100%;
+        width: 85%;
+    }
+        /* navbar is the actual menu of clickable items */
+         #section-topbar #navbar-wrapper #navbar {
+            position: relative;
+            display: inline-block;
+            float: right;
+         }
+            #section-topbar #navbar-wrapper #navbar .navbar-entry {
+                display: inline-block;
+
+                /* line height with padding should match personal icon height */
+                padding: 15px 15px;
+                line-height: 45px;
+
+                color: #98FF98;
+                font-size: 1.35em;
+            }
+                #section-topbar #navbar-wrapper #navbar .navbar-entry:hover {
+                    cursor: pointer;
+                    /* underline on hover */
+                    border-bottom: 3px solid #98FF98;
+                    padding-bottom: 1px;
+                }
+
+/*-----------------------------------------------------------------------------
+    2. Banner
+-----------------------------------------------------------------------------*/
