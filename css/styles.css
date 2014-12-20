@@ -29,6 +29,11 @@ body {
     color: #98FF98;
 }
 
+.font-color-gray {
+    color: #AEAEAE;
+}
+
+
 .font-color-white {
     color: #FFF;
 }
@@ -225,6 +230,10 @@ hr {
             .resume-item-location {
                 font-size: .85em;
                 font-style: italic;
+            }
+
+            .resume-item-description {
+                font-size: .85em;
             }
 
 /*-----------------------------------------------------------------------------
