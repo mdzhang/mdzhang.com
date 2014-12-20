@@ -65,7 +65,6 @@ ul {
     top: 0;
     left: 0;
     right: 0;
-    background-color: #000;
 
     /* height should match personal icon height */
     height: 75px;
@@ -120,12 +119,24 @@ ul {
     2. Banner
 -----------------------------------------------------------------------------*/
 
+#banner-image {
+    height: 475px;
+    width: 100%;
+    top: 0;
+    z-index: -1;
+    position: absolute;
+    background-image: url('../images/banner_lg.png');
+    background-size: contain;
+    background-size: cover;
+}
+
 #section-banner {
-    height: 300px;
+    height: 265px; /* 75 for the topbar, 265 + 2 * 50 (padding) = banner image height */
     padding: 50px;
 }
     #section-banner #main-text-wrapper {
         width: 60%;
+        height: 100%;
         margin: 0px auto;
         padding: 50px;
         text-align: center;
