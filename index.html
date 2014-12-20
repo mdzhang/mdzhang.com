@@ -37,33 +37,43 @@
 
         <!-- Javascript Libraries
         ================================================== -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+        <script src="js/scripts.js"></script>
     </head>
     <body>
 
         <div id="section-topbar">
             <div id="logo-wrapper">
-                <div id="personal-icon"></div>
+                <a href="#banner" rel="" id="anchor-banner" class="anchor-link">
+                    <div id="personal-icon"></div>
+                </a>
             </div>
             <div id="navbar-wrapper">
                 <div id="navbar">
-                    <div class="navbar-entry"><a href="#about">About</a></div>
-                    <div class="navbar-entry"><a href="#resume">Resume</a></div>
-                    <div class="navbar-entry"><a href="#contact">Contact</a></div>
+                    <div class="navbar-entry">
+                        <a href="#about" rel="" id="anchor-about" class="anchor-link">About</a>
+                    </div>
+                    <div class="navbar-entry">
+                        <a href="#resume" rel="" id="anchor-resume" class="anchor-link">Resume</a>
+                    </div>
+                    <div class="navbar-entry">
+                        <a href="#contact" rel="" id="anchor-contact" class="anchor-link">Contact</a>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <a name="banner" id="banner">
         <div id="section-banner">
             <div id="main-text-wrapper">
                 <div id="name">Michelle Zhang</div>
                 <div id="identity">&mdash;</br>Software Developer.</div>
             </div>
         </div>
+        </a>
 
-        <a name="about">
+        <a name="about" id="about">
         <div id="section-about">
             <table id="about-wrapper">
                 <tr><td style="vertical-align: top"><h1 id="about-title">About</h1></td></tr>
@@ -77,7 +87,7 @@
         </div>
         </a>
 
-        <a name="resume">
+        <a name="resume" id="resume">
         <div id="section-resume">
             <table id="resume-wrapper">
                 <tr><td style="vertical-align: top"><h1 id="resume-title">Resume</h1></td></tr>
@@ -227,12 +237,12 @@
         </div>
         </a>
 
-        <a name="contact">
+        <a name="contact" id="contact">
         <div id="section-contact">
             <div id="contact-wrapper">
                 <div id="contact-icon-bar">
                     <a href="mailto:zhang.michelle.d@gmail.com" target="_blank">
-                        <div id="contact-icon"><i class="fa fa-at fa-fw fa-2x"></i></div>
+                        <div id="contact-icon"><i class="fa fa-envelope-o fa-fw fa-2x"></i></div>
                     </a>
                     <a href="http://github.com/mdzhang" target="_blank">
                         <div id="contact-icon"><i class="fa fa-github fa-fw fa-2x"></i></div>
