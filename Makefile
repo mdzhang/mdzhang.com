@@ -2,6 +2,7 @@ S3_BUCKET=mdzhang.com
 
 # Sync current working directory with s3.
 deploy:
+	make clean
 	s3cmd sync --delete-removed --acl-public \
 		--exclude '*' \
 		--exclude '*.*' \
