@@ -1,8 +1,7 @@
 # Sublime stuff
-personal_site.sublime-project
-personal_site.sublime-workspace
+*.sublime-project
+*.sublime-workspace
 
 # Testing/Dev files
-scraps.*
-descriptions.txt
+test/*
 .DS_Store
