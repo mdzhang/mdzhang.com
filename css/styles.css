@@ -1,333 +1,333 @@
 /*-----------------------------------------------------------------------------
 
-    Components:
-        1. Top bar
-        2. Banner
-            TODO: replace solid color background with dark/opaque image of self;
-        3. About
-        4. Resume
-        5. Contact
-        6. Footer
+  Components:
+    1. Top bar
+    2. Banner
+      TODO: replace solid color background with dark/opaque image of self;
+    3. About
+    4. Resume
+    5. Contact
+    6. Footer
 
-    Color Scheme:
-        Mint Green: 98FF98;
-        Dark grey: 333333;
-        Sandy Brown: AEAEAE;
+  Color Scheme:
+    Mint Green: 98FF98;
+    Dark grey: 333333;
+    Sandy Brown: AEAEAE;
 
 -----------------------------------------------------------------------------*/
 body {
-    color: #FFFFFF;
-    background-color: #000;
-    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+  color: #FFFFFF;
+  background-color: #000;
+  font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
 
-    /* padding-top should be the height of the fixed position section-topbar */
-    padding-top: 105px;
-    margin: 0px;
+  /* padding-top should be the height of the fixed position section-topbar */
+  padding-top: 105px;
+  margin: 0px;
 }
 
 .font-color-highlight {
-    color: #98FF98;
+  color: #98FF98;
 }
 
 .font-color-gray {
-    color: #AEAEAE;
+  color: #AEAEAE;
 }
 
 
 .font-color-white {
-    color: #FFF;
+  color: #FFF;
 }
 
 .vert-space-lg {
-    height: 40px;
+  height: 40px;
 }
 
 .vert-space-md {
-    height: 30px;
+  height: 30px;
 }
 
 
 a, a:visited {
-    text-decoration: none;
-    color: #98FF98;
+  text-decoration: none;
+  color: #98FF98;
 }
 
 ul {
-    margin: 0;
-    padding: 0;
-    text-align: left;
+  margin: 0;
+  padding: 0;
+  text-align: left;
 }
 
 /*-----------------------------------------------------------------------------
-    1. Top Bar
+  1. Top Bar
 -----------------------------------------------------------------------------*/
 
 #section-topbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 
-    /* height should match personal icon height */
-    height: 75px;
-    padding: 15px 15px;
+  /* height should match personal icon height */
+  height: 75px;
+  padding: 15px 15px;
 }
-    #section-topbar #logo-wrapper {
+  #section-topbar #logo-wrapper {
+    position: relative;
+    display: inline-block;
+    float: left;
+    height: 100%;
+    width: 15%;
+  }
+    #section-topbar #logo-wrapper #personal-icon {
+      height: 75px;
+      width: 75px;
+      background-image: url('../images/personal_icon.png');
+      background-size: contain;
+      background-size: cover;
+    }
+
+  /* navbar-wrapper is for everything to the right of the personal icon */
+  #section-topbar #navbar-wrapper {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    width: 85%;
+  }
+    /* navbar is the actual menu of clickable items */
+      #section-topbar #navbar-wrapper #navbar {
         position: relative;
         display: inline-block;
-        float: left;
-        height: 100%;
-        width: 15%;
-    }
-        #section-topbar #logo-wrapper #personal-icon {
-            height: 75px;
-            width: 75px;
-            background-image: url('../images/personal_icon.png');
-            background-size: contain;
-            background-size: cover;
+        float: right;
+      }
+      #section-topbar #navbar-wrapper #navbar .navbar-entry {
+        display: inline-block;
+
+        /* line height with padding should match personal icon height */
+        padding: 15px 15px;
+        line-height: 45px;
+
+        color: #98FF98;
+        font-size: 1.35em;
+      }
+        #section-topbar #navbar-wrapper #navbar .navbar-entry:hover {
+          cursor: pointer;
+          /* underline on hover */
+          border-bottom: 3px solid #98FF98;
+          padding-bottom: 1px;
         }
 
-    /* navbar-wrapper is for everything to the right of the personal icon */
-    #section-topbar #navbar-wrapper {
-        position: relative;
-        display: inline-block;
-        height: 100%;
-        width: 85%;
-    }
-        /* navbar is the actual menu of clickable items */
-         #section-topbar #navbar-wrapper #navbar {
-            position: relative;
-            display: inline-block;
-            float: right;
-         }
-            #section-topbar #navbar-wrapper #navbar .navbar-entry {
-                display: inline-block;
-
-                /* line height with padding should match personal icon height */
-                padding: 15px 15px;
-                line-height: 45px;
-
-                color: #98FF98;
-                font-size: 1.35em;
-            }
-                #section-topbar #navbar-wrapper #navbar .navbar-entry:hover {
-                    cursor: pointer;
-                    /* underline on hover */
-                    border-bottom: 3px solid #98FF98;
-                    padding-bottom: 1px;
-                }
-
 /*-----------------------------------------------------------------------------
-    2. Banner
+  2. Banner
 -----------------------------------------------------------------------------*/
 
 #banner-image {
-    height: 475px;
-    width: 100%;
-    top: 0;
-    z-index: -1;
-    position: absolute;
-    background-image: url('../images/banner_lg.png');
-    background-size: contain;
-    background-size: cover;
+  height: 475px;
+  width: 100%;
+  top: 0;
+  z-index: -1;
+  position: absolute;
+  background-image: url('../images/banner_lg.png');
+  background-size: contain;
+  background-size: cover;
 }
 
 #section-banner {
-    height: 265px; /* 75 for the topbar, 265 + 2 * 50 (padding) = banner image height */
-    padding: 50px;
+  height: 265px; /* 75 for the topbar, 265 + 2 * 50 (padding) = banner image height */
+  padding: 50px;
 }
-    #section-banner #main-text-wrapper {
-        width: 60%;
-        height: 100%;
-        margin: 0px auto;
-        padding: 50px;
-        text-align: center;
+  #section-banner #main-text-wrapper {
+    width: 60%;
+    height: 100%;
+    margin: 0px auto;
+    padding: 50px;
+    text-align: center;
+  }
+    #section-banner #main-text-wrapper #name {
+      font-size: 5em;
+      color: #AEAEAE;
     }
-        #section-banner #main-text-wrapper #name {
-            font-size: 5em;
-            color: #AEAEAE;
-        }
 
-        #section-banner #main-text-wrapper #identity {
-            font-size: 3em;
-            color: #AEAEAE;
-        }
+    #section-banner #main-text-wrapper #identity {
+      font-size: 3em;
+      color: #AEAEAE;
+    }
 
 /*-----------------------------------------------------------------------------
-    3. About
+  3. About
 -----------------------------------------------------------------------------*/
 
 #section-about {
-     background-color: #333333;
+  background-color: #333333;
 }
-    #section-about #about-wrapper {
-        width: 90%;
-        margin: 0px auto;
-        padding: 50px;
-        text-align: center;
+  #section-about #about-wrapper {
+    width: 90%;
+    margin: 0px auto;
+    padding: 50px;
+    text-align: center;
+  }
+    #section-about #about-wrapper #about-title {
+      font-size: 35px; /* 1.75em; */
+      width: 10%;
+      text-align: left;
+      color: #98FF98;
     }
-        #section-about #about-wrapper #about-title {
-            font-size: 35px; /* 1.75em; */
-            width: 10%;
-            text-align: left;
-            color: #98FF98;
-        }
 
-        #section-about #about-wrapper #about-text {
-            font-size: 1.25em;
-            line-height: 1.5;
-            text-align: left;
-            color: #AEAEAE;
-        }
+    #section-about #about-wrapper #about-text {
+      font-size: 1.25em;
+      line-height: 1.5;
+      text-align: left;
+      color: #AEAEAE;
+    }
 
 hr {
-    width: 85%;
-    border-color: #AEAEAE;
-    margin: 0px auto;
+  width: 85%;
+  border-color: #AEAEAE;
+  margin: 0px auto;
 }
 
 /*-----------------------------------------------------------------------------
-    4. Resume
+  4. Resume
 -----------------------------------------------------------------------------*/
 
 #section-resume {
-    background-color: #333333;
+  background-color: #333333;
 }
-    #section-resume #resume-wrapper {
-        width: 90%;
-        margin: 0px auto;
-        padding: 50px;
-        /*text-align: center;*/
-        font-size: 1.25em;
+  #section-resume #resume-wrapper {
+    width: 90%;
+    margin: 0px auto;
+    padding: 50px;
+    /*text-align: center;*/
+    font-size: 1.25em;
+  }
+    #section-resume #resume-wrapper #resume-title {
+      font-size: 35px; /* 1.75em; */
+      width: 12.5%;
+      text-align: left;
+      color: #98FF98;
     }
-        #section-resume #resume-wrapper #resume-title {
-            font-size: 35px; /* 1.75em; */
-            width: 12.5%;
-            text-align: left;
-            color: #98FF98;
-        }
 
-        #section-resume #resume-wrapper #resume-content-wrapper {
-            table-layout: fixed;
-            text-align: left;
-        }
-            .no-bullet {
-                list-style-type: none;
-            }
+    #section-resume #resume-wrapper #resume-content-wrapper {
+      table-layout: fixed;
+      text-align: left;
+    }
+      .no-bullet {
+        list-style-type: none;
+      }
 
-        #section-resume #resume-wrapper #resume-content-wrapper tr td {
-            color: #AEAEAE;
-            vertical-align: top;
-            overflow: hidden;
-            padding: 10px;
-        }
-            #section-resume #resume-wrapper #resume-content-wrapper tr #resume-category {
-                color: #FFF;
-            }
-            #section-resume #resume-wrapper #resume-content-wrapper tr td ul {
-            }
+    #section-resume #resume-wrapper #resume-content-wrapper tr td {
+      color: #AEAEAE;
+      vertical-align: top;
+      overflow: hidden;
+      padding: 10px;
+    }
+      #section-resume #resume-wrapper #resume-content-wrapper tr #resume-category {
+        color: #FFF;
+      }
+      #section-resume #resume-wrapper #resume-content-wrapper tr td ul {
+      }
 
-            .resume-item-location {
-                font-size: .85em;
-                font-style: italic;
-            }
+      .resume-item-location {
+        font-size: .85em;
+        font-style: italic;
+      }
 
-            .resume-item-description {
-                font-size: 1em;
-            }
+      .resume-item-description {
+        font-size: 1em;
+      }
 
 /*-----------------------------------------------------------------------------
-    5. Contact
+  5. Contact
 -----------------------------------------------------------------------------*/
 
 #section-contact {
-    background-color: #000;
+  background-color: #000;
 }
-    #section-contact #contact-wrapper {
-        width: 90%;
-        margin: 0px auto;
-        padding: 30px;
-        text-align: center;
+  #section-contact #contact-wrapper {
+    width: 90%;
+    margin: 0px auto;
+    padding: 30px;
+    text-align: center;
+  }
+    #section-contact #contact-wrapper #contact-title {
+      font-size: 1.75em;
+      text-align: left;
+      color: #98FF98;
     }
-        #section-contact #contact-wrapper #contact-title {
-            font-size: 1.75em;
-            text-align: left;
-            color: #98FF98;
+
+    #section-contact #contact-wrapper #contact-icon-bar {
+      padding: 10px;
+    }
+      #section-contact #contact-wrapper #contact-icon-bar #contact-icon {
+        display: inline;
+        height: 100%;
+        margin: 0px auto;
+        padding: 8px;
+        color: #AEAEAE;
+      }
+        #section-contact #contact-wrapper #contact-icon-bar #contact-icon:hover {
+          cursor: pointer;
+          color: #98FF98;
         }
 
-        #section-contact #contact-wrapper #contact-icon-bar {
-            padding: 10px;
+    #section-contact #contact-wrapper #contact-form {
+      margin-left: 5%;
+    }
+      #contact-form tr td label {
+        font-size: 1.35em;
+        text-align: left;
+        color: #AEAEAE;
+      }
+        #contact-form tr td label:after {
+          content: ' *';
+          color: #98FF98;
         }
-            #section-contact #contact-wrapper #contact-icon-bar #contact-icon {
-                display: inline;
-                height: 100%;
-                margin: 0px auto;
-                padding: 8px;
-                color: #AEAEAE;
-            }
-                #section-contact #contact-wrapper #contact-icon-bar #contact-icon:hover {
-                    cursor: pointer;
-                    color: #98FF98;
-                }
 
-        #section-contact #contact-wrapper #contact-form {
-            margin-left: 5%;
+      #contact-form tr td button {
+        background-color: #000;
+        color: #98FF98;
+        border: 2px solid #98FF98;
+        /*border-radius: 10px;*/
+        padding: 15px;
+        font-size: 1.45em;
+        margin: 20px 35px;
+        float: left;
+        font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+      }
+        #contact-form tr td button:hover {
+          cursor: pointer;
+          background-color: #98FF98;
+          color: #000;
         }
-            #contact-form tr td label {
-                font-size: 1.35em;
-                text-align: left;
-                color: #AEAEAE;
-            }
-                #contact-form tr td label:after {
-                    content: ' *';
-                    color: #98FF98;
-                }
 
-            #contact-form tr td button {
-                background-color: #000;
-                color: #98FF98;
-                border: 2px solid #98FF98;
-                /*border-radius: 10px;*/
-                padding: 15px;
-                font-size: 1.45em;
-                margin: 20px 35px;
-                float: left;
-                font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
-            }
-                #contact-form tr td button:hover {
-                    cursor: pointer;
-                    background-color: #98FF98;
-                    color: #000;
-                }
-
-            #contact-form tr td input, textarea {
-                background-color: #333333;
-                color: #AEAEAE;
-                border: none;
-                padding: 15px;
-                font-size: 1.15em;
-                margin: 5px 35px;
-                width: 500px;
-                font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
-            }
-                #contact-form tr td input:focus, textarea:focus {
-                    background-color: #AEAEAE;
-                    color: #333333;
-                }
+      #contact-form tr td input, textarea {
+        background-color: #333333;
+        color: #AEAEAE;
+        border: none;
+        padding: 15px;
+        font-size: 1.15em;
+        margin: 5px 35px;
+        width: 500px;
+        font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+      }
+        #contact-form tr td input:focus, textarea:focus {
+          background-color: #AEAEAE;
+          color: #333333;
+        }
 
 
 /*-----------------------------------------------------------------------------
-    6. Footer
+  6. Footer
 -----------------------------------------------------------------------------*/
 
 #section-footer {
-    height: 20px;
-    /*border-top: 2px solid #98FF98;*/
-    background-color: #000;
-    color: #98FF98;
-    padding: 15px;
+  height: 20px;
+  /*border-top: 2px solid #98FF98;*/
+  background-color: #000;
+  color: #98FF98;
+  padding: 15px;
 }
-    #section-footer-text {
-        text-align: center;
-        font-size: 1.05em;
-    }
+  #section-footer-text {
+    text-align: center;
+    font-size: 1.05em;
+  }
