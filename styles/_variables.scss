@@ -1,0 +1,38 @@
+//
+// Variables
+// -------------------------
+
+$primary-color:         #0EF9DA;       // turqoise
+$placeholder-grey:      #C0C0C0;
+$background-color:      $primary-color;
+
+$primary-font:          'Helvetica Neue', Arial, Verdana, sans-serif;
+$primary-font-weight:   100;
+
+// Functions
+// -------------------------
+@function px-to-number($pixel-number) {
+  $pixel-number: inspect($pixel-number);
+  @return str-slice($pixel-number, 0, -2);
+}
+
+// Main wrapper
+// -------------------------
+$content-width:     1000px;
+
+// Banner
+// -------------------------
+$banner-height:       400px;
+$banner-width:        100%;
+
+$banner-content-height:   175px;
+
+// Menubar
+// -------------------------
+$menubar-height:    50px;
+$menubar-width:     100%;
+
+// Footer
+// -------------------------
+$footer-height:    75px;
+$footer-width:     100%;

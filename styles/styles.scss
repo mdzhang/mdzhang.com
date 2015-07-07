@@ -1,0 +1,102 @@
+@import 'variables';
+
+html {
+  height: 100%; // helps with sticky footer
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%; // helps with sticky footer
+
+  font-family: $primary-font;
+  font-weight: $primary-font-weight;
+}
+
+h1 {
+  font-size: 750%;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+h2 {
+  font-size: 200%;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+// Main wrapper
+// -------------------------
+.non-footer-wrapper {
+  min-height: 100%;
+  margin: 0 auto -$footer-height;
+}
+
+.content-wrapper {
+  display: block;
+  max-width: $content-width;
+  margin: 0px auto;
+}
+
+// Banner
+// -------------------------
+.banner {
+  height: $banner-height;
+  width: $banner-width;
+  background-color: $placeholder-grey;
+  overflow: auto; // So child element margins stay inside parent div
+
+  .banner-content {
+    height: $banner-content-height;
+    width: 75%;
+    margin: ($banner-height / 2 - $banner-content-height / 2) auto;
+
+    .banner-title {
+      text-align: center;
+    }
+
+    .banner-subtitle {
+      text-align: center;
+    }
+  }
+}
+
+// Menubar
+// -------------------------
+.menubar {
+  height: $menubar-height;
+  width: $menubar-width;
+  background-color: $background-color;
+
+  ul {
+    height: 100%;
+    list-style-type: none;
+    text-align: center;
+    margin: 0px;
+
+    li {
+      display: inline-block; // so li doesn't go outside ul
+      padding: 10px 20px;
+      line-height: 1.5;
+      font-size: 20px;
+
+      a:hover {
+        color: white;
+      }
+    }
+  }
+}
+
+
+// Footer
+// -------------------------
+.footer {
+  height: $footer-height;
+  width: $footer-width;
+  background-color: $placeholder-grey;
+}

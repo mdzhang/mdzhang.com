@@ -5,3 +5,6 @@
 # Testing/Dev files
 test/*
 .DS_Store
+.sass-cache/
+*.old
+tmp/
