@@ -11,6 +11,9 @@ body {
 
   font-family: $primary-font;
   font-weight: $primary-font-weight;
+
+  // overflow: auto;
+  // overflow-y: hidden;
 }
 
 h1 {
@@ -30,11 +33,24 @@ a:hover {
   cursor: pointer;
 }
 
+
+// Mixins
+// -------------------------
+@mixin circle($radius) {
+    width: $radius * 2;
+    height: $radius * 2;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
 // Main wrapper
 // -------------------------
 .non-footer-wrapper {
   min-height: 100%;
-  margin: 0 auto -$footer-height;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto (-1 * $footer-height);
 }
 
 .content-wrapper {
@@ -99,4 +115,11 @@ a:hover {
   height: $footer-height;
   width: $footer-width;
   background-color: $placeholder-grey;
+  text-align: right;
+  font-size: 90%;
+
+  .icon-circle {
+    @include circle(25px);
+    border: 1px solid white;
+  }
 }
