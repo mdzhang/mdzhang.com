@@ -118,8 +118,13 @@ a:hover {
   text-align: right;
   font-size: 90%;
 
-  .icon-circle {
-    @include circle(25px);
-    border: 1px solid white;
+  .footer-content {
+    float: right;
+
+
+    .icon-circle {
+      @include circle(25px);
+      border: 1px solid white;
+    }
   }
 }
