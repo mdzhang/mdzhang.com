@@ -33,6 +33,12 @@ a:hover {
   cursor: pointer;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
 
 // Mixins
 // -------------------------
@@ -91,9 +97,7 @@ a:hover {
 
   ul {
     height: 100%;
-    list-style-type: none;
     text-align: center;
-    margin: 0px;
 
     li {
       display: inline-block; // so li doesn't go outside ul
@@ -121,10 +125,19 @@ a:hover {
   .footer-content {
     float: right;
 
+    ul {
+      li {
+        display: inline-block
+      }
+    }
+
 
     .icon-circle {
-      @include circle(25px);
-      border: 1px solid white;
+      @include circle(15px);
+      border: 1px solid black;
+      font-size: 15px;
+      padding-top: 3px;
+      text-align: center;
     }
   }
 }
