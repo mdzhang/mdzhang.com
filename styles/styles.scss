@@ -11,9 +11,6 @@ body {
 
   font-family: $primary-font;
   font-weight: $primary-font-weight;
-
-  // overflow: auto;
-  // overflow-y: hidden;
 }
 
 h1 {
@@ -48,6 +45,12 @@ ul {
     -webkit-border-radius: $radius;
     -moz-border-radius: $radius;
     border-radius: $radius;
+}
+
+@mixin center-vertically() {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 // Main wrapper
@@ -98,6 +101,7 @@ ul {
   ul {
     height: 100%;
     text-align: center;
+    padding: 5px 0px;
 
     li {
       display: inline-block; // so li doesn't go outside ul
@@ -121,22 +125,26 @@ ul {
   background-color: $placeholder-grey;
   text-align: right;
   font-size: 90%;
+  padding: 0px 20px;
 
   .footer-content {
+    @include center-vertically();
     float: right;
 
     ul {
+      padding: 5px 0px;
+
       li {
         display: inline-block
       }
     }
-
 
     .icon-circle {
       @include circle(15px);
       border: 1px solid black;
       font-size: 15px;
       padding-top: 3px;
+      margin: auto 5px;
       text-align: center;
     }
   }
