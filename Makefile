@@ -1,25 +1,23 @@
-S3_BUCKET=mdzhang.com
+S3_BUCKET = mdzhang.com
+GRUNT = ./node_modules/.bin/grunt
+BOWER = ./node_modules/bower/bin/bower
 
-.PHONY: site
-site:
-	make html
-	make css
+build: bower grunt
 
-.PHONY: css
-css:
-	sass --update styles:tmp/css
+bower:
+	${BOWER} install
 
-# Build the html pages from jade templates
-.PHONY: html
-html:
-	make clean && \
-	jade ./templates --out ./tmp/html
+grunt:
+	${GRUNT}
+
+clean:
+	rm -rf public/build
 
 # Sync current working directory with s3.
 .PHONY: deploy
 deploy:
 	make clean && \
-	make html && \
+	make build && \
 	s3cmd sync --delete-removed --acl-public -n \
 		--exclude '*' \
 		--exclude '*.*' \
@@ -28,7 +26,3 @@ deploy:
 		--include 'resources/*' \
 		--include 'index.html' \
 		./ s3://$(S3_BUCKET)/
-
-.PHONY: clean
-clean:
-	find . -name "*.html" -exec rm -rf {} \;

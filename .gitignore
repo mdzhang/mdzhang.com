@@ -2,6 +2,9 @@
 *.sublime-project
 *.sublime-workspace
 
+node_modules/
+bower_components/
+
 # Testing/Dev files
 test/*
 .DS_Store
