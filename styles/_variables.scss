@@ -10,30 +10,18 @@ $background-color:      $dark-placeholder-grey;
 $primary-font:          'Helvetica Neue', Arial, Verdana, sans-serif;
 $primary-font-weight:   100;
 
-// Functions
-// -------------------------
-@function px-to-number($pixel-number) {
-  $pixel-number: inspect($pixel-number);
-  @return str-slice($pixel-number, 0, -2);
-}
-
-// Main wrapper
-// -------------------------
-$content-width:     1000px;
-
 // Banner
 // -------------------------
 $banner-height:       400px;
-$banner-width:        100%;
-
-$banner-content-height:   175px;
 
 // Menubar
 // -------------------------
 $menubar-height:    50px;
-$menubar-width:     100%;
+
+// Main content
+// -------------------------
+$content-width:     1000px;
 
 // Footer
 // -------------------------
-$footer-height:    75px;
-$footer-width:     100%;
+$footer-height:    55px; // +20px padding

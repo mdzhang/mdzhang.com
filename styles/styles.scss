@@ -1,60 +1,62 @@
 @import 'variables';
 
+// Mixins
+// -------------------------
+
+// Center an element's contents both vertically and horizontally
+@mixin center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Have an element fill up their entire parent
+@mixin fill-parent() {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+@mixin circle($radius) {
+  width: $radius * 2;
+  height: $radius * 2;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+// Generic styles
+// -------------------------
+
+* {
+  overflow: auto;
+  margin: 0px;
+  padding: 0px;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
 html {
-  height: 100%; // helps with sticky footer
+  height: 100%;
 }
 
 body {
-  margin: 0px;
-  padding: 0px;
   height: 100%; // helps with sticky footer
 
   font-family: $primary-font;
   font-weight: $primary-font-weight;
 }
 
-h1 {
-  font-size: 750%;
-  font-family: inherit;
-  font-weight: inherit;
-}
-
-h2 {
-  font-size: 200%;
-  font-family: inherit;
-  font-weight: inherit;
-}
-
 a:hover {
   text-decoration: none;
   cursor: pointer;
+  color: white;
 }
 
 ul {
   list-style-type: none;
-  margin: 0px;
-  padding: 0px;
 }
 
-
-// Mixins
-// -------------------------
-@mixin circle($radius) {
-    width: $radius * 2;
-    height: $radius * 2;
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    border-radius: $radius;
-}
-
-@mixin center-vertically() {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-// Main wrapper
-// -------------------------
 .non-footer-wrapper {
   min-height: 100%;
   height: auto !important;
@@ -62,91 +64,87 @@ ul {
   margin: 0 auto (-1 * $footer-height);
 }
 
-.content-wrapper {
-  display: block;
-  max-width: $content-width;
-  margin: 0px auto;
-}
-
-// Banner
+// Banner/Header
 // -------------------------
-.banner {
+header {
   height: $banner-height;
-  width: $banner-width;
   background-color: $placeholder-grey;
-  overflow: auto; // So child element margins stay inside parent div
 
-  .banner-content {
-    height: $banner-content-height;
-    width: 75%;
-    margin: ($banner-height / 2 - $banner-content-height / 2) auto;
+  @include center();
+  flex-flow: column wrap;
 
-    .banner-title {
-      text-align: center;
-    }
+  h1 {
+    font-size: 600%;
+  }
 
-    .banner-subtitle {
-      text-align: center;
-    }
+  h2 {
+    font-size: 200%;
   }
 }
 
 // Menubar
 // -------------------------
-.menubar {
+nav {
   height: $menubar-height;
-  width: $menubar-width;
-  background-color: $background-color;
+  background-color: $dark-placeholder-grey;
+
+  @include center();
 
   ul {
-    height: 100%;
-    text-align: center;
-    padding: 5px 0px;
+    @include fill-parent();
+    @include center();
+    padding: 0px 50px;
 
     li {
-      @include center-vertically();
-      display: inline-block; // so li doesn't go outside ul
-      padding: 0px 20px;
-      line-height: 1.5;
-      font-size: 20px;
+      @include fill-parent();
 
-      a:hover {
-        color: white;
+      a {
+        @include center();
+        @include fill-parent();
       }
     }
   }
 }
 
+main {
+  &.blurb {
+    width: $content-width;
+    padding: 20px 50px;
+    @include center();
+  }
+}
 
 // Footer
 // -------------------------
-.footer {
+footer {
   height: $footer-height;
-  width: $footer-width;
   background-color: $placeholder-grey;
-  text-align: right;
-  font-size: 90%;
-  padding: 0px 20px;
 
-  .footer-content {
-    @include center-vertically();
-    float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 10px 10px;
 
-    ul {
-      padding: 5px 0px;
+  ul {
+    display: flex;
+    padding: 5px 0px;
 
-      li {
-        display: inline-block
+    li {
+      a {
+        @include fill-parent();
+        @include center();
       }
     }
+  }
 
-    .icon-circle {
-      @include circle(15px);
-      border: 1px solid black;
-      font-size: 15px;
-      padding-top: 3px;
-      margin: auto 5px;
-      text-align: center;
-    }
+  .icon-circle {
+    @include circle(15px);
+    border: 1px solid black;
+    font-size: 15px;
+
+    @include center();
+    margin: auto 5px;
+    text-align: center;
   }
 }
