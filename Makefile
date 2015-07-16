@@ -10,11 +10,13 @@ bower:
 grunt:
 	${GRUNT}
 
+open:
+	open public/build/index.html
+
 clean:
 	rm -rf public/build
 
 # Sync current working directory with s3.
-.PHONY: deploy
 deploy:
 	make clean && \
 	make build && \
@@ -26,3 +28,5 @@ deploy:
 		--include 'resources/*' \
 		--include 'index.html' \
 		./ s3://$(S3_BUCKET)/
+
+.PHONY: build open bower grunt clean deploy

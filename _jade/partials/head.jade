@@ -8,19 +8,11 @@ head
   // mobile specific metas
   meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1')
 
-  // css files
-  link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet')
-  //- link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet')
+  // get all necessary scripts and stylesheets (see Gruntfile for contents)
   link(rel='stylesheet' href='./styles.min.css')
+  link(rel='stylesheet' href='./bower.css')
+  script(src='./scripts.min.js')
+  script(src='./bower.js')
 
   // favicons
   link(rel='shortcut icon' href='resources/images/favicons/favicon.ico')
-
-  // google web font
-  link(href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css')
-
-  // javascript libraries
-  script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
-  script(src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js')
-  //- script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
-  script(src='../../public/js/scripts.js')

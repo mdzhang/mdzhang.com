@@ -2,12 +2,15 @@
 *.sublime-project
 *.sublime-workspace
 
+# OS files
+.DS_Store
+
 node_modules/
 bower_components/
+.sass-cache/
 
 # Testing/Dev files
+
 test/*
-.DS_Store
-.sass-cache/
-*.old
 tmp/
+*.old

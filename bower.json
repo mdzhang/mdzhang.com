@@ -1,6 +1,6 @@
 {
   "name": "mdzhangWebsite",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/mdzhang/mdzhang.com",
   "authors": [
     "Michelle Zhang <zhang.michelle.d@gmail.com>"
@@ -12,15 +12,15 @@
     "public/bower_components"
   ],
   "dependencies": {
-    "angular": "1.2.27",
-    "angular-route": "1.2.27",
-    "angular-ui-bootstrap-bower": "0.11.0",
-    "font-awesome": "4.3.0",
-    "bluebird": "~2.9.21",
-    "lodash": "~2.4.1",
-    "async": "~0.9.0"
+    "angular": "latest",
+    "angular-route": "latest",
+    "angular-ui-bootstrap-bower": "latest",
+    "font-awesome": "latest",
+    "bluebird": "latest",
+    "lodash": "latest",
+    "async": "latest"
   },
   "resolutions": {
-    "angular": "1.2.27"
+    "angular": "latest"
   }
 }

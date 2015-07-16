@@ -37,19 +37,42 @@ module.exports = function(grunt) {
         }
       }
     },
-    // minify css files
-    cssmin: {
-      target: {
-        files: {
-          'public/build/styles.min.css': 'public/build/tmp/styles.css'
-        }
-      }
-    },
-    // build html files
+    // build html files from jade templates
     jade: {
       compile: {
         files: {
           'public/build/index.html': '_jade/pages/index.jade '
+        }
+      }
+    },
+    // join all bower css/js components into a single css and a single js file
+    concat: {
+      options: {
+        separator: '\n',
+      },
+      js: {
+        src: bowerjs,
+        dest: 'public/build/bower.js'
+      },
+      css: {
+        src: bowercss,
+        dest: 'public/build/bower.css'
+      }
+    },
+    // minify css files
+    cssmin: {
+      target: {
+        files: {
+          'public/build/styles.min.css': 'public/build/tmp/styles.css',
+        }
+      }
+    },
+    // minify js files
+    uglify: {
+      target: {
+        files: {
+          'public/build/tmp/scripts.min.js': ['app/{,*/}*.js'],
+          'public/build/scripts.min.js': ['public/build/tmp/scripts.min.js', 'public/build/tmp/bower.js']
         }
       }
     },
@@ -60,12 +83,13 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-sass');
-  // TODO
-  // grunt.loadNpmTasks('grunt-contrib-csslint');
+  // grunt.loadNpmTasks('grunt-contrib-csslint'); // TODO
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
   // Default task(s).
-  grunt.registerTask('default', ['sass', 'cssmin', 'jade', 'clean']);
+  grunt.registerTask('default', ['sass', 'jade', 'concat', 'cssmin', 'uglify', 'clean']);
 };
