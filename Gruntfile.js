@@ -24,6 +24,24 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+    // build html files from jade templates
+    jade: {
+      compile: {
+        files: [
+          {
+            src: '_jade/app.jade',
+            dest: 'public/build/html/app.html'
+          },
+          {
+            cwd: '_jade/pages',
+            src: '*.jade',
+            dest: "public/build/html",
+            expand: true,
+            ext: ".html"
+          }
+        ]
+      }
+    },
     // build css files from scss files
     sass: {
       options: {
@@ -37,14 +55,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    // build html files from jade templates
-    jade: {
-      compile: {
-        files: {
-          'public/build/index.html': '_jade/pages/index.jade '
-        }
-      }
-    },
     // join all bower css/js components into a single css and a single js file
     concat: {
       options: {
@@ -52,18 +62,18 @@ module.exports = function(grunt) {
       },
       js: {
         src: bowerjs,
-        dest: 'public/build/bower.js'
+        dest: 'public/build/js/bower.js'
       },
       css: {
         src: bowercss,
-        dest: 'public/build/bower.css'
+        dest: 'public/build/css/bower.css'
       }
     },
     // minify css files
     cssmin: {
       target: {
         files: {
-          'public/build/styles.min.css': 'public/build/tmp/styles.css',
+          'public/build/css/styles.min.css': 'public/build/tmp/styles.css',
         }
       }
     },
@@ -86,8 +96,21 @@ module.exports = function(grunt) {
       target: {
         files: {
           'public/build/tmp/scripts.min.js': ['app/{,*/}*.js'],
-          'public/build/scripts.min.js': ['public/build/tmp/scripts.min.js', 'public/build/tmp/bower.js']
+          'public/build/js/scripts.min.js': ['public/build/tmp/scripts.min.js']
         }
+      }
+    },
+    copy: {
+      target: {
+        files: [
+          {
+            expand: true,
+            cwd: 'public/fonts',
+            src: '*',
+            dest: 'public/build/fonts',
+            filter: 'isFile'
+          },
+        ]
       }
     },
     // clean temporary build files
@@ -99,30 +122,41 @@ module.exports = function(grunt) {
       options: {
         livereload: true,
       },
+      config: {
+        files: ['.jscsrc', '.jshintrc', 'Gruntfile.js'],
+        tasks: ['build']
+      },
       scripts: {
         files: ['app/**/*.js'],
-        tasks: ['jshint', 'jscs', 'uglify']
+        tasks: ['buildjs', 'clean']
       },
       styles: {
         files: ['_sass/**/*.scss'],
-        tasks: ['sass', 'cssmin']
+        tasks: ['buildcss', 'clean']
       },
       html: {
         files: ['_jade/**/*.jade'],
-        tasks: ['jade']
+        tasks: ['buildhtml', 'clean']
       }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-sass');
   // grunt.loadNpmTasks('grunt-contrib-csslint'); // TODO
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks("grunt-jscs");
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task(s).
-  grunt.registerTask('default', ['sass', 'jade', 'concat', 'cssmin', 'jshint', 'jscs', 'uglify', 'clean', 'watch']);
+  grunt.registerTask('buildhtml', ['jade']);
+  grunt.registerTask('buildjs', ['concat:js', 'jshint', 'jscs', 'uglify']);
+  grunt.registerTask('buildcss', ['sass', 'concat:css', 'cssmin']);
+  grunt.registerTask('build', ['buildhtml', 'buildcss', 'buildjs', 'copy', 'clean']);
+  grunt.registerTask('default', ['build', 'watch']);
 };

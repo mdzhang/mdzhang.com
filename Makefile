@@ -11,7 +11,7 @@ grunt:
 	${GRUNT}
 
 open:
-	open public/build/index.html
+	open public/build/html/app.html
 
 clean:
 	rm -rf public/build
