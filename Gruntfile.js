@@ -67,6 +67,20 @@ module.exports = function(grunt) {
         }
       }
     },
+    // check js code correctness
+    jshint: {
+      options: {
+        jshintrc: true
+      },
+      src: 'app/**/*.js'
+    },
+    // check js code style
+    jscs: {
+      options: {
+        config: ".jscsrc"
+      },
+      src: 'app/**/*.js'
+    },
     // minify js files
     uglify: {
       target: {
@@ -79,6 +93,24 @@ module.exports = function(grunt) {
     // clean temporary build files
     clean: {
       tmp: 'public/build/tmp'
+    },
+    // watch for edits and rebuild accordingly
+    watch: {
+      options: {
+        livereload: true,
+      },
+      scripts: {
+        files: ['app/**/*.js'],
+        tasks: ['jshint', 'jscs', 'uglify']
+      },
+      styles: {
+        files: ['_sass/**/*.scss'],
+        tasks: ['sass', 'cssmin']
+      },
+      html: {
+        files: ['_jade/**/*.jade'],
+        tasks: ['jade']
+      }
     }
   });
 
@@ -89,7 +121,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
-  grunt.registerTask('default', ['sass', 'jade', 'concat', 'cssmin', 'uglify', 'clean']);
+  grunt.registerTask('default', ['sass', 'jade', 'concat', 'cssmin', 'jshint', 'jscs', 'uglify', 'clean', 'watch']);
 };

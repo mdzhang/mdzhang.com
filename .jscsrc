@@ -1,0 +1,7 @@
+{
+  disallowMixedSpacesAndTabs: true,
+  disallowMultipleLineStrings: true,
+  disallowMultipleVarDecl: true,
+  disallowPaddingNewlinesInBlocks: true,
+  disallowQuotedKeysInObjects: true
+}

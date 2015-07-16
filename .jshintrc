@@ -1,0 +1,11 @@
+{
+  curly: true
+  eqeqeq: true
+  futurehostile: true
+  latedef: true
+  nocomma: true
+  strict: true
+  undef: true
+  unused: true
+  varstmt: true
+}
