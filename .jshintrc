@@ -4,11 +4,11 @@
   "futurehostile": true,
   "latedef": true,
   "nocomma": true,
-  "strict": true,
   "undef": true,
-  "unused": true,
   "globals": {
     "angular": false,
-    "console": false
+    "console": false,
+    "mdzhangPersonalSiteApp": true,
+    "_": false
   }
 }

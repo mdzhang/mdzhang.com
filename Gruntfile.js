@@ -3,12 +3,13 @@ var _ = require('lodash');
 module.exports = function(grunt) {
 
   var bowerjs = [
-    'angular/angular.min.js',
-    'angular-route/angular-route.min.js',
-    'angular-ui-bootstrap-bower/ui-bootstrap-tpls.min.js',
-    'async/lib/async.js',
-    'bluebird/js/browser/bluebird.min.js',
-    'lodash/dist/lodash.min.js',
+    'angular/angular.js',
+    'angular-ui-router/release/angular-ui-router.js',
+    // 'angular-route/angular-route.js',
+    'angular-ui-bootstrap-bower/ui-bootstrap-tpls.js',
+    // 'async/lib/async.js',
+    // 'bluebird/js/browser/bluebird.min.js',
+    'lodash/lodash.js'
   ];
 
   var bowercss = [
@@ -61,8 +62,10 @@ module.exports = function(grunt) {
         separator: '\n',
       },
       js: {
-        src: bowerjs,
-        dest: 'public/build/js/bower.js'
+        files: {
+          'public/build/js/bower.js': bowerjs,
+          'public/build/js/scripts.js': ['app/{,*/}*.js']
+        }
       },
       css: {
         src: bowercss,
@@ -92,14 +95,14 @@ module.exports = function(grunt) {
       src: 'app/**/*.js'
     },
     // minify js files
-    uglify: {
-      target: {
-        files: {
-          'public/build/tmp/scripts.min.js': ['app/{,*/}*.js'],
-          'public/build/js/scripts.min.js': ['public/build/tmp/scripts.min.js']
-        }
-      }
-    },
+    // uglify: {
+    //   target: {
+    //     files: {
+    //       'public/build/tmp/scripts.min.js': ['app/{,*/}*.js'],
+    //       'public/build/js/scripts.min.js': ['public/build/tmp/scripts.min.js']
+    //     }
+    //   }
+    // },
     copy: {
       target: {
         files: [
@@ -155,8 +158,8 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('buildhtml', ['jade']);
-  grunt.registerTask('buildjs', ['concat:js', 'jshint', 'jscs', 'uglify']);
   grunt.registerTask('buildcss', ['sass', 'concat:css', 'cssmin']);
+  grunt.registerTask('buildjs', ['jshint', 'jscs', 'concat:js']); // , 'uglify'
   grunt.registerTask('build', ['buildhtml', 'buildcss', 'buildjs', 'copy', 'clean']);
   grunt.registerTask('default', ['build', 'watch']);
 };

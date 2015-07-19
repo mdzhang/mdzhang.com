@@ -1,10 +1,15 @@
-(function () {
-  'use strict';
-  console.log('Loading angular app...');
+var mdzhangPersonalSiteApp = angular.module('mdzhangPersonalSiteApp', ['ui.router', 'ui.bootstrap']);
 
-  var mdzhangPersonalSiteApp = angular.module('mdzhangPersonalSiteApp', ['ui.router']);
+(function () {
 
   mdzhangPersonalSiteApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+
+    // TODO: find a better way to serve this locally
+    var path = 'http://localhost:3000/public/build/html';
+
+    var getPath = function(file) {
+      return path + file;
+    };
 
     // Default url.
     $urlRouterProvider
@@ -13,7 +18,7 @@
     $stateProvider
       .state('/home', {
         url: '/home',
-        templateUrl: '/home.html'
+        templateUrl: getPath('/home.html')
       })
       .state('/activity', {
         url: '/activity',
@@ -35,6 +40,5 @@
         url: '/contact',
         templateUrl: '/contact.html'
       });
-
   }]);
 })();

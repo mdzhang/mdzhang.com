@@ -11,7 +11,9 @@ grunt:
 	${GRUNT}
 
 open:
-	open public/build/html/app.html
+	python -m SimpleHTTPServer 3000
+	open http://localhost:3000
+	# open public/build/html/app.html
 
 clean:
 	rm -rf public/build

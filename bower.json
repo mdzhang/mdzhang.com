@@ -15,6 +15,7 @@
     "angular": "latest",
     "angular-route": "latest",
     "angular-ui-bootstrap-bower": "latest",
+    "angular-ui-router": "latest",
     "font-awesome": "latest",
     "bluebird": "latest",
     "lodash": "latest",
