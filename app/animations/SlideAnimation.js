@@ -60,6 +60,6 @@
     };
   }
 
-  mdzhangPersonalSiteApp.animation('.slideOutToLeft', SlideOutToLeftAnimation);
+  // mdzhangPersonalSiteApp.animation('.slideOutToLeft', SlideOutToLeftAnimation);
   // mdzhangPersonalSiteApp.animation('.slideInFromRight', SlideInFromRightAnimation);
 })();

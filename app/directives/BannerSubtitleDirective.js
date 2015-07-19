@@ -32,22 +32,32 @@
 
         $q.resolve()
           .then(function() {
+            $element.css({ visibility: 'hidden' });
+            angular.element(_this.subtitleElement).addClass('slideOutToLeft');
+
             return $timeout(function() {
-              // NB: We _must_ update the scope subtitle _after_ we start the animation,
-              //     else the user will first see a blink to the next subtitle, and then see
-              //     the next subtitle animated into the screen, since we can change the subtitle
-              //     value near instantaneously, but the animation takes 1 second +.
-              angular.element(_this.subtitleElement).addClass('slideInFromRight');
-              $scope.subtitle = nextSubtitle;
-            }, _this.interval);
+              angular.element(_this.subtitleElement).removeClass('slideOutToLeft');
+            }, 2000);
           })
           .then(function() {
-            return $timeout(function() {
+            // NB: We _must_ update the scope subtitle _after_ we start the animation,
+            //     else the user will first see a blink to the next subtitle, and then see
+            //     the next subtitle animated into the screen, since we can change the subtitle
+            //     value near instantaneously, but the animation takes 1 second +.
+            $element.css({ visibility: 'visible' });
+            angular.element(_this.subtitleElement).addClass('slideInFromRight');
+            $scope.subtitle = nextSubtitle;
+
+            // Wait for the slideInFromRight animation to finish before we try to remove the class
+            // so we can slide in the next subtitle.
+            $timeout(function() {
               angular.element(_this.subtitleElement).removeClass('slideInFromRight');
-            }, _this.interval);
+            }, 2000);
           })
           .then(function() {
-            _infinitelyLoopSubtitles();
+            return $timeout(function() {
+              _infinitelyLoopSubtitles();
+            }, _this.interval);
           });
       }
 
