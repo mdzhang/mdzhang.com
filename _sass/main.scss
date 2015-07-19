@@ -46,7 +46,11 @@
 @keyframes slideInFromRight {
   0%  { transform: translateX(250%); }
   70% { transform: translateX(-2%); }
+<<<<<<< HEAD
   80% { transform: translateX(2%); }
+=======
+  80% { transform: translateX(1%); }
+>>>>>>> 10bcebf899211584f4b565722dbccdd381d02f7b
   88% { transform: translateX(-0.5%); }
   94% { transform: translateX(0.25%); }
   100% { transform: translateX(0%); }
