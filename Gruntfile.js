@@ -5,10 +5,7 @@ module.exports = function(grunt) {
   var bowerjs = [
     'angular/angular.js',
     'angular-ui-router/release/angular-ui-router.js',
-    // 'angular-route/angular-route.js',
-    'angular-ui-bootstrap-bower/ui-bootstrap-tpls.js',
-    // 'async/lib/async.js',
-    // 'bluebird/js/browser/bluebird.min.js',
+    'angular-animate/angular-animate.js',
     'lodash/lodash.js'
   ];
 
@@ -39,6 +36,13 @@ module.exports = function(grunt) {
             dest: "public/build/html",
             expand: true,
             ext: ".html"
+          },
+          {
+            cwd: '_jade/templates',
+            src: '*.jade',
+            dest: "public/build/html/templates",
+            expand: true,
+            ext: ".html"
           }
         ]
       }
@@ -64,7 +68,7 @@ module.exports = function(grunt) {
       js: {
         files: {
           'public/build/js/bower.js': bowerjs,
-          'public/build/js/scripts.js': ['app/{,*/}*.js']
+          'public/build/js/scripts.js': ['app/app.js', 'app/**/*.js']
         }
       },
       css: {
@@ -126,7 +130,7 @@ module.exports = function(grunt) {
         livereload: true,
       },
       config: {
-        files: ['.jscsrc', '.jshintrc', 'Gruntfile.js'],
+        files: ['.jscsrc', '.jshintrc', 'Gruntfile.js', 'bower.json'],
         tasks: ['build']
       },
       scripts: {

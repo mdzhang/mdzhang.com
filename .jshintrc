@@ -5,6 +5,7 @@
   "latedef": true,
   "nocomma": true,
   "undef": true,
+  "validthis": true,
   "globals": {
     "angular": false,
     "console": false,

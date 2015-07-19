@@ -112,8 +112,14 @@ header {
     font-size: 600%;
   }
 
-  h2 {
-    font-size: 200%;
+  banner-subtitle {
+    width: 100%;
+    text-align: center;
+
+    h2 {
+      width: auto;
+      font-size: 200%;
+    }
   }
 }
 

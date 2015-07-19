@@ -1,4 +1,4 @@
-var mdzhangPersonalSiteApp = angular.module('mdzhangPersonalSiteApp', ['ui.router', 'ui.bootstrap']);
+var mdzhangPersonalSiteApp = angular.module('mdzhangPersonalSiteApp', ['ui.router', 'ngAnimate']);
 
 (function () {
 

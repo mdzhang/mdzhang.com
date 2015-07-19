@@ -13,13 +13,10 @@
   ],
   "dependencies": {
     "angular": "latest",
-    "angular-route": "latest",
-    "angular-ui-bootstrap-bower": "latest",
+    "angular-animate": "latest",
     "angular-ui-router": "latest",
     "font-awesome": "latest",
-    "bluebird": "latest",
-    "lodash": "latest",
-    "async": "latest"
+    "lodash": "latest"
   },
   "resolutions": {
     "angular": "latest"

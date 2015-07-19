@@ -2,7 +2,7 @@ S3_BUCKET = mdzhang.com
 GRUNT = ./node_modules/.bin/grunt
 BOWER = ./node_modules/bower/bin/bower
 
-build: bower grunt
+build: clean bower grunt
 
 bower:
 	${BOWER} install
