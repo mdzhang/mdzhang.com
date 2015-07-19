@@ -44,11 +44,11 @@
 }
 
 @keyframes slideInFromRight {
-  0%  { transform: translateX(350%); }
-  40% { transform: translateX(-8%); }
-  60% { transform: translateX(4%); }
-  80% { transform: translateX(-2%); }
-  90% { transform: translateX(1%); }
+  0%  { transform: translateX(250%); }
+  70% { transform: translateX(-2%); }
+  80% { transform: translateX(1%); }
+  88% { transform: translateX(-0.5%); }
+  94% { transform: translateX(0.25%); }
   100% { transform: translateX(0%); }
 }
 
