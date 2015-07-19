@@ -1,20 +1,65 @@
+// TODO: make into module
 (function() {
   'use strict';
 
-  function SlideAnimation($scope)
+  function SlideOutToLeftAnimation($timeout, $animate)
   {
     return {
-      addClass: function(element, className, doneFn) {
-        // do some cool animation and call the doneFn
+      addClass: function(element, className, done) {
+
+        element.css({
+          'animation-name': 'slideOutToLeft',
+          '-webkit-animation-name': 'slideOutToLeft',
+
+          'animation-duration': '2s',
+          '-webkit-animation-duration': '2s',
+
+          'animation-timing-function': 'ease-in-out',
+          '-webkit-animation-timing-function': 'ease-in-out',
+
+          visibility: 'visible !important'
+        });
+
+        done();
       },
-      removeClass: function(element, className, doneFn) {
-        // do some cool animation and call the doneFn
+      removeClass: function(element, className, done) {
+        done();
       },
-      setClass: function(element, addedClass, removedClass, doneFn) {
+      setClass: function(element, addedClass, removedClass, done) {
         // do some cool animation and call the doneFn
       }
     };
   }
 
-  mdzhangPersonalSiteApp.animation('.slide', SlideAnimation);
+  function SlideInFromRightAnimation($timeout)
+  {
+    return {
+      addClass: function(element, className, done) {
+
+        // element.css({
+        //   'animation-name': 'slideInFromRight',
+        //   '-webkit-animation-name': 'slideInFromRight',
+
+        //   'animation-duration': '2s',
+        //   '-webkit-animation-duration': '2s',
+
+        //   'animation-timing-function': 'ease-in-out',
+        //   '-webkit-animation-timing-function': 'ease-in-out',
+
+        //   visibility: 'visible !important'
+        // });
+
+        done();
+      },
+      removeClass: function(element, className, done) {
+        done();
+      },
+      setClass: function(element, addedClass, removedClass, done) {
+        // do some cool animation and call the doneFn
+      }
+    };
+  }
+
+  mdzhangPersonalSiteApp.animation('.slideOutToLeft', SlideOutToLeftAnimation);
+  // mdzhangPersonalSiteApp.animation('.slideInFromRight', SlideInFromRightAnimation);
 })();

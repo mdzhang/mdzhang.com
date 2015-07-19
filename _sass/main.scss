@@ -29,9 +29,10 @@
 // Animations
 // -------------------------
 
-.slideLeft {
-  animation-name: slideLeft;
-  -webkit-animation-name: slideLeft;
+// slideInFromRight
+.slideInFromRight {
+  animation-name: slideInFromRight;
+  -webkit-animation-name: slideInFromRight;
 
   animation-duration: 2s;
   -webkit-animation-duration: 2s;
@@ -42,7 +43,7 @@
   visibility: visible !important;
 }
 
-@keyframes slideLeft {
+@keyframes slideInFromRight {
   0%  { transform: translateX(350%); }
   40% { transform: translateX(-8%); }
   60% { transform: translateX(4%); }
@@ -51,13 +52,37 @@
   100% { transform: translateX(0%); }
 }
 
-@-webkit-keyframes slideLeft  {
+@-webkit-keyframes slideInFromRight  {
   0%  { -webkit-transform: translateX(350%); }
   40% { -webkit-transform: translateX(-8%); }
   60% { -webkit-transform: translateX(4%); }
   80% { -webkit-transform: translateX(-2%); }
   90% { -webkit-transform: translateX(1%); }
   100% { -webkit-transform: translateX(0%); }
+}
+
+// slideOutToLeft
+.slideOutToLeft {
+  animation-name: slideOutToLeft;
+  -webkit-animation-name: slideOutToLeft;
+
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+
+  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+
+  visibility: visible !important;
+}
+
+@keyframes slideOutToLeft {
+  0%  { transform: translateX(0%); }
+  100% { transform: translateX(-350%); }
+}
+
+@-webkit-keyframes slideOutToLeft  {
+  0%  { -webkit-transform: translateX(0%); }
+  100% { -webkit-transform: translateX(-350%); }
 }
 
 // Generic styles

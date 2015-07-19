@@ -42,3 +42,19 @@ var mdzhangPersonalSiteApp = angular.module('mdzhangPersonalSiteApp', ['ui.route
       });
   }]);
 })();
+// Controller Template
+// (function() {
+//   'use strict';
+
+//   function Ctrl($scope)
+//   {
+//     var _this = this;
+
+//     function _init() {
+//     }
+
+//     _init();
+//   }
+
+//   mdzhangPersonalSiteApp.controller('ctrl', Ctrl);
+// })();

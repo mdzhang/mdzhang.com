@@ -11,5 +11,6 @@
     "console": false,
     "mdzhangPersonalSiteApp": true,
     "_": false
-  }
+  },
+  "debug": true
 }

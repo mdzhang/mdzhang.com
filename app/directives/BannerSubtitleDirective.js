@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  function BannerSubtitleDirective($timeout, $q)
+  function BannerSubtitleDirective($timeout, $q, $animate)
   {
     function link($scope, $element, $attrs) {
       var _this = {};
@@ -15,30 +15,39 @@
 
       _this.interval = 3000; // ms
 
+      _this.subtitleElement = $element[0].children[0];
+
       /**
        * Scope variables
        */
       $scope.subtitle = null;
 
       /**
-       * Loops the subtitle in the home banner.
+       * Infinitely loops the subtitle in the home banner.
        */
-      function _loopSubtitles() {
+      function _infinitelyLoopSubtitles() {
         var nextSubtitle = _this.subtitles[
           (_.indexOf(_this.subtitles, $scope.subtitle) + 1) % _this.subtitles.length
         ];
 
-
         $q.resolve()
           .then(function() {
             return $timeout(function() {
-              // slide out old value $animate.addClass('.slideLeftOut')
+              // NB: We _must_ update the scope subtitle _after_ we start the animation,
+              //     else the user will first see a blink to the next subtitle, and then see
+              //     the next subtitle animated into the screen, since we can change the subtitle
+              //     value near instantaneously, but the animation takes 1 second +.
+              angular.element(_this.subtitleElement).addClass('slideInFromRight');
               $scope.subtitle = nextSubtitle;
-              // slide in new value $animate.addClass('.slideLeftIn')
             }, _this.interval);
           })
           .then(function() {
-            _loopSubtitles();
+            return $timeout(function() {
+              angular.element(_this.subtitleElement).removeClass('slideInFromRight');
+            }, _this.interval);
+          })
+          .then(function() {
+            _infinitelyLoopSubtitles();
           });
       }
 
@@ -47,7 +56,7 @@
        */
       function _init() {
         $scope.subtitle = _this.subtitles[0];
-        _loopSubtitles();
+        _infinitelyLoopSubtitles();
       }
 
       _init();
