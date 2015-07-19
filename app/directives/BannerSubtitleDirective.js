@@ -37,7 +37,7 @@
 
             return $timeout(function() {
               angular.element(_this.subtitleElement).removeClass('slideOutToLeft');
-            }, 2000);
+            }, 1000);
           })
           .then(function() {
             // NB: We _must_ update the scope subtitle _after_ we start the animation,
