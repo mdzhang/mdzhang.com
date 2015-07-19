@@ -7,7 +7,7 @@ var mdzhangPersonalSiteApp = angular.module('mdzhangPersonalSiteApp', ['ui.route
     // TODO: find a better way to serve this locally
     var path = 'http://localhost:3000/public/build/html';
 
-    var getPath = function(file) {
+    var getHtmlPath = function(file) {
       return path + file;
     };
 
@@ -18,27 +18,27 @@ var mdzhangPersonalSiteApp = angular.module('mdzhangPersonalSiteApp', ['ui.route
     $stateProvider
       .state('/home', {
         url: '/home',
-        templateUrl: getPath('/home.html')
+        templateUrl: getHtmlPath('/home.html')
       })
       .state('/activity', {
         url: '/activity',
-        templateUrl: '/activity.html'
+        templateUrl: getHtmlPath('/activity.html')
       })
       .state('/blog', {
         url: '/blog',
-        templateUrl: '/construction.html'
+        templateUrl: getHtmlPath('/construction.html')
       })
       .state('/projects', {
         url: '/projects',
-        templateUrl: '/construction.html'
+        templateUrl: getHtmlPath('/construction.html')
       })
       .state('/resume', {
         url: '/resume',
-        templateUrl: '/resume.html'
+        templateUrl: getHtmlPath('/resume.html')
       })
       .state('/contact', {
         url: '/contact',
-        templateUrl: '/contact.html'
+        templateUrl: getHtmlPath('/contact.html')
       });
   }]);
 })();
