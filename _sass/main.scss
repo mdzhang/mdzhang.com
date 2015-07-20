@@ -53,7 +53,7 @@
     }
 
     @-webkit-keyframes slideInFromRight  {
-      0%  { -webkit-transform: translateX(350%); }
+      0%  { -webkit-transform: translateX(250%); }
       40% { -webkit-transform: translateX(-8%); }
       60% { -webkit-transform: translateX(4%); }
       80% { -webkit-transform: translateX(-2%); }
@@ -83,6 +83,58 @@
     @-webkit-keyframes slideOutToLeft  {
       0%  { -webkit-transform: translateX(0%); }
       100% { -webkit-transform: translateX(-350%); }
+    }
+
+  // zoomIn
+    @mixin zoomIn {
+      transform: scale(1.5);
+
+      animation-name: zoomIn;
+      -webkit-animation-name: zoomIn;
+
+      animation-duration: 0.5s;
+      -webkit-animation-duration: 0.5s;
+
+      animation-timing-function: linear;
+      -webkit-animation-timing-function: linear;
+
+      visibility: visible !important;
+    }
+
+    @keyframes zoomIn {
+      0% { transform: scale(1.0); }
+      100% { transform: scale(1.5); }
+    }
+
+    @-webkit-keyframes zoomIn {
+      0% { -webkit-transform: scale(1.0); }
+      100% { -webkit-transform: scale(1.5); }
+    }
+
+  // zoomBackOut
+    @mixin zoomBackOut {
+      transform: scale(1.0);
+
+      animation-name: zoomBackOut;
+      -webkit-animation-name: zoomBackOut;
+
+      animation-duration: 0.5s;
+      -webkit-animation-duration: 0.5s;
+
+      animation-timing-function: linear;
+      -webkit-animation-timing-function: linear;
+
+      visibility: visible !important;
+    }
+
+    @keyframes zoomBackOut {
+      0% { transform: scale(1.5); }
+      100% { transform: scale(1.0); }
+    }
+
+    @-webkit-keyframes zoomBackOut {
+      0% { -webkit-transform: scale(1.5); }
+      100% { -webkit-transform: scale(1.0); }
     }
 
 // Generic styles
@@ -188,6 +240,7 @@
     }
   }
 
+// TODO: Refactor the below
 ul.social-media-icons {
   display: flex;
   padding: 5px 0px;
@@ -199,6 +252,11 @@ ul.social-media-icons {
 
       i.fa-lg {
         line-height: 1em;
+
+      }
+
+      &:hover {
+        color: red;
       }
     }
   }
@@ -213,7 +271,7 @@ ul.social-media-icons {
     text-align: center;
 
     &:hover {
-      border: 1px solid white;
+      border: 1px solid red;
     }
   }
 }
@@ -221,6 +279,7 @@ ul.social-media-icons {
 ul.social-media-icons.lg {
   display: flex;
   padding: 5px 0px;
+  overflow: visible;
 
   li {
     a {
@@ -230,6 +289,13 @@ ul.social-media-icons.lg {
       i.fa-lg {
         line-height: 1em;
       }
+    }
+
+    @include zoomBackOut();
+
+    &:hover {
+      color: red;
+      @include zoomIn();
     }
   }
 
@@ -243,7 +309,7 @@ ul.social-media-icons.lg {
     text-align: center;
 
     &:hover {
-      border: 1px solid white;
+      border: 1px solid red;
     }
   }
 }
