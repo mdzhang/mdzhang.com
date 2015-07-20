@@ -4,186 +4,189 @@
 // Mixins
 // -------------------------
 
-// Center an element's contents both vertically and horizontally
-@mixin center() {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  // Center an element's contents both vertically and horizontally
+  @mixin center() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-// Have an element fill up their entire parent
-@mixin fill-parent() {
-  display: flex;
-  height: 100%;
-  width: 100%;
-}
+  // Have an element fill up their entire parent
+  @mixin fill-parent() {
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
 
-@mixin circle($radius) {
-  width: $radius * 2;
-  height: $radius * 2;
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  border-radius: $radius;
-}
+  @mixin circle($radius) {
+    width: $radius * 2;
+    height: $radius * 2;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+  }
 
 // Animations
 // -------------------------
 
-// slideInFromRight
-.slideInFromRight {
-  animation-name: slideInFromRight;
-  -webkit-animation-name: slideInFromRight;
+  // slideInFromRight
+    .slideInFromRight {
+      animation-name: slideInFromRight;
+      -webkit-animation-name: slideInFromRight;
 
-  animation-duration: 2s;
-  -webkit-animation-duration: 2s;
+      animation-duration: 2s;
+      -webkit-animation-duration: 2s;
 
-  animation-timing-function: ease-in-out;
-  -webkit-animation-timing-function: ease-in-out;
+      animation-timing-function: ease-in-out;
+      -webkit-animation-timing-function: ease-in-out;
 
-  visibility: visible !important;
-}
+      visibility: visible !important;
+    }
 
-@keyframes slideInFromRight {
-  0%  { transform: translateX(250%); }
-  70% { transform: translateX(-2%); }
-  80% { transform: translateX(2%); }
-  88% { transform: translateX(-0.5%); }
-  94% { transform: translateX(0.25%); }
-  100% { transform: translateX(0%); }
-}
+    @keyframes slideInFromRight {
+      0%  { transform: translateX(250%); }
+      70% { transform: translateX(-2%); }
+      80% { transform: translateX(2%); }
+      88% { transform: translateX(-0.5%); }
+      94% { transform: translateX(0.25%); }
+      100% { transform: translateX(0%); }
+    }
 
-@-webkit-keyframes slideInFromRight  {
-  0%  { -webkit-transform: translateX(350%); }
-  40% { -webkit-transform: translateX(-8%); }
-  60% { -webkit-transform: translateX(4%); }
-  80% { -webkit-transform: translateX(-2%); }
-  90% { -webkit-transform: translateX(1%); }
-  100% { -webkit-transform: translateX(0%); }
-}
+    @-webkit-keyframes slideInFromRight  {
+      0%  { -webkit-transform: translateX(350%); }
+      40% { -webkit-transform: translateX(-8%); }
+      60% { -webkit-transform: translateX(4%); }
+      80% { -webkit-transform: translateX(-2%); }
+      90% { -webkit-transform: translateX(1%); }
+      100% { -webkit-transform: translateX(0%); }
+    }
 
-// slideOutToLeft
-.slideOutToLeft {
-  animation-name: slideOutToLeft;
-  -webkit-animation-name: slideOutToLeft;
+  // slideOutToLeft
+    .slideOutToLeft {
+      animation-name: slideOutToLeft;
+      -webkit-animation-name: slideOutToLeft;
 
-  animation-duration: 2s;
-  -webkit-animation-duration: 2s;
+      animation-duration: 2s;
+      -webkit-animation-duration: 2s;
 
-  animation-timing-function: ease-in-out;
-  -webkit-animation-timing-function: ease-in-out;
+      animation-timing-function: ease-in-out;
+      -webkit-animation-timing-function: ease-in-out;
 
-  visibility: visible !important;
-}
+      visibility: visible !important;
+    }
 
-@keyframes slideOutToLeft {
-  0%  { transform: translateX(0%); }
-  100% { transform: translateX(-350%); }
-}
+    @keyframes slideOutToLeft {
+      0%  { transform: translateX(0%); }
+      100% { transform: translateX(-350%); }
+    }
 
-@-webkit-keyframes slideOutToLeft  {
-  0%  { -webkit-transform: translateX(0%); }
-  100% { -webkit-transform: translateX(-350%); }
-}
+    @-webkit-keyframes slideOutToLeft  {
+      0%  { -webkit-transform: translateX(0%); }
+      100% { -webkit-transform: translateX(-350%); }
+    }
 
 // Generic styles
 // -------------------------
 
-* {
-  overflow: auto;
-  margin: 0px;
-  padding: 0px;
-  font-family: inherit;
-  font-weight: inherit;
-}
+  * {
+    overflow: auto;
+    margin: 0px;
+    padding: 0px;
+    font-family: inherit;
+    font-weight: inherit;
+  }
 
-html {
-  height: 100%;
-}
+  html {
+    height: 100%;
+  }
 
-body {
-  height: 100%; // helps with sticky footer
+  body {
+    height: 100%; // helps with sticky footer
 
-  font-family: $primary-font;
-  font-weight: $primary-font-weight;
-}
+    font-family: $primary-font;
+    font-weight: $primary-font-weight;
 
-a:hover {
-  text-decoration: none;
-  cursor: pointer;
-  color: white;
-}
+    display: flex;
+    flex-flow: column;
+  }
 
-ul {
-  list-style-type: none;
-}
+  view {
+    flex: 2; // fill up all available space
 
-.non-footer-wrapper {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto (-1 * $footer-height);
-}
+    display: flex;
+    flex-flow: column;
+  }
+
+  main {
+    flex: 2;
+    @include center();
+
+    &.blurb {
+      padding: 20px 50px;
+    }
+
+    &.contact {
+    }
+  }
+
+  a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+  }
+
+  ul {
+    list-style-type: none;
+  }
 
 // Banner/Header
 // -------------------------
-header {
-  height: $banner-height;
-  background-color: $placeholder-grey;
+  header {
+    height: $banner-height;
+    background-color: $placeholder-grey;
 
-  @include center();
-  flex-flow: column wrap;
-
-  h1 {
-    font-size: 600%;
-  }
-
-  banner-subtitle {
-    width: 100%;
-    text-align: center;
-    min-height: 36px;
-
-    h2 {
-      width: auto;
-      font-size: 200%;
-    }
-  }
-}
-
-// Menubar
-// -------------------------
-nav {
-  height: $menubar-height;
-  background-color: $dark-placeholder-grey;
-
-  @include center();
-
-  ul {
-    @include fill-parent();
     @include center();
-    padding: 0px 50px;
+    flex-flow: column wrap;
 
-    li {
-      @include fill-parent();
+    h1 {
+      font-size: 600%;
+    }
 
-      a {
-        @include center();
-        @include fill-parent();
+    banner-subtitle {
+      width: 100%;
+      text-align: center;
+      min-height: 36px;
+
+      h2 {
+        width: auto;
+        font-size: 200%;
       }
     }
   }
-}
 
-main {
-  &.blurb {
-    width: $content-width;
-    padding: 20px 50px;
-    @include center();
-  }
+// Menubar
+// -------------------------
+  nav {
+    height: $menubar-height;
+    background-color: $dark-placeholder-grey;
 
-  &.contact {
     @include center();
+
+    ul {
+      @include fill-parent();
+      @include center();
+      padding: 0px 50px;
+
+      li {
+        @include fill-parent();
+
+        a {
+          @include center();
+          @include fill-parent();
+        }
+      }
+    }
   }
-}
 
 ul.social-media-icons {
   display: flex;
@@ -213,13 +216,13 @@ ul.social-media-icons {
 
 // Footer
 // -------------------------
-footer {
-  height: $footer-height;
-  background-color: $placeholder-grey;
+  footer {
+    height: $footer-height;
+    background-color: $placeholder-grey;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding: 10px 10px;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 10px 10px;
+  }
