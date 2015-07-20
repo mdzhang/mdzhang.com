@@ -26,9 +26,8 @@
        * Infinitely loops the subtitle in the home banner.
        */
       function _infinitelyLoopSubtitles() {
-        var nextSubtitle = _this.subtitles[
-          (_.indexOf(_this.subtitles, $scope.subtitle) + 1) % _this.subtitles.length
-        ];
+        var nextSubtitleIndex = (_.indexOf(_this.subtitles, $scope.subtitle) + 1) % _this.subtitles.length;
+        var nextSubtitle = _this.subtitles[nextSubtitleIndex];
 
         $q.resolve()
           .then(function() {
@@ -65,7 +64,6 @@
        * Init logic.
        */
       function _init() {
-        $scope.subtitle = _this.subtitles[0];
         _infinitelyLoopSubtitles();
       }
 

@@ -140,6 +140,7 @@ header {
   banner-subtitle {
     width: 100%;
     text-align: center;
+    min-height: 36px;
 
     h2 {
       width: auto;
@@ -178,29 +179,20 @@ main {
     padding: 20px 50px;
     @include center();
   }
+
+  &.contact {
+    @include center();
+  }
 }
 
-// Footer
-// -------------------------
-footer {
-  height: $footer-height;
-  background-color: $placeholder-grey;
-
+ul.social-media-icons {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding: 10px 10px;
+  padding: 5px 0px;
 
-  ul {
-    display: flex;
-    padding: 5px 0px;
-
-    li {
-      a {
-        @include fill-parent();
-        @include center();
-      }
+  li {
+    a {
+      @include fill-parent();
+      @include center();
     }
   }
 
@@ -217,4 +209,17 @@ footer {
       border: 1px solid white;
     }
   }
+}
+
+// Footer
+// -------------------------
+footer {
+  height: $footer-height;
+  background-color: $placeholder-grey;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 10px 10px;
 }
