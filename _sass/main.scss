@@ -196,6 +196,10 @@ ul.social-media-icons {
     a {
       @include fill-parent();
       @include center();
+
+      i.fa-lg {
+        line-height: 1em;
+      }
     }
   }
 
@@ -206,6 +210,36 @@ ul.social-media-icons {
 
     @include center();
     margin: auto 5px;
+    text-align: center;
+
+    &:hover {
+      border: 1px solid white;
+    }
+  }
+}
+
+ul.social-media-icons.lg {
+  display: flex;
+  padding: 5px 0px;
+
+  li {
+    a {
+      @include fill-parent();
+      @include center();
+
+      i.fa-lg {
+        line-height: 1em;
+      }
+    }
+  }
+
+  .icon-circle {
+    @include circle(20px);
+    border: 1px solid black;
+    font-size: 15px;
+
+    @include center();
+    margin: auto 15px;
     text-align: center;
 
     &:hover {
