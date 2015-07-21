@@ -34,7 +34,7 @@ var mdzhangPersonalSiteApp = angular.module('mdzhangPersonalSiteApp', ['ui.route
       })
       .state('/resume', {
         url: '/resume',
-        templateUrl: getHtmlPath('/resume.html')
+        templateUrl: getHtmlPath('/construction.html')
       })
       .state('/contact', {
         url: '/contact',

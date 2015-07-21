@@ -179,6 +179,10 @@
 
     &.contact {
     }
+
+    &.construction {
+      padding: 20px 50px;
+    }
   }
 
   a:hover {
@@ -239,6 +243,24 @@
       }
     }
   }
+
+.construction {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-size: 2em;
+    padding: 20px 20px;
+  }
+
+  img {
+    height: 250px;
+    width: 250px;
+
+    min-height: 250px;
+    min-width: 250px;
+  }
+}
 
 // TODO: Refactor the below
 ul.social-media-icons {
