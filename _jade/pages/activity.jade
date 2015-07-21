@@ -1,1 +1,13 @@
-menubar
+div(ng-controller="activityCtrl")
+
+  div.activityBanner
+    div.bannerContent
+      // TODO: fix this width so doesn't move on dynamic title switch
+      div.title
+        h2 What I'm
+        div.dynamicTitle
+          img.clickable(src="../../images/up_chevron.png", ng-click="previousTitle()")
+          h2.dynamicTitle {{ currentTitle }}
+          img.clickable(src="../../images/down_chevron.png", ng-click="nextTitle()")
+
+  // content

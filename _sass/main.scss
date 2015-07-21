@@ -195,29 +195,8 @@
     list-style-type: none;
   }
 
-// Banner/Header
-// -------------------------
-  header {
-    height: $banner-height;
-    background-color: $placeholder-grey;
-
-    @include center();
-    flex-flow: column wrap;
-
-    h1 {
-      font-size: 600%;
-    }
-
-    banner-subtitle {
-      width: 100%;
-      text-align: center;
-      min-height: 36px;
-
-      h2 {
-        width: auto;
-        font-size: 200%;
-      }
-    }
+  .clickable {
+    cursor: pointer;
   }
 
 // Menubar
@@ -244,23 +223,108 @@
     }
   }
 
-.construction {
-  display: flex;
-  flex-direction: column;
+// Home Banner/Header
+// -------------------------
+  header {
+    height: $banner-height;
+    background-color: $placeholder-grey;
 
-  label {
-    font-size: 2em;
-    padding: 20px 20px;
+    @include center();
+    flex-flow: column wrap;
+
+    h1 {
+      font-size: 600%;
+    }
+
+    banner-subtitle {
+      width: 100%;
+      text-align: center;
+      min-height: 36px;
+
+      h2 {
+        width: auto;
+        font-size: 200%;
+      }
+    }
   }
 
-  img {
-    height: 250px;
-    width: 250px;
+// Activity
+// -------------------------
+  .activityBanner {
+    height: $banner-height;
+    background-color: $placeholder-grey;
 
-    min-height: 250px;
-    min-width: 250px;
+    @include center();
+
+    div.bannerContent {
+      .title {
+        display: flex;
+
+        h2 {
+          display: flex;
+          align-items: center;
+        }
+
+        .dynamicTitle {
+          padding-left: 20px;
+          @include center();
+          flex-direction: column;
+
+          img {
+            height: 50px;
+            width: 50px;
+
+            &:hover {
+              background-color: $dark-placeholder-grey;
+              // @include zoomIn();
+            }
+          }
+        }
+      }
+
+      .chevron {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        padding-right: 125px;
+
+        img {
+          height: 50px;
+          width: 50px;
+
+          &:hover {
+            background-color: $dark-placeholder-grey;
+            // @include zoomIn();
+          }
+        }
+      }
+    }
+
+    h2 {
+      font-size: 500%;
+    }
   }
-}
+
+// Construction
+// -------------------------
+  .construction {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 2em;
+      padding: 20px 20px;
+    }
+
+    img {
+      height: 250px;
+      width: 250px;
+
+      min-height: 250px;
+      min-width: 250px;
+    }
+  }
 
 // TODO: Refactor the below
 ul.social-media-icons {
