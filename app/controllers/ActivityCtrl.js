@@ -19,10 +19,12 @@
     $scope.currentTitle = null;
     // Books to be shown in "What I'm Reading" section
     $scope.books = null;
+    // True if we're in the middle of a request that affects current display
+    $scope.loading = false;
 
     $scope.isCurrentTitle = function(title) {
       return title === $scope.currentTitle;
-    }
+    };
 
     $scope.nextTitle = function() {
       $scope.currentTitle = _this.titles[
@@ -64,11 +66,12 @@
           var books = _formatGoodreadsResponse(data);
           $scope.books = books;
 
+          // Apply changes (must do b/c corsService uses jQuery)
           if (!$scope.$$phase) {
             $scope.$apply();
           }
 
-          console.log('scope book: ', $scope.books);
+          console.log('Fetched Goodreads books: ', books);
         }
       });
     }
@@ -99,9 +102,19 @@
       return books;
     }
 
+    function _getAnime() {
+      // TODO: Load from MyAnimeList
+    }
+
+    function _getGames() {
+      // TODO: Load from Raptr and/or Steam
+    }
+
     function _init() {
       $scope.currentTitle = _this.titles[0];
       _getBooks();
+      _getAnime();
+      _getGames();
     }
 
     _init();

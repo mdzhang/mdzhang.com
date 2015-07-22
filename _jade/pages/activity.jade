@@ -10,9 +10,10 @@ div(ng-controller="activityCtrl")
           img.clickable(src="../../images/down_chevron.png", ng-click="nextTitle()")
 
   main.activity
+    //- TODO: Loading icon
 
     //- What I'm Reading
-    div.book(ng-repeat="book in books", ng-show="isCurrentTitle('Watching')")
+    div.book(ng-repeat="book in books", ng-show="isCurrentTitle('Reading')")
       img(ng-src="{{ book.image_url }}")
       div.info
         h4.title {{ book.title }}
