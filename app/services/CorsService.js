@@ -10,22 +10,25 @@
      * Makes cross origin requests easier.
      * TODO: Update for flexibility as necessary.
      */
-    _this.request = function(url, format, cb) {
+    _this.request = function(url, options, cb) {
+      options = options || {};
 
-      var proxyUrl = 'http://query.yahooapis.com/v1/public/yql?q=' +
-        encodeURIComponent('select * from xml where url="' + url + '"') + '&format=xml&callback=?';
+      url += _.chain(options.params).map(function(value, key) {
+        return key + '=' + value;
+      }).join('&').value();
 
-      function yqlCallback(data) {
-        if (data && data.results && data.results.length) {
-          var xml = $.parseXML(data.results[0]);
-          var results = $.xml2json(xml);
-          cb(null, results);
-        } else {
-          cb(data);
-        }
-      }
+      var proxyUrl = 'http://query.yahooapis.com/v1/public/yql?';
+      var proxyUrlParams = {
+        q: encodeURIComponent('select * from ' + options.format + ' where url="' + url + '"'),
+        format: options.format,
+        callback: '?'
+      };
 
-      $.getJSON(proxyUrl, yqlCallback);
+      proxyUrl += _.chain(proxyUrlParams).map(function(value, key) {
+        return key + '=' + value;
+      }).join('&').value();
+
+      $.getJSON(proxyUrl, cb);
     };
 
     function _init() {

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  function ActivityCtrl($scope, $http, corsService)
+  function ActivityCtrl($scope, $http, $parse, corsService)
   {
     var _this = this;
 
@@ -18,7 +18,8 @@
     // Current title on display in banner i.e. one of _this.titles
     $scope.currentTitle = null;
     // Books to be shown in "What I'm Reading" section
-    $scope.books = null;
+    $scope.books = [];
+    $scope.games = [];
     // True if we're in the middle of a request that affects current display
     $scope.loading = false;
 
@@ -55,15 +56,14 @@
         // user_id: '13686342'
       };
 
-      url += _.chain(params).map(function(value, key) {
-        return key + '=' + value;
-      }).join('&').value();
+      corsService.request(url, { params: params, format: 'xml' }, function(data) {
+        var books = [];
+        var results = $parse('results.length')(data);
 
-      corsService.request(url, 'json', function(err, data) {
-        if (err) {
-          console.log('Failed to fetch books from Goodreads');
-        } else {
-          var books = _formatGoodreadsResponse(data);
+        if (results) {
+          var xml = $.parseXML(data.results[0]);
+          var json = $.xml2json(xml);
+          books = _formatGoodreadsResponse(json);
           $scope.books = books;
 
           // Apply changes (must do b/c corsService uses jQuery)
@@ -72,8 +72,12 @@
           }
 
           console.log('Fetched Goodreads books: ', books);
+        } else {
+          console.log('Failed to fetch books from Goodreads');
         }
       });
+
+      return;
     }
 
     /**
@@ -106,8 +110,30 @@
       // TODO: Load from MyAnimeList
     }
 
+    /**
+     * Request games I've recently played from Steam.
+     */
     function _getGames() {
       // TODO: Load from Raptr and/or Steam
+      var url = 'http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?';
+      var params = {
+        key: 'FBADE7566BA2B38B1BC3BAD857FFFDB5',
+        steamid: '76561198046100572',
+        format: 'json'
+      };
+
+      corsService.request(url, { params: params, format: 'json' }, function(data) {
+        var games = $parse('query.results.response.games')(data);
+
+        if (games) {
+          games = data.query.results.response.games;
+          console.log('Fetched Steam games: ', games);
+        } else {
+          console.log('Failed to fetch games from Steam');
+        }
+      });
+
+      return;
     }
 
     function _init() {

@@ -13,6 +13,7 @@ div(ng-controller="activityCtrl")
     //- TODO: Loading icon
 
     //- What I'm Reading
+    //- TODO: Book flip in animation
     div.book(ng-repeat="book in books", ng-show="isCurrentTitle('Reading')")
       img(ng-src="{{ book.image_url }}")
       div.info
