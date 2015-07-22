@@ -1,4 +1,4 @@
-var mdzhangPersonalSiteApp = angular.module('mdzhangPersonalSiteApp', ['ui.router', 'ngAnimate']);
+var mdzhangPersonalSiteApp = angular.module('mdzhangPersonalSiteApp', ['ui.router', 'ngAnimate', 'ngSanitize']);
 
 (function () {
 

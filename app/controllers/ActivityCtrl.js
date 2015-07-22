@@ -20,6 +20,10 @@
     // Books to be shown in "What I'm Reading" section
     $scope.books = null;
 
+    $scope.isCurrentTitle = function(title) {
+      return title === $scope.currentTitle;
+    }
+
     $scope.nextTitle = function() {
       $scope.currentTitle = _this.titles[
         (_.indexOf(_this.titles, $scope.currentTitle) + 1) % _this.titles.length
@@ -44,7 +48,7 @@
       var params = {
         format: 'xml',
         v: '2',
-        shelf: 'currently-reading',
+        shelf: 'to-read',
         key: 'P78YnKD8IcTJLSJM6OwWw',
         // user_id: '13686342'
       };
@@ -59,6 +63,12 @@
         } else {
           var books = _formatGoodreadsResponse(data);
           $scope.books = books;
+
+          if (!$scope.$$phase) {
+            $scope.$apply();
+          }
+
+          console.log('scope book: ', $scope.books);
         }
       });
     }
@@ -76,6 +86,12 @@
 
       _.each(books, function(book) {
         book.book.started_at = book.started_at;
+
+        if (_.isArray(book.book.authors.author)) {
+          book.book.author = book.book.authors.author[0];
+        } else if (_.isObject(book.book.authors.author)) {
+          book.book.author = book.book.authors.author;
+        }
       });
 
       books = _.pluck(books, 'book');

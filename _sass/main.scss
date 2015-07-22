@@ -185,10 +185,14 @@
     }
   }
 
-  a:hover {
-    text-decoration: none;
-    cursor: pointer;
-    color: white;
+  a {
+    color: blue;
+
+    &:hover {
+      text-decoration: none;
+      cursor: pointer;
+      color: white;
+    }
   }
 
   ul {
@@ -305,6 +309,50 @@
       font-size: 500%;
     }
   }
+
+// Activity
+// -------------------------
+.activity {
+  flex-wrap: wrap;
+
+  div.book {
+    width: 300px;
+    height: 147px;
+    border: solid red 1px;
+    display: flex;
+    flex-direction: row;
+    margin: 25px;
+
+    img {
+
+    }
+
+    div.info {
+      @include center();
+      flex-direction: column;
+      justify-content: baseline;
+      flex: 2;
+
+      h4.title {
+        font-size: 1.1em;
+        padding: 10px;
+        text-align: center;
+        flex: 2;
+        overflow: visible;
+      }
+
+      div.author {
+        flex: 2;
+        overflow: visible;
+      }
+
+      a.more {
+        padding: 15px;
+      }
+    }
+  }
+}
+
 
 // Construction
 // -------------------------

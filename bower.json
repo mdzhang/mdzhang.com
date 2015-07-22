@@ -15,6 +15,7 @@
     "jquery": "latest",
     "angular": "latest",
     "angular-animate": "latest",
+    "angular-sanitize": "latest",
     "angular-ui-router": "latest",
     "font-awesome": "latest",
     "lodash": "latest"

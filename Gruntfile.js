@@ -6,6 +6,7 @@ module.exports = function(grunt) {
     'angular/angular.js',
     'angular-ui-router/release/angular-ui-router.js',
     'angular-animate/angular-animate.js',
+    'angular-sanitize/angular-sanitize.js',
     'lodash/lodash.js',
     'jquery/dist/jquery.js'
   ];

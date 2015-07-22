@@ -2,7 +2,6 @@ div(ng-controller="activityCtrl")
 
   div.activityBanner
     div.bannerContent
-      // TODO: fix this width so doesn't move on dynamic title switch
       div.title
         h2 What I'm
         div.dynamicTitle
@@ -10,4 +9,17 @@ div(ng-controller="activityCtrl")
           h2.dynamicTitle {{ currentTitle }}
           img.clickable(src="../../images/down_chevron.png", ng-click="nextTitle()")
 
-  // content
+  main.activity
+
+    //- What I'm Reading
+    div.book(ng-repeat="book in books", ng-show="isCurrentTitle('Watching')")
+      img(ng-src="{{ book.image_url }}")
+      div.info
+        h4.title {{ book.title }}
+        div.author {{ book.author.name }}
+        a.more(href="{{ book.link }}")
+          img(src="../../images/goodreads_badge.png")
+
+    //- What I'm Watching
+
+    //- What I'm Playing
