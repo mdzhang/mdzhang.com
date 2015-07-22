@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  function ActivityCtrl($scope, $http)
+  function ActivityCtrl($scope, $http, corsService)
   {
     var _this = this;
 
@@ -15,7 +15,10 @@
     /**
      * Scope variables
      */
+    // Current title on display in banner i.e. one of _this.titles
     $scope.currentTitle = null;
+    // Books to be shown in "What I'm Reading" section
+    $scope.books = null;
 
     $scope.nextTitle = function() {
       $scope.currentTitle = _this.titles[
@@ -50,21 +53,34 @@
         return key + '=' + value;
       }).join('&').value();
 
-      var proxyUrl = 'http://query.yahooapis.com/v1/public/yql?q=' +
-        encodeURIComponent('select * from xml where url="' + url + '"') + '&format=xml&callback=?';
-
-      function cb(data) {
-        if (data && data.results && data.results.length) {
-          var xml = $.parseXML(data.results[0]);
-          var json = $.xml2json(xml);
-          console.log('dom: ', xml);
-          console.log('json: ', json);
+      corsService.request(url, 'json', function(err, data) {
+        if (err) {
+          console.log('Failed to fetch books from Goodreads');
         } else {
-          console.error('Failed to fetch books from Goodreads');
+          var books = _formatGoodreadsResponse(data);
+          $scope.books = books;
         }
+      });
+    }
+
+    /**
+     * Format Goodreads response so we can use it for this client.
+     */
+    function _formatGoodreadsResponse(data) {
+      var books = [];
+      if (_.isArray(data.reviews.review)) {
+        books = data.reviews.review;
+      } else if (_.isObject(data.reviews.review)) {
+        books = [data.reviews.review];
       }
 
-      $.getJSON(proxyUrl, cb);
+      _.each(books, function(book) {
+        book.book.started_at = book.started_at;
+      });
+
+      books = _.pluck(books, 'book');
+
+      return books;
     }
 
     function _init() {
