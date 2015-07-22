@@ -12,6 +12,7 @@
     "public/bower_components"
   ],
   "dependencies": {
+    "jquery": "latest",
     "angular": "latest",
     "angular-animate": "latest",
     "angular-ui-router": "latest",

@@ -1,0 +1,19 @@
+Goodreads API
+
+key: P78YnKD8IcTJLSJM6OwWw
+secret: EvbRrDUGJpMq83zKIpsVOoc7UbGRqnOv8e1EC2phU
+my user_id: 13686342
+
+https://www.goodreads.com/review/list/13686342?&format=xml&key=P78YnKD8IcTJLSJM6OwWw&shelf=currently-reading&user_id=13686342&v=2
+https://www.goodreads.com/api/index
+
+
+
+  "globals": {
+    "angular": false,
+    "console": false,
+    "mdzhangPersonalSiteApp": true,
+    "_": false,
+    "$": false,
+    "window": false
+  },

@@ -10,7 +10,10 @@
     "angular": false,
     "console": false,
     "mdzhangPersonalSiteApp": true,
-    "_": false
+    "_": false,
+    "$": false,
+    "window": false,
+    "XML2jsobj": true
   },
   "debug": true
 }

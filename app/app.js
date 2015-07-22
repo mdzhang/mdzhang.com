@@ -2,7 +2,7 @@ var mdzhangPersonalSiteApp = angular.module('mdzhangPersonalSiteApp', ['ui.route
 
 (function () {
 
-  mdzhangPersonalSiteApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+  mdzhangPersonalSiteApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $httpProvider) {
 
     // TODO: find a better way to serve this locally
     var path = 'http://localhost:3000/public/build/html';
@@ -10,6 +10,9 @@ var mdzhangPersonalSiteApp = angular.module('mdzhangPersonalSiteApp', ['ui.route
     var getHtmlPath = function(file) {
       return path + file;
     };
+
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
     // Default url.
     $urlRouterProvider

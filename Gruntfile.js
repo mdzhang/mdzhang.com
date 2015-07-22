@@ -6,7 +6,8 @@ module.exports = function(grunt) {
     'angular/angular.js',
     'angular-ui-router/release/angular-ui-router.js',
     'angular-animate/angular-animate.js',
-    'lodash/lodash.js'
+    'lodash/lodash.js',
+    'jquery/dist/jquery.js'
   ];
 
   var bowercss = [
@@ -67,8 +68,8 @@ module.exports = function(grunt) {
       },
       js: {
         files: {
-          'public/build/js/bower.js': bowerjs,
-          'public/build/js/scripts.js': ['app/app.js', 'app/**/*.js']
+          'public/build/js/scripts.js': [bowerjs, 'public/js/*.js'],
+          'public/build/js/app.js': ['app/app.js', 'app/**/*.js']
         }
       },
       css: {
