@@ -20,16 +20,13 @@
     // Books to be shown in "What I'm Reading" section
     $scope.books = [];
     $scope.games = [];
+    $scope.shows = [];
     // True if we're in the middle of a request that affects current display
     $scope.loading = false;
 
     $scope.isCurrentTitle = function(title) {
       return title === $scope.currentTitle;
     };
-
-    $scope.$watch('currentTitle', function(t) {
-      console.log('currentTitle: ', t);
-    });
 
     $scope.nextTitle = function() {
       $scope.currentTitle = _this.titles[
@@ -60,7 +57,7 @@
         // user_id: '13686342'
       };
 
-      corsService.requestAsync('GET', url, params)
+      return corsService.requestAsync('GET', url, params)
         .then(function(data) {
           if (data) {
             var xml = $.parseXML(data);
@@ -77,8 +74,6 @@
         .catch(function(err) {
             console.log('Failed to fetch books from Goodreads');
         });
-
-      return;
     }
 
     /**
@@ -107,8 +102,39 @@
       return books;
     }
 
+    /**
+     * Request anime I'm watching from MAL-api, built on top of MyAnimeList.
+     */
     function _getAnime() {
-      // TODO: Load from MyAnimeList
+      var url = 'https://api.atarashiiapp.com/animelist/eeemaroo';
+
+      return corsService.requestAsync('GET', url, {})
+        .then(function(data) {
+          var anime = $parse('anime')(data);
+
+          if (anime) {
+            anime = _formatMALApiResponse(anime);
+            $scope.shows = anime;
+
+            console.log('Fetched MyAnimeList anime: ', anime);
+          } else {
+            return new Error();
+          }
+        })
+        .catch(function(err) {
+          console.log('Failed to fetch anime from MyAnimeList');
+        });
+    }
+
+    function _formatMALApiResponse(anime) {
+      var currentlyWatching = _.groupBy(anime, 'watched_status').watching;
+      var baseShowUrl = 'http://myanimelist.net/anime/';
+
+      _.each(currentlyWatching, function(anime) {
+        anime.link = baseShowUrl + anime.id;
+      });
+
+      return currentlyWatching;
     }
 
     /**
@@ -123,7 +149,7 @@
         format: 'json'
       };
 
-      corsService.requestAsync('GET', url, params)
+      return corsService.requestAsync('GET', url, params)
         .then(function(data) {
           var games = $parse('response.games')(data);
 
@@ -139,8 +165,6 @@
         .catch(function(err) {
           console.log('Failed to fetch games from Steam');
         });
-
-      return;
     }
 
     /**
@@ -163,9 +187,11 @@
 
     function _init() {
       $scope.currentTitle = _this.titles[0];
-      _getBooks();
-      // _getAnime();
-      _getGames();
+      $scope.loading = true;
+
+      Promise.join(_getBooks(), _getAnime(), _getGames(), function() {
+        $scope.loading = false;
+      });
     }
 
     _init();

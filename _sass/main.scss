@@ -315,16 +315,13 @@
 .activity {
   flex-wrap: wrap;
 
-  div.book {
+  .book, .show {
     width: 300px;
     height: 147px;
     border: solid red 1px;
     display: flex;
     flex-direction: row;
     margin: 25px;
-
-    img {
-    }
 
     div.info {
       @include center();
@@ -340,13 +337,14 @@
         overflow: visible;
       }
 
-      div.author {
+      .author, .score {
         flex: 2;
         overflow: visible;
       }
 
       a.more {
-        padding: 15px;
+        overflow: hidden;
+        padding-bottom: 10px;
       }
     }
   }

@@ -27,3 +27,10 @@ div(ng-controller="activityCtrl")
       img(ng-src="{{ game.image_url }}")
 
     //- What I'm Watching
+    div.show(ng-repeat="show in shows", ng-show="isCurrentTitle('Watching')")
+      img(ng-src="{{ show.image_url }}", width="111", height="147")
+      div.info
+        h4.title {{ show.title }}
+        div.score {{ show.score }} / 10
+        a.more(href="{{ show.link }}")
+          img(src="../../images/myanimelist_badge.png", width="130", height="41")

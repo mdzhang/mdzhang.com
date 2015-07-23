@@ -18,7 +18,8 @@
     "angular-sanitize": "latest",
     "angular-ui-router": "latest",
     "font-awesome": "latest",
-    "lodash": "latest"
+    "lodash": "latest",
+    "bluebird": "latest"
   },
   "resolutions": {
     "angular": "latest"

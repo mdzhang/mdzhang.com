@@ -8,7 +8,8 @@ module.exports = function(grunt) {
     'angular-animate/angular-animate.js',
     'angular-sanitize/angular-sanitize.js',
     'lodash/lodash.js',
-    'jquery/dist/jquery.js'
+    'jquery/dist/jquery.js',
+    'bluebird/js/browser/bluebird.js'
   ];
 
   var bowercss = [
