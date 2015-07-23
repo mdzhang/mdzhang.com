@@ -22,6 +22,8 @@ div(ng-controller="activityCtrl")
         a.more(href="{{ book.link }}")
           img(src="../../images/goodreads_badge.png")
 
-    //- What I'm Watching
-
     //- What I'm Playing
+    a.game(href="{{ game.link }}", ng-repeat="game in games", ng-show="isCurrentTitle('Playing')")
+      img(ng-src="{{ game.image_url }}")
+
+    //- What I'm Watching

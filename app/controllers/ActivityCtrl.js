@@ -27,6 +27,10 @@
       return title === $scope.currentTitle;
     };
 
+    $scope.$watch('currentTitle', function(t) {
+      console.log('currentTitle: ', t);
+    });
+
     $scope.nextTitle = function() {
       $scope.currentTitle = _this.titles[
         (_.indexOf(_this.titles, $scope.currentTitle) + 1) % _this.titles.length
@@ -56,26 +60,23 @@
         // user_id: '13686342'
       };
 
-      corsService.request(url, { params: params, format: 'xml' }, function(data) {
-        var books = [];
-        var results = $parse('results.length')(data);
+      corsService.requestAsync('GET', url, params)
+        .then(function(data) {
+          if (data) {
+            var xml = $.parseXML(data);
+            var json = $.xml2json(xml);
+            var books = _formatGoodreadsResponse(json);
 
-        if (results) {
-          var xml = $.parseXML(data.results[0]);
-          var json = $.xml2json(xml);
-          books = _formatGoodreadsResponse(json);
-          $scope.books = books;
+            $scope.books = books;
 
-          // Apply changes (must do b/c corsService uses jQuery)
-          if (!$scope.$$phase) {
-            $scope.$apply();
+            console.log('Fetched Goodreads books: ', books);
+          } else {
+            return new Error();
           }
-
-          console.log('Fetched Goodreads books: ', books);
-        } else {
-          console.log('Failed to fetch books from Goodreads');
-        }
-      });
+        })
+        .catch(function(err) {
+            console.log('Failed to fetch books from Goodreads');
+        });
 
       return;
     }
@@ -122,24 +123,48 @@
         format: 'json'
       };
 
-      corsService.request(url, { params: params, format: 'json' }, function(data) {
-        var games = $parse('query.results.response.games')(data);
+      corsService.requestAsync('GET', url, params)
+        .then(function(data) {
+          var games = $parse('response.games')(data);
 
-        if (games) {
-          games = data.query.results.response.games;
-          console.log('Fetched Steam games: ', games);
-        } else {
+          if (games) {
+            games = _formatSteamResponse(games);
+            $scope.games = games;
+
+            console.log('Fetched Steam games: ', games);
+          } else {
+            return new Error();
+          }
+        })
+        .catch(function(err) {
           console.log('Failed to fetch games from Steam');
-        }
-      });
+        });
 
       return;
+    }
+
+    /**
+     *
+     */
+    function _formatSteamResponse(games) {
+      // var baseImageUrl = 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/';
+      // var imageUrl = baseImageUrl + game.appid + '/' + game.img_logo_url + '.jpg';
+      var baseImageUrl = 'http://cdn.akamai.steamstatic.com/steam/apps/';
+      var baseStorePageUrl = 'http://store.steampowered.com/app/';
+
+      _.each(games, function(game) {
+        var imageUrl = baseImageUrl + game.appid + '/header.jpg';
+        game.image_url = imageUrl;
+        game.link = baseStorePageUrl + game.appid;
+      });
+
+      return games;
     }
 
     function _init() {
       $scope.currentTitle = _this.titles[0];
       _getBooks();
-      _getAnime();
+      // _getAnime();
       _getGames();
     }
 

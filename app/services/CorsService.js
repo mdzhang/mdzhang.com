@@ -2,33 +2,33 @@
   'use strict';
 
   // Cross-Origin Resource Sharing Service
-  function CorsService()
+  // To circumvent Access-Control-Allow-Origin errors.
+  function CorsService($http)
   {
     var _this = this;
 
-    /**
-     * Makes cross origin requests easier.
-     * TODO: Update for flexibility as necessary.
-     */
-    _this.request = function(url, options, cb) {
-      options = options || {};
-
-      url += _.chain(options.params).map(function(value, key) {
+    _this.requestAsync = function(method, url, params) {
+      url += _.chain(params).map(function(value, key) {
         return key + '=' + value;
       }).join('&').value();
 
-      var proxyUrl = 'http://query.yahooapis.com/v1/public/yql?';
-      var proxyUrlParams = {
-        q: encodeURIComponent('select * from ' + options.format + ' where url="' + url + '"'),
-        format: options.format,
-        callback: '?'
+      url = 'http://localhost:8000/path=' + url;
+      params = {};
+
+      var req = {
+        method: method,
+        url: url,
+        data: params
       };
 
-      proxyUrl += _.chain(proxyUrlParams).map(function(value, key) {
-        return key + '=' + value;
-      }).join('&').value();
-
-      $.getJSON(proxyUrl, cb);
+      return $http(req)
+        .then(function(response) {
+          if (response.status !== 200) {
+            return new Error();
+          } else {
+            return response.data;
+          }
+        });
     };
 
     function _init() {

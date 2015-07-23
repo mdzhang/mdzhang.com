@@ -15,3 +15,5 @@ my steam_id: 76561198046100572
 
 https://developer.valvesoftware.com/wiki/Steam_Web_API
 http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=FBADE7566BA2B38B1BC3BAD857FFFDB5&steamid=76561198046100572&format=json
+
+https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/209000/21a0c80630abe3a9dceddcbc224ed6b5b763c5b9.jpg
