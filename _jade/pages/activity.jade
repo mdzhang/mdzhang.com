@@ -1,0 +1,36 @@
+div(ng-controller="activityCtrl")
+
+  div.activityBanner
+    div.bannerContent
+      div.title
+        h2 What I'm
+        div.dynamicTitle
+          img.clickable(src="../../images/up_chevron.png", ng-click="previousTitle()")
+          h2.dynamicTitle {{ currentTitle }}
+          img.clickable(src="../../images/down_chevron.png", ng-click="nextTitle()")
+
+  main.activity
+    //- TODO: Loading icon
+
+    //- What I'm Reading
+    //- TODO: Book flip in animation
+    div.book(ng-repeat="book in books", ng-show="isCurrentTitle('Reading')")
+      img(ng-src="{{ book.image_url }}")
+      div.info
+        h4.title {{ book.title }}
+        div.author {{ book.author.name }}
+        a.more(href="{{ book.link }}")
+          img(src="../../images/goodreads_badge.png")
+
+    //- What I'm Playing
+    a.game(href="{{ game.link }}", ng-repeat="game in games", ng-show="isCurrentTitle('Playing')")
+      img(ng-src="{{ game.image_url }}")
+
+    //- What I'm Watching
+    div.show(ng-repeat="show in shows", ng-show="isCurrentTitle('Watching')")
+      img(ng-src="{{ show.image_url }}", width="111", height="147")
+      div.info
+        h4.title {{ show.title }}
+        div.score {{ show.score }} / 10
+        a.more(href="{{ show.link }}")
+          img(src="../../images/myanimelist_badge.png", width="130", height="41")

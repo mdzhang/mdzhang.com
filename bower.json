@@ -1,0 +1,27 @@
+{
+  "name": "mdzhangWebsite",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mdzhang/mdzhang.com",
+  "authors": [
+    "Michelle Zhang <zhang.michelle.d@gmail.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components"
+  ],
+  "dependencies": {
+    "jquery": "latest",
+    "angular": "latest",
+    "angular-animate": "latest",
+    "angular-sanitize": "latest",
+    "angular-ui-router": "latest",
+    "font-awesome": "latest",
+    "lodash": "latest",
+    "bluebird": "latest"
+  },
+  "resolutions": {
+    "angular": "latest"
+  }
+}

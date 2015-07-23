@@ -1,0 +1,19 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "futurehostile": true,
+  "latedef": true,
+  "nocomma": true,
+  "undef": true,
+  "validthis": true,
+  "globals": {
+    "angular": false,
+    "console": false,
+    "mdzhangPersonalSiteApp": true,
+    "_": false,
+    "$": false,
+    "window": false,
+    "Promise": false
+  },
+  "debug": true
+}

@@ -1,0 +1,41 @@
+Goodreads API
+
+key: P78YnKD8IcTJLSJM6OwWw
+secret: EvbRrDUGJpMq83zKIpsVOoc7UbGRqnOv8e1EC2phU
+my user_id: 13686342
+
+https://www.goodreads.com/review/list/13686342?&format=xml&key=P78YnKD8IcTJLSJM6OwWw&shelf=currently-reading&user_id=13686342&v=2
+https://www.goodreads.com/api/index
+
+https://d.gr-assets.com/books/1435053013l/16065004.jpg
+
+Steam API
+
+Key: FBADE7566BA2B38B1BC3BAD857FFFDB5
+Domain Name: mdzhang.com
+my steam_id: 76561198046100572
+
+https://developer.valvesoftware.com/wiki/Steam_Web_API
+http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=FBADE7566BA2B38B1BC3BAD857FFFDB5&steamid=76561198046100572&format=json
+
+https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/209000/21a0c80630abe3a9dceddcbc224ed6b5b763c5b9.jpg
+
+MyAnimeList API
+
+http://myanimelist.net/modules.php?go=api
+https://api.atarashiiapp.com/docs/2.0/user/
+http://myanimelist.net/malappinfo.php?u=eeemaroo&status=all&type=anime
+
+statuses
+  'currently_watching': 1,
+  'completed': 2,
+  'on_hold': 3,
+  'dropped': 4,
+  'plan_to_watch': 6,
+  'all': 7
+
+order:
+  'anime_title': 1
+  'score': 4
+  'type': 6
+  'progress': 12

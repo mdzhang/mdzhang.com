@@ -1,0 +1,463 @@
+// @import url(http://fonts.googleapis.com/css?family=Raleway:100)
+@import 'variables';
+
+// Mixins
+// -------------------------
+
+  // Center an element's contents both vertically and horizontally
+  @mixin center() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // Have an element fill up their entire parent
+  @mixin fill-parent() {
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+
+  @mixin circle($radius) {
+    width: $radius * 2;
+    height: $radius * 2;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+  }
+
+// Animations
+// -------------------------
+
+  // slideInFromRight
+    .slideInFromRight {
+      animation-name: slideInFromRight;
+      -webkit-animation-name: slideInFromRight;
+
+      animation-duration: 2s;
+      -webkit-animation-duration: 2s;
+
+      animation-timing-function: ease-in-out;
+      -webkit-animation-timing-function: ease-in-out;
+
+      visibility: visible !important;
+    }
+
+    @keyframes slideInFromRight {
+      0%  { transform: translateX(250%); }
+      70% { transform: translateX(-2%); }
+      80% { transform: translateX(2%); }
+      88% { transform: translateX(-0.5%); }
+      94% { transform: translateX(0.25%); }
+      100% { transform: translateX(0%); }
+    }
+
+    @-webkit-keyframes slideInFromRight  {
+      0%  { -webkit-transform: translateX(250%); }
+      40% { -webkit-transform: translateX(-8%); }
+      60% { -webkit-transform: translateX(4%); }
+      80% { -webkit-transform: translateX(-2%); }
+      90% { -webkit-transform: translateX(1%); }
+      100% { -webkit-transform: translateX(0%); }
+    }
+
+  // slideOutToLeft
+    .slideOutToLeft {
+      animation-name: slideOutToLeft;
+      -webkit-animation-name: slideOutToLeft;
+
+      animation-duration: 2s;
+      -webkit-animation-duration: 2s;
+
+      animation-timing-function: ease-in-out;
+      -webkit-animation-timing-function: ease-in-out;
+
+      visibility: visible !important;
+    }
+
+    @keyframes slideOutToLeft {
+      0%  { transform: translateX(0%); }
+      100% { transform: translateX(-350%); }
+    }
+
+    @-webkit-keyframes slideOutToLeft  {
+      0%  { -webkit-transform: translateX(0%); }
+      100% { -webkit-transform: translateX(-350%); }
+    }
+
+  // zoomIn
+    @mixin zoomIn {
+      transform: scale(1.5);
+
+      animation-name: zoomIn;
+      -webkit-animation-name: zoomIn;
+
+      animation-duration: 0.5s;
+      -webkit-animation-duration: 0.5s;
+
+      animation-timing-function: linear;
+      -webkit-animation-timing-function: linear;
+
+      visibility: visible !important;
+    }
+
+    @keyframes zoomIn {
+      0% { transform: scale(1.0); }
+      100% { transform: scale(1.5); }
+    }
+
+    @-webkit-keyframes zoomIn {
+      0% { -webkit-transform: scale(1.0); }
+      100% { -webkit-transform: scale(1.5); }
+    }
+
+  // zoomBackOut
+    @mixin zoomBackOut {
+      transform: scale(1.0);
+
+      animation-name: zoomBackOut;
+      -webkit-animation-name: zoomBackOut;
+
+      animation-duration: 0.5s;
+      -webkit-animation-duration: 0.5s;
+
+      animation-timing-function: linear;
+      -webkit-animation-timing-function: linear;
+
+      visibility: visible !important;
+    }
+
+    @keyframes zoomBackOut {
+      0% { transform: scale(1.5); }
+      100% { transform: scale(1.0); }
+    }
+
+    @-webkit-keyframes zoomBackOut {
+      0% { -webkit-transform: scale(1.5); }
+      100% { -webkit-transform: scale(1.0); }
+    }
+
+// Generic styles
+// -------------------------
+
+  * {
+    overflow: auto;
+    margin: 0px;
+    padding: 0px;
+    font-family: inherit;
+    font-weight: inherit;
+  }
+
+  html {
+    height: 100%;
+  }
+
+  body {
+    height: 100%; // helps with sticky footer
+
+    font-family: $primary-font;
+    font-weight: $primary-font-weight;
+
+    display: flex;
+    flex-flow: column;
+  }
+
+  view {
+    flex: 2; // fill up all available space
+
+    display: flex;
+    flex-flow: column;
+  }
+
+  main {
+    flex: 2;
+    @include center();
+
+    &.blurb {
+      padding: 20px 50px;
+    }
+
+    &.contact {
+    }
+
+    &.construction {
+      padding: 20px 50px;
+    }
+  }
+
+  a {
+    color: blue;
+
+    &:hover {
+      text-decoration: none;
+      cursor: pointer;
+      color: white;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  .clickable {
+    cursor: pointer;
+  }
+
+// Menubar
+// -------------------------
+  nav {
+    height: $menubar-height;
+    background-color: $dark-placeholder-grey;
+
+    @include center();
+
+    ul {
+      @include fill-parent();
+      @include center();
+      padding: 0px 50px;
+
+      li {
+        @include fill-parent();
+
+        a {
+          @include center();
+          @include fill-parent();
+        }
+      }
+    }
+  }
+
+// Home Banner/Header
+// -------------------------
+  header {
+    height: $banner-height;
+    background-color: $placeholder-grey;
+
+    @include center();
+    flex-flow: column wrap;
+
+    h1 {
+      font-size: 600%;
+    }
+
+    banner-subtitle {
+      width: 100%;
+      text-align: center;
+      min-height: 36px;
+
+      h2 {
+        width: auto;
+        font-size: 200%;
+      }
+    }
+  }
+
+// Activity
+// -------------------------
+  .activityBanner {
+    height: $banner-height;
+    background-color: $placeholder-grey;
+
+    @include center();
+
+    div.bannerContent {
+      .title {
+        display: flex;
+
+        h2 {
+          display: flex;
+          align-items: center;
+        }
+
+        .dynamicTitle {
+          width: 350px;
+          @include center();
+          flex-direction: column;
+
+          img {
+            height: 50px;
+            width: 50px;
+
+            &:hover {
+              background-color: $dark-placeholder-grey;
+              // @include zoomIn();
+            }
+          }
+        }
+      }
+
+      .chevron {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        padding-right: 125px;
+
+        img {
+          height: 50px;
+          width: 50px;
+
+          &:hover {
+            background-color: $dark-placeholder-grey;
+            // @include zoomIn();
+          }
+        }
+      }
+    }
+
+    h2 {
+      font-size: 500%;
+    }
+  }
+
+// Activity
+// -------------------------
+.activity {
+  flex-wrap: wrap;
+
+  .book, .show {
+    width: 300px;
+    height: 147px;
+    border: solid red 1px;
+    display: flex;
+    flex-direction: row;
+    margin: 25px;
+
+    div.info {
+      @include center();
+      flex-direction: column;
+      justify-content: baseline;
+      flex: 2;
+
+      h4.title {
+        font-size: 1.1em;
+        padding: 10px;
+        text-align: center;
+        flex: 2;
+        overflow: visible;
+      }
+
+      .author, .score {
+        flex: 2;
+        overflow: visible;
+      }
+
+      a.more {
+        overflow: hidden;
+        padding-bottom: 10px;
+      }
+    }
+  }
+
+  a.game {
+    margin: 25px;
+  }
+}
+
+
+// Construction
+// -------------------------
+  .construction {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 2em;
+      padding: 20px 20px;
+    }
+
+    img {
+      height: 250px;
+      width: 250px;
+
+      min-height: 250px;
+      min-width: 250px;
+    }
+  }
+
+// TODO: Refactor the below
+ul.social-media-icons {
+  display: flex;
+  padding: 5px 0px;
+
+  li {
+    a {
+      @include fill-parent();
+      @include center();
+
+      i.fa-lg {
+        line-height: 1em;
+
+      }
+
+      &:hover {
+        color: red;
+      }
+    }
+  }
+
+  .icon-circle {
+    @include circle(15px);
+    border: 1px solid black;
+    font-size: 15px;
+
+    @include center();
+    margin: auto 5px;
+    text-align: center;
+
+    &:hover {
+      border: 1px solid red;
+    }
+  }
+}
+
+ul.social-media-icons.lg {
+  display: flex;
+  padding: 5px 0px;
+  overflow: visible;
+
+  li {
+    a {
+      @include fill-parent();
+      @include center();
+
+      i.fa-lg {
+        line-height: 1em;
+      }
+    }
+
+    @include zoomBackOut();
+
+    &:hover {
+      color: red;
+      @include zoomIn();
+    }
+  }
+
+  .icon-circle {
+    @include circle(20px);
+    border: 1px solid black;
+    font-size: 15px;
+
+    @include center();
+    margin: auto 15px;
+    text-align: center;
+
+    &:hover {
+      border: 1px solid red;
+    }
+  }
+}
+
+// Footer
+// -------------------------
+  footer {
+    height: $footer-height;
+    background-color: $placeholder-grey;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 10px 10px;
+  }
