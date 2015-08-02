@@ -1,0 +1,19 @@
+{
+  "name": "mdzhang.com",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mdzhang/mdzhang.com",
+  "authors": [
+    "Michelle Zhang <zhang.michelle.d@gmail.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "latest",
+    "lodash": "latest",
+    "font-awesome": "latest",
+    "bluebird": "latest"
+  }
+}

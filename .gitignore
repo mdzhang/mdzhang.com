@@ -1,7 +1,5 @@
-# Sublime stuff
-*.sublime-project
-*.sublime-workspace
-
-# Testing/Dev files
-test/*
 .DS_Store
+node_modules
+bower_components
+.sass-cache
+

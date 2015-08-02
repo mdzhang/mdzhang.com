@@ -1,18 +1,15 @@
-S3_BUCKET=mdzhang.com
+GRUNT = ./node_modules/.bin/grunt
+BOWER = ./node_modules/bower/bin/bower
 
-# Sync current working directory with s3.
-deploy:
-	make clean
-	s3cmd sync --delete-removed --acl-public \
-		--exclude '*' \
-		--exclude '*.*' \
-		--include 'js/*' \
-		--include 'css/*' \
-		--include 'images/*' \
-		--include 'files/*' \
-		--include 'index.html' \
-		./ s3://$(S3_BUCKET)/
+build: clean bower grunt
 
-.PHONY: clean
+bower:
+	${BOWER} install
+
+grunt:
+	${GRUNT}
+
 clean:
-	find . -name "*~" -exec rm -rf {} \;
+	rm -rf public/build
+
+.PHONY: build bower grunt clean

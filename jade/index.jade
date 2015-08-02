@@ -1,0 +1,26 @@
+doctype html
+html(lang='en')
+  include ./partials/head.jade
+
+body
+  div.background-layer
+
+  header
+    h1 Michelle D. Zhang
+    h5 Software Developer
+
+    nav.dots
+      ul
+        li.current
+          div.tooltip Home
+          div.dot
+        li
+          div.tooltip Activity
+          div.dot
+        li
+          div.tooltip Contact
+          div.dot
+
+  block content
+
+  include ./partials/icons.jade

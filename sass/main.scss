@@ -1,0 +1,189 @@
+@import 'variables';
+
+// General styles
+// -------------------------
+
+  * {
+    margin: 0px;
+    padding: 0px;
+    cursor: default;
+    font-family: inherit;
+    font-weight: inherit;
+  }
+
+  html {
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+
+    font-family: $primary-font;
+    font-weight: $primary-font-weight;
+
+    display: flex;
+    flex-flow: column;
+
+    background-image: url('../img/pp.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .background-layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #000;
+    opacity: 0.45;
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  ul {
+    list-style: none;
+    list-style-type: none;
+  }
+
+  h1 {
+    font-size: 600%;
+  }
+
+  h2 {
+    font-size: 500%;
+  }
+
+  h3 {
+    font-size: 400%;
+  }
+
+  h4 {
+    font-size: 300%;
+  }
+
+  h5 {
+    font-size: 200%;
+  }
+
+  .clickable {
+    cursor: pointer;
+  }
+
+// Dots
+// From http://tympanus.net/Development/DotNavigationStyles/
+// -------------------------
+  .dots {
+    display: flex;
+    flex-direction: column;
+
+    ul {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      margin-top: 40px;
+
+      li {
+        position: relative;
+        display: block;
+        margin: 0 14px;
+        width: 14px;
+        height: 14px;
+
+        .dot {
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          outline: none;
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.3);
+          cursor: pointer;
+          position: absolute;
+
+          &:hover, &:focus {
+            background-color: white;
+          }
+
+          -webkit-transition: -webkit-transform 0.3s ease, background-color 0.3s ease;
+          transition: transform 0.3s ease, background-color 0.3s ease;
+
+        } // end of .dot
+
+        .tooltip {
+          position: absolute;
+          color: white;
+
+          margin-top: -250%;
+          padding: 5px 10px;
+          border-radius: 3px;
+
+          background-color: #c44d48;
+
+          visibility: hidden;
+          opacity: 0;
+
+          text-align: center;
+          left:50%;
+          transform: translateX(-50%) translateY(-50%);
+
+          -webkit-transform: translateX(-50%) translateY(-50%);
+          -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s ease;
+          transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s ease;
+
+          &::after {
+            position: absolute;
+            left: 50%;
+            margin-left: -10px;
+            width: 0;
+            height: 0;
+            border: solid transparent;
+            border-width: 10px;
+            border-color: transparent;
+            border-top-color: #c44d48;
+            content: '';
+            pointer-events: none;
+            top: 99%;
+          }
+        } // end of .tooltip
+
+        &.current {
+          z-index: 999;
+
+          .dot {
+            background-color: white;
+            -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+          }
+
+          .tooltip {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  } // end of .dots
+
+// Header
+// -------------------------
+
+  header {
+    @include center();
+    margin-top: 50px;
+
+    h1, h2, h3, h4, h5 {
+      color: white;
+      text-shadow: 1px 1px #000;
+    }
+  }
+
+  nav.dots {
+    margin-top: 15px;
+  }
