@@ -49,6 +49,18 @@
     }
   }
 
+  p {
+    font-family: $secondary-font;
+    font-weight: $secondary-font-weight;
+
+    color: white;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+    line-height: 2;
+    text-align: center;
+    // text-indent: 25px;
+  }
+
   ul {
     list-style: none;
     list-style-type: none;
@@ -79,6 +91,8 @@
   }
 
   .tooltip {
+    font-size: 0.8em;
+    letter-spacing: 1px;
     position: absolute;
     color: white;
 
@@ -141,7 +155,7 @@
           height: 100%;
           outline: none;
           border-radius: 50%;
-          background-color: rgba(255, 255, 255, 0.3);
+          background-color: $opaque-grey;
           cursor: pointer;
           position: absolute;
 
@@ -181,7 +195,7 @@
 
   header {
     @include center();
-    margin-top: 50px;
+    margin-top: 30px;
 
     h1, h2, h3, h4, h5 {
       color: white;
@@ -196,7 +210,20 @@
 // Main Content
 // -------------------------
   .main {
+    @include center();
     flex: 2;
+  }
+
+  .blurb {
+    background-color: rgba(97, 97, 97, 0.6);
+    max-width: 75%;
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  .activity {
+    visibility: hidden;
+    opacity: 0;
   }
 
 // Icons
@@ -236,13 +263,13 @@
 
     .tooltip {
       margin-top: -40%;
-      background-color: rgba(97,97,97,0.9);
+      background-color: $solid-grey;
 
       -webkit-transition: -webkit-transform 0.3s ease, background-color 0.3s ease;
       transition: transform 0.3s ease, background-color 0.3s ease;
 
       &::after {
-        border-top-color: rgba(97,97,97,0.9);
+        border-top-color: $solid-grey;
       }
     }
   }

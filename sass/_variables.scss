@@ -1,9 +1,15 @@
 @import url('http://fonts.googleapis.com/css?family=Roboto+Slab');
+@import url('http://fonts.googleapis.com/css?family=Roboto:100');
 
 $primary-font:          'Roboto Slab', serif;
 $primary-font-weight:   400;
 
+$secondary-font:        'Roboto', sans-serif;
+$secondary-font-weight: 100;
+
 $blue:                  #0288D1;
+$opaque-grey:           rgba(255, 255, 255, 0.3);
+$solid-grey:            rgba(97, 97, 97, 0.9);
 
 // Mixins
 // -------------------------
