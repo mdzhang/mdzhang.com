@@ -79,6 +79,6 @@ dotClick = (event) ->
 
 # DOM is ready
 $ ->
-  $('.dot').hover dotHover
-  $('.dot').mouseleave dotHoverOut
-  $(".dot").click dotClick
+  $('.tooltip-target').hover dotHover
+  $('.tooltip-target').mouseleave dotHoverOut
+  $(".tooltip-target").click dotClick

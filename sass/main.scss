@@ -41,6 +41,8 @@
   }
 
   a {
+    text-decoration: none;
+
     &:hover {
       text-decoration: none;
       cursor: pointer;
@@ -76,8 +78,44 @@
     cursor: pointer;
   }
 
+  .tooltip {
+    position: absolute;
+    color: white;
+
+    padding: 5px 10px;
+    border-radius: 3px;
+
+    background-color: #c44d48;
+
+    visibility: hidden;
+    opacity: 0;
+
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s ease;
+
+    &::after {
+      position: absolute;
+      left: 50%;
+      margin-left: -10px;
+      width: 0;
+      height: 0;
+      border: solid transparent;
+      border-width: 10px;
+      border-color: transparent;
+      border-top-color: #c44d48;
+      content: '';
+      pointer-events: none;
+      top: 99%;
+    }
+  }
+
 // Dots
-// From http://tympanus.net/Development/DotNavigationStyles/
+// http://tympanus.net/Development/DotNavigationStyles/
 // -------------------------
   .dots {
     display: flex;
@@ -117,40 +155,7 @@
         } // end of .dot
 
         .tooltip {
-          position: absolute;
-          color: white;
-
           margin-top: -250%;
-          padding: 5px 10px;
-          border-radius: 3px;
-
-          background-color: #c44d48;
-
-          visibility: hidden;
-          opacity: 0;
-
-          text-align: center;
-          left:50%;
-          transform: translateX(-50%) translateY(-50%);
-
-          -webkit-transform: translateX(-50%) translateY(-50%);
-          -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s ease;
-          transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s ease;
-
-          &::after {
-            position: absolute;
-            left: 50%;
-            margin-left: -10px;
-            width: 0;
-            height: 0;
-            border: solid transparent;
-            border-width: 10px;
-            border-color: transparent;
-            border-top-color: #c44d48;
-            content: '';
-            pointer-events: none;
-            top: 99%;
-          }
         } // end of .tooltip
 
         &.current {
@@ -186,4 +191,58 @@
 
   nav.dots {
     margin-top: 15px;
+  }
+
+// Main Content
+// -------------------------
+  .main {
+    flex: 2;
+  }
+
+// Icons
+// -------------------------
+  .icons {
+    @include center();
+    flex-direction: row;
+    position: relative;
+
+    padding: 25px;
+    margin: 0 auto;
+
+    .icon {
+      position: relative;
+
+      padding: 0px 10px;
+
+      .circle {
+        position: relative;
+
+        @include circle(26px);
+        @include center();
+        cursor: pointer;
+
+        background-color: $blue;
+
+        i {
+          color: white;
+          cursor: inherit;
+        }
+
+        &:hover {
+          background-color: lighten($blue, 20%);
+        }
+      }
+    }
+
+    .tooltip {
+      margin-top: -40%;
+      background-color: rgba(97,97,97,0.9);
+
+      -webkit-transition: -webkit-transform 0.3s ease, background-color 0.3s ease;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+
+      &::after {
+        border-top-color: rgba(97,97,97,0.9);
+      }
+    }
   }

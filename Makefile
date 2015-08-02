@@ -10,6 +10,6 @@ grunt:
 	${GRUNT}
 
 clean:
-	rm -rf public/build
+	rm -rf public/build/tmp
 
 .PHONY: build bower grunt clean

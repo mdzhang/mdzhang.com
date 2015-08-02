@@ -58,9 +58,9 @@
   };
 
   $(function() {
-    $('.dot').hover(dotHover);
-    $('.dot').mouseleave(dotHoverOut);
-    return $(".dot").click(dotClick);
+    $('.tooltip-target').hover(dotHover);
+    $('.tooltip-target').mouseleave(dotHoverOut);
+    return $(".tooltip-target").click(dotClick);
   });
 
 }).call(this);
