@@ -108,7 +108,7 @@
     padding: 5px 10px;
     border-radius: 3px;
 
-    background-color: #c44d48;
+    background-color: $blue;
 
     visibility: hidden;
     opacity: 0;
@@ -130,7 +130,7 @@
       border: solid transparent;
       border-width: 10px;
       border-color: transparent;
-      border-top-color: #c44d48;
+      border-top-color: $blue;
       content: '';
       pointer-events: none;
       top: 99%;
@@ -236,6 +236,10 @@
     display: none;
   }
 
+  .projects {
+    display: none;
+  }
+
 // Icons
 // -------------------------
   .icons {
@@ -247,7 +251,6 @@
 
     padding: 25px;
     margin: 0 auto;
-    margin-top: 40px;
 
     .icon {
       position: relative;

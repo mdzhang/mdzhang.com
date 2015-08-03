@@ -1,6 +1,7 @@
 mainContent =
   'Home': '.blurb'
   'Activity': '.activity'
+  'Projects': '.projects'
   'Contact': '.contact'
 
 # show element and hide siblings
@@ -20,7 +21,7 @@ dotNavClick = (event) ->
   name = dot.attr('name')
 
   switch name
-    when 'Home', 'Activity'
+    when 'Home', 'Activity', 'Projects'
       el = $('div.main').find(mainContent[name])
       toggle(el)
     when 'Contact'

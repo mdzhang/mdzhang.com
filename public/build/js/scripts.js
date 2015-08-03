@@ -4,6 +4,7 @@
   mainContent = {
     'Home': '.blurb',
     'Activity': '.activity',
+    'Projects': '.projects',
     'Contact': '.contact'
   };
 
@@ -22,6 +23,7 @@
     switch (name) {
       case 'Home':
       case 'Activity':
+      case 'Projects':
         el = $('div.main').find(mainContent[name]);
         toggle(el);
         break;
