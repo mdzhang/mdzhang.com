@@ -37,13 +37,13 @@ This repository holds the code for my personal website, mdzhang.com
 * Set up deployment
   * See how to [Host a Static Website on Amazon Web Services](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html)
   * Grab s3cmd to sync your repo with your S3 bucket
-      * ```
-        brew install s3cmd
-        ```
+      ```
+      brew install s3cmd
+      ```
   * Configure s3cmd with your Access and Secret key
-      * ```
-        s3cmd --configure
-        ```
+      ```
+      s3cmd --configure
+      ```
   * Redefine S3_BUCKET in the Makefile
 
 ### Development
