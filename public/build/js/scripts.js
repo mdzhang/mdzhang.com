@@ -1,7 +1,43 @@
 (function() {
-  var dotClick, dotHover, dotHoverOut;
+  var dotNavClick, mainContent, toggle, tooltipTargetClick, tooltipTargetHover, tooltipTargetHoverOut;
 
-  dotHover = function(event) {
+  mainContent = {
+    'Home': '.blurb',
+    'Activity': '.activity',
+    'Contact': '.contact'
+  };
+
+  toggle = function(element) {
+    $('div.main').css('display', '');
+    _.chain(mainContent).values().each(function(content) {
+      return $('div.main').find(content).css('display', 'none');
+    }).value();
+    element.css('display', 'inline');
+  };
+
+  dotNavClick = function(event) {
+    var dot, el, name;
+    dot = $(event.target);
+    name = dot.attr('name');
+    switch (name) {
+      case 'Home':
+      case 'Activity':
+        el = $('div.main').find(mainContent[name]);
+        toggle(el);
+        break;
+      case 'Contact':
+        el = $('div.main').css('display', 'none');
+    }
+  };
+
+  $(function() {
+    $('.tooltip-target').hover(tooltipTargetHover);
+    $('.tooltip-target').mouseleave(tooltipTargetHoverOut);
+    $(".tooltip-target").click(tooltipTargetClick);
+    $('div.dot').click(dotNavClick);
+  });
+
+  tooltipTargetHover = function(event) {
     var currentLi, dot, selectedLi, ul;
     dot = $(event.target);
     selectedLi = dot.parent();
@@ -18,10 +54,10 @@
     if (!currentLi) {
       return;
     }
-    return currentLi.find('.tooltip').css('opacity', 0.5);
+    currentLi.find('.tooltip').css('opacity', 0.5);
   };
 
-  dotHoverOut = function(event) {
+  tooltipTargetHoverOut = function(event) {
     var currentLi, dot, selectedLi, ul;
     dot = $(event.target);
     selectedLi = dot.parent();
@@ -35,10 +71,10 @@
       visibility: 'hidden',
       opacity: 0
     });
-    return ul.find('.current').find('.tooltip').css('opacity', 1);
+    ul.find('.current').find('.tooltip').css('opacity', 1);
   };
 
-  dotClick = function(event) {
+  tooltipTargetClick = function(event) {
     var currentLi, dot, selectedLi, ul;
     dot = $(event.target);
     selectedLi = dot.parent();
@@ -54,13 +90,7 @@
         opacity: 0
       });
     }
-    return selectedLi.addClass('current');
+    selectedLi.addClass('current');
   };
-
-  $(function() {
-    $('.tooltip-target').hover(dotHover);
-    $('.tooltip-target').mouseleave(dotHoverOut);
-    return $(".tooltip-target").click(dotClick);
-  });
 
 }).call(this);

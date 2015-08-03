@@ -90,6 +90,13 @@
     cursor: pointer;
   }
 
+  .container {
+    background-color: rgba(97, 97, 97, 0.6);
+    max-width: 75%;
+    border-radius: 20px;
+    padding: 20px;
+  }
+
   .tooltip {
     font-size: 0.8em;
     letter-spacing: 1px;
@@ -215,15 +222,10 @@
   }
 
   .blurb {
-    background-color: rgba(97, 97, 97, 0.6);
-    max-width: 75%;
-    border-radius: 20px;
-    padding: 20px;
   }
 
   .activity {
-    visibility: hidden;
-    opacity: 0;
+    display: none;
   }
 
 // Icons
@@ -235,6 +237,7 @@
 
     padding: 25px;
     margin: 0 auto;
+    margin-top: 40px;
 
     .icon {
       position: relative;
