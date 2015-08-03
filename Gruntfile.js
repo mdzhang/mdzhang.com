@@ -53,7 +53,7 @@ module.exports = function(grunt) {
       },
       compile: {
         files: {
-          'public/build/js/scripts.js': 'coffee/**/*.coffee'
+          'public/build/tmp/scripts.js': 'coffee/**/*.coffee'
         }
       }
     },
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: {
-          'public/build/js/bower.js': bowerjs
+          'public/build/tmp/bower.js': bowerjs
           // 'public/build/js/scripts.js': 'js/**/*.js'
         }
       },
@@ -87,24 +87,24 @@ module.exports = function(grunt) {
       options: {
         jshintrc: true
       },
-      src: 'public/build/js/scripts.js'
+      src: 'public/build/tmp/scripts.js'
     },
     // check js code style
     jscs: {
       options: {
         config: ".jscsrc"
       },
-      src: 'public/build/js/scripts.js'
+      src: 'public/build/tmp/scripts.js'
     },
     // minify js files
-    // uglify: {
-    //   target: {
-    //     files: {
-    //       'public/build/tmp/scripts.min.js': ['app/{,*/}*.js'],
-    //       'public/build/js/scripts.min.js': ['public/build/tmp/scripts.min.js']
-    //     }
-    //   }
-    // },
+    uglify: {
+      target: {
+        files: {
+          'public/build/js/bower.min.js': 'public/build/tmp/bower.js',
+          'public/build/js/scripts.min.js': 'public/build/tmp/scripts.js'
+        }
+      }
+    },
     copy: {
       target: {
         files: [
@@ -162,7 +162,7 @@ module.exports = function(grunt) {
   // Default task(s).
   grunt.registerTask('buildhtml', ['jade']);
   grunt.registerTask('buildcss', ['sass', 'concat:css', 'cssmin']);
-  grunt.registerTask('buildjs', ['coffee', 'jshint', 'jscs', 'concat:js']); // , 'uglify'
+  grunt.registerTask('buildjs', ['coffee', 'jshint', 'jscs', 'concat:js', 'uglify']);
   grunt.registerTask('build', ['buildhtml', 'buildcss', 'buildjs', 'copy', 'clean']);
   grunt.registerTask('default', ['build', 'watch']);
 };
