@@ -22,7 +22,9 @@
     font-weight: $primary-font-weight;
 
     display: flex;
+    display: -webkit-flex;
     flex-flow: column;
+    -webkit-flex-flow: column;
 
     background-image: url('../img/pp.jpg');
     background-repeat: no-repeat;
@@ -140,12 +142,16 @@
 // -------------------------
   .dots {
     display: flex;
+    display: -webkit-flex;
     flex-direction: column;
+    -webkit-flex-direction: column;
 
     ul {
       position: relative;
       display: flex;
+      display: -webkit-flex;
       flex-direction: row;
+      -webkit-flex-direction: row;
       margin-top: 40px;
 
       li {
@@ -203,6 +209,7 @@
   header {
     @include center();
     margin-top: 30px;
+    margin-bottom: 30px;
 
     h1, h2, h3, h4, h5 {
       color: white;
@@ -219,6 +226,7 @@
   .main {
     @include center();
     flex: 2;
+    -webkit-flex: 2;
   }
 
   .blurb {
@@ -233,6 +241,8 @@
   .icons {
     @include center();
     flex-direction: row;
+    -webkit-flex-direction: row;
+
     position: relative;
 
     padding: 25px;
