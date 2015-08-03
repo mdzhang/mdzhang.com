@@ -13,12 +13,10 @@ grunt:
 clean:
 	rm -rf public/build/tmp
 
-deploy:
-	make build && \
-	s3cmd sync --delete-removed --acl-public -n \
-		--exclude '*' \
-		--exclude '*.*' \
-		--include 'public/build' \
-		./ s3://$(S3_BUCKET)/
+deploy-test:
+	s3cmd sync --delete-removed --acl-public -n 'public/build/' s3://$(S3_BUCKET)/
 
-.PHONY: build bower grunt clean deploy
+deploy:
+	s3cmd sync --delete-removed --acl-public 'public/build/' s3://$(S3_BUCKET)/
+
+.PHONY: build bower grunt clean deploy-test deploy
