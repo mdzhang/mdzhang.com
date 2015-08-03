@@ -14,6 +14,7 @@
     "jquery": "latest",
     "lodash": "latest",
     "font-awesome": "latest",
-    "bluebird": "latest"
+    "bluebird": "latest",
+    "jquery.xml2json": "latest"
   }
 }
