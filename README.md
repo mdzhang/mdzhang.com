@@ -11,8 +11,8 @@ This repository holds the code for my personal website, mdzhang.com
 
 * Install Xcode Command Line Tools
     ```
-    // You should get a popup to install Xcode Command Line Tools if you don't already have it
-    // if you try the following command
+    // You should get a popup to install Xcode Command Line Tools
+    // if you don't already have it if you try the following command
     make
     ```
 
@@ -37,12 +37,13 @@ This repository holds the code for my personal website, mdzhang.com
 ### Development
 
 To begin development:
+
+* Start the asset compiler
     ```
-    // To build html/css/js files and watch/rebuild files on change
     make build
     ```
 
-and in a new tab, open the static index.html file in your browser:
+* and in a new tab, open the static index.html file in your browser:
     ```
     make open
     ```
