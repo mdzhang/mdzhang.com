@@ -1,5 +1,6 @@
 GRUNT = ./node_modules/.bin/grunt
 BOWER = ./node_modules/bower/bin/bower
+S3_BUCKET = mdzhang.com
 
 build: clean bower grunt
 
@@ -12,4 +13,12 @@ grunt:
 clean:
 	rm -rf public/build/tmp
 
-.PHONY: build bower grunt clean
+deploy:
+	make build && \
+	s3cmd sync --delete-removed --acl-public -n \
+		--exclude '*' \
+		--exclude '*.*' \
+		--include 'public/build' \
+		./ s3://$(S3_BUCKET)/
+
+.PHONY: build bower grunt clean deploy

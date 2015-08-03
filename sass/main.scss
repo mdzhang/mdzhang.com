@@ -108,7 +108,7 @@
     padding: 5px 10px;
     border-radius: 3px;
 
-    background-color: $blue;
+    background-color: $red;
 
     visibility: hidden;
     opacity: 0;
@@ -130,7 +130,7 @@
       border: solid transparent;
       border-width: 10px;
       border-color: transparent;
-      border-top-color: $blue;
+      border-top-color: $red;
       content: '';
       pointer-events: none;
       top: 99%;
@@ -272,7 +272,7 @@
         }
 
         &:hover {
-          background-color: lighten($blue, 20%);
+          background-color: lighten($blue, 10%);
         }
       }
     }
