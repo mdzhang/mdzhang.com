@@ -124,7 +124,7 @@ module.exports = function(grunt) {
     // watch for edits and rebuild accordingly
     watch: {
       options: {
-        livereload: true,
+        livereload: true
       },
       config: {
         files: ['.jscsrc', '.jshintrc', 'Gruntfile.js', 'bower.json'],
