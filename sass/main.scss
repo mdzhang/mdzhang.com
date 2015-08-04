@@ -94,7 +94,6 @@
 
   .container {
     background-color: rgba(97, 97, 97, 0.6);
-    max-width: 60%;
     border-radius: 20px;
     padding: 20px;
   }
@@ -230,10 +229,40 @@
   }
 
   .blurb {
+    flex-direction: column;
+
+    &.container {
+      max-width: 60%;
+    }
   }
 
   .activity {
+    @include center();
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+
+    flex-direction: row;
+    -webkit-flex-direction: row;
     display: none;
+
+    &.container {
+      max-width: 95%;
+      overflow-x: scroll;
+    }
+
+    .game, .book, .show {
+      padding: 0px 20px;
+
+      &:hover {
+        a {
+          cursor: pointer;
+
+          img {
+            cursor: inherit;
+          }
+        }
+      }
+    }
   }
 
   .projects {

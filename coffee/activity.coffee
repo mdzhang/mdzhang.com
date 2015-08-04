@@ -1,5 +1,5 @@
 mode = 'local'
-proxyServerUrl = 'http://localhost:8000/path='
+corsProxyUrl = 'http://crossorigin.me/'
 
 Activity = () ->
   _this = @
@@ -8,26 +8,46 @@ Activity = () ->
     _this.books = []
     _this.shows = []
     _this.games = []
+    _this.loading = true
+    _this.current = 'game'
 
     Promise.join(_this.getBooks(), _this.getAnime(), _this.getGames(), (books, anime, games) ->
       _this.books = books
       _this.shows = anime
       _this.games = games
 
+      _this.render()
+      _this.loading = false
+
       return
     )
 
-  _this.request = (url, params) ->
+  _this.render = () ->
+    data = _this[_this.current + 's']
+    template = $.templates('#' + _this.current + 'Template')
+    html = template.render(data)
 
-    if mode == 'local'
-      url += _.chain(params).map((value, key) ->
-        return key + '=' + value
-      ).join('&').value()
-      params = {}
+    $('.activity').html(html)
+    return
 
-      url = proxyServerUrl + url
+  _this.getCorsProxyUrl = (url, params) ->
+    url += _.chain(params).map((value, key) ->
+      return key + '=' + value
+    ).join('&').value()
 
-    return Promise.resolve($.get(url, params));
+    url = corsProxyUrl + url
+
+    return url
+
+  _this.request = (method, url, params) ->
+
+    url = _this.getCorsProxyUrl(url, params)
+
+    settings =
+      type: method
+      url: url
+
+    return Promise.resolve($.ajax(settings))
 
   ###
    Request games I've recently played from Steam.
@@ -40,7 +60,7 @@ Activity = () ->
       steamid: '76561198046100572'
       format: 'json'
 
-    return _this.request(url, params)
+    return _this.request('GET', url, params)
       .then (data) -> # success
         games = data && data.response && data.response.games
 
@@ -83,7 +103,7 @@ Activity = () ->
       key: 'P78YnKD8IcTJLSJM6OwWw',
       # user_id: '13686342'
 
-    return _this.request(url, params)
+    return _this.request('GET', url, params)
       .then (xml) -> # success
         json = $.xml2json(xml)
         books = _this.formatGoodreadsResponse(json)
@@ -130,13 +150,15 @@ Activity = () ->
   _this.getAnime = () ->
     url = 'https://api.atarashiiapp.com/animelist/eeemaroo'
 
-    return _this.request(url, {})
+    return _this.request('GET', url, {})
       .then (data) -> # success
         anime = data && data.anime
 
         if anime
           anime = _this.formatMALApiResponse(anime)
           console.info 'Fetched MyAnimeList anime: ', anime
+        else
+          throw new Error('Given bad data: ' + data)
 
         return anime
       .catch (err) -> # error

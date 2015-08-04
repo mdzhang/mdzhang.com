@@ -6,7 +6,8 @@ module.exports = function(grunt) {
     'lodash/lodash.js',
     'jquery/dist/jquery.js',
     'bluebird/js/browser/bluebird.js',
-    'jquery.xml2json/src/jquery.xml2json.js'
+    'jquery.xml2json/src/jquery.xml2json.js',
+    'jsrender/jsrender.js'
   ];
 
   var bowercss = [
@@ -30,6 +31,13 @@ module.exports = function(grunt) {
             src: 'jade/index.jade',
             dest: 'public/build/index.html'
           }
+          // {
+          //   cwd: 'jade/templates',
+          //   src: '*.jade',
+          //   dest: "public/build/templates",
+          //   expand: true,
+          //   ext: ".html"
+          // }
         ]
       }
     },

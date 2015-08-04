@@ -12,7 +12,7 @@ toggle = (element) ->
     $('div.main').find(content).css('display', 'none')
   ).value()
 
-  element.css('display', 'inline')
+  element.css('display', 'flex')
 
   return
 

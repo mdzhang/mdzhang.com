@@ -11,7 +11,9 @@
     "_": false,
     "$": false,
     "window": false,
-    "Promise": false
+    "Promise": false,
+    "XMLHttpRequest": false,
+    "jade": false
   },
   "debug": true
 }
