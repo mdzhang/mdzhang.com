@@ -1,4 +1,6 @@
+//- No photo photos are given in 111x148
+//- We need them in about 161x215
 script(id='bookTemplate', type='text/x-jsrender')
-  li.book
-    a(href='{{ :link }}')
-      img(src='{{ :image_url }}')
+  div.book
+    a(href='{{:link}}')
+      img(src='{{:image_url}}', height='215')

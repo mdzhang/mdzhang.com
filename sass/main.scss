@@ -243,6 +243,7 @@
 
     flex-direction: row;
     -webkit-flex-direction: row;
+
     display: none;
 
     &.container {
@@ -250,19 +251,70 @@
       overflow-x: scroll;
     }
 
-    .game, .book, .show {
-      padding: 0px 20px;
+    .nav {
+      @include center();
+      flex-direction: column;
+      -webkit-flex-direction: column;
 
-      &:hover {
-        a {
+      position: relative;
+
+      .icon {
+        position: relative;
+
+        padding: 0px 5px;
+        margin: 5px 0px;
+
+        .circle {
+          position: relative;
+
+          @include circle(18px);
+          @include center();
           cursor: pointer;
 
-          img {
+          background-color: $green;
+
+          i {
+            color: white;
             cursor: inherit;
+          }
+
+          &:hover {
+            background-color: lighten($green, 10%);
+          }
+
+          &.selected {
+            background-color: white;
+            i {
+              color: $green
+            }
           }
         }
       }
     }
+
+    .content {
+      @include center();
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+
+      flex-direction: row;
+      -webkit-flex-direction: row;
+
+      .game, .book, .show {
+        padding: 0px 20px;
+
+        &:hover {
+          a {
+            cursor: pointer;
+
+            img {
+              cursor: inherit;
+            }
+          }
+        }
+      }
+    }
+
   }
 
   .projects {

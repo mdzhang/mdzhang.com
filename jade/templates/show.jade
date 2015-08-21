@@ -1,4 +1,6 @@
+//- anime images come in 225 width by 310 height
+//- need to scale down to 155 width by 215 height
 script(id='showTemplate', type='text/x-jsrender')
-  li.show
-    a(href='{{ :link }}')
-      img(src='{{ :image_url }}')
+  div.show
+    a(href='{{:link}}')
+      img(src='{{:image_url}}', width='155', height='215')

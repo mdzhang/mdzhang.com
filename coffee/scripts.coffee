@@ -4,6 +4,8 @@ mainContent =
   'Projects': '.projects'
   'Contact': '.contact'
 
+activity = Activity()
+
 # show element and hide siblings
 toggle = (element) ->
   $('div.main').css('display', '')
@@ -29,6 +31,20 @@ dotNavClick = (event) ->
 
   return
 
+activityNavClick = (event) ->
+  circle = $(event.currentTarget)
+  name = circle.attr('name')
+
+  success = activity.switchActivity(name)
+
+  previouslySelected = $('div.container.activity > ul.nav').find('.selected');
+
+  if success
+    circle.addClass('selected')
+    previouslySelected.removeClass('selected')
+
+  return
+
 # DOM is ready
 $ ->
   $('.tooltip-target').hover tooltipTargetHover
@@ -36,5 +52,6 @@ $ ->
   $(".tooltip-target").click tooltipTargetClick
 
   $('div.dot').click dotNavClick
+  $('a.circle.activityNav').click activityNavClick
 
   return

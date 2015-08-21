@@ -2,14 +2,15 @@ mode = 'local'
 corsProxyUrl = 'http://crossorigin.me/'
 
 Activity = () ->
-  _this = @
+  _this = {}
 
   _this.init = () ->
     _this.books = []
     _this.shows = []
     _this.games = []
     _this.loading = true
-    _this.current = 'game'
+    _this.activities = ['game', 'book', 'show']
+    _this.current = 'book'
 
     Promise.join(_this.getBooks(), _this.getAnime(), _this.getGames(), (books, anime, games) ->
       _this.books = books
@@ -22,12 +23,21 @@ Activity = () ->
       return
     )
 
+  _this.switchActivity = (activity) ->
+    if !_.contains(_this.activities, activity)
+      console.error 'Invalid activity provided: ', activity
+      return
+
+    _this.current = activity
+    _this.render()
+    return true
+
   _this.render = () ->
     data = _this[_this.current + 's']
     template = $.templates('#' + _this.current + 'Template')
     html = template.render(data)
 
-    $('.activity').html(html)
+    $('.content').html(html)
     return
 
   _this.getCorsProxyUrl = (url, params) ->
@@ -99,7 +109,7 @@ Activity = () ->
     params =
       format: 'xml',
       v: '2',
-      shelf: 'to-read',
+      shelf: 'currently-reading',
       key: 'P78YnKD8IcTJLSJM6OwWw',
       # user_id: '13686342'
 
@@ -109,7 +119,6 @@ Activity = () ->
         books = _this.formatGoodreadsResponse(json)
 
         if books
-          books = _this.formatSteamResponse(books)
           console.info 'Fetched Goodreads books: ', books
 
         return books
@@ -129,18 +138,21 @@ Activity = () ->
       else if _.isObject(data.reviews.review)
         books = [data.reviews.review]
 
+      books = _.pluck(books, 'book')
+
       _.each(books, (book) ->
-        book.book.started_at = book.started_at
+        if _.isArray(book.authors.author)
+          book.author = book.authors.author[0]
+        else if _.isObject(book.authors.author)
+          book.author = book.authors.author
 
-        if _.isArray(book.book.authors.author)
-          book.book.author = book.book.authors.author[0]
-        else if _.isObject(book.book.authors.author)
-          book.book.author = book.book.authors.author
-
+        if book.image_url.indexOf('nophoto') > -1
+          return
+        else
+          # e.g. "https://d.gr-assets.com/books/1406383612m/9969571.jpg"
+          book.image_url = book.image_url.replace(/(books\/\d+)([a-z]{1})(\/\d+.*)/, '$1l$3')
         return
       )
-
-      books = _.pluck(books, 'book')
 
       return books
 
@@ -148,7 +160,7 @@ Activity = () ->
     Request anime I'm watching from MAL-api, built on top of MyAnimeList.
   ###
   _this.getAnime = () ->
-    url = 'https://api.atarashiiapp.com/animelist/eeemaroo'
+    url = 'https://api.atarashiiapp.com/1/animelist/eeemaroo'
 
     return _this.request('GET', url, {})
       .then (data) -> # success
@@ -157,8 +169,6 @@ Activity = () ->
         if anime
           anime = _this.formatMALApiResponse(anime)
           console.info 'Fetched MyAnimeList anime: ', anime
-        else
-          throw new Error('Given bad data: ' + data)
 
         return anime
       .catch (err) -> # error
@@ -181,6 +191,4 @@ Activity = () ->
 
   _this.init()
 
-  return
-
-Activity()
+  return _this
