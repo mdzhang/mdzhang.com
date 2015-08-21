@@ -1,15 +1,18 @@
 @import url('http://fonts.googleapis.com/css?family=Roboto+Slab');
 @import url('http://fonts.googleapis.com/css?family=Roboto:100');
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,200');
 
-$primary-font:          'Roboto Slab', serif;
-$primary-font-weight:   400;
+$primary-font:          'Open Sans', sans-serif;
+$primary-font-weight:   300;
 
-$secondary-font:        'Roboto', sans-serif;
-$secondary-font-weight: 100;
+$secondary-font:        'Open Sans', sans-serif;
+$secondary-font-weight: 200;
 
-$red:                   #c44d48;
-$blue:                  #0288D1;
-$green:                 #00b159;
+$red:                   #FE57A1;
+$blue:                  #26C6DA;
+$green:                 #339966;
+$eggplant:              #1B1B24;
+$light-eggplant:        lighten($eggplant, 10%);
 $opaque-grey:           rgba(255, 255, 255, 0.3);
 $solid-grey:            rgba(97, 97, 97, 0.9);
 
