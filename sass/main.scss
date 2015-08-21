@@ -294,7 +294,7 @@
           }
 
           &:hover {
-            background-color: lighten($green, 10%);
+            background-color: darken($green, 10%);
           }
 
           &.selected {
@@ -368,7 +368,7 @@
         }
 
         &:hover {
-          background-color: lighten($blue, 10%);
+          background-color: darken($blue, 10%);
         }
       }
     }
