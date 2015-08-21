@@ -15,7 +15,9 @@ clean:
 	rm -rf public/build/tmp
 
 open:
-	open $(DIR)/public/build/index.html
+	python -m SimpleHTTPServer 8000 &
+	open http://localhost:8000/public/build/
+
 
 deploy-test:
 	s3cmd sync --delete-removed --acl-public -n 'public/build/' s3://$(S3_BUCKET)/
