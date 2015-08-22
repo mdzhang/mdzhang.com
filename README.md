@@ -1,6 +1,6 @@
-# [mdzhang.com](mdzhang.com)
+# [http://mdzhang.com](mdzhang.com)
 
-This repository holds the code for my personal website, mdzhang.com
+This repository holds the code for my personal website, [http://mdzhang.com](mdzhang.com)
 
 ## Table of Contents
 

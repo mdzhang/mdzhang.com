@@ -1,7 +1,6 @@
 GRUNT = ./node_modules/.bin/grunt
 BOWER = ./node_modules/bower/bin/bower
 S3_BUCKET = mdzhang.com
-DIR = $(CURDIR)
 
 build: clean bower grunt
 
