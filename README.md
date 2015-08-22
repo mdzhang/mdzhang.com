@@ -56,7 +56,7 @@ This repository holds the code for my personal website, mdzhang.com
 * Set up analytics
   * See how to set up [https://support.google.com/analytics/answer/1008080?hl=en](Google Analytics) and replace the script at the bottom of head.jade with the script they provide
 
-* Verify with Google Webmater
+* Verify with Google Webmaster
   * See [https://www.google.com/webmasters/](here) for further instructions
   * Replace the old public/build/google9c723a7692fdf206.html verification page with your new verification html page
 
