@@ -3,3 +3,9 @@ node_modules
 bower_components
 .sass-cache
 scraps
+*.sublime-workspace
+
+# compiled assets
+public/build/css
+public/build/js
+public/build/index.html
