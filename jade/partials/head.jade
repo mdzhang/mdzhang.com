@@ -42,6 +42,30 @@ head
   meta(name='msapplication-wide310x150logo', content='./img/mstile-310x150.png')
   meta(name='msapplication-square310x310logo', content='./img/mstile-310x310.png')
 
+  //- google structured data
+  script(type="application/ld+json").
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Michelle D Zhang",
+      "description": "Michelle D. Zhang is a recent college grad and full stack software engineer",
+      "birthDate": "1993-12-13",
+      "email": "zhang.michelle.d@gmail.com",
+      "gender": "female",
+      "nationality": "American",
+      "additionalName": "Michelle",
+      "url": "http://mdzhang.com",
+      "image": "http://www.gravatar.com/avatar/6ec7da55967198680c3c4c81f880ab0c",
+      "jobTitle": "Full Stack Software Engineer",
+      "affiliation": "Abacus Labs, Inc.",
+      "sameAs" : [
+        "http://github.com/mdzhang",
+        "https://twitter.com/michelledzhang",
+        "https://plus.google.com/110264345397705195755",
+        "https://www.linkedin.com/in/mdzhang"
+      ]
+    }
+
   //- google analytics
   script.
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
