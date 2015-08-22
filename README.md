@@ -1,8 +1,15 @@
-## mdzhang.com
+# [mdzhang.com](mdzhang.com)
 
 This repository holds the code for my personal website, mdzhang.com
 
-### Installation
+## Table of Contents
+
+* [Installation](#installation)
+* [Development](#development)
+* [Deployment](#deployment)
+* [Copyright and license](#copyright-and-license)
+
+## Installation
 
 * Make sure you have [Homebrew](http://brew.sh/) installed on your machine.
     ```
@@ -56,7 +63,7 @@ This repository holds the code for my personal website, mdzhang.com
 * Generate a sitemap for your page e.g. [https://www.xml-sitemaps.com/](here) and move new sitemap to public/build/sitemap.xml
   * Upload your sitemap to [https://www.google.com/webmasters/tools/sitemap-list](Google Webmaster Tools)
 
-### Development
+## Development
 
 To begin development:
 
@@ -65,12 +72,12 @@ To begin development:
     make build
     ```
 
-* and in a new tab, open the static index.html file in your browser:
+* and in a new tab, start a local server to serve the site files and open the site in your browser:
     ```
     make open
     ```
 
-### Deployment
+## Deployment
 
 Just run
 
@@ -78,4 +85,11 @@ Just run
 make deploy
 ```
 
-TODO: deployment logs
+## Creators
+
+**Michelle D. Zhang**
+*<http://github.com/mdzhang>
+
+## Copyright and License
+
+Code copyright 2015 Michelle D. Zhang. Code released under the MIT license.
