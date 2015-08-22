@@ -46,6 +46,9 @@ This repository holds the code for my personal website, mdzhang.com
       ```
   * Redefine S3_BUCKET in the Makefile
 
+* Set up analytics
+  * See how to set up [https://support.google.com/analytics/answer/1008080?hl=en](Google Analytics) and replace the script at the bottom of head.jade with the script they provide
+
 ### Development
 
 To begin development:
@@ -67,3 +70,5 @@ Just run
 ```
 make deploy
 ```
+
+TODO: deployment logs
