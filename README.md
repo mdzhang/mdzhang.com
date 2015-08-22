@@ -88,7 +88,8 @@ make deploy
 ## Creators
 
 **Michelle D. Zhang**
-*<http://github.com/mdzhang>
+
+  * <http://github.com/mdzhang>
 
 ## Copyright and License
 
