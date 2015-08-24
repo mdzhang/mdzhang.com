@@ -5,7 +5,6 @@ module.exports = function(grunt) {
   var bowerjs = [
     'lodash/lodash.js',
     'jquery/dist/jquery.js',
-    'bluebird/js/browser/bluebird.js',
     'jquery.xml2json/src/jquery.xml2json.js',
     'jsrender/jsrender.js'
   ];

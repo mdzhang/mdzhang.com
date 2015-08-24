@@ -8,20 +8,10 @@ Activity = () ->
     _this.books = []
     _this.shows = []
     _this.games = []
-    _this.loading = true
+    # _this.loading = true
     _this.activities = ['game', 'book', 'show']
     _this.current = 'book'
-
-    Promise.join(_this.getBooks(), _this.getAnime(), _this.getGames(), (books, anime, games) ->
-      _this.books = books
-      _this.shows = anime
-      _this.games = games
-
-      _this.render()
-      _this.loading = false
-
-      return
-    )
+    return
 
   _this.switchActivity = (activity) ->
     if !_.contains(_this.activities, activity)
@@ -77,6 +67,10 @@ Activity = () ->
         if games
           games = _this.formatSteamResponse(games)
           console.info 'Fetched Steam games: ', games
+          _this.games = games
+
+          if _this.current == 'game'
+            _this.render()
 
         return games
       .catch (err) -> # error
@@ -120,6 +114,10 @@ Activity = () ->
 
         if books
           console.info 'Fetched Goodreads books: ', books
+          _this.books = books
+
+          if _this.current == 'book'
+            _this.render()
 
         return books
       .catch (err) -> # error
@@ -169,6 +167,10 @@ Activity = () ->
         if anime
           anime = _this.formatMALApiResponse(anime)
           console.info 'Fetched MyAnimeList anime: ', anime
+          _this.shows = anime
+
+          if _this.current == 'show'
+            _this.render()
 
         return anime
       .catch (err) -> # error
