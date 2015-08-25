@@ -11,6 +11,11 @@ Activity = () ->
     # _this.loading = true
     _this.activities = ['game', 'book', 'show']
     _this.current = 'book'
+
+    _this.getGames()
+    _this.getBooks()
+    _this.getAnime()
+
     return
 
   _this.switchActivity = (activity) ->

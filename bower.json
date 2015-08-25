@@ -13,6 +13,7 @@
   "dependencies": {
     "jquery": "latest",
     "lodash": "latest",
+    "bluebird": "latest",
     "font-awesome": "latest",
     "jquery.xml2json": "latest",
     "jsrender": "latest"
