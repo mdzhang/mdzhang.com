@@ -1,5 +1,7 @@
 # [mdzhang.com](http://mdzhang.com)
 
+[![Join the chat at https://gitter.im/mdzhang/mdzhang.com](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mdzhang/mdzhang.com?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This repository holds the code for my personal website, [mdzhang.com](http://mdzhang.com)
 
 ## Table of Contents
