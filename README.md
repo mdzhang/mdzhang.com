@@ -69,14 +69,14 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
 
 To begin development:
 
-* Start the asset compiler
+* Start the asset compiler and a local server to serve the site files, and open the files in your default browser
     ```
-    make build
+    make build & make open
     ```
 
-* and in a new tab, start a local server to serve the site files and open the site in your browser:
+* A shortcut for the above is 
     ```
-    make open
+    npm start
     ```
 
 ## Deployment
