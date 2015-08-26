@@ -6,7 +6,8 @@ module.exports = function(grunt) {
     'lodash/lodash.js',
     'jquery/dist/jquery.js',
     'jquery.xml2json/src/jquery.xml2json.js',
-    'jsrender/jsrender.js'
+    'jsrender/jsrender.js',
+    'bluebird/js/bluebird.js'
   ];
 
   var bowercss = [
@@ -30,13 +31,6 @@ module.exports = function(grunt) {
             src: 'jade/index.jade',
             dest: 'public/build/index.html'
           }
-          // {
-          //   cwd: 'jade/templates',
-          //   src: '*.jade',
-          //   dest: "public/build/templates",
-          //   expand: true,
-          //   ext: ".html"
-          // }
         ]
       }
     },
@@ -72,7 +66,6 @@ module.exports = function(grunt) {
       js: {
         files: {
           'public/build/tmp/bower.js': bowerjs
-          // 'public/build/js/scripts.js': 'js/**/*.js'
         }
       },
       css: {
@@ -80,13 +73,32 @@ module.exports = function(grunt) {
         dest: 'public/build/tmp/bower.css'
       }
     },
+    // process css e.g. adding vendor prefixes
+    postcss: {
+      options: {
+        processors: [
+          require('autoprefixer-core')({
+            browsers: 'last 2 versions'
+          }) // add vendor prefixes
+        ]
+      },
+      dist: {
+        src: 'public/build/tmp/styles.css'
+      }
+    },
     // minify css files
-    cssmin: {
+    // cssmin: {
+    //   target: {
+    //     files: {
+    //       'public/build/css/styles.min.css': 'public/build/tmp/styles.css',
+    //       'public/build/css/bower.min.css': 'public/build/tmp/bower.css'
+    //     }
+    //   }
+    // },
+    copy: {
       target: {
-        files: {
-          'public/build/css/styles.min.css': 'public/build/tmp/styles.css',
-          'public/build/css/bower.min.css': 'public/build/tmp/bower.css'
-        }
+        src: 'public/build/tmp/styles.css',
+        dest: 'public/build/css/styles.min.css'
       }
     },
     // check js code correctness
@@ -110,19 +122,6 @@ module.exports = function(grunt) {
           'public/build/js/bower.min.js': 'public/build/tmp/bower.js',
           'public/build/js/scripts.min.js': 'public/build/tmp/scripts.js'
         }
-      }
-    },
-    copy: {
-      target: {
-        files: [
-          {
-            expand: true,
-            cwd: 'public/fonts',
-            src: '*',
-            dest: 'public/build/fonts',
-            filter: 'isFile'
-          },
-        ]
       }
     },
     // clean temporary build files
@@ -158,18 +157,20 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks("grunt-jscs");
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-coffee');
 
   // Default task(s).
   grunt.registerTask('buildhtml', ['jade']);
-  grunt.registerTask('buildcss', ['sass', 'concat:css', 'cssmin']);
+  // TODO: css issue seems to be causing Safari/iOS issues
+  grunt.registerTask('buildcss', ['sass', 'concat:css', 'postcss', 'copy']);
   grunt.registerTask('buildjs', ['coffee', 'jshint', 'jscs', 'concat:js', 'uglify']);
-  grunt.registerTask('build', ['buildhtml', 'buildcss', 'buildjs', 'copy', 'clean']);
+  grunt.registerTask('build', ['buildhtml', 'buildcss', 'buildjs', 'clean']);
   grunt.registerTask('default', ['build', 'watch']);
 };
