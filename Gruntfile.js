@@ -87,18 +87,12 @@ module.exports = function(grunt) {
       }
     },
     // minify css files
-    // cssmin: {
-    //   target: {
-    //     files: {
-    //       'public/build/css/styles.min.css': 'public/build/tmp/styles.css',
-    //       'public/build/css/bower.min.css': 'public/build/tmp/bower.css'
-    //     }
-    //   }
-    // },
-    copy: {
+    cssmin: {
       target: {
-        src: 'public/build/tmp/styles.css',
-        dest: 'public/build/css/styles.min.css'
+        files: {
+          'public/build/css/styles.min.css': 'public/build/tmp/styles.css',
+          'public/build/css/bower.min.css': 'public/build/tmp/bower.css'
+        }
       }
     },
     // check js code correctness
@@ -169,7 +163,7 @@ module.exports = function(grunt) {
   // Default task(s).
   grunt.registerTask('buildhtml', ['jade']);
   // TODO: css issue seems to be causing Safari/iOS issues
-  grunt.registerTask('buildcss', ['sass', 'concat:css', 'postcss', 'copy']);
+  grunt.registerTask('buildcss', ['sass', 'concat:css', 'postcss', 'cssmin']);
   grunt.registerTask('buildjs', ['coffee', 'jshint', 'jscs', 'concat:js', 'uglify']);
   grunt.registerTask('build', ['buildhtml', 'buildcss', 'buildjs', 'clean']);
   grunt.registerTask('default', ['build', 'watch']);
