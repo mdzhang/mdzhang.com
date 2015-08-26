@@ -14,7 +14,9 @@ toggle = (element) ->
     $('div.main').find(content).css('display', 'none')
   ).value()
 
+  # TODO: messy to have to handle vendor prefixes here
   element.css('display', 'flex')
+  element.css('display', '-webkit-flex')
 
   return
 
