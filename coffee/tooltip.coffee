@@ -80,4 +80,8 @@ tooltipTargetClick = (event) ->
   # Select new dot as current
   selectedLi.addClass 'current'
 
+  if dot.attr('href')
+    selectedLi.removeClass 'current'
+    return
+
   return
