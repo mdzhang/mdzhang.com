@@ -24,7 +24,7 @@
     display: flex;
     flex-flow: column;
 
-    background-color: $eggplant;
+    background-color: $light-grey;
   }
 
   a {
@@ -41,12 +41,11 @@
     font-family: $secondary-font;
     font-weight: $secondary-font-weight;
 
-    color: white;
+    color: $darker-grey;
     font-size: 0.9em;
     letter-spacing: 0.5px;
     line-height: 2;
     text-align: center;
-    // text-indent: 25px;
   }
 
   ul {
@@ -79,8 +78,7 @@
   }
 
   .container {
-    background-color: $light-eggplant;
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 20px;
   }
 
@@ -91,9 +89,8 @@
     color: white;
 
     padding: 5px 10px;
-    border-radius: 3px;
 
-    background-color: $red;
+    background-color: $dark-grey;
 
     visibility: hidden;
     opacity: 0;
@@ -113,72 +110,12 @@
       border: solid transparent;
       border-width: 10px;
       border-color: transparent;
-      border-top-color: $red;
+      border-top-color: $dark-grey;
       content: '';
       pointer-events: none;
       top: 99%;
     }
   }
-
-// Dots
-// http://tympanus.net/Development/DotNavigationStyles/
-// -------------------------
-  .dots {
-    display: flex;
-    flex-direction: column;
-
-    ul {
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      margin-top: 40px;
-
-      li {
-        position: relative;
-        display: block;
-        margin: 0 14px;
-        width: 14px;
-        height: 14px;
-
-        .dot {
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          outline: none;
-          border-radius: 50%;
-          background-color: $opaque-grey;
-          cursor: pointer;
-          position: absolute;
-
-          &:hover, &:focus {
-            background-color: white;
-          }
-
-          transition: transform 0.3s ease, background-color 0.3s ease;
-
-        } // end of .dot
-
-        .tooltip {
-          margin-top: -250%;
-        } // end of .tooltip
-
-        &.current {
-          z-index: 999;
-
-          .dot {
-            background-color: white;
-            transform: scale(1.3);
-          }
-
-          .tooltip {
-            visibility: visible;
-            opacity: 1;
-          }
-        }
-      }
-    }
-  } // end of .dots
 
 // Header
 // -------------------------
@@ -188,14 +125,13 @@
     margin-top: 30px;
     margin-bottom: 30px;
 
-    h1, h2, h3, h4, h5 {
-      color: white;
-      text-shadow: 1px 1px #000;
+    h1 {
+      color: $dark-grey;
     }
-  }
 
-  nav.dots {
-    margin-top: 15px;
+    h2, h3, h4, h5 {
+      color: $blue;
+    }
   }
 
 // Main Content
@@ -209,101 +145,17 @@
     flex-direction: column;
 
     &.container {
-      max-width: 60%;
-    }
-
-    p {
-      text-align: left;
+      max-width: 55%;
     }
 
     a {
-      color: $light-purple;
+      color: $blue;
 
       &:hover {
         color: white;
-        background-color: $red;
+        background-color: $blue;
       }
     }
-  }
-
-  .activity {
-    @include center();
-    justify-content: flex-start;
-
-    flex-direction: row;
-
-    display: none;
-
-    &.container {
-      max-width: 95%;
-      overflow-x: scroll;
-    }
-
-    .nav {
-      @include center();
-      flex-direction: column;
-
-      position: relative;
-
-      .icon {
-        position: relative;
-
-        padding: 0px 5px;
-        margin: 5px 0px;
-
-        .circle {
-          position: relative;
-
-          @include circle(18px);
-          @include center();
-          cursor: pointer;
-
-          background-color: $green;
-
-          i {
-            color: white;
-            cursor: inherit;
-          }
-
-          &:hover {
-            background-color: darken($green, 10%);
-          }
-
-          &.selected {
-            background-color: white;
-            i {
-              color: $green
-            }
-          }
-        }
-      }
-    }
-
-    .content {
-      @include center();
-      justify-content: flex-start;
-
-      flex-direction: row;
-
-      .game, .book, .show {
-        padding: 0px 20px;
-
-        &:hover {
-          a {
-            cursor: pointer;
-
-            img {
-              cursor: inherit;
-            }
-          }
-        }
-      }
-    }
-
-  }
-
-  .projects {
-    display: none;
   }
 
 // Icons
@@ -337,19 +189,20 @@
         }
 
         &:hover {
-          background-color: darken($blue, 10%);
+          background-color: lighten($blue, 20%);
         }
       }
     }
 
     .tooltip {
       margin-top: -40%;
-      background-color: $solid-grey;
+      background-color: $grey;
+      color: white;
 
       transition: transform 0.3s ease, background-color 0.3s ease;
 
       &::after {
-        border-top-color: $solid-grey;
+        border-top-color: $grey;
       }
     }
   }

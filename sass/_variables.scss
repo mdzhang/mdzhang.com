@@ -8,14 +8,11 @@ $primary-font-weight:   300;
 $secondary-font:        'Open Sans', sans-serif;
 $secondary-font-weight: 200;
 
-$red:                   #FE57A1;
 $blue:                  #26C6DA;
-$green:                 #339966;
-$eggplant:              #1B1B24;
-$light-eggplant:        lighten($eggplant, 10%);
-$light-purple:          #8A8DB7;
-$opaque-grey:           rgba(255, 255, 255, 0.3);
-$solid-grey:            rgba(97, 97, 97, 0.9);
+$light-grey:            #fff;
+$grey:                  #888;
+$dark-grey:             #777;
+$darker-grey:           #444;
 
 // Mixins
 // -------------------------

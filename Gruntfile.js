@@ -162,7 +162,6 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('buildhtml', ['jade']);
-  // TODO: css issue seems to be causing Safari/iOS issues
   grunt.registerTask('buildcss', ['sass', 'concat:css', 'postcss', 'cssmin']);
   grunt.registerTask('buildjs', ['coffee', 'jshint', 'jscs', 'concat:js', 'uglify']);
   grunt.registerTask('build', ['buildhtml', 'buildcss', 'buildjs', 'clean']);
