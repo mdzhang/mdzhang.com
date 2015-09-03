@@ -1,6 +1,4 @@
-@import url('http://fonts.googleapis.com/css?family=Roboto+Slab');
-@import url('http://fonts.googleapis.com/css?family=Roboto:100');
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,200');
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,200,100');
 
 $primary-font:          'Open Sans', sans-serif;
 $primary-font-weight:   300;
@@ -20,22 +18,13 @@ $darker-grey:           #444;
   // Center an element's contents both vertically and horizontally
   @mixin center() {
     display: flex;
-    display: -webkit-flex;
-
     flex-direction: column;
-    -webkit-flex-direction: column;
-
     align-items: center;
-    -webkit-align-items: center;
-
     justify-content: center;
-    -webkit-justify-content: center;
   }
 
   @mixin circle($radius) {
     width: $radius * 2;
     height: $radius * 2;
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    border-radius: $radius;
+    border-radius: 100%;
   }

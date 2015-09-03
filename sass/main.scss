@@ -37,6 +37,15 @@
     }
   }
 
+  a {
+    color: $blue;
+
+    &:hover {
+      color: white;
+      background-color: $blue;
+    }
+  }
+
   p {
     font-family: $secondary-font;
     font-weight: $secondary-font-weight;
@@ -117,6 +126,15 @@
     }
   }
 
+  .avatar {
+    @include circle(52px);
+
+    img {
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+
 // Header
 // -------------------------
 
@@ -134,29 +152,37 @@
     }
   }
 
+// Error Content
+// -------------------------
+
+  .error {
+    margin: 50px;
+
+    h1 {
+      color: $blue;
+      font-size: 8em;
+    }
+
+    p {
+      font-size: 1.15em;
+    }
+  }
+
 // Main Content
 // -------------------------
   .main {
     @include center();
     flex: 2;
-  }
 
-  .blurb {
-    flex-direction: column;
+    .blurb {
+      flex-direction: column;
 
-    &.container {
-      max-width: 55%;
-    }
-
-    a {
-      color: $blue;
-
-      &:hover {
-        color: white;
-        background-color: $blue;
+      &.container {
+        max-width: 55%;
       }
     }
   }
+
 
 // Icons
 // -------------------------

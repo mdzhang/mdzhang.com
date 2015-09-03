@@ -30,6 +30,10 @@ module.exports = function(grunt) {
           {
             src: 'jade/index.jade',
             dest: 'public/build/index.html'
+          },
+          {
+            src: 'jade/error.jade',
+            dest: 'public/build/error.html'
           }
         ]
       }
