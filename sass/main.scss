@@ -27,6 +27,10 @@
     background-color: $light-grey;
   }
 
+  header {
+    @include center();
+  }
+
   a {
     text-decoration: none;
     color: inherit;
@@ -63,23 +67,13 @@
   }
 
   h1 {
-    font-size: 600%;
+    color: $dark-grey;
+    font-size: 6em;
   }
 
-  h2 {
-    font-size: 500%;
-  }
-
-  h3 {
-    font-size: 400%;
-  }
-
-  h4 {
-    font-size: 300%;
-  }
-
-  h5 {
-    font-size: 200%;
+  h2, h3, h4, h5 {
+    color: $blue;
+    font-size: 2em;
   }
 
   .clickable {
@@ -87,8 +81,7 @@
   }
 
   .container {
-    border-radius: 5px;
-    padding: 20px;
+    @include center();
   }
 
   .tooltip {
@@ -127,7 +120,8 @@
   }
 
   .avatar {
-    @include circle(52px);
+    @include circle(72px);
+    margin: 25px;
 
     img {
       height: 100%;
@@ -138,17 +132,12 @@
 // Header
 // -------------------------
 
-  header {
+  .main {
     @include center();
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 25px;
 
-    h1 {
-      color: $dark-grey;
-    }
-
-    h2, h3, h4, h5 {
-      color: $blue;
+    .container {
+      max-width: 750px;
     }
   }
 
@@ -156,7 +145,7 @@
 // -------------------------
 
   .error {
-    margin: 50px;
+    margin-top: 10%;
 
     h1 {
       color: $blue;
@@ -168,22 +157,6 @@
     }
   }
 
-// Main Content
-// -------------------------
-  .main {
-    @include center();
-    flex: 2;
-
-    .blurb {
-      flex-direction: column;
-
-      &.container {
-        max-width: 55%;
-      }
-    }
-  }
-
-
 // Icons
 // -------------------------
   .icons {
@@ -192,8 +165,8 @@
 
     position: relative;
 
-    padding: 25px;
-    margin: 0 auto;
+    padding: 50px 0px;
+    margin: 0px auto;
 
     .icon {
       position: relative;
@@ -210,7 +183,7 @@
         background-color: $blue;
 
         i {
-          color: white;
+          color: $light-grey;
           cursor: inherit;
         }
 
