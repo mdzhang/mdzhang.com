@@ -1,7 +1,5 @@
 # [mdzhang.com](http://mdzhang.com)
 
-[![Join the chat at https://gitter.im/mdzhang/mdzhang.com](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mdzhang/mdzhang.com?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 This repository holds the code for my personal website, [mdzhang.com](http://mdzhang.com)
 
 ## Table of Contents
@@ -56,14 +54,14 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
   * Redefine S3_BUCKET in the Makefile
 
 * Set up analytics
-  * See how to set up [https://support.google.com/analytics/answer/1008080?hl=en](Google Analytics) and replace the script at the bottom of head.jade with the script they provide
+  * See how to set up [Google Analytics](https://support.google.com/analytics/answer/1008080?hl=en) and replace the script at the bottom of head.jade with the script they provide
 
 * Verify with Google Webmaster
-  * See [https://www.google.com/webmasters/](here) for further instructions
+  * See [here](https://www.google.com/webmasters/) for further instructions
   * Replace the old public/build/google9c723a7692fdf206.html verification page with your new verification html page
 
-* Generate a sitemap for your page e.g. [https://www.xml-sitemaps.com/](here) and move new sitemap to public/build/sitemap.xml
-  * Upload your sitemap to [https://www.google.com/webmasters/tools/sitemap-list](Google Webmaster Tools)
+* Generate a sitemap for your page e.g. [here](https://www.xml-sitemaps.com/]) and move new sitemap to public/build/sitemap.xml
+  * Upload your sitemap to [Google Webmaster Tools](https://www.google.com/webmasters/tools/sitemap-list)
 
 ## Development
 
@@ -74,7 +72,7 @@ To begin development:
     make build & make open
     ```
 
-* A shortcut for the above is 
+* A shortcut for the above is
     ```
     npm start
     ```
