@@ -3,9 +3,11 @@
     height: auto;
   }
 
-  .blurb {
-    &.container {
-      max-width: 70%;
+  .main {
+    .blurb {
+      &.container {
+        max-width: 70%;
+      }
     }
   }
 }
