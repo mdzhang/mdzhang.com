@@ -23,9 +23,9 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
     make
     ```
 
-* Install the Node Package Manager
+* Install the Node Package Manager and Ruby version manager
     ```
-    brew install npm
+    brew install npm rbenv ruby-build
     ```
 
 * Clone the repository
@@ -39,6 +39,9 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
     npm install -g bower
     npm install
     bower install
+    rbenv install 2.2.3
+    rbenv global 2.2.3
+    gem install sass
     ```
 
 * Set up deployment
