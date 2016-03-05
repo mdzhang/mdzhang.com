@@ -7,7 +7,7 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
 * [Installation](#installation)
 * [Development](#development)
 * [Deployment](#deployment)
-* [Copyright and license](#copyright-and-license)
+* [Copyright](#copyright)
 
 ## Installation
 
@@ -94,6 +94,6 @@ make deploy
 
   * <http://github.com/mdzhang>
 
-## Copyright and License
+## Copyright
 
-Code copyright 2015 Michelle D. Zhang. Code released under the MIT license.
+Code copyright 2015 Michelle D. Zhang.
