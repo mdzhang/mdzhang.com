@@ -11,5 +11,8 @@ FILES_TO_COMPRESS=(
 
 for i in "${FILES_TO_COMPRESS[@]}"
 do
-  s3cmd put --acl-public --add-header='Content-Encoding:gzip' public/build/$i.gz s3://${S3_BUCKET}/$i
+  s3cmd put --acl-public \
+  --add-header='Content-Encoding:gzip' \
+  --add-header="Cache-Control: max-age=86400" \
+  public/build/$i.gz s3://${S3_BUCKET}/$i
 done
