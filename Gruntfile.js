@@ -161,11 +161,38 @@ module.exports = function(grunt) {
         }
       }
     },
+    // compress images
     imagemin: {
       target: {
         files: {
           'public/build/img/avatar.jpg': 'assets/avatar.jpg'
         }
+      }
+    },
+    // convert resources to gzip files
+    compress: {
+      options: {
+        mode: 'gzip'
+      },
+      'target': {
+        files: [
+          {
+            src: 'public/build/js/scripts.min.js',
+            dest: 'public/build/js/scripts.min.js.gz'
+          },
+          {
+            src: 'public/build/css/tidy.min.css',
+            dest: 'public/build/css/tidy.min.css.gz'
+          },
+          {
+            src: 'public/build/index.html',
+            dest: 'public/build/index.html.gz'
+          },
+          {
+            src: 'public/build/error.html',
+            dest: 'public/build/error.html.gz'
+          }
+        ]
       }
     },
     // clean temporary build files
@@ -214,12 +241,16 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-newer');
+  grunt.loadNpmTasks('grunt-contrib-compress');
 
-  // Default task(s).
+  // Build tasks
   grunt.registerTask('buildimg', ['newer:imagemin']);
   grunt.registerTask('buildhtml', ['jade', 'processhtml', 'htmlmin']);
   grunt.registerTask('buildcss', ['sass', 'postcss', 'concat:css', 'uncss', 'cssmin']);
   grunt.registerTask('buildjs', ['coffee', 'jshint', 'jscs', 'concat:js', 'uglify']);
   grunt.registerTask('build', ['buildhtml', 'buildcss', 'buildjs', 'buildimg', 'clean']);
   grunt.registerTask('default', ['build', 'watch']);
+
+  // Only run before prod deploy
+  grunt.registerTask('gzip', ['compress']);
 };
