@@ -248,9 +248,11 @@ module.exports = function(grunt) {
   grunt.registerTask('buildhtml', ['jade', 'processhtml', 'htmlmin']);
   grunt.registerTask('buildcss', ['sass', 'postcss', 'concat:css', 'uncss', 'cssmin']);
   grunt.registerTask('buildjs', ['coffee', 'jshint', 'jscs', 'concat:js', 'uglify']);
-  grunt.registerTask('build', ['buildhtml', 'buildcss', 'buildjs', 'buildimg', 'clean']);
+  grunt.registerTask('build', ['buildhtml', 'buildcss', 'buildjs', 'buildimg']);
   grunt.registerTask('default', ['build', 'watch']);
 
   // Only run before prod deploy
-  grunt.registerTask('gzip', ['compress']);
+  grunt.registerTask('prodbuild', ['build', 'compress']);
+
+
 };

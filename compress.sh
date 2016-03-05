@@ -2,12 +2,10 @@
 
 export S3_BUCKET=mdzhang.com
 
-grunt compress
-
 FILES_TO_COMPRESS=(
-  'js/scripts.min.js',
+  'js/scripts.min.js'
   'css/tidy.min.css'
-  'index.html',
+  'index.html'
   'error.html'
 )
 

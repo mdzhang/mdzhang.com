@@ -11,7 +11,7 @@ grunt:
 	${GRUNT}
 
 clean:
-	rm -rf public/build/tmp
+	rm -rf public/build/tmp && rm -f public/build/*.gz public/build/**/*.gz
 
 open:
 	python -m SimpleHTTPServer 8000 &
@@ -19,10 +19,15 @@ open:
 
 
 deploy-test:
-	s3cmd sync --delete-removed --acl-public --exclude 'styles.css' -n 'public/build/' s3://$(S3_BUCKET)/
+	rm -rf public/build/tmp && \
+	s3cmd sync --delete-removed --acl-public --exclude 'styles.css' --exclude '*.gz' -n 'public/build/' s3://$(S3_BUCKET)/
 
+# TODO: overwrites gzipped index.html with raw index.html, then compress.sh rewrites with gzipped index.html
+#       so we end up syncing when we don't really need to
 deploy:
-	s3cmd sync --delete-removed --acl-public --exclude 'styles.css' 'public/build/' s3://$(S3_BUCKET)/  && \
+	grunt prodbuild && \
+	rm -rf public/build/tmp && \
+	s3cmd sync --delete-removed --acl-public --exclude 'styles.css' --exclude '*.gz' 'public/build/' s3://$(S3_BUCKET)/  && \
 	./compress.sh
 
 .PHONY: build bower grunt clean open deploy-test deploy
