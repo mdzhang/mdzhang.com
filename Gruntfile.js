@@ -161,6 +161,13 @@ module.exports = function(grunt) {
         }
       }
     },
+    imagemin: {
+      target: {
+        files: {
+          'public/build/img/avatar.jpg': 'assets/avatar.jpg'
+        }
+      }
+    },
     // clean temporary build files
     clean: {
       tmp: 'public/build/tmp'
@@ -205,11 +212,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-newer');
 
   // Default task(s).
+  grunt.registerTask('buildimg', ['newer:imagemin']);
   grunt.registerTask('buildhtml', ['jade', 'processhtml', 'htmlmin']);
   grunt.registerTask('buildcss', ['sass', 'postcss', 'concat:css', 'uncss', 'cssmin']);
   grunt.registerTask('buildjs', ['coffee', 'jshint', 'jscs', 'concat:js', 'uglify']);
-  grunt.registerTask('build', ['buildhtml', 'buildcss', 'buildjs', 'clean']);
+  grunt.registerTask('build', ['buildhtml', 'buildcss', 'buildjs', 'buildimg', 'clean']);
   grunt.registerTask('default', ['build', 'watch']);
 };

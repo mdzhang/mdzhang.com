@@ -19,9 +19,9 @@ open:
 
 
 deploy-test:
-	s3cmd sync --delete-removed --acl-public -n 'public/build/' s3://$(S3_BUCKET)/
+	s3cmd sync --delete-removed --acl-public --exclude 'styles.css' -n 'public/build/' s3://$(S3_BUCKET)/
 
 deploy:
-	s3cmd sync --delete-removed --acl-public 'public/build/' s3://$(S3_BUCKET)/
+	s3cmd sync --delete-removed --acl-public --exclude 'styles.css' 'public/build/' s3://$(S3_BUCKET)/
 
 .PHONY: build bower grunt clean open deploy-test deploy
