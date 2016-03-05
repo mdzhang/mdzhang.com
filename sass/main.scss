@@ -179,6 +179,7 @@
         cursor: pointer;
 
         background-color: $blue;
+        transition: background-color 0.3s ease;
 
         i {
           color: $light-grey;
@@ -196,7 +197,7 @@
       background-color: $grey;
       color: white;
 
-      transition: transform 0.3s ease, background-color 0.3s ease;
+      transition: transform 0.3s ease, all 0.3s ease;
 
       &::after {
         border-top-color: $grey;

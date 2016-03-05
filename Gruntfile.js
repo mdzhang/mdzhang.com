@@ -214,11 +214,11 @@ module.exports = function(grunt) {
       },
       styles: {
         files: ['sass/**/*.scss'],
-        tasks: ['buildcss', 'clean']
+        tasks: ['buildhtmlcss', 'clean']
       },
       html: {
         files: ['jade/**/*.jade'],
-        tasks: ['buildhtml', 'clean']
+        tasks: ['buildhtmlcss', 'clean']
       }
     }
   });
@@ -245,10 +245,10 @@ module.exports = function(grunt) {
 
   // Build tasks
   grunt.registerTask('buildimg', ['newer:imagemin']);
-  grunt.registerTask('buildhtml', ['jade', 'processhtml', 'htmlmin']);
-  grunt.registerTask('buildcss', ['sass', 'postcss', 'concat:css', 'uncss', 'cssmin']);
+  grunt.registerTask('buildhtmlcss',
+    ['jade', 'sass', 'postcss', 'concat:css', 'uncss', 'cssmin', 'processhtml', 'htmlmin']);
   grunt.registerTask('buildjs', ['coffee', 'jshint', 'jscs', 'concat:js', 'uglify']);
-  grunt.registerTask('build', ['buildhtml', 'buildcss', 'buildjs', 'buildimg']);
+  grunt.registerTask('build', ['buildhtmlcss', 'buildjs', 'buildimg']);
   grunt.registerTask('default', ['build', 'watch']);
 
   // Only run before prod deploy
