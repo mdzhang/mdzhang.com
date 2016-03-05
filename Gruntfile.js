@@ -21,6 +21,10 @@ module.exports = function(grunt) {
   bowerjs = _.map(bowerjs, rewrite);
   bowercss = _.map(bowercss, rewrite);
 
+  alljs = bowerjs.concat('public/build/tmp/scripts.js');
+  // our style sheet has @imports, which must be at the top of the file for cssmin to handle properly
+  allcss = ['public/build/tmp/styles.css'].concat(bowercss);
+
   // Project configuration.
   grunt.initConfig({
     // build html files from jade templates
@@ -51,32 +55,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    // coffeescript files to a single js file
-    coffee: {
-      options: {
-        join: true,
-      },
-      compile: {
-        files: {
-          'public/build/tmp/scripts.js': 'coffee/**/*.coffee'
-        }
-      }
-    },
-    // join all bower css/js components into a single css and a single js file
-    concat: {
-      options: {
-        separator: '\n',
-      },
-      js: {
-        files: {
-          'public/build/tmp/bower.js': bowerjs
-        }
-      },
-      css: {
-        src: bowercss,
-        dest: 'public/build/tmp/bower.css'
-      }
-    },
     // process css e.g. adding vendor prefixes
     postcss: {
       options: {
@@ -90,12 +68,14 @@ module.exports = function(grunt) {
         src: 'public/build/tmp/styles.css'
       }
     },
-    // minify css files
-    cssmin: {
-      target: {
+    // coffeescript files to a single js file
+    coffee: {
+      options: {
+        join: true,
+      },
+      compile: {
         files: {
-          'public/build/css/styles.min.css': 'public/build/tmp/styles.css',
-          'public/build/css/bower.min.css': 'public/build/tmp/bower.css'
+          'public/build/tmp/scripts.js': 'coffee/**/*.coffee'
         }
       }
     },
@@ -113,11 +93,33 @@ module.exports = function(grunt) {
       },
       src: 'public/build/tmp/scripts.js'
     },
+    // join all bower css/js components into a single css and a single js file
+    concat: {
+      options: {
+        separator: '\n',
+      },
+      js: {
+        files: {
+          'public/build/tmp/scripts.js': alljs
+        }
+      },
+      css: {
+        src: allcss,
+        dest: 'public/build/tmp/styles.css'
+      }
+    },
+    // minify css files
+    cssmin: {
+      target: {
+        files: {
+          'public/build/css/styles.min.css': 'public/build/tmp/styles.css'
+        }
+      }
+    },
     // minify js files
     uglify: {
       target: {
         files: {
-          'public/build/js/bower.min.js': 'public/build/tmp/bower.js',
           'public/build/js/scripts.min.js': 'public/build/tmp/scripts.js'
         }
       }
@@ -166,7 +168,7 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('buildhtml', ['jade']);
-  grunt.registerTask('buildcss', ['sass', 'concat:css', 'postcss', 'cssmin']);
+  grunt.registerTask('buildcss', ['sass', 'postcss', 'concat:css', 'cssmin']);
   grunt.registerTask('buildjs', ['coffee', 'jshint', 'jscs', 'concat:js', 'uglify']);
   grunt.registerTask('build', ['buildhtml', 'buildcss', 'buildjs', 'clean']);
   grunt.registerTask('default', ['build', 'watch']);
