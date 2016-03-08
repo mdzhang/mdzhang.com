@@ -1,12 +1,20 @@
-head
+head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# ")
   //- basic page needs
   meta(charset='utf-8')
   title Michelle D. Zhang
-  meta(name='author' content='Michelle D. Zhang (mdzhang)')
+  meta(name='author' content='Michelle D. Zhang')
   meta(name='description', content='Michelle D. Zhang is a recent college grad and full stack software engineer')
   meta(name='application-name', content='mdzhang.com')
   meta(name='robots', content='index,follow')
   meta(name='keywords', content='michelle, d, dan, zhang, michelle d. zhang, michelle zhang, michelledzhang, zhangmichelled, zhang.michelle.d, mdzhang, software, developer, engineer, new york, barnard, ')
+
+  //- open graph
+  meta(property="og:title", content="Michelle D. Zhang")
+  meta(property="og:type", content="website")
+  meta(property="og:image", content="http://mdzhang.com/img/avatar.jpg")
+  meta(property="og:image:type", content="image/jpeg")
+  meta(property="og:url", content="http://mdzhang.com")
+  meta(property="og:description", content="Michelle D. Zhang is a recent college grad and full stack software engineer")
 
   //- pinterest
   meta(name='p:domain_verify', content='6748fc50118bee75dd7e006c2b4c3a7a')
