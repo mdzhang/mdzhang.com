@@ -3,11 +3,7 @@ var _ = require('lodash');
 module.exports = function(grunt) {
 
   var bowerjs = [
-    'lodash/lodash.js',
     'jquery/dist/jquery.js',
-    'jquery.xml2json/src/jquery.xml2json.js',
-    'jsrender/jsrender.js',
-    'bluebird/js/bluebird.js'
   ];
 
   var bowercss = [
