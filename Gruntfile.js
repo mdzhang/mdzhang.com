@@ -3,7 +3,7 @@ var _ = require('lodash');
 module.exports = function(grunt) {
 
   var bowerjs = [
-    'jquery/dist/jquery.js',
+    'jquery/dist/jquery.js'
   ];
 
   var bowercss = [
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'public/build/css/styles.css': ['sass/main.scss'],
+          'public/build/css/styles.css': ['sass/main.scss']
         }
       }
     },
@@ -94,7 +94,7 @@ module.exports = function(grunt) {
     // coffeescript files to a single js file
     coffee: {
       options: {
-        join: true,
+        join: true
       },
       compile: {
         files: {
@@ -102,24 +102,17 @@ module.exports = function(grunt) {
         }
       }
     },
-    // check js code correctness
-    jshint: {
-      options: {
-        jshintrc: true
-      },
-      src: 'public/build/js/scripts.js'
-    },
-    // check js code style
+    // check js code style & correctness
     eslint: {
       options: {
-        configFile: ".eslintrc.json"
+        configFile: '.eslintrc.json'
       },
-      src: 'public/build/js/scripts.js'
+      src: ['public/build/js/scripts.js', 'Gruntfile.js']
     },
     // join all bower css/js components into a single css and a single js file
     concat: {
       options: {
-        separator: '\n',
+        separator: '\n'
       },
       js: {
         files: {
@@ -154,7 +147,7 @@ module.exports = function(grunt) {
           'public/build/index.html': ['public/build/index.html'],
           'public/build/error.html': ['public/build/error.html']
         }
-      },
+      }
     },
     // minify html files
     htmlmin: {
@@ -223,7 +216,7 @@ module.exports = function(grunt) {
         livereload: true
       },
       config: {
-        files: ['.eslint.json', '.jshintrc', 'Gruntfile.js', 'bower.json'],
+        files: ['.eslint.json', 'Gruntfile.js', 'bower.json'],
         tasks: ['build']
       },
       scripts: {
@@ -243,8 +236,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-sass');
   // grunt.loadNpmTasks('grunt-contrib-csslint'); // TODO
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks("grunt-eslint");
+  grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-uncss');
@@ -265,7 +257,7 @@ module.exports = function(grunt) {
   grunt.registerTask('buildimg', ['newer:imagemin']);
   grunt.registerTask('buildhtmlcss',
     ['pug', 'sass', 'postcss', 'concat:css', 'uncss', 'cssmin', 'processhtml', 'htmlmin']);
-  grunt.registerTask('buildjs', ['coffee', 'jshint', 'eslint', 'concat:js', 'uglify']);
+  grunt.registerTask('buildjs', ['coffee', 'eslint', 'concat:js', 'uglify']);
   grunt.registerTask('build', ['newer:copy', 'buildhtmlcss', 'buildjs', 'buildimg']);
   grunt.registerTask('default', ['build', 'watch']);
 
