@@ -6,9 +6,4 @@ scraps
 *.sublime-workspace
 
 # compiled assets
-public/build/css
-public/build/js
-public/build/index.html
-public/build/error.html
-public/build/tmp
-*.gz
+public/build

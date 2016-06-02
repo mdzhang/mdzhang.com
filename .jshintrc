@@ -4,6 +4,7 @@
   "futurehostile": true,
   "latedef": true,
   "nocomma": true,
+  "node": true,
   "undef": true,
   "validthis": true,
   "globals": {

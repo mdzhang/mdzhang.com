@@ -17,13 +17,34 @@ module.exports = function(grunt) {
   bowerjs = _.map(bowerjs, rewrite);
   bowercss = _.map(bowercss, rewrite);
 
-  alljs = bowerjs.concat('public/build/tmp/scripts.js');
+  var alljs = bowerjs.concat('public/build/js/scripts.js');
   // our style sheet has @imports, which must be at the top of the file
   // for cssmin to handle properly
-  allcss = ['public/build/tmp/styles.css'].concat(bowercss);
+  var allcss = ['public/build/css/styles.css'].concat(bowercss);
 
   // Project configuration.
   grunt.initConfig({
+    // copy assets into build folder
+    copy: {
+      dist: {
+        files: [
+          {
+            expand: true,
+            cwd: 'public/',
+            src: [
+              'files/**',
+              'fonts/**',
+              'img/**',
+              'google9c723a7692fdf206.html',
+              'mywot116d689c1efc0de389b9.html',
+              'robots.txt',
+              'sitemap.xml'
+            ],
+            dest: 'public/build'
+          }
+        ]
+      }
+    },
     // build html files from jade templates
     jade: {
       options: {
@@ -52,7 +73,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'public/build/tmp/styles.css': ['sass/main.scss'],
+          'public/build/css/styles.css': ['sass/main.scss'],
         }
       }
     },
@@ -66,7 +87,7 @@ module.exports = function(grunt) {
         ]
       },
       dist: {
-        src: 'public/build/tmp/styles.css'
+        src: 'public/build/css/styles.css'
       }
     },
     // coffeescript files to a single js file
@@ -76,7 +97,7 @@ module.exports = function(grunt) {
       },
       compile: {
         files: {
-          'public/build/tmp/scripts.js': 'coffee/**/*.coffee'
+          'public/build/js/scripts.js': 'coffee/**/*.coffee'
         }
       }
     },
@@ -85,14 +106,14 @@ module.exports = function(grunt) {
       options: {
         jshintrc: true
       },
-      src: 'public/build/tmp/scripts.js'
+      src: 'public/build/js/scripts.js'
     },
     // check js code style
     jscs: {
       options: {
         config: ".jscsrc"
       },
-      src: 'public/build/tmp/scripts.js'
+      src: 'public/build/js/scripts.js'
     },
     // join all bower css/js components into a single css and a single js file
     concat: {
@@ -101,7 +122,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: {
-          'public/build/tmp/scripts.js': alljs
+          'public/build/js/scripts.js': alljs
         }
       },
       css: {
@@ -113,7 +134,7 @@ module.exports = function(grunt) {
     uncss: {
       dist: {
         files: {
-          'public/build/tmp/tidy.css': ['public/build/index.html', 'public/build/error.html']
+          'public/build/css/tidy.css': ['public/build/index.html', 'public/build/error.html']
         }
       }
     },
@@ -121,7 +142,7 @@ module.exports = function(grunt) {
     cssmin: {
       target: {
         files: {
-          'public/build/css/tidy.min.css': 'public/build/tmp/tidy.css'
+          'public/build/css/tidy.min.css': 'public/build/css/tidy.css'
         }
       }
     },
@@ -153,7 +174,7 @@ module.exports = function(grunt) {
     uglify: {
       target: {
         files: {
-          'public/build/js/scripts.min.js': 'public/build/tmp/scripts.js'
+          'public/build/js/scripts.min.js': 'public/build/js/scripts.js'
         }
       }
     },
@@ -161,7 +182,7 @@ module.exports = function(grunt) {
     imagemin: {
       target: {
         files: {
-          'public/build/img/avatar.jpg': 'assets/avatar.jpg'
+          'public/img/avatar.jpg': 'assets/avatar.jpg'
         }
       }
     },
@@ -244,11 +265,9 @@ module.exports = function(grunt) {
   grunt.registerTask('buildhtmlcss',
     ['jade', 'sass', 'postcss', 'concat:css', 'uncss', 'cssmin', 'processhtml', 'htmlmin']);
   grunt.registerTask('buildjs', ['coffee', 'jshint', 'jscs', 'concat:js', 'uglify']);
-  grunt.registerTask('build', ['buildhtmlcss', 'buildjs', 'buildimg']);
+  grunt.registerTask('build', ['newer:copy', 'buildhtmlcss', 'buildjs', 'buildimg']);
   grunt.registerTask('default', ['build', 'watch']);
 
   // Only run before prod deploy
   grunt.registerTask('prodbuild', ['build', 'compress']);
-
-
 };
