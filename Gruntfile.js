@@ -45,8 +45,8 @@ module.exports = function(grunt) {
         ]
       }
     },
-    // build html files from jade templates
-    jade: {
+    // build html files from pug templates
+    pug: {
       options: {
         // we need to keep the whitespace so that htmlprocess can work properly
         pretty: true
@@ -54,11 +54,11 @@ module.exports = function(grunt) {
       compile: {
         files: [
           {
-            src: 'jade/index.jade',
+            src: 'pug/index.pug',
             dest: 'public/build/index.html'
           },
           {
-            src: 'jade/error.jade',
+            src: 'pug/error.pug',
             dest: 'public/build/error.html'
           }
         ]
@@ -235,7 +235,7 @@ module.exports = function(grunt) {
         tasks: ['buildhtmlcss', 'clean']
       },
       html: {
-        files: ['jade/**/*.jade'],
+        files: ['pug/**/*.pug'],
         tasks: ['buildhtmlcss', 'clean']
       }
     }
@@ -252,7 +252,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-processhtml');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
-  grunt.loadNpmTasks('grunt-contrib-jade');
+  grunt.loadNpmTasks('grunt-contrib-pug');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -264,7 +264,7 @@ module.exports = function(grunt) {
   // Build tasks
   grunt.registerTask('buildimg', ['newer:imagemin']);
   grunt.registerTask('buildhtmlcss',
-    ['jade', 'sass', 'postcss', 'concat:css', 'uncss', 'cssmin', 'processhtml', 'htmlmin']);
+    ['pug', 'sass', 'postcss', 'concat:css', 'uncss', 'cssmin', 'processhtml', 'htmlmin']);
   grunt.registerTask('buildjs', ['coffee', 'jshint', 'jscs', 'concat:js', 'uglify']);
   grunt.registerTask('build', ['newer:copy', 'buildhtmlcss', 'buildjs', 'buildimg']);
   grunt.registerTask('default', ['build', 'watch']);
