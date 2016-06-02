@@ -37,6 +37,7 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
     ```
     npm install -g grunt-cli
     npm install -g bower
+    npm install -g eslint
     npm install
     bower install
     rbenv install 2.2.3
