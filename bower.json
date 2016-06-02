@@ -12,6 +12,6 @@
   ],
   "dependencies": {
     "jquery": "latest",
-    "font-awesome": "latest",
+    "font-awesome": "latest"
   }
 }
