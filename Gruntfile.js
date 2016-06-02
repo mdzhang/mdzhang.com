@@ -77,13 +77,14 @@ module.exports = function(grunt) {
         }
       }
     },
-    // process css e.g. adding vendor prefixes
+    // process css
     postcss: {
       options: {
         processors: [
-          require('autoprefixer-core')({
+          // add vendor prefixes
+          require('autoprefixer')({
             browsers: 'last 2 versions'
-          }) // add vendor prefixes
+          })
         ]
       },
       dist: {
