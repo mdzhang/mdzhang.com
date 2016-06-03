@@ -6,3 +6,4 @@ scraps
 *.sublime-workspace
 
 # compiled assets
+public/build
