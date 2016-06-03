@@ -18,64 +18,9 @@ module.exports = function(grunt) {
         dest: 'public/build'
       }
     },
-    // build html files from pug templates
-    pug: {
-      options: {
-        // we need to keep the whitespace so that htmlprocess can work properly
-        pretty: true
-      },
-      target: {
-        files: [
-          {
-            src: 'pug/index.pug',
-            dest: 'public/build/index.html'
-          },
-          {
-            src: 'pug/error.pug',
-            dest: 'public/build/error.html'
-          }
-        ]
-      }
-    },
     concat: {
       options: {
         separator: '\n'
-      }
-    },
-    // modify html files to use build resources
-    processhtml: {
-      target: {
-        files: [
-          {
-            src: 'public/build/index.html',
-            dest: 'public/build/index.html'
-          },
-          {
-            src: 'public/build/error.html',
-            dest: 'public/build/error.html'
-          }
-        ]
-      }
-    },
-    // minify html files
-    htmlmin: {
-      options: {
-        removeComments: true,
-        collapseWhitespace: true,
-        minifyJS: true,
-        processScripts: ['application/ld+json']
-      },
-      target: {
-        files: [
-          {
-            src: 'public/build/index.html',
-            dest: 'public/build/index.html'
-          },
-          {
-            src: 'public/build/error.html',
-            dest: 'public/build/error.html'
-          }
-        ]
       }
     },
     // compress images
@@ -83,32 +28,6 @@ module.exports = function(grunt) {
       target: {
         src: 'assets/avatar.jpg',
         dest: 'public/img/avatar.jpg'
-      }
-    },
-    // convert resources to gzip files
-    compress: {
-      options: {
-        mode: 'gzip'
-      },
-      target: {
-        files: [
-          {
-            src: 'public/build/js/scripts.min.js',
-            dest: 'public/build/js/scripts.min.js.gz'
-          },
-          {
-            src: 'public/build/css/tidy.min.css',
-            dest: 'public/build/css/tidy.min.css.gz'
-          },
-          {
-            src: 'public/build/index.html',
-            dest: 'public/build/index.html.gz'
-          },
-          {
-            src: 'public/build/error.html',
-            dest: 'public/build/error.html.gz'
-          }
-        ]
       }
     },
     // watch for edits and rebuild accordingly
@@ -162,10 +81,9 @@ module.exports = function(grunt) {
 
   // Build tasks
   grunt.registerTask('buildimg', ['newer:imagemin']);
-  grunt.registerTask('buildhtmlcss', ['pug', 'compile-css', 'processhtml', 'htmlmin']);
-  grunt.registerTask('build', ['newer:copy', 'buildhtmlcss', 'compile-js', 'buildimg', 'version']);
+  grunt.registerTask('build', ['newer:copy', 'compile-html-css', 'compile-js', 'buildimg', 'version']);
   grunt.registerTask('default', ['build', 'watch']);
 
   // Only run before prod deploy
-  grunt.registerTask('prodbuild', ['build', 'compress']);
+  grunt.registerTask('prodbuild', ['build']);
 };
