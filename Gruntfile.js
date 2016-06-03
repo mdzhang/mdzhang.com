@@ -28,7 +28,7 @@ module.exports = function(grunt) {
     gitinfo: {},
     // copy assets into build folder
     copy: {
-      dist: {
+      target: {
         files: [
           {
             expand: true,
@@ -53,7 +53,7 @@ module.exports = function(grunt) {
         // we need to keep the whitespace so that htmlprocess can work properly
         pretty: true
       },
-      compile: {
+      target: {
         files: [
           {
             src: 'pug/index.pug',
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
         cacheLocation: 'sass/.sass-cache',
         sourcemap: 'none'
       },
-      dist: {
+      target: {
         files: {
           'public/build/css/styles.css': ['sass/main.scss']
         }
@@ -89,7 +89,7 @@ module.exports = function(grunt) {
           })
         ]
       },
-      dist: {
+      target: {
         src: 'public/build/css/styles.css'
       }
     },
@@ -98,7 +98,7 @@ module.exports = function(grunt) {
       options: {
         join: true
       },
-      compile: {
+      target: {
         files: {
           'public/build/js/scripts.js': 'coffee/**/*.coffee'
         }
@@ -109,7 +109,7 @@ module.exports = function(grunt) {
       options: {
         configFile: '.eslintrc.json'
       },
-      src: ['public/build/js/scripts.js', 'Gruntfile.js']
+      target: ['public/build/js/scripts.js', 'Gruntfile.js']
     },
     // join all bower css/js components into a single css and a single js file
     concat: {
@@ -128,7 +128,7 @@ module.exports = function(grunt) {
     },
     // removed unused css selectors
     uncss: {
-      dist: {
+      target: {
         files: {
           'public/build/css/tidy.css': ['public/build/index.html', 'public/build/error.html']
         }
@@ -144,7 +144,7 @@ module.exports = function(grunt) {
     },
     // modify html files to use build resources
     processhtml: {
-      dist: {
+      target: {
         files: {
           'public/build/index.html': ['public/build/index.html'],
           'public/build/error.html': ['public/build/error.html']
@@ -159,7 +159,7 @@ module.exports = function(grunt) {
         minifyJS: true,
         processScripts: ['application/ld+json']
       },
-      dist: {
+      target: {
         files: {
           'public/build/index.html': ['public/build/index.html'],
           'public/build/error.html': ['public/build/error.html']
@@ -187,7 +187,7 @@ module.exports = function(grunt) {
       options: {
         mode: 'gzip'
       },
-      'target': {
+      target: {
         files: [
           {
             src: 'public/build/js/scripts.min.js',
@@ -209,7 +209,7 @@ module.exports = function(grunt) {
       }
     },
     'file-creator': {
-      dist: {
+      target: {
         'public/build/version/index.html': function(fs, fd, done) {
           var gitVersion = grunt.config.get('gitinfo').local.branch.current.SHA;
           var version = gitVersion + '-' + new Date().toISOString();
