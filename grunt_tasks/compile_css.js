@@ -2,6 +2,7 @@ var _ = require('lodash');
 
 /**
  * Add a task to transpile, prune, and minify styles.
+ * NB: All .html files must be compiled before calling the compile-css task.
  */
 module.exports = function (grunt) {
   var rewrite = function(b) {
