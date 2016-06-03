@@ -29,22 +29,18 @@ module.exports = function(grunt) {
     // copy assets into build folder
     copy: {
       target: {
-        files: [
-          {
-            expand: true,
-            cwd: 'public/',
-            src: [
-              'files/**',
-              'fonts/**',
-              'img/**',
-              'google9c723a7692fdf206.html',
-              'mywot116d689c1efc0de389b9.html',
-              'robots.txt',
-              'sitemap.xml'
-            ],
-            dest: 'public/build'
-          }
-        ]
+        expand: true,
+        cwd: 'public/',
+        src: [
+          'files/**',
+          'fonts/**',
+          'img/**',
+          'google9c723a7692fdf206.html',
+          'mywot116d689c1efc0de389b9.html',
+          'robots.txt',
+          'sitemap.xml'
+        ],
+        dest: 'public/build'
       }
     },
     // build html files from pug templates
@@ -74,9 +70,8 @@ module.exports = function(grunt) {
         sourcemap: 'none'
       },
       target: {
-        files: {
-          'public/build/css/styles.css': ['sass/main.scss']
-        }
+        src: 'sass/main.scss',
+        dest: 'public/build/css/styles.css'
       }
     },
     // process css
@@ -99,9 +94,8 @@ module.exports = function(grunt) {
         join: true
       },
       target: {
-        files: {
-          'public/build/js/scripts.js': 'coffee/**/*.coffee'
-        }
+        src: 'coffee/**/*.coffee',
+        dest: 'public/build/js/scripts.js'
       }
     },
     // check js code style & correctness
@@ -109,7 +103,9 @@ module.exports = function(grunt) {
       options: {
         configFile: '.eslintrc.json'
       },
-      target: ['public/build/js/scripts.js', 'Gruntfile.js']
+      target: {
+        src: ['public/build/js/scripts.js', 'Gruntfile.js']
+      }
     },
     // join all bower css/js components into a single css and a single js file
     concat: {
@@ -117,9 +113,8 @@ module.exports = function(grunt) {
         separator: '\n'
       },
       js: {
-        files: {
-          'public/build/js/scripts.js': alljs
-        }
+        src: alljs,
+        dest: 'public/build/js/scripts.js'
       },
       css: {
         src: allcss,
@@ -129,26 +124,30 @@ module.exports = function(grunt) {
     // removed unused css selectors
     uncss: {
       target: {
-        files: {
-          'public/build/css/tidy.css': ['public/build/index.html', 'public/build/error.html']
-        }
+        src: ['public/build/index.html', 'public/build/error.html'],
+        dest: 'public/build/css/tidy.css'
       }
     },
     // minify css files
     cssmin: {
       target: {
-        files: {
-          'public/build/css/tidy.min.css': 'public/build/css/tidy.css'
-        }
+        src: 'public/build/css/tidy.css',
+        dest: 'public/build/css/tidy.min.css'
       }
     },
     // modify html files to use build resources
     processhtml: {
       target: {
-        files: {
-          'public/build/index.html': ['public/build/index.html'],
-          'public/build/error.html': ['public/build/error.html']
-        }
+        files: [
+          {
+            src: 'public/build/index.html',
+            dest: 'public/build/index.html'
+          },
+          {
+            src: 'public/build/error.html',
+            dest: 'public/build/error.html'
+          }
+        ]
       }
     },
     // minify html files
@@ -160,26 +159,30 @@ module.exports = function(grunt) {
         processScripts: ['application/ld+json']
       },
       target: {
-        files: {
-          'public/build/index.html': ['public/build/index.html'],
-          'public/build/error.html': ['public/build/error.html']
-        }
+        files: [
+          {
+            src: 'public/build/index.html',
+            dest: 'public/build/index.html'
+          },
+          {
+            src: 'public/build/error.html',
+            dest: 'public/build/error.html'
+          }
+        ]
       }
     },
     // minify js files
     uglify: {
       target: {
-        files: {
-          'public/build/js/scripts.min.js': 'public/build/js/scripts.js'
-        }
+        src: 'public/build/js/scripts.js',
+        dest: 'public/build/js/scripts.min.js'
       }
     },
     // compress images
     imagemin: {
       target: {
-        files: {
-          'public/img/avatar.jpg': 'assets/avatar.jpg'
-        }
+        src: 'assets/avatar.jpg',
+        dest: 'public/img/avatar.jpg'
       }
     },
     // convert resources to gzip files
