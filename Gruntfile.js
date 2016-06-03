@@ -24,6 +24,8 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+    // add git info to grunt.config.gitinfo
+    gitinfo: {},
     // copy assets into build folder
     copy: {
       dist: {
@@ -206,6 +208,16 @@ module.exports = function(grunt) {
         ]
       }
     },
+    'file-creator': {
+      dist: {
+        'public/build/version/index.html': function(fs, fd, done) {
+          var gitVersion = grunt.config.get('gitinfo').local.branch.current.SHA;
+          var version = gitVersion + '-' + new Date().toISOString();
+          fs.writeSync(fd, version);
+          done();
+        }
+      }
+    },
     // watch for edits and rebuild accordingly
     watch: {
       options: {
@@ -247,13 +259,16 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-gitinfo');
+  grunt.loadNpmTasks('grunt-file-creator');
 
   // Build tasks
   grunt.registerTask('buildimg', ['newer:imagemin']);
   grunt.registerTask('buildhtmlcss',
     ['pug', 'sass', 'postcss', 'concat:css', 'uncss', 'cssmin', 'processhtml', 'htmlmin']);
   grunt.registerTask('buildjs', ['coffee', 'eslint', 'concat:js', 'uglify']);
-  grunt.registerTask('build', ['newer:copy', 'buildhtmlcss', 'buildjs', 'buildimg']);
+  grunt.registerTask('version', ['gitinfo', 'file-creator']);
+  grunt.registerTask('build', ['newer:copy', 'buildhtmlcss', 'buildjs', 'buildimg', 'version']);
   grunt.registerTask('default', ['build', 'watch']);
 
   // Only run before prod deploy
