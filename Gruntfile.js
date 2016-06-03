@@ -6,21 +6,13 @@ module.exports = function(grunt) {
     'jquery/dist/jquery.js'
   ];
 
-  var bowercss = [
-    'font-awesome/css/font-awesome.min.css'
-  ];
-
   var rewrite = function(b) {
     return 'bower_components/' + b;
   };
 
   bowerjs = _.map(bowerjs, rewrite);
-  bowercss = _.map(bowercss, rewrite);
 
   var alljs = bowerjs.concat('public/build/js/scripts.js');
-  // our style sheet has @imports, which must be at the top of the file
-  // for cssmin to handle properly
-  var allcss = ['public/build/css/styles.css'].concat(bowercss);
 
   // Project configuration.
   grunt.initConfig({
@@ -60,32 +52,6 @@ module.exports = function(grunt) {
         ]
       }
     },
-    // build css files from scss files
-    sass: {
-      options: {
-        trace: true,
-        cacheLocation: 'sass/.sass-cache',
-        sourcemap: 'none'
-      },
-      target: {
-        src: 'sass/main.scss',
-        dest: 'public/build/css/styles.css'
-      }
-    },
-    // process css
-    postcss: {
-      options: {
-        processors: [
-          // add vendor prefixes
-          require('autoprefixer')({
-            browsers: 'last 2 versions'
-          })
-        ]
-      },
-      target: {
-        src: 'public/build/css/styles.css'
-      }
-    },
     // coffeescript files to a single js file
     coffee: {
       options: {
@@ -113,24 +79,6 @@ module.exports = function(grunt) {
       js: {
         src: alljs,
         dest: 'public/build/js/scripts.js'
-      },
-      css: {
-        src: allcss,
-        dest: 'public/build/css/styles.css'
-      }
-    },
-    // removed unused css selectors
-    uncss: {
-      target: {
-        src: ['public/build/index.html', 'public/build/error.html'],
-        dest: 'public/build/css/tidy.css'
-      }
-    },
-    // minify css files
-    cssmin: {
-      target: {
-        src: 'public/build/css/tidy.css',
-        dest: 'public/build/css/tidy.min.css'
       }
     },
     // modify html files to use build resources
@@ -260,8 +208,7 @@ module.exports = function(grunt) {
 
   // Build tasks
   grunt.registerTask('buildimg', ['newer:imagemin']);
-  grunt.registerTask('buildhtmlcss',
-    ['pug', 'sass', 'postcss', 'concat:css', 'uncss', 'cssmin', 'processhtml', 'htmlmin']);
+  grunt.registerTask('buildhtmlcss', ['pug', 'compile-css', 'processhtml', 'htmlmin']);
   grunt.registerTask('buildjs', ['coffee', 'eslint', 'concat:js', 'uglify']);
   grunt.registerTask('build', ['newer:copy', 'buildhtmlcss', 'buildjs', 'buildimg', 'version']);
   grunt.registerTask('default', ['build', 'watch']);
