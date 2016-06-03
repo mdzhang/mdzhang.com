@@ -206,10 +206,6 @@ module.exports = function(grunt) {
         ]
       }
     },
-    // clean temporary build files
-    clean: {
-      tmp: 'public/build/tmp'
-    },
     // watch for edits and rebuild accordingly
     watch: {
       options: {
@@ -221,15 +217,15 @@ module.exports = function(grunt) {
       },
       scripts: {
         files: ['coffee/**/*.coffee'],
-        tasks: ['buildjs', 'clean']
+        tasks: ['buildjs']
       },
       styles: {
         files: ['sass/**/*.scss'],
-        tasks: ['buildhtmlcss', 'clean']
+        tasks: ['buildhtmlcss']
       },
       html: {
         files: ['pug/**/*.pug'],
-        tasks: ['buildhtmlcss', 'clean']
+        tasks: ['buildhtmlcss']
       }
     }
   });
@@ -245,7 +241,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-processhtml');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-pug');
-  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-coffee');
