@@ -24,8 +24,6 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    // add git info to grunt.config.gitinfo
-    gitinfo: {},
     // copy assets into build folder
     copy: {
       target: {
@@ -211,16 +209,6 @@ module.exports = function(grunt) {
         ]
       }
     },
-    'file-creator': {
-      target: {
-        'public/build/version/index.html': function(fs, fd, done) {
-          var gitVersion = grunt.config.get('gitinfo').local.branch.current.SHA;
-          var version = gitVersion + '-' + new Date().toISOString();
-          fs.writeSync(fd, version);
-          done();
-        }
-      }
-    },
     // watch for edits and rebuild accordingly
     watch: {
       options: {
@@ -244,6 +232,11 @@ module.exports = function(grunt) {
       }
     }
   });
+
+  /**
+   * Load task modules inside `grunt_tasks`.
+   */
+  grunt.loadTasks('grunt_tasks');
 
   grunt.loadNpmTasks('grunt-contrib-sass');
   // grunt.loadNpmTasks('grunt-contrib-csslint'); // TODO
@@ -270,7 +263,6 @@ module.exports = function(grunt) {
   grunt.registerTask('buildhtmlcss',
     ['pug', 'sass', 'postcss', 'concat:css', 'uncss', 'cssmin', 'processhtml', 'htmlmin']);
   grunt.registerTask('buildjs', ['coffee', 'eslint', 'concat:js', 'uglify']);
-  grunt.registerTask('version', ['gitinfo', 'file-creator']);
   grunt.registerTask('build', ['newer:copy', 'buildhtmlcss', 'buildjs', 'buildimg', 'version']);
   grunt.registerTask('default', ['build', 'watch']);
 
