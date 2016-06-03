@@ -1,19 +1,4 @@
-var _ = require('lodash');
-
 module.exports = function(grunt) {
-
-  var bowerjs = [
-    'jquery/dist/jquery.js'
-  ];
-
-  var rewrite = function(b) {
-    return 'bower_components/' + b;
-  };
-
-  bowerjs = _.map(bowerjs, rewrite);
-
-  var alljs = bowerjs.concat('public/build/js/scripts.js');
-
   // Project configuration.
   grunt.initConfig({
     // copy assets into build folder
@@ -52,33 +37,9 @@ module.exports = function(grunt) {
         ]
       }
     },
-    // coffeescript files to a single js file
-    coffee: {
-      options: {
-        join: true
-      },
-      target: {
-        src: 'coffee/**/*.coffee',
-        dest: 'public/build/js/scripts.js'
-      }
-    },
-    // check js code style & correctness
-    eslint: {
-      options: {
-        configFile: '.eslintrc.json'
-      },
-      target: {
-        src: ['public/build/js/scripts.js', 'Gruntfile.js']
-      }
-    },
-    // join all bower css/js components into a single css and a single js file
     concat: {
       options: {
         separator: '\n'
-      },
-      js: {
-        src: alljs,
-        dest: 'public/build/js/scripts.js'
       }
     },
     // modify html files to use build resources
@@ -115,13 +76,6 @@ module.exports = function(grunt) {
             dest: 'public/build/error.html'
           }
         ]
-      }
-    },
-    // minify js files
-    uglify: {
-      target: {
-        src: 'public/build/js/scripts.js',
-        dest: 'public/build/js/scripts.min.js'
       }
     },
     // compress images
@@ -209,8 +163,7 @@ module.exports = function(grunt) {
   // Build tasks
   grunt.registerTask('buildimg', ['newer:imagemin']);
   grunt.registerTask('buildhtmlcss', ['pug', 'compile-css', 'processhtml', 'htmlmin']);
-  grunt.registerTask('buildjs', ['coffee', 'eslint', 'concat:js', 'uglify']);
-  grunt.registerTask('build', ['newer:copy', 'buildhtmlcss', 'buildjs', 'buildimg', 'version']);
+  grunt.registerTask('build', ['newer:copy', 'buildhtmlcss', 'compile-js', 'buildimg', 'version']);
   grunt.registerTask('default', ['build', 'watch']);
 
   // Only run before prod deploy
