@@ -22,13 +22,13 @@ open:
 
 
 deploy-test:
-	${GRUNT} prodbuild && \
+	${GRUNT} build && \
 	s3cmd --dry-run --delete-removed --acl-public --exclude='*' \
 		--include-from=deploy_files/copy_files.txt sync 'public/build/' s3://$(S3_BUCKET)/ && \
 	./compress.sh --dry-run
 
 deploy:
-	${GRUNT} prodbuild && \
+	${GRUNT} build && \
 	s3cmd --delete-removed --acl-public --exclude='*' \
 		--include-from=deploy_files/copy_files.txt sync 'public/build/' s3://$(S3_BUCKET)/ && \
 	./compress.sh

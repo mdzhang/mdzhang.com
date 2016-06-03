@@ -80,10 +80,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-file-creator');
 
   // Build tasks
-  grunt.registerTask('buildimg', ['newer:imagemin']);
-  grunt.registerTask('build', ['newer:copy', 'compile-html-css', 'compile-js', 'buildimg', 'version']);
-  grunt.registerTask('default', ['build', 'watch']);
+  grunt.registerTask('build', [
+    'newer:copy',
+    'compile-html-css',
+    'compile-js',
+    'newer:imagemin',
+    'version'
+  ]);
 
-  // Only run before prod deploy
-  grunt.registerTask('prodbuild', ['build']);
+  grunt.registerTask('default', ['build', 'watch']);
 };
