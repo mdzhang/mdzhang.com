@@ -31,6 +31,7 @@ module.exports = function (grunt) {
         dest: 'public/build/css/styles.css'
       }
     },
+    // check css style & efficiency
     csslint: {
       options: {
         csslintrc: '.csslintrc'
