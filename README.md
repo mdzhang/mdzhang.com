@@ -73,7 +73,7 @@ To begin development:
 
 * Start the asset compiler and a local server to serve the site files, and open the files in your default browser
     ```
-    make build & make open
+    make build && make open & make watch
     ```
 
 * A shortcut for the above is

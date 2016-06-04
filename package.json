@@ -14,7 +14,7 @@
   },
   "scripts": {
     "lint": "make lint",
-    "start": "make build && make watch && make open"
+    "start": "make build && make open & make watch"
   },
   "dependencies": {
     "autoprefixer": "^6.3.6",
