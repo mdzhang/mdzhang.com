@@ -88,5 +88,5 @@ module.exports = function(grunt) {
     'version'
   ]);
 
-  grunt.registerTask('default', ['build', 'watch']);
+  grunt.registerTask('default', ['build']);
 };

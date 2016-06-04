@@ -21,6 +21,8 @@ open:
 	python -m SimpleHTTPServer 8000 &
 	open http://localhost:8000/public/build/
 
+watch:
+	${GRUNT} watch
 
 deploy-test:
 	${CLEAN} && ${GRUNT} build && \
@@ -34,4 +36,4 @@ deploy:
 		--include-from=deploy_files/copy_files.txt sync 'public/build/' s3://$(S3_BUCKET)/ && \
 	./compress.sh
 
-.PHONY: build npm bower grunt clean open deploy-test deploy
+.PHONY: build npm bower grunt clean open watch deploy-test deploy

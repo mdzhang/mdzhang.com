@@ -13,7 +13,7 @@
     "url": "git@github.com:mdzhang/mdzhang.com.git"
   },
   "scripts": {
-    "start": "make build & make open"
+    "start": "make build && make watch && make open"
   },
   "dependencies": {
     "autoprefixer": "^6.3.6",
