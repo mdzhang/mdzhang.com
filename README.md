@@ -89,6 +89,12 @@ Just run
 make deploy
 ```
 
+But before that you might want to try
+
+```
+make deploy-test
+```
+
 ## Creators
 
 **Michelle D. Zhang**
