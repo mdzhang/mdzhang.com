@@ -36,20 +36,20 @@ module.exports = function(grunt) {
         livereload: true
       },
       config: {
-        files: ['.eslint.json', 'Gruntfile.js', 'bower.json'],
+        files: ['.eslint.json', '.csslintrc', 'package.json', 'Gruntfile.js', 'bower.json'],
         tasks: ['build']
       },
       scripts: {
         files: ['coffee/**/*.coffee'],
-        tasks: ['buildjs']
+        tasks: ['compile-js']
       },
       styles: {
         files: ['sass/**/*.scss'],
-        tasks: ['buildhtmlcss']
+        tasks: ['compile-html-css']
       },
       html: {
         files: ['pug/**/*.pug'],
-        tasks: ['buildhtmlcss']
+        tasks: ['compile-html-css']
       }
     }
   });
