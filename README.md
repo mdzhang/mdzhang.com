@@ -25,7 +25,7 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
 
 * Install the Node Package Manager and Ruby version manager
     ```
-    brew install npm rbenv ruby-build
+    brew install nvm rbenv ruby-build
     ```
 
 * Clone the repository
@@ -35,9 +35,12 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
 
 * Install dependencies
     ```
+    // not necessary, but useful for local dev
     npm install -g grunt-cli
     npm install -g bower
     npm install -g eslint
+
+    // necessary
     npm install
     bower install
     rbenv install 2.2.3
@@ -58,7 +61,7 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
   * Redefine S3_BUCKET in the Makefile
 
 * Set up analytics
-  * See how to set up [Google Analytics](https://support.google.com/analytics/answer/1008080?hl=en) and replace the script at the bottom of head.jade with the script they provide
+  * See how to set up [Google Analytics](https://support.google.com/analytics/answer/1008080?hl=en) and replace the script at the bottom of head.pug with the script they provide
 
 * Verify with Google Webmaster
   * See [here](https://www.google.com/webmasters/) for further instructions
