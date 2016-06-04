@@ -14,7 +14,7 @@ module.exports = function (grunt) {
 
   bowerjs = _.map(bowerjs, rewrite);
 
-  var alljs = bowerjs.concat('public/build/js/scripts.js');
+  var alljs = bowerjs.concat('public/build/js/scripts.tmp.js');
 
 
   grunt.config.merge({
@@ -25,7 +25,7 @@ module.exports = function (grunt) {
       },
       target: {
         src: 'coffee/**/*.coffee',
-        dest: 'public/build/js/scripts.js'
+        dest: 'public/build/js/scripts.tmp.js'
       }
     },
     // check js code style & correctness
@@ -34,7 +34,7 @@ module.exports = function (grunt) {
         configFile: '.eslintrc.json'
       },
       target: {
-        src: ['public/build/js/scripts.js', 'Gruntfile.js']
+        src: ['public/build/js/scripts.tmp.js', 'Gruntfile.js']
       }
     },
     // join all js components into a single js file
@@ -54,9 +54,9 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('compile-js', [
-    'coffee',
-    'eslint',
-    'concat:js',
-    'uglify'
+    'newer:coffee',
+    'newer:eslint',
+    'newer:concat:js',
+    'newer:uglify'
   ]);
 };

@@ -77,11 +77,11 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('compile-css', [
-    'sass',
-    'csslint',
-    'postcss',
-    'concat:css',
-    'uncss',
-    'cssmin'
+    'newer:sass',
+    'newer:csslint',
+    'newer:postcss',
+    'newer:concat:css',
+    'newer:uncss',
+    'newer:cssmin'
   ]);
 };

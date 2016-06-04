@@ -87,10 +87,10 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('compile-html-css', [
-    'pug',
+    'newer:pug',
     'compile-css',
-    'processhtml',
-    'htmlmin',
-    'compress'
+    'newer:processhtml',
+    'newer:htmlmin',
+    'newer:compress'
   ]);
 };
