@@ -36,7 +36,7 @@ module.exports = function(grunt) {
         livereload: true
       },
       config: {
-        files: ['.eslint.json', '.csslintrc', 'package.json', 'Gruntfile.js', 'bower.json'],
+        files: ['.eslint.json', '.csslintrc', 'package.json', 'Gruntfile.js', 'bower.json', 'grunt_tasks/**/*.js'],
         tasks: ['build']
       },
       scripts: {
