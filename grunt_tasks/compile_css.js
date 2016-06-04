@@ -31,6 +31,14 @@ module.exports = function (grunt) {
         dest: 'public/build/css/styles.css'
       }
     },
+    csslint: {
+      options: {
+        csslintrc: '.csslintrc'
+      },
+      target: {
+        src: 'public/build/css/styles.css'
+      }
+    },
     // add vendor prefixes
     postcss: {
       options: {
@@ -69,6 +77,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('compile-css', [
     'sass',
+    'csslint',
     'postcss',
     'concat:css',
     'uncss',
