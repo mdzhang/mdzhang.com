@@ -24,6 +24,9 @@ open:
 watch:
 	${GRUNT} watch
 
+lint:
+	${GRUNT} lint
+
 deploy-test:
 	${CLEAN} && ${GRUNT} build && \
 	s3cmd --dry-run --delete-removed --acl-public --exclude='*' \
