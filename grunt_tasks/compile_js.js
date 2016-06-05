@@ -50,6 +50,12 @@ module.exports = function (grunt) {
         src: 'public/build/js/scripts.js',
         dest: 'public/build/js/scripts.min.js'
       }
+    },
+    compress: {
+      target: {
+        src: 'public/build/js/scripts.min.js',
+        dest: 'public/build/js/scripts.min.js.gz'
+      }
     }
   });
 
@@ -57,6 +63,7 @@ module.exports = function (grunt) {
     'newer:coffee',
     'newer:eslint',
     'newer:concat:js',
-    'newer:uglify'
+    'newer:uglify',
+    'newer:compress'
   ]);
 };

@@ -23,6 +23,11 @@ module.exports = function(grunt) {
         separator: '\n'
       }
     },
+    compress: {
+      options: {
+        mode: 'gzip'
+      }
+    },
     // compress images
     imagemin: {
       target: {

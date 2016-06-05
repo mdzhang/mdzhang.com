@@ -60,15 +60,8 @@ module.exports = function (grunt) {
     },
     // convert resources to gzip files
     compress: {
-      options: {
-        mode: 'gzip'
-      },
       target: {
         files: [
-          {
-            src: 'public/build/js/scripts.min.js',
-            dest: 'public/build/js/scripts.min.js.gz'
-          },
           {
             src: 'public/build/css/tidy.min.css',
             dest: 'public/build/css/tidy.min.css.gz'
