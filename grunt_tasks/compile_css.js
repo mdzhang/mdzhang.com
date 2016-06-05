@@ -73,6 +73,12 @@ module.exports = function (grunt) {
         src: 'public/build/css/tidy.css',
         dest: 'public/build/css/tidy.min.css'
       }
+    },
+    compress: {
+      css: {
+        src: 'public/build/css/tidy.min.css',
+        dest: 'public/build/css/tidy.min.css.gz'
+      }
     }
   });
 
@@ -82,6 +88,7 @@ module.exports = function (grunt) {
     'newer:postcss',
     'newer:concat:css',
     'newer:uncss',
-    'newer:cssmin'
+    'newer:cssmin',
+    'newer:compress:css'
   ]);
 };

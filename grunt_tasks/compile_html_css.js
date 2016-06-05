@@ -60,12 +60,8 @@ module.exports = function (grunt) {
     },
     // convert resources to gzip files
     compress: {
-      target: {
+      html: {
         files: [
-          {
-            src: 'public/build/css/tidy.min.css',
-            dest: 'public/build/css/tidy.min.css.gz'
-          },
           {
             src: 'public/build/index.html',
             dest: 'public/build/index.html.gz'
@@ -80,10 +76,11 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('compile-html-css', [
-    'newer:pug',
+    'pug',
     'compile-css',
-    'newer:processhtml',
-    'newer:htmlmin',
-    'newer:compress'
+    'processhtml',
+    'htmlmin',
+    'compress:css',
+    'compress:html'
   ]);
 };
