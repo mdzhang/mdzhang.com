@@ -17,12 +17,8 @@ if [ "$#" -eq 1 ]; then
   esac
 fi
 
-FILES_TO_COMPRESS=(
-  'js/scripts.min.js'
-  'css/tidy.min.css'
-  'index.html'
-  'error.html'
-)
+# read files to compress from deploy_files/gzip_files.txt into an array
+IFS=$'\n' FILES_TO_COMPRESS=($(cat deploy_files/gzip_files.txt))
 
 if [ -z "$flags" ]; then
   for i in "${FILES_TO_COMPRESS[@]}"
