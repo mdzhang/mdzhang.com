@@ -13,7 +13,8 @@ module.exports = function(grunt) {
           'google9c723a7692fdf206.html',
           'mywot116d689c1efc0de389b9.html',
           'robots.txt',
-          'sitemap.xml'
+          'sitemap.xml',
+          'keybase.txt'
         ],
         dest: 'public/build'
       }

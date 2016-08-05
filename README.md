@@ -70,6 +70,10 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
 * Generate a sitemap for your page e.g. [here](https://www.xml-sitemaps.com/]) and move new sitemap to public/build/sitemap.xml
   * Upload your sitemap to [Google Webmaster Tools](https://www.google.com/webmasters/tools/sitemap-list)
 
+* Replace [WOT](https://www.mywot.com/) verification
+
+* Replace [Keybase](https://keybase.io/) verification
+
 ## Development
 
 To begin development:
