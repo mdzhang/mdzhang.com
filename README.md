@@ -95,7 +95,7 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
       ```
   * replace old `public/keybase.txt`
 
-* Update `deploy_files/copy_files.txt` and `Gruntfile.js` to reflect updated Google Webmaster, WOT, and Keybase files
+* Update `deploy_files/copy_files.txt` to reflect updated Google Webmaster, WOT, and Keybase files
 
 * Update `pug/partials/head.pug` with your own personal information
 

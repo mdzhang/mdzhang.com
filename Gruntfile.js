@@ -1,4 +1,8 @@
+var fs = require('fs');
+
 module.exports = function(grunt) {
+  var copyFiles = fs.readFileSync('deploy_files/copy_files.txt').toString().split('\n');
+
   // Project configuration.
   grunt.initConfig({
     // copy assets into build folder
@@ -6,16 +10,7 @@ module.exports = function(grunt) {
       target: {
         expand: true,
         cwd: 'public/',
-        src: [
-          'files/**',
-          'fonts/**',
-          'img/**',
-          'google9c723a7692fdf206.html',
-          'mywot116d689c1efc0de389b9.html',
-          'robots.txt',
-          'sitemap.xml',
-          'keybase.txt'
-        ],
+        src: copyFiles,
         dest: 'public/build'
       }
     },
