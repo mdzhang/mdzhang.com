@@ -1,0 +1,5 @@
+brew 'node-build'
+brew 'nodenv'
+brew 'ruby-build'
+brew 'rbenv'
+brew 's3cmd'
