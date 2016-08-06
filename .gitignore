@@ -1,9 +1,4 @@
-.DS_Store
+public/build
 node_modules
 bower_components
 .sass-cache
-scraps
-*.sublime-workspace
-
-# compiled assets
-public/build

@@ -11,68 +11,95 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
 
 ## Installation
 
-* Make sure you have [Homebrew](http://brew.sh/) installed on your machine.
+* Make sure you have [Homebrew](http://brew.sh/) installed on your machine
     ```
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ```
 
-* Install Xcode Command Line Tools
+* Make sure you have [git](https://git-scm.com/) installed
     ```
-    // You should get a popup to install Xcode Command Line Tools
-    // if you don't already have it if you try the following command
-    make
-    ```
-
-* Install the Node Package Manager and Ruby version manager
-    ```
-    brew install nvm rbenv ruby-build
+    brew install git
     ```
 
 * Clone the repository
     ```
     git clone https://github.com/mdzhang/mdzhang.com.git
+    cd mdzhang.com
     ```
 
-* Install dependencies
+* Install project dependencies
     ```
-    // not necessary, but useful for local dev
-    npm install -g grunt-cli
-    npm install -g bower
-    npm install -g eslint
-
-    // necessary
-    npm install
-    bower install
-    rbenv install 2.2.3
-    rbenv global 2.2.3
-    gem install sass
+    brew tap Homebrew/bundle
+    brew bundle
     ```
 
-* Set up deployment
-  * See how to [Host a Static Website on Amazon Web Services](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html)
-  * Grab s3cmd to sync your repo with your S3 bucket
-      ```
-      brew install s3cmd
-      ```
-  * Configure s3cmd with your Access and Secret key
-      ```
-      s3cmd --configure
-      ```
-  * Redefine S3_BUCKET in the Makefile
+* Configure project dependencies
+
+    * configure ruby
+        ```
+        echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> $HOME/.bashrc
+        source ~/.bashrc
+
+        rbenv install -s $(cat ./.ruby-version)
+        rbenv global $(cat ./.ruby-version)
+
+        gem update --system
+        gem install bundler
+        rbenv rehash
+
+        bundle install
+        ```
+
+    * configure node
+        ```
+        echo 'if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi' >> $HOME/.bashrc
+        source ~/.bashrc
+
+        nodenv install -s $(cat ./.node-version)
+        nodenv global $(cat ./.node-version)
+
+        npm install
+        bower install
+        ```
+
+    * configure deployment (s3)
+        * see how to [Host a Static Website on Amazon Web Services](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html)
+        * set your Access and Secret key
+            ```
+            s3cmd --configure
+            ```
+        * redefine S3_BUCKET in the Makefile
 
 * Set up analytics
-  * See how to set up [Google Analytics](https://support.google.com/analytics/answer/1008080?hl=en) and replace the script at the bottom of head.pug with the script they provide
+  * see how to set up [Google Analytics](https://support.google.com/analytics/answer/1008080) and
+  * replace the script at the bottom of `pug/partials/head.pug` with the script they provide
 
 * Verify with Google Webmaster
-  * See [here](https://www.google.com/webmasters/) for further instructions
-  * Replace the old public/build/google9c723a7692fdf206.html verification page with your new verification html page
+  * see [here](https://www.google.com/webmasters/) for further instructions
+  * seplace the old `public/google9c723a7692fdf206.html` verification page with your new verification html page
 
-* Generate a sitemap for your page e.g. [here](https://www.xml-sitemaps.com/]) and move new sitemap to public/build/sitemap.xml
-  * Upload your sitemap to [Google Webmaster Tools](https://www.google.com/webmasters/tools/sitemap-list)
+* Add a sitemap
+  * generate one e.g. [here](https://www.xml-sitemaps.com/])
+  * replace the old `public/sitemap.xml`
+  * upload it to [Google Webmaster Tools](https://www.google.com/webmasters/tools/sitemap-list)
 
-* Replace [WOT](https://www.mywot.com/) verification
+* Verify with [WOT](https://www.mywot.com/)
+  * see [here](https://www.mywot.com/wiki/Verify_your_website) for instructions
+  * replace the old `public/mywot116d689c1efc0de389b9.html`
 
-* Replace [Keybase](https://keybase.io/) verification
+* Verify with [Keybase](https://keybase.io/)
+  * verify
+      ```
+      brew install keybase
+      keybase prove http mdzhang.com
+      ```
+  * replace old `public/keybase.txt`
+
+* Update `deploy_files/copy_files.txt` and `Gruntfile.js` to reflect updated Google Webmaster, WOT, and Keybase files
+
+* Update `pug/partials/head.pug` with your own personal information
+
+* Update `pug/partials/icons.pug` to link to your personal online identities
 
 ## Development
 
@@ -96,7 +123,7 @@ Just run
 make deploy
 ```
 
-But before that you might want to try
+Which you can test beforehand with
 
 ```
 make deploy-test

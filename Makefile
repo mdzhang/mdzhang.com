@@ -39,4 +39,4 @@ deploy:
 		--include-from=deploy_files/copy_files.txt sync 'public/build/' s3://$(S3_BUCKET)/ && \
 	./compress.sh
 
-.PHONY: build npm bower grunt clean open watch deploy-test deploy
+.PHONY: build npm bower grunt clean open watch lint deploy-test deploy
