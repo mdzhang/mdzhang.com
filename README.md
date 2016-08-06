@@ -129,7 +129,7 @@ Which you can test beforehand with
 make deploy-test
 ```
 
-## Creators
+## Authors
 
 **Michelle D. Zhang**
 
