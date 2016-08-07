@@ -1,0 +1,97 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  cursor: default;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+
+  font-family: $primary-font;
+  font-weight: $primary-font-weight;
+
+  background-color: $light-grey;
+}
+
+header {
+  @include center();
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+a {
+  color: $blue;
+
+  &:hover {
+    color: white;
+    background-color: $blue;
+  }
+}
+
+p {
+  font-family: $secondary-font;
+  font-weight: $secondary-font-weight;
+
+  color: $darker-grey;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+  line-height: 2;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  list-style-type: none;
+}
+
+h1 {
+  color: $dark-grey;
+  font-size: 6em;
+}
+
+h2, h3, h4, h5 {
+  color: $blue;
+  font-size: 2em;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.container {
+  @include center();
+}
+
+.avatar {
+  @include circle(72px);
+  margin: 25px;
+
+  img {
+    height: 100%;
+    border-radius: 50%;
+  }
+}
+
+.main {
+  @include center();
+
+  padding-top: 10vh;
+
+  .container {
+    max-width: 750px;
+  }
+}
