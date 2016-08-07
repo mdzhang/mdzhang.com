@@ -1,12 +1,10 @@
 %head{prefix: "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# "}
   / basic page needs
   %meta{charset: 'utf-8'}
-  %title Michelle D. Zhang
-  %meta{name: 'author', content: 'Michelle D. Zhang'}
-  %meta{name: 'description', content: 'Michelle D. Zhang is a recent college grad and full stack software engineer'}
-  %meta{name: 'application-name', content: 'mdzhang.com'}
-  %meta{name: 'robots', content: 'index,follow'}
-  %meta{name: 'keywords', content: 'michelle, d, dan, zhang, michelle d. zhang, michelle zhang, michelledzhang, zhangmichelled, zhang.michelle.d, mdzhang, software, developer, engineer, new york, barnard'}
+  %title= data.me.full_name
+  %meta{name: 'author', content: "#{data.me.full_name}"}
+  %meta{name: 'description', content: "#{data.me.short_description}"}
+  %meta{name: 'application-name', content: "#{data.application.url}"}
 
   / mobile specific metas
   %meta{name: 'viewport', content: 'width: device-width, initial-scale: 1, user-scalable: no, maximum-scale: 1'}
@@ -14,12 +12,21 @@
   / styles
   %link{rel: 'stylesheet', href: '/assets/stylesheets/site.css'}
 
-  = partial 'partials/facebook'
-  = partial 'partials/twitter'
-  = partial 'partials/pinterest'
+  / scripts
+  %script{src: '/assets/javascripts/all.js'}
 
-  = partial 'partials/web_of_trust'
-  = partial 'partials/google_structured_data'
+  / analytics
   = partial 'partials/google_analytics'
 
-  %script{src: '/assets/javascripts/all.js'}
+  / seo
+  %meta{name: 'robots', content: 'index,follow'}
+  %meta{name: 'keywords', content: "#{data.application.keywords}"}
+  = partial 'partials/facebook'
+  = partial 'partials/twitter'
+
+  / verification
+  = partial 'partials/pinterest'
+  = partial 'partials/web_of_trust'
+
+  / identity
+  = partial 'partials/google_structured_data'

@@ -1,0 +1,25 @@
+github:
+  handle: 'mdzhang'
+  url: 'http://github.com/mdzhang'
+google_plus:
+  url: 'https://plus.google.com/110264345397705195755'
+google_analytics:
+  id: 'UA-66633424-1'
+google_webmaster:
+  verification:
+    code: '9c723a7692fdf206'
+    instructions: ''
+linkedin:
+  handle: 'mdzhang'
+  url: 'https://www.linkedin.com/in/mdzhang'
+pinterest:
+  verification:
+    code: '6748fc50118bee75dd7e006c2b4c3a7a'
+    instructions: ''
+twitter:
+  handle: '@michelledzhang'
+  url: 'https://twitter.com/michelledzhang'
+wot:
+  verification:
+    code: '116d689c1efc0de389b9'
+    instructions: 'https://www.mywot.com/wiki/Verify_your_website'

@@ -50,84 +50,38 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
         bundle install
         ```
 
-    * configure node
-        ```
-        echo 'if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi' >> $HOME/.bashrc
-        source ~/.bashrc
-
-        nodenv install -s $(cat ./.node-version)
-        nodenv global $(cat ./.node-version)
-
-        npm install
-        bower install
-        ```
-
     * configure deployment (s3)
         * see how to [Host a Static Website on Amazon Web Services](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html)
-        * set your Access and Secret key
-            ```
-            s3cmd --configure
-            ```
-        * redefine S3_BUCKET in the Makefile
+        * TODO
 
-* Set up analytics
-  * see how to set up [Google Analytics](https://support.google.com/analytics/answer/1008080) and
-  * replace the script at the bottom of `pug/partials/head.pug` with the script they provide
+* Update files in the `data` folder with your personal information
+* Regenerate your sitemap
+  * upload to Google Webmaster
 
-* Verify with Google Webmaster
-  * see [here](https://www.google.com/webmasters/) for further instructions
-  * seplace the old `public/google9c723a7692fdf206.html` verification page with your new verification html page
+### The `data` folder
 
-* Add a sitemap
-  * generate one e.g. [here](https://www.xml-sitemaps.com/])
-  * replace the old `public/sitemap.xml`
-  * upload it to [Google Webmaster Tools](https://www.google.com/webmasters/tools/sitemap-list)
+This folder contains information specific to you or your project.
 
-* Verify with [WOT](https://www.mywot.com/)
-  * see [here](https://www.mywot.com/wiki/Verify_your_website) for instructions
-  * replace the old `public/mywot116d689c1efc0de389b9.html`
+#### Resources
 
-* Verify with [Keybase](https://keybase.io/)
-  * verify
-      ```
-      brew install keybase
-      keybase prove http mdzhang.com
-      ```
-  * replace old `public/keybase.txt`
-
-* Update `deploy_files/copy_files.txt` to reflect updated Google Webmaster, WOT, and Keybase files
-
-* Update `pug/partials/head.pug` with your own personal information
-
-* Update `pug/partials/icons.pug` to link to your personal online identities
+* How to set up [Google Analytics](https://support.google.com/analytics/answer/1008080)
+* How to verify your site with [Google Webmaster](https://www.google.com/webmasters/)
+* How to verify with [Keybase](https://keybase.io/)
+* How to verify with [Pinterest]()
+* How to verify with [Web of Trust](https://www.mywot.com/wiki/Verify_your_website)
 
 ## Development
 
 To begin development:
 
-* Start the asset compiler and a local server to serve the site files, and open the files in your default browser
+* Start a local server to build, process, and serve the site files
     ```
-    make build && make open & make watch
-    ```
-
-* A shortcut for the above is
-    ```
-    npm start
+    bundle exec middleman server
     ```
 
 ## Deployment
 
-Just run
-
-```
-make deploy
-```
-
-Which you can test beforehand with
-
-```
-make deploy-test
-```
+TODO
 
 ## Authors
 

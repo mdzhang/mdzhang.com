@@ -1,53 +1,53 @@
 ###
-# Page options, layouts, aliases and proxies
+# Configure Middleman
 ###
 
+# Asset pipeline
 activate :sprockets
-sprockets.append_path File.join( root, 'source' )
+sprockets.append_path File.join(root, 'source')
 
-# Assets
+# Asset directories
 set :css_dir, "assets/stylesheets"
 set :js_dir, "assets/javascripts"
 set :fonts_dir, "assets/fonts"
 set :images_dir, "assets/images"
 
-# Per-page layout changes:
-#
-# With no layout
-page '/*.xml', layout: false
-page '/*.json', layout: false
+# CSS
+activate :autoprefixer do |config|
+  config.browsers = ["last 2 versions", "Explorer >= 9"]
+  config.remove   = false
+  config.cascade  = false
+  config.inline   = true
+end
+
+# Do not render with layout
+# TODO: pdf render
 page '/*.txt', layout: false
+page '/*.xml', layout: false
 
-# With alternative layout
-# page "/path/to/file.html", layout: :otherlayout
+# Helpers
+require 'helpers/google_helpers'
+require 'helpers/gravatar_helpers'
 
-# Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
-# proxy "/this-page-has-no-template.html", "/template-file.html", locals: {
-#  which_fake_page: "Rendering a fake page with a local variable" }
+helpers GoogleHelpers
+helpers GravatarHelpers
 
 # General configuration
 
-# Reload the browser automatically whenever files change
+# TODO: version route
+
 configure :development do
+  # Reload the browser automatically whenever files change
   activate :livereload
 end
 
-###
-# Helpers
-###
-
-# Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
-
-# Build-specific configuration
 configure :build do
-  # Minify CSS on build
-  # activate :minify_css
+  activate :gzip
+  activate :minify_css
+  activate :minify_html
+  activate :minify_javascript
 
-  # Minify Javascript on build
-  # activate :minify_javascript
+  compass_config do |config|
+    config.output_style = :compressed
+  end
 end
