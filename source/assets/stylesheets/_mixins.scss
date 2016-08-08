@@ -1,0 +1,13 @@
+// Center an element's contents both vertically and horizontally
+@mixin center() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin circle($radius) {
+  width: $radius * 2;
+  height: $radius * 2;
+  border-radius: 100%;
+}

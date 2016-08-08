@@ -1,4 +1,0 @@
-index.html
-error.html
-css/tidy.min.css
-js/scripts.min.js

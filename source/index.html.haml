@@ -1,0 +1,15 @@
+.main
+  .avatar
+    %img{src: "#{gravatar_url_small}"}
+
+  %h1= data.me.full_name
+  .container
+    %p
+      #{data.me.long_description_non_work}. I'm also a #{data.work.job_title.downcase} at&nbsp
+      %a{href: "#{data.work.url}", target: '_blank'}> #{data.work.name}
+      , #{data.work.short_description}.
+
+  = partial '/partials/icons'
+
+  / scripts
+  %script{src: '/assets/javascripts/all.js'}

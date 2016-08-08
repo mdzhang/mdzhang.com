@@ -1,42 +1,35 @@
-GRUNT = ./node_modules/.bin/grunt
-BOWER = ./node_modules/bower/bin/bower
-CLEAN = rm -rf public/build
-S3_BUCKET = mdzhang.com
+MIDDLEMAN = bundle exec middleman
+SHA_TAG = $(shell git rev-parse --verify HEAD)
+ISO_TIME = $(shell ruby -e "require 'time'; puts DateTime.now.to_time.iso8601")
 
-build: npm bower grunt
-
-npm:
-	npm prune && npm install
-
-bower:
-	${BOWER} install
-
-grunt:
-	${GRUNT}
+all:
+	echo "Not implemented"
 
 clean:
-	${CLEAN}
+	rm -rf ./build
 
-open:
-	python -m SimpleHTTPServer 8000 &
-	open http://localhost:8000/public/build/
+test:
+	echo "TODO"
 
-watch:
-	${GRUNT} watch
+start:
+	${MIDDLEMAN} server
 
-lint:
-	${GRUNT} lint
+compile:
+	${MIDDLEMAN} build
 
-deploy-test:
-	${CLEAN} && ${GRUNT} build && \
-	s3cmd --dry-run --delete-removed --acl-public --exclude='*' \
-		--include-from=deploy_files/copy_files.txt sync 'public/build/' s3://$(S3_BUCKET)/ && \
-	./compress.sh --dry-run
+version:
+	echo "$(SHA_TAG)-$(ISO_TIME)" > ./build/version.txt
 
-deploy:
-	${CLEAN} && ${GRUNT} build && \
-	s3cmd --delete-removed --acl-public --exclude='*' \
-		--include-from=deploy_files/copy_files.txt sync 'public/build/' s3://$(S3_BUCKET)/ && \
-	./compress.sh
+build: compile version
 
-.PHONY: build npm bower grunt clean open watch lint deploy-test deploy
+s3_sync:
+	${MIDDLEMAN} s3_sync
+
+s3_sync_dry_run:
+	${MIDDLEMAN} s3_sync --dry_run
+
+deploy: build s3_sync
+
+deploy-test: build s3_sync_dry_run
+
+.PHONY: all clean test start compile version build s3_sync s3_sync_dry_run deploy deploy-test
