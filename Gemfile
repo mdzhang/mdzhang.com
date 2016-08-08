@@ -11,3 +11,7 @@ gem 'middleman-sprockets'
 
 gem 'middleman-s3_sync'
 gem 'mime-types'
+gem 'rubocop'
+gem 'overcommit'
+gem 'haml_lint'
+gem 'scss_lint', require: false
