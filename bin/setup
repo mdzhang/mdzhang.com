@@ -1,0 +1,32 @@
+#!/usr/bin/env sh
+set -e
+
+# Install brew packages
+brew tap Homebrew/bundle
+brew bundle
+
+eval "$(rbenv init -)"
+eval "$(nodenv init -)"
+
+# Install ruby
+rbenv install -s $(cat ./.ruby-version)
+rbenv global $(cat ./.ruby-version)
+gem update --system
+
+# Install bundler
+if [ "$(gem query -i -n bundler)" = "false" ]; then
+  gem install bundler
+fi
+rbenv rehash
+
+# Install node
+nodenv install -s $(cat ./.node-version)
+nodenv global $(cat ./.node-version)
+
+# Install ruby gems
+bundle install
+
+# Install node packages
+npm install
+
+ruby -e "puts %Q{Add the following line to your shell config file:\nif which rbenv > /dev/null; then eval '\$(rbenv init -)' fi\nif which nodenv > /dev/null; then eval '\$(nodenv init -)'; fi}"
