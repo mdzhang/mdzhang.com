@@ -21,12 +21,4 @@ module GoogleHelpers
       ]
     }.to_json
   end
-
-  def webmaster_verification_file_name
-    "google#{data.services.google_webmaster.verification.code}.html"
-  end
-
-  def webmaster_verification_file_content
-    "google-site-verification: #{webmaster_verification_file_name}"
-  end
 end

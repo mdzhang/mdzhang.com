@@ -21,7 +21,6 @@ activate :autoprefixer do |config|
 end
 
 # Do not render with layout
-# TODO: pdf render
 page '/*.txt', layout: false
 page '/*.xml', layout: false
 
@@ -34,10 +33,8 @@ helpers GravatarHelpers
 
 # General configuration
 
-# TODO: version route
-
 configure :development do
-  # Reload the browser automatically whenever files change
+  # reload the browser automatically whenever files change
   activate :livereload
 end
 
@@ -49,5 +46,12 @@ configure :build do
 
   compass_config do |config|
     config.output_style = :compressed
+  end
+
+  # also reads from .s3_sync
+  activate :s3_sync do |s3_sync|
+    s3_sync.prefer_gzip                = true
+    s3_sync.index_document             = 'index.html'
+    s3_sync.error_document             = 'error.html'
   end
 end

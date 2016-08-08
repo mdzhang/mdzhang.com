@@ -7,5 +7,7 @@ gem 'middleman-compass', '>= 4.0.0'
 gem 'middleman-jquery'
 gem 'middleman-livereload'
 gem 'middleman-minify-html'
-gem 'middleman-s3_sync'
 gem 'middleman-sprockets'
+
+gem 'middleman-s3_sync'
+gem 'mime-types'
