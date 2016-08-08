@@ -7,14 +7,14 @@ activate :sprockets
 sprockets.append_path File.join(root, 'source')
 
 # Asset directories
-set :css_dir, "assets/stylesheets"
-set :js_dir, "assets/javascripts"
-set :fonts_dir, "assets/fonts"
-set :images_dir, "assets/images"
+set :css_dir, 'assets/stylesheets'
+set :js_dir, 'assets/javascripts'
+set :fonts_dir, 'assets/fonts'
+set :images_dir, 'assets/images'
 
 # CSS
 activate :autoprefixer do |config|
-  config.browsers = ["last 2 versions", "Explorer >= 9"]
+  config.browsers = ['last 2 versions', 'Explorer >= 9']
   config.remove   = false
   config.cascade  = false
   config.inline   = true
@@ -27,9 +27,11 @@ page '/*.xml', layout: false
 # Helpers
 require 'helpers/google_helpers'
 require 'helpers/gravatar_helpers'
+require 'helpers/resume_helpers'
 
 helpers GoogleHelpers
 helpers GravatarHelpers
+helpers ResumeHelpers
 
 # General configuration
 

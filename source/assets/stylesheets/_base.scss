@@ -1,9 +1,9 @@
 * {
-  margin: 0px;
-  padding: 0px;
   cursor: default;
   font-family: inherit;
   font-weight: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -11,12 +11,10 @@ html {
 }
 
 body {
-  height: 100%;
-
+  background-color: $light-grey;
   font-family: $primary-font;
   font-weight: $primary-font-weight;
-
-  background-color: $light-grey;
+  height: 100%;
 }
 
 header {
@@ -24,30 +22,22 @@ header {
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
-
-  &:hover {
-    text-decoration: none;
-    cursor: pointer;
-  }
-}
-
-a {
   color: $blue;
+  text-decoration: none;
 
   &:hover {
-    color: white;
     background-color: $blue;
+    color: $white;
+    cursor: pointer;
+    text-decoration: none;
   }
 }
 
 p {
-  font-family: $secondary-font;
-  font-weight: $secondary-font-weight;
-
   color: $darker-grey;
+  font-family: $secondary-font;
   font-size: 0.9em;
+  font-weight: $secondary-font-weight;
   letter-spacing: 0.5px;
   line-height: 2;
   text-align: center;
@@ -81,14 +71,13 @@ h2, h3, h4, h5 {
   margin: 25px;
 
   img {
-    height: 100%;
     border-radius: 50%;
+    height: 100%;
   }
 }
 
 .main {
   @include center();
-
   padding-top: 10vh;
 
   .container {

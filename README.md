@@ -50,6 +50,17 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
         bundle install
         ```
 
+    * configure node
+        ```
+        echo 'if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi' >> $HOME/.bashrc
+        source ~/.bashrc
+
+        nodenv install -s $(cat ./.node-version)
+        nodenv global $(cat ./.node-version)
+
+        npm install
+        ```
+
     * configure deployment (s3)
         * see how to [Host a Static Website on Amazon Web Services](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html)
         * setup your `.s3_sync` file, using `.s3_sync.sample` as a reference
@@ -63,12 +74,18 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
 
 ## Development
 
-To begin development:
+Start a local server to build, process, and serve the site files
 
-* Start a local server to build, process, and serve the site files
     ```
     make start
     ```
+
+### Code Linting
+
+```
+bundle exec overcommit --install
+bundle exec overcommit --sign
+```
 
 ## Deployment
 
@@ -100,4 +117,4 @@ Code copyright 2015 Michelle D. Zhang.
 - Dockerfile
 - automatic deploy on merge with circle.ci
 - move from Makefile to Rakefile?
-- ruby, sass, haml, yml linting
+- ability to toggle environments and per-environment config

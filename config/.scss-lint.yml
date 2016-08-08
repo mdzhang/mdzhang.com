@@ -1,0 +1,19 @@
+linters:
+  LeadingZero:
+    enabled: true
+    style: include_zero
+
+  HexNotation:
+    enabled: true
+    style: uppercase
+
+  SingleLinePerSelector:
+    enabled: false
+
+  SelectorDepth:
+    enabled: true
+    max_depth: 4
+
+  NestingDepth:
+    enabled: true
+    max_depth: 4
