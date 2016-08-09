@@ -1,3 +1,8 @@
+require 'rubygems'
+require 'bundler'
+
+Bundler.require(:default, config[:environment], config[:mode])
+
 ###
 # Configure Middleman
 ###
@@ -33,6 +38,15 @@ helpers GoogleHelpers
 helpers GravatarHelpers
 helpers ResumeHelpers
 
+# Deploy configuration
+
+# also reads from .s3_sync
+activate :s3_sync do |s3_sync|
+  s3_sync.prefer_gzip                = true
+  s3_sync.index_document             = 'index.html'
+  s3_sync.error_document             = 'error.html'
+end
+
 # General configuration
 
 configure :development do
@@ -48,12 +62,5 @@ configure :build do
 
   compass_config do |config|
     config.output_style = :compressed
-  end
-
-  # also reads from .s3_sync
-  activate :s3_sync do |s3_sync|
-    s3_sync.prefer_gzip                = true
-    s3_sync.index_document             = 'index.html'
-    s3_sync.error_document             = 'error.html'
   end
 end
