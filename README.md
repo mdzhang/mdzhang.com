@@ -76,9 +76,9 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
 
 Start a local server to build, process, and serve the site files
 
-    ```
-    make start
-    ```
+```
+make start
+```
 
 ### Code Linting
 
@@ -110,11 +110,3 @@ make deploy-test
 ## Copyright
 
 Code copyright 2015 Michelle D. Zhang.
-
-## TODOs
-
-- consider using `middleman-fontawesome` instead of using icomoon
-- Dockerfile
-- automatic deploy on merge with circle.ci
-- move from Makefile to Rakefile?
-- ability to toggle environments and per-environment config
