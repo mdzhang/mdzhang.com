@@ -65,7 +65,7 @@ configure :build do
   activate :gzip
   activate :minify_css
   activate :minify_html
-  activate :minify_javascript
+  activate :minify_javascript, inline: true
 
   compass_config do |config|
     config.output_style = :compressed
