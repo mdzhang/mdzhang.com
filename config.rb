@@ -3,6 +3,8 @@ require 'bundler'
 
 Bundler.require(:default, config[:environment], config[:mode])
 
+config[:host] = ENV['HOST']
+
 ###
 # Configure Middleman
 ###
@@ -40,6 +42,7 @@ helpers ResumeHelpers
 
 # Deploy configuration
 
+# TODO: shouldn't have to run this all the time
 # also reads from .s3_sync
 activate :s3_sync do |s3_sync|
   s3_sync.prefer_gzip                = true

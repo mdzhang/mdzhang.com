@@ -21,7 +21,7 @@ group :development do
   gem 'haml_lint'
   gem 'overcommit'
   gem 'rubocop'
-  gem 'scss_lint'
+  gem 'scss_lint', require: false
 end
 
 group :test do

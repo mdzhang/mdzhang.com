@@ -9,7 +9,7 @@ module GoogleHelpers
       email: data.me.email,
       gender: data.me.gender,
       nationality: data.me.nationality,
-      url: data.application.url,
+      url: config[:host],
       image: gravatar_url_large,
       jobTitle: data.work.job_title,
       affiliation: data.work.name,

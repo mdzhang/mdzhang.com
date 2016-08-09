@@ -4,6 +4,7 @@ AllCops:
     - '**/config.ru'
     - '**/Rakefile'
     - '**/Gemfile'
+    - './bin/rake'
 
 Metrics/LineLength:
   Max: 120

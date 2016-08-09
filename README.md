@@ -77,14 +77,14 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
 Start a local server to build, process, and serve the site files
 
 ```
-make start
+./bin/rake start
 ```
 
 ### Code Linting
 
 ```
-bundle exec overcommit --install
-bundle exec overcommit --sign
+./bin/rake lint:install
+./bin/rake lint:sign
 ```
 
 ## Deployment
@@ -92,13 +92,14 @@ bundle exec overcommit --sign
 Just run
 
 ```
-make deploy
+# e.g. ./bin/rake deploy:staging
+./bin/rake deploy:[environment]
 ```
 
 Which you can test beforehand with
 
 ```
-make deploy-test
+./bin/rake deploy:dry:[environment]
 ```
 
 ## Authors
