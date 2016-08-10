@@ -18,9 +18,9 @@ group :build, :config do
 end
 
 group :development do
-  gem 'haml_lint'
-  gem 'overcommit'
-  gem 'rubocop'
+  gem 'haml_lint', require: false
+  gem 'overcommit', require: false
+  gem 'rubocop', require: false
   gem 'scss_lint', require: false
 end
 

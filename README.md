@@ -91,12 +91,18 @@ To lint your code before commit, and test it before push
 ./bin/rake lint:sign
 ```
 
+## Testing
+
+```
+./bin/rake test
+```
+
 ## Deployment
 
 Just run
 
 ```
-./bin/rake deploy:[environment]
+./bin/rake deploy -- -e [environment]
 ```
 
 Where environment is one of `staging` or `production`
@@ -104,7 +110,7 @@ Where environment is one of `staging` or `production`
 Which you can test beforehand with
 
 ```
-./bin/rake deploy:dry:[environment]
+./bin/rake deploy -- -d -e [environment]
 ```
 
 ## Authors

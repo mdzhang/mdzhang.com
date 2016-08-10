@@ -17,7 +17,7 @@
   = partial 'partials/google_analytics'
 
   / seo
-  %meta{ name: 'robots', content: 'index,follow' }
+  %meta{ name: 'robots', content: config[:environment].eql?(:production) ? 'index,follow' : 'noindex' }
   %meta{ name: 'keywords', content: data.application.keywords }
   = partial 'partials/facebook'
   = partial 'partials/twitter'
