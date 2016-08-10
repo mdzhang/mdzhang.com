@@ -7,6 +7,7 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
 * [Installation](#installation)
 * [Development](#development)
 * [Deployment](#deployment)
+* [Authors](#authors)
 * [Copyright](#copyright)
 
 ## Installation
@@ -65,12 +66,13 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
         * see how to [Host a Static Website on Amazon Web Services](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html)
         * setup your `.s3_sync` file, using `.s3_sync.sample` as a reference
 
-* Update files in the `data` folder with your personal information
+* Update files in the `data` folder with your personal and project information
 * Remove or update the following files
-    * `source/google9c723a7692fdf206.html` to verify with Google Webmaster
-    * `source/mywot116d689c1efc0de389b9.html` to verify with Web of Trust
-    * `source/keybase.txt` to verify with Keybase
-    * `source/files/MichelleZhangResume.pdf`
+    * `source/google9c723a7692fdf206.html` to verify with [Google Webmaster](https://www.google.com/webmasters)
+    * `source/mywot116d689c1efc0de389b9.html` to verify with [Web of Trust](https://www.mywot.com/)
+    * `source/keybase.txt` to verify with [Keybase](https://keybase.io/)
+    * `source/assets/files/MichelleZhangResume.pdf`
+    * `source/assets/images/favicon.ico`
 
 ## Development
 
@@ -82,6 +84,8 @@ Start a local server to build, process, and serve the site files
 
 ### Code Linting
 
+To lint your code before commit, and test it before push
+
 ```
 ./bin/rake lint:install
 ./bin/rake lint:sign
@@ -92,9 +96,10 @@ Start a local server to build, process, and serve the site files
 Just run
 
 ```
-# e.g. ./bin/rake deploy:staging
 ./bin/rake deploy:[environment]
 ```
+
+Where environment is one of `staging` or `production`
 
 Which you can test beforehand with
 
