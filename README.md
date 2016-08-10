@@ -71,8 +71,8 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
     * `source/google9c723a7692fdf206.html` to verify with [Google Webmaster](https://www.google.com/webmasters)
     * `source/mywot116d689c1efc0de389b9.html` to verify with [Web of Trust](https://www.mywot.com/)
     * `source/keybase.txt` to verify with [Keybase](https://keybase.io/)
-    * `source/assets/files/MichelleZhangResume.pdf`
-    * `source/assets/images/favicon.ico`
+    * `source/files/MichelleZhangResume.pdf`
+    * `source/images/favicon.ico`
 
 ## Development
 

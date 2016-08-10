@@ -13,12 +13,6 @@ config[:host] = ENV['HOST']
 activate :sprockets
 sprockets.append_path File.join(root, 'source')
 
-# Asset directories
-set :css_dir, 'assets/stylesheets'
-set :js_dir, 'assets/javascripts'
-set :fonts_dir, 'assets/fonts'
-set :images_dir, 'assets/images'
-
 # CSS
 activate :autoprefixer do |config|
   config.browsers = ['last 2 versions', 'Explorer >= 9']

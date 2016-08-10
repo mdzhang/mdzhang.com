@@ -11,7 +11,7 @@ PreCommit:
     enabled: true
     command: ['./node_modules/.bin/eslint', '-c', 'config/.eslintrc.json']
     required_executable: './node_modules/.bin/eslint'
-    include: 'source/assets/javascripts/**/*.js'
+    include: 'source/javascripts/**/*.js'
 
   # HAML check
   HamlLint:
@@ -28,7 +28,7 @@ PreCommit:
   # Sass check
   ScssLint:
     enabled: true
-    command: ['bundle', 'exec', 'scss-lint', '-c', 'config/.scss-lint.yml', 'source/assets/stylesheets/']
+    command: ['bundle', 'exec', 'scss-lint', '-c', 'config/.scss-lint.yml', 'source/stylesheets/']
     on_warn: fail
 
   # YAML check
