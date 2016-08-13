@@ -1,6 +1,6 @@
 # [mdzhang.com](http://mdzhang.com)
 
-This repository holds the code for my personal website, [mdzhang.com](http://mdzhang.com)
+This repository holds the code for my personal website, [mdzhang.com](http://mdzhang.com). Built using [Middleman](https://middlemanapp.com).
 
 ## Table of Contents
 
@@ -122,6 +122,6 @@ You can run these from your local host's command line by setting up `.s3_sync` (
 
   * <http://github.com/mdzhang>
 
-## Copyright
+## License
 
-Code copyright 2015 Michelle D. Zhang.
+Copyright (c) 2013-2016 Michelle D. Zhang. MIT Licensed, see [LICENSE](LICENSE.md) for details.
