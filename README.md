@@ -64,7 +64,8 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
 
     * configure deployment (s3)
         * see how to [Host a Static Website on Amazon Web Services](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html)
-        * setup your `.s3_sync` file, using `.s3_sync.sample` as a reference
+        * to deploy from your local host, setup your `.s3_sync` file, using `.s3_sync.sample` as a reference
+        * to deploy continuously using [CircleCI](https://circleci.com), add `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables through your CircleCI project settings
 
 * Update files in the `data` folder with your personal and project information
 * Remove or update the following files
@@ -112,6 +113,8 @@ Which you can test beforehand with
 ```
 ./bin/rake deploy -- -d -e [environment]
 ```
+
+You can run these from your local host's command line by setting up `.s3_sync` (see above), or reuse the existing `circle.yml` file for continuous deployment, which will redeploy staging when the `development` branch is updated, and will redeploy production when the `master` branch is updated.
 
 ## Authors
 

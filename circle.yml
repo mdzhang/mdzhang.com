@@ -8,3 +8,13 @@ test:
     - git config --global user.name "Circle CI"
     - bundle exec overcommit --sign
     - bundle exec overcommit --run
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - ./bin/rake deploy -- -e production
+  staging:
+    branch: development
+    commands:
+      - ./bin/rake deploy -- -e staging

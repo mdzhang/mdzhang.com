@@ -37,12 +37,18 @@ PreCommit:
     on_warn: fail
 
 PrePush:
+  BundleInstall:
+    enabled: true
+    on_warn: fail
+
   # Unit & Integration tests
   RSpec:
     enabled: true
     command: ['bundle', 'exec', 'rspec', 'spec']
     on_warn: fail
 
-  BundleInstall:
+  # TODO: prevent direct push to master/development
+  # TODO: only let development branch be merged into master
+  ProtectedBranches:
     enabled: true
-    on_warn: fail
+    branches: ['master']
