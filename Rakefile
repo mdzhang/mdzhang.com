@@ -1,18 +1,9 @@
+require 'optparse'
 require 'yaml'
 
 desc 'Build project'
-namespace :build do
-  def build(clean = true)
-    sh "bundle exec middleman build #{clean ? '--clean' : ''}"
-  end
-
-  task :clean do
-    build
-  end
-
-  task :delta do
-    build false
-  end
+task :build do
+  sh 'bundle exec middleman build'
 end
 
 desc 'Clean project'
@@ -21,41 +12,46 @@ task :clean do
 end
 
 desc 'Deploy project'
-namespace :deploy do
-  def host_for_environment(env)
-    hosts = YAML.load(File.read('data/hosts.yml'))
-    hosts[env.to_s]
+task :deploy do
+  options = {}
+
+  o = OptionParser.new
+
+  o.banner = 'Usage: rake deploy [options]'
+
+  o.on('-e ENV', '--environment ENV', 'Environment to deploy to') do |env|
+    options[:env] = env
   end
 
-  def deploy(env, dry_run = true)
-    # TODO: these checks are only in here b/c I'm mostly deploying from the command line
-    # TODO: feels unnatural that host is set here
+  o.on('-b', '--build', 'Build code before deploy') do |_env|
+    options[:build] = '--build'
+  end
+
+  o.on('-l', '--lint', 'Lint code before deploy') do |_env|
     Rake::Task['lint:run'].invoke
+  end
+
+  o.on('-d', '--dry-run', 'Dry run deploy') do |_env|
+    options[:dry] = '--dry_run'
+  end
+
+  o.on('-t', '--test', 'Test before deploy') do |_env|
     Rake::Task['test'].invoke
-    sh "HOST=#{host_for_environment(env)} bundle exec middleman s3_sync --build #{dry_run ? '--dry_run' : ''}"
   end
 
-  task :development do
-    sh "HOST=#{host_for_environment(:development)} bundle exec middleman server"
+  o.on('-h', '--help', 'Print help screen') do |_v|
+    puts o
+    exit
   end
 
-  task :staging do
-    deploy :staging, false
-  end
+  args = o.order!(ARGV) {}
 
-  task :production do
-    deploy :production, false
-  end
+  o.parse!(args)
 
-  namespace :dry do
-    task :staging do
-      deploy :staging
-    end
+  abort 'Must specify an environment' unless options.key?(:env)
 
-    task :production do
-      deploy :production
-    end
-  end
+  sh "bundle exec middleman s3_sync --build #{options[:dry]} -e #{options[:env]}"
+  exit
 end
 
 desc 'Lint project code'
@@ -80,16 +76,14 @@ namespace :lint do
     lint :uninstall
   end
 
-  namespace :ruby do
-    task :fix do
-      sh 'bundle exec rubocop --auto-correct -c config/.rubocop.yml'
-    end
+  task :fix do
+    sh 'bundle exec rubocop --auto-correct -c config/.rubocop.yml'
   end
 end
 
 desc 'Start a local server to build, process, and serve the site files'
 task :start do
-  Rake::Task['deploy:development'].invoke
+  sh 'bundle exec middleman server -e development'
 end
 
 desc 'Test project'
