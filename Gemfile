@@ -5,9 +5,12 @@ gem 'middleman', '>= 4.0.0'
 gem 'middleman-autoprefixer'
 gem 'middleman-jquery'
 gem 'middleman-sprockets'
-
+gem 'middleman-blog'
 gem 'middleman-s3_sync'
 gem 'mime-types'
+
+gem 'middleman-syntax'
+gem 'redcarpet'
 
 group :build do
   gem 'middleman-minify-html'
