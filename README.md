@@ -53,7 +53,7 @@ Code linting git hooks are automatically installed by `./bin/setup`. To kick the
 ./bin/rake lint:run
 ```
 
-## Testing
+### Testing
 
 ```
 ./bin/rake test
