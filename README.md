@@ -2,9 +2,9 @@
 
 This repository holds the code for my personal website, [mdzhang.com](http://mdzhang.com). Built using [Middleman](https://middlemanapp.com).
 
-| Circle CI | Dependencies | Code Climate | Test Coverage | Documentation |
-| --------- | ------------ | ------------ | ------------- | ------------- |
-| [![CircleCI](https://circleci.com/gh/mdzhang/mdzhang.com.svg?style=svg)](https://circleci.com/gh/mdzhang/mdzhang.com) | [![Dependency Status](https://gemnasium.com/badges/github.com/mdzhang/mdzhang.com.svg)](https://gemnasium.com/github.com/mdzhang/mdzhang.com) | [![Code Climate](https://codeclimate.com/github/mdzhang/mdzhang.com/badges/gpa.svg)](https://codeclimate.com/github/mdzhang/mdzhang.com) | [![Test Coverage](https://codeclimate.com/github/mdzhang/mdzhang.com/badges/coverage.svg)](https://codeclimate.com/github/mdzhang/mdzhang.com/coverage) | [![Inline docs](http://inch-ci.org/github/mdzhang/mdzhang.com.svg?branch=development)](http://inch-ci.org/github/mdzhang/mdzhang.com) |
+| Circle CI | Dependencies | Code Climate | Test Coverage | Documentation | License |
+| --------- | ------------ | ------------ | ------------- | ------------- | ------- |
+| [![CircleCI](https://circleci.com/gh/mdzhang/mdzhang.com.svg?style=svg)](https://circleci.com/gh/mdzhang/mdzhang.com) | [![Dependency Status](https://gemnasium.com/badges/github.com/mdzhang/mdzhang.com.svg)](https://gemnasium.com/github.com/mdzhang/mdzhang.com) | [![Code Climate](https://codeclimate.com/github/mdzhang/mdzhang.com/badges/gpa.svg)](https://codeclimate.com/github/mdzhang/mdzhang.com) | [![Test Coverage](https://codeclimate.com/github/mdzhang/mdzhang.com/badges/coverage.svg)](https://codeclimate.com/github/mdzhang/mdzhang.com/coverage) | [![Inline docs](http://inch-ci.org/github/mdzhang/mdzhang.com.svg?branch=development)](http://inch-ci.org/github/mdzhang/mdzhang.com) | [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)]() |
 
 ## Table of Contents
 
