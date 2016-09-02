@@ -47,8 +47,6 @@ PrePush:
     command: ['bundle', 'exec', 'rspec', 'spec']
     on_warn: fail
 
-  # TODO: prevent direct push to master/development
-  # TODO: only let development branch be merged into master
   ProtectedBranches:
     enabled: true
     branches: ['master']
