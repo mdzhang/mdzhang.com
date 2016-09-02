@@ -1,4 +1,5 @@
-brew 'rbenv'
-brew 'ruby-build'
+brew 'direnv'
 brew 'nodenv'
 brew 'node-build'
+brew 'rbenv'
+brew 'ruby-build'

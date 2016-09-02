@@ -1,7 +1,7 @@
 module Helpers
   module Deploy
     def config_s3(options = {})
-      # NB: Reads credentials from .s3_sync; assumes same credentials used for all environments
+      # NB: Reads credentials from .envrc; assumes same credentials used for all environments
       activate :s3_sync do |s3_sync|
         s3_sync.bucket                     = s3_bucket_from_host(options[:host])
         s3_sync.region                     = 'us-west-1'

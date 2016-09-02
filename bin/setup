@@ -1,35 +1,70 @@
-#!/usr/bin/env sh
-set -e
+#!/usr/bin/env ruby
+require 'pathname'
+require 'fileutils'
+include FileUtils
 
-# Install or update brew
-(which -s brew && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)") || brew update
+PROJECT_ROOT = Pathname.new File.expand_path('../../', __FILE__)
 
-# Install brew packages
-brew tap Homebrew/bundle
-brew bundle
+def system!(*args)
+  system(*args) || abort("\n== Command #{args} failed ==")
+end
 
-eval "$(rbenv init -)"
-eval "$(nodenv init -)"
+def personal_files
+  %w(
+    data/*
+    .envrc
+    source/google9c723a7692fdf206.html
+    source/mywot116d689c1efc0de389b9.html
+    source/keybase.txt
+    source/files/MichelleZhangResume.pdf
+    source/images/favicon.ico
+  )
+end
 
-# Install ruby
-rbenv install -s $(cat ./.ruby-version)
-rbenv global $(cat ./.ruby-version)
-gem update --system
+def pretty_personal_files
+  "\n\t#{personal_files.join("\n\t")}\n"
+end
 
-# Install bundler
-if [ "$(gem query -i -n bundler)" = "false" ]; then
-  gem install bundler
-fi
-rbenv rehash
+chdir PROJECT_ROOT do
+  puts "\n== Installing Homebrew packages =="
+  system! %{
+    brew tap Homebrew/bundle
+    brew bundle
+  }
 
-# Install node
-nodenv install -s $(cat ./.node-version)
-nodenv global $(cat ./.node-version)
+  puts "\n== Configure environment variables =="
+  system! %{
+    cp .envrc.sample .envrc
+    direnv allow
+  }
 
-# Install ruby gems
-bundle install
+  puts "\n== Install & Configure ruby and ruby gems =="
+  system! %{
+    rbenv install -s $(cat ./.ruby-version)
+    rbenv global $(cat ./.ruby-version)
 
-# Install node packages
-npm install
+    gem update --system
+    gem install bundler
+    rbenv rehash
 
-ruby -e "puts %Q{Add the following line to your shell config file:\nif which rbenv > /dev/null; then eval '\$(rbenv init -)' fi\nif which nodenv > /dev/null; then eval '\$(nodenv init -)'; fi}"
+    bundle install
+  }
+
+  puts "\n== Install & Configure node and node modules =="
+  system! %{
+    nodenv install -s $(cat ./.node-version)
+    nodenv global $(cat ./.node-version)
+
+    npm install
+  }
+
+  puts "\n== Installing git hooks =="
+  system! %{
+    bundle exec overcommit --install
+    bundle exec overcommit --sign
+  }
+
+  puts "\nDon't forget to update #{pretty_personal_files} with your personal/project information!"
+
+  puts "\n== Setup finished! =="
+end
