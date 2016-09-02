@@ -5,6 +5,8 @@ AllCops:
     - '**/Rakefile'
     - '**/Gemfile'
     - './bin/rake'
+    - './bin/setup'
+    - '**/*.rake'
 
 Metrics/LineLength:
   Max: 120

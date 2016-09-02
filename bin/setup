@@ -27,16 +27,16 @@ end
 
 chdir PROJECT_ROOT do
   puts "\n== Installing Homebrew packages =="
-  system! %{
+  system! %(
     brew tap Homebrew/bundle
     brew bundle
-  }
+  )
 
   puts "\n== Configure environment variables =="
-  system! %{
+  system! %(
     cp .envrc.sample .envrc
     direnv allow
-  }
+  )
 
   puts "\n== Install & Configure ruby and ruby gems =="
   system! %{
@@ -59,10 +59,10 @@ chdir PROJECT_ROOT do
   }
 
   puts "\n== Installing git hooks =="
-  system! %{
+  system! %(
     bundle exec overcommit --install
     bundle exec overcommit --sign
-  }
+  )
 
   puts "\nDon't forget to update #{pretty_personal_files} with your personal/project information!"
 
