@@ -67,6 +67,7 @@ chdir PROJECT_ROOT do
   )
 
   puts "\nDon't forget to update #{pretty_personal_files} with your personal/project information!"
+  puts "\nDon't forget to update .envrc with your project credentials!"
 
   puts "\n== Setup finished! =="
 end
