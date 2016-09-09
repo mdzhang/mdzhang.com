@@ -11,20 +11,20 @@ end
 
 def personal_files
   %w(
-    .envrc
+    .envrc\ (project\ credentials)
     data/*
     development/images/favicon.xcf
-    README.md (badges)
+    README.md\ (site\ name,\ badges)
     source/files/MichelleZhangResume.pdf
-    source/google9c723a7692fdf206.html
+    source/google9c723a7692fdf206.html\ (google\ webmaster)
     source/images/favicon.ico
     source/keybase.txt
-    source/mywot116d689c1efc0de389b9.html
+    source/mywot116d689c1efc0de389b9.html\ (web\ of\ trust)
   )
 end
 
 def pretty_personal_files
-  "\n\t#{personal_files.join("\n\t")}\n"
+  "\n\n\t#{personal_files.join("\n\t")}\n\n"
 end
 
 chdir PROJECT_ROOT do
@@ -67,7 +67,6 @@ chdir PROJECT_ROOT do
   )
 
   puts "\nDon't forget to update #{pretty_personal_files} with your personal/project information!"
-  puts "\nDon't forget to update .envrc with your project credentials!"
 
   puts "\n== Setup finished! =="
 end
