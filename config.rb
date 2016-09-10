@@ -43,6 +43,7 @@ set :markdown, smartypants: true,
                fenced_code_blocks: true
 
 activate :directory_indexes
+page(/(error|[A-z]+\d+).*\.html/, directory_index: false)
 
 activate :blog do |blog|
   blog.prefix = 'blog'
