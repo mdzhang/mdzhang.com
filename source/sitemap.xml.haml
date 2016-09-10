@@ -8,3 +8,8 @@
     %loc= resume_url
     %lastmod= DateTime.now.to_time.iso8601
     %changefreq daily
+  - blog.articles.each do |article|
+    %url
+      %loc= config[:host] + article.url
+      %lastmod= article.date.iso8601
+      %changefreq never

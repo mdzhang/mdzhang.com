@@ -1,0 +1,26 @@
+!!!
+%html{ lang: 'en' }
+  %head
+    / basic page needs
+    %meta{ charset: 'utf-8' }
+    %meta{ name: 'author', content: data.me.full_name }
+    %link{ rel: 'shortcut icon', href: '/images/favicon.ico', type: 'image/x-icon' }
+
+    / blog post specific
+    %title= current_article.title
+
+    / mobile specific metas
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1' }
+
+    / styles
+    %link{ rel: 'stylesheet', href: '/stylesheets/blog.css' }
+
+  %body
+    %main
+      %article
+        %h5= link_to(data.me.full_name, '/')
+        %h5= time_tag current_article.date
+        %h1= current_article.title
+        / https://github.com/middleman/middleman-syntax/issues/24
+        = preserve do
+          = yield

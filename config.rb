@@ -37,6 +37,20 @@ activate :autoprefixer do |config|
   config.inline   = true
 end
 
+activate :syntax
+set :markdown_engine, :redcarpet
+set :markdown, smartypants: true,
+               fenced_code_blocks: true
+
+activate :directory_indexes
+
+activate :blog do |blog|
+  blog.prefix = 'blog'
+  blog.sources = '{category}/{year}-{month}-{day}-{title}.html'
+  blog.permalink = '{category}/{year}/{month}/{day}/{title}.html'
+  blog.layout = 'blog'
+end
+
 ###
 # Configuration by environment
 ###
