@@ -7,7 +7,7 @@ category: code
 
 ## Create a gem
 
-One way to do this is to use `bundler` to scaffold your gem:
+One way to do this is to use `bundler` to scaffold our gem:
 
 ```
 bundler gem my_gem
@@ -80,7 +80,7 @@ end
 
 ## Integrate our gem with plain old Ruby projects
 
-Provide a `Rakefile` that gem users can load into their Rakefiles.
+Provide a `Rakefile` that gem users can load into their Rakefiles:
 
 ```ruby
 # lib/Rakefile
