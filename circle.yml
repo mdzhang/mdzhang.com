@@ -4,7 +4,7 @@ machine:
 
 compile:
   override:
-    - bundle exec middleman build --verbose
+    - ./bin/rake build
 
 test:
   pre:
