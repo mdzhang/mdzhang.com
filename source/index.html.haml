@@ -1,3 +1,22 @@
+- content_for :head do
+  %title= data.me.full_name
+  %meta{ name: 'description', content: data.me.short_description }
+
+  / styles
+  %link{ rel: 'stylesheet', href: '/stylesheets/site.css' }
+
+  / seo
+  %meta{ name: 'robots', content: config[:environment].eql?(:production) ? 'index,follow' : 'noindex' }
+  %meta{ name: 'keywords', content: data.application.keywords }
+  = partial 'partials/facebook'
+  = partial 'partials/twitter'
+
+  / verification
+  = partial 'partials/pinterest'
+
+  / identity
+  = partial 'partials/google_structured_data'
+
 .main
   .avatar
     %img{ src: gravatar_url_small }
