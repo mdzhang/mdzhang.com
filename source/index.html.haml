@@ -8,14 +8,14 @@
   / seo
   %meta{ name: 'robots', content: config[:environment].eql?(:production) ? 'index,follow' : 'noindex' }
   %meta{ name: 'keywords', content: data.application.keywords }
-  = partial 'partials/facebook'
-  = partial 'partials/twitter'
+  = partial 'partials/index/facebook'
+  = partial 'partials/index/twitter'
 
   / verification
-  = partial 'partials/pinterest'
+  = partial 'partials/index/pinterest'
 
   / identity
-  = partial 'partials/google_structured_data'
+  = partial 'partials/index/google_structured_data'
 
 .main
   .avatar
@@ -25,7 +25,7 @@
   .container
     = partial '/partials/bio'
 
-  = partial '/partials/icons'
+  = partial '/partials/index/icons'
 
   / scripts
   %script{ async: true, src: '/javascripts/all.js' }
