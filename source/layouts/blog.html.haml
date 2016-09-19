@@ -22,9 +22,14 @@
   %body
     %main
       %article
-        %h5= link_to(data.me.full_name, '/')
-        %h5= time_tag current_article.date
-        %h1= current_article.title
-        / https://github.com/middleman/middleman-syntax/issues/24
-        = preserve do
-          = yield
+        %header
+          %h5= link_to(data.me.full_name, '/')
+          %h5= time_tag current_article.date
+          %h1= current_article.title
+        %main
+          / https://github.com/middleman/middleman-syntax/issues/24
+          = preserve do
+            = yield
+        %footer
+          = partial '/partials/post_signature'
+          = partial '/partials/disqus'
