@@ -3,7 +3,7 @@
   %meta{ name: 'description', content: data.me.short_description }
 
   / styles
-  %link{ rel: 'stylesheet', href: '/stylesheets/site.css' }
+  %link{ rel: 'stylesheet', href: '/stylesheets/index.css' }
 
   / seo
   %meta{ name: 'robots', content: config[:environment].eql?(:production) ? 'index,follow' : 'noindex' }
@@ -17,12 +17,11 @@
   / identity
   = partial 'partials/index/google_structured_data'
 
-.main
-  .avatar
-    %img{ src: gravatar_url_small }
+%main#index
+  %img.avatar{ src: gravatar_url_small }
 
-  %h1= data.me.full_name
-  .container
+  %h1.name= data.me.full_name
+  %p.cushion.bio
     = partial '/partials/bio'
 
   = partial '/partials/index/icons'

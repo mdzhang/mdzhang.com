@@ -43,9 +43,9 @@
 
 .icons {
   @include center();
+  @include clear-list-style();
   flex-direction: row;
-  margin: 0 auto;
-  padding: 50px 0;
+  padding: 50px 0 25px 0;
   position: relative;
 
   .icon {
@@ -70,17 +70,6 @@
       &:hover {
         background-color: lighten($blue, 20%);
       }
-    }
-  }
-
-  .tooltip {
-    background-color: $grey;
-    color: $white;
-    margin-top: -40%;
-    transition: transform 0.3s ease, all 0.3s ease;
-
-    &::after {
-      border-top-color: $grey;
     }
   }
 }

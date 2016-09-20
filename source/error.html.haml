@@ -1,9 +1,13 @@
-.error
-  %header
-    %h1 404
+- content_for :head do
+  %title Page not found
 
-  .container
-    %p
-      Hmm. Looks like this page doesn't exist. Sure you don't mean to be over&nbsp
-      %a{ href: '/' }> here
-      ?
+  / styles
+  %link{ rel: 'stylesheet', href: '/stylesheets/error.css' }
+
+%main#error
+  %h1.status 404
+
+  %p.cushion.message
+    Hmm. Looks like this page doesn't exist. Sure you don't mean to be over&nbsp
+    %a{ href: '/' }> here
+    ?

@@ -1,128 +1,13 @@
-@import 'variables';
+@import 'base';
+@import 'blog/post';
+@import 'blog/post/disqus';
+@import 'blog/post/header';
+@import 'blog/post/signature';
 
-// _base
-html {
-  height: 100%;
+// TODO: This should be in stylesheets/blog/post/_markdown.scss
+//       but have to figure out issues with scss-erb pipeline
+.markdown {
+  <%= Rouge::Themes::Github.render(:scope => '.highlight') %>
 }
 
-body {
-  background-color: $light-grey;
-  font-family: $primary-font;
-  font-weight: $primary-font-weight;
-  height: 100%;
-}
-
-a {
-  color: $blue;
-  text-decoration: none;
-
-  &:hover {
-    background-color: $blue;
-    color: $white;
-    cursor: pointer;
-    text-decoration: none;
-  }
-}
-
-// blog
-article {
-  h1 {
-    margin-top: 0;
-  }
-
-  h5:first-child {
-    margin-bottom: 0;
-  }
-
-  h5:nth-child(2) {
-    margin-top: 0;
-  }
-
-  max-width: 700px;
-  width: 80%;
-  margin: 4rem auto;
-}
-
-// _markdown
-<%= Rouge::Themes::Github.render(:scope => '.highlight') %>
-
-:not(pre) > code {
-  border-radius: 3px;
-  border: 1px solid $light-blue;
-  background-color: $lighter-blue;
-  padding: 0.1rem;
-}
-
-pre {
-  overflow-x: auto;
-  border-radius: 3px;
-  border: 1px solid $light-blue;
-}
-
-.highlight {
-  background-color: $lighter-blue;
-  padding: 1rem;
-}
-
-h1 {
-  font-size: 3rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
-h4 {
-  font-size: 1.25rem;
-}
-
-h5 {
-  font-size: 1.15rem;
-}
-
-h1, h2, h3 {
-  color: $blue;
-}
-
-h4, h5 {
-  color: $darker-grey;
-  font-weight: bolder;
-}
-
-.disqus {
-  noscript {
-    font-size: 0.8rem;
-    color: $dark-grey;
-    margin: 2rem auto;
-    display: block;
-    text-align: center;
-  }
-}
-
-.signature {
-  padding: 30px 0;
-
-  img {
-    float: left;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%
-  }
-
-  .description {
-    margin-left: 80px;
-    padding-left: 10px;
-
-    h4 {
-      margin: 0;
-    }
-    
-    p {
-      font-size: 0.9rem;
-    }
-  }
-}
+@import 'blog/post/markdown';

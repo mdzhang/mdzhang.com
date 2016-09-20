@@ -1,0 +1,30 @@
+@import 'base';
+
+main#index {
+  @include center();
+  padding: 10vh 0;
+
+  .avatar {
+    @include circle(72px);
+    margin: 25px;
+  }
+
+  .name {
+    color: $dark-grey;
+    font-size: 6em;
+    margin: 0;
+  }
+
+  .bio {
+    font-size: 0.9em;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+    line-height: 2;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+@import 'index/icons';
+@import 'index/tooltips';
+@import 'index/mobile';

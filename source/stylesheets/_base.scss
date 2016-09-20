@@ -1,10 +1,5 @@
-* {
-  cursor: default;
-  font-family: inherit;
-  font-weight: inherit;
-  margin: 0;
-  padding: 0;
-}
+@import 'variables';
+@import 'mixins';
 
 html {
   height: 100%;
@@ -15,10 +10,12 @@ body {
   font-family: $primary-font;
   font-weight: $primary-font-weight;
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-header {
-  @include center();
+p {
+  color: $darker-grey;
 }
 
 a {
@@ -33,54 +30,23 @@ a {
   }
 }
 
-p {
-  color: $darker-grey;
-  font-family: $secondary-font;
-  font-size: 0.9em;
-  font-weight: $secondary-font-weight;
-  letter-spacing: 0.5px;
-  line-height: 2;
-  text-align: center;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: inherit;
 }
 
-ul {
-  list-style: none;
-  list-style-type: none;
-}
-
-h1 {
-  color: $dark-grey;
-  font-size: 6em;
-}
-
-h2, h3, h4, h5 {
+h1, h2, h3 {
   color: $blue;
-  font-size: 2em;
+}
+
+h4, h5, h6 {
+  color: $darker-grey;
 }
 
 .clickable {
   cursor: pointer;
 }
 
-.container {
-  @include center();
-}
-
-.avatar {
-  @include circle(72px);
-  margin: 25px;
-
-  img {
-    border-radius: 50%;
-    height: 100%;
-  }
-}
-
-.main {
-  @include center();
-  padding-top: 10vh;
-
-  .container {
-    max-width: 750px;
-  }
+.cushion {
+  max-width: 750px;
+  width: 80%;
 }

@@ -10,10 +10,10 @@
   %main
     %article
       %header
-        %h5= link_to(data.me.full_name, '/')
-        %h5= time_tag current_article.date
-        %h1= current_article.title
-      %main
+        %h5.author= link_to(data.me.full_name, '/')
+        %h6.date= time_tag current_article.date
+        %h1.title= current_article.title
+      %main.markdown
         / https://github.com/middleman/middleman-syntax/issues/24
         = preserve do
           = yield

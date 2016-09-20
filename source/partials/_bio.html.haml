@@ -1,4 +1,3 @@
-%p
-  #{data.me.long_description_non_work}. I'm also a #{data.work.job_title.downcase} at&nbsp
-  %a{ href: data.work.url, target: '_blank' }>= data.work.name
-  , #{data.work.short_description}.
+#{data.me.long_description_non_work}. I'm also a #{data.work.job_title.downcase} at&nbsp
+%a{ href: data.work.url, target: '_blank' }>= data.work.name
+, #{data.work.short_description}.
