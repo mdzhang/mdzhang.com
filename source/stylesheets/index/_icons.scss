@@ -45,7 +45,7 @@
   @include center();
   @include clear-list-style();
   flex-direction: row;
-  padding: 50px 0 25px 0;
+  padding: 50px 0 25px;
   position: relative;
 
   .icon {
