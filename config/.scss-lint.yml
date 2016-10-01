@@ -17,3 +17,9 @@ linters:
   NestingDepth:
     enabled: true
     max_depth: 4
+
+  QualifyingElement:
+    enabled: false
+
+  IdSelector:
+    enabled: false

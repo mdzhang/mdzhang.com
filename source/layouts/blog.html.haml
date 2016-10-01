@@ -1,35 +1,22 @@
-!!!
-%html{ lang: 'en' }
-  %head
-    / basic page needs
-    %meta{ charset: 'utf-8' }
-    %meta{ name: 'author', content: data.me.full_name }
-    %link{ rel: 'shortcut icon', href: '/images/favicon.ico', type: 'image/x-icon' }
-
-    / mobile specific metas
-    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1' }
-
+= wrap_layout :layout do
+  - content_for :head do
     / styles
     %link{ rel: 'stylesheet', href: '/stylesheets/blog.css' }
-
-    / analytics
-    = partial 'partials/google_analytics'
 
     / blog post specific
     %title= current_article.title
     %meta{ name: 'keywords', content: data.application.keywords + ', ' + current_article.tags.join(', ') }
 
-  %body
-    %main
-      %article
-        %header
-          %h5= link_to(data.me.full_name, '/')
-          %h5= time_tag current_article.date
-          %h1= current_article.title
-        %main
-          / https://github.com/middleman/middleman-syntax/issues/24
-          = preserve do
-            = yield
-        %footer
-          = partial '/partials/post_signature'
-          = partial '/partials/disqus'
+  %main
+    %article
+      %header
+        %h5.author= link_to(data.me.full_name, '/')
+        %h6.date= time_tag current_article.date
+        %h1.title= current_article.title
+      %main.markdown
+        / https://github.com/middleman/middleman-syntax/issues/24
+        = preserve do
+          = yield
+      %footer
+        = partial '/partials/blog/post/signature'
+        = partial '/partials/blog/post/disqus'

@@ -9,5 +9,12 @@
 @mixin circle($radius) {
   width: $radius * 2;
   height: $radius * 2;
-  border-radius: 100%;
+  border-radius: 50%;
+}
+
+@mixin clear-list-style {
+  list-style: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }

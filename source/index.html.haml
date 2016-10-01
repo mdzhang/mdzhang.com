@@ -1,12 +1,30 @@
-.main
-  .avatar
-    %img{ src: gravatar_url_small }
+- content_for :head do
+  %title= data.me.full_name
+  %meta{ name: 'description', content: data.me.short_description }
 
-  %h1= data.me.full_name
-  .container
+  / styles
+  %link{ rel: 'stylesheet', href: '/stylesheets/index.css' }
+
+  / seo
+  %meta{ name: 'robots', content: config[:environment].eql?(:production) ? 'index,follow' : 'noindex' }
+  %meta{ name: 'keywords', content: data.application.keywords }
+  = partial 'partials/index/facebook'
+  = partial 'partials/index/twitter'
+
+  / verification
+  = partial 'partials/index/pinterest'
+
+  / identity
+  = partial 'partials/index/google_structured_data'
+
+%main#index
+  %img.avatar{ src: gravatar_url_small }
+
+  %h1.name= data.me.full_name
+  %p.cushion.bio
     = partial '/partials/bio'
 
-  = partial '/partials/icons'
+  = partial '/partials/index/icons'
 
   / scripts
   %script{ async: true, src: '/javascripts/all.js' }
