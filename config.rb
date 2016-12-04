@@ -31,7 +31,7 @@ sprockets.append_path File.join(root, 'source')
 
 # CSS vendor prefixes
 activate :autoprefixer do |config|
-  config.browsers = ['last 2 versions', 'Explorer >= 9']
+  config.browsers = ['last 2 versions', 'iOS >= 7', 'Explorer >= 9']
   config.remove   = false
   config.cascade  = false
   config.inline   = true
