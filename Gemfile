@@ -3,10 +3,10 @@ ruby File.read('.ruby-version').chomp if File.exist?('.ruby-version')
 
 gem 'middleman', '>= 4.0.0'
 gem 'middleman-autoprefixer'
-gem 'middleman-jquery'
-gem 'middleman-sprockets'
 gem 'middleman-blog'
+gem 'middleman-jquery'
 gem 'middleman-s3_sync'
+gem 'middleman-sprockets'
 gem 'mime-types'
 
 gem 'middleman-syntax'
