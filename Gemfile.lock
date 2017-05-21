@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/flori/json
+  revision: 7f4cfd853f2c919d854fb95548a19980feff17e8
+  branch: v1.8
+  specs:
+    json (1.8.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -87,7 +94,6 @@ GEM
     i18n (0.7.0)
     iniparse (1.4.2)
     ipaddress (0.8.3)
-    json (1.8.3)
     kramdown (1.11.1)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -254,6 +260,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   haml_lint
+  json!
   middleman (>= 4.0.0)
   middleman-autoprefixer
   middleman-blog
@@ -273,7 +280,7 @@ DEPENDENCIES
   scss_lint
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.4.1p111
 
 BUNDLED WITH
-   1.12.5
+   1.15.0

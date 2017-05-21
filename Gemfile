@@ -12,6 +12,9 @@ gem 'mime-types'
 gem 'middleman-syntax'
 gem 'redcarpet'
 
+# See http://stackoverflow.com/a/41456412/2699835
+gem 'json', git: 'https://github.com/flori/json', branch: 'v1.8'
+
 group :build do
   gem 'middleman-minify-html'
 end

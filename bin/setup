@@ -42,7 +42,7 @@ chdir PROJECT_ROOT do
 
   puts "\n== Install & Configure ruby and ruby gems =="
   system! %{
-    rbenv install -s $(cat ./.ruby-version)
+    RUBY_CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-openssl-dir=`brew --prefix openssl`" rbenv install -s $(cat ./.ruby-version)
     rbenv global $(cat ./.ruby-version)
 
     gem update --system
@@ -57,7 +57,9 @@ chdir PROJECT_ROOT do
     nodenv install -s $(cat ./.node-version)
     nodenv global $(cat ./.node-version)
 
-    npm install
+    npm install -g yarn
+    nodenv rehash
+    yarn
   }
 
   puts "\n== Installing git hooks =="
