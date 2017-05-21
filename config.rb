@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler'
+require 'sprockets/es6'
 
 Bundler.require(:default, config[:environment], config[:mode])
 
@@ -26,7 +27,9 @@ page '/*.txt', layout: false
 page '/*.xml', layout: false
 
 # Asset pipeline
-activate :sprockets
+activate :sprockets do |s|
+  s.supported_output_extensions << '.es6'
+end
 sprockets.append_path File.join(root, 'source')
 
 # CSS vendor prefixes

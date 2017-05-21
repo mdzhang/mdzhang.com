@@ -12,7 +12,7 @@ module Helpers
     end
 
     def s3_bucket_from_host(host)
-      host.sub(%r{^https?\:\/\/}, '') if host
+      host&.sub(%r{^https?\:\/\/}, '')
     end
   end
 end

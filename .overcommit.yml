@@ -9,9 +9,9 @@ PreCommit:
   # Javascript check
   EsLint:
     enabled: true
-    command: ['./node_modules/.bin/eslint', '-c', 'config/.eslintrc.json']
+    command: ['npm', 'run', 'lint']
     required_executable: './node_modules/.bin/eslint'
-    include: 'source/javascripts/**/*.js'
+    include: 'source/javascripts/**/*.es6'
 
   # HAML check
   HamlLint:

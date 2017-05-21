@@ -1,5 +1,7 @@
 brew 'direnv'
 brew 'nodenv'
 brew 'node-build'
+brew 'openssl'
 brew 'rbenv'
+brew 'readline'
 brew 'ruby-build'
