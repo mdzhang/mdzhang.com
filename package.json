@@ -1,5 +1,11 @@
 {
+  "scripts": {
+    "lint": "eslint -c config/.eslintrc.json source/javascripts/**/*.js",
+    "lint:fix": "eslint -c config/.eslintrc.json source/javascripts/**/*.js --fix"
+  },
   "devDependencies": {
-    "eslint": "^3.2.2"
+    "eslint": "^3.2.2",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.2.0"
   }
 }
