@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "lint": "eslint -c config/.eslintrc.json source/javascripts/**/*.js",
-    "lint:fix": "eslint -c config/.eslintrc.json source/javascripts/**/*.js --fix"
+    "lint": "eslint -c config/.eslintrc.json source/javascripts/**/*.es6",
+    "lint:fix": "eslint -c config/.eslintrc.json source/javascripts/**/*.es6 --fix"
   },
   "devDependencies": {
     "eslint": "^3.2.2",

@@ -17,6 +17,7 @@ gem 'middleman-syntax'
 gem 'mime-types'
 
 gem 'redcarpet'
+gem 'sprockets-es6'
 
 group :build do
   gem 'middleman-minify-html'
