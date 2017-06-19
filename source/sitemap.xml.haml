@@ -4,10 +4,6 @@
     %loc= config[:host]
     %lastmod= DateTime.now.to_time.iso8601
     %changefreq daily
-  %url
-    %loc= resume_url
-    %lastmod= DateTime.now.to_time.iso8601
-    %changefreq daily
   - blog.articles.each do |article|
     %url
       %loc= config[:host] + article.url
