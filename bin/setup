@@ -15,7 +15,6 @@ def personal_files
     data/*
     development/images/favicon.xcf
     README.md\ (site\ name,\ badges)
-    source/files/MichelleZhangResume.pdf
     source/google9c723a7692fdf206.html\ (google\ webmaster)
     source/images/favicon.ico
     source/keybase.txt
