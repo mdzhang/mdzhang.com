@@ -4,8 +4,8 @@
     "lint:fix": "eslint -c config/.eslintrc.json source/javascripts/**/*.es6 --fix"
   },
   "devDependencies": {
-    "eslint": "^3.2.2",
-    "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-plugin-import": "^2.2.0"
+    "eslint": "^4.7.2",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-plugin-import": "^2.7.0"
   }
 }
