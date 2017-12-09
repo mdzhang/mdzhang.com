@@ -2,9 +2,9 @@ module.exports = {
   blogPostDir: "posts", // The name of directory that contains your posts.
   siteTitle: "Michelle D Zhang", // Site title.
   siteTitleAlt: "Michelle D Zhang Personal Site", // Alternative site title for SEO.
-  siteLogo: "/favico.ico", // Logo used for SEO and manifest.
+  siteLogo: "/logos/logo-1028.png", // Logo used for SEO and manifest.
   siteUrl: "http://mdzhang.com", // Domain of your website without pathPrefix.
-  pathPrefix: "/gatsby-material-starter", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
+  pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
   fixedFooter: true, // Whether the footer component is fixed, i.e. always visible
   siteDescription: "Michelle D. Zhang is a full stack software engineer", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.

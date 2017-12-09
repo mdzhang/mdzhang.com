@@ -14,3 +14,6 @@ format:
 # build static assets to be uploaded to S3 into public/
 build:
 	gatsby build
+
+clean:
+	rm -rf public .cache
