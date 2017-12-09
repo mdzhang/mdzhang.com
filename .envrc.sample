@@ -1,9 +1,0 @@
-#!/bin/sh
-
-# Move these to e.g. $HOME dotfile if you don't mind them existing globally
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
-
-# Add to CircleCI project settings separately
-export AWS_ACCESS_KEY_ID='AWS_ACCESS_KEY_ID'
-export AWS_SECRET_ACCESS_KEY='AWS_SECRET_ACCESS_KEY'
