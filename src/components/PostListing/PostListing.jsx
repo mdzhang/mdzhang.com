@@ -1,5 +1,6 @@
 import React from "react";
 import PostPreview from "../PostPreview/PostPreview";
+import EmptyPostPreview from "../EmptyPostPreview/EmptyPostPreview";
 
 class PostListing extends React.Component {
   getPostList() {
@@ -19,6 +20,15 @@ class PostListing extends React.Component {
   }
   render() {
     const postList = this.getPostList();
+    if (postList.length === 0) {
+      return (
+        <div className="md-grid md-grid--no-spacing md-cell--middle">
+          <div className="md-grid md-cell--8 mobile-fix">
+            <EmptyPostPreview />
+          </div>
+        </div>
+      );
+    }
     return (
       <div className="md-grid md-grid--no-spacing md-cell--middle">
         <div className="md-grid md-cell--8 mobile-fix">
