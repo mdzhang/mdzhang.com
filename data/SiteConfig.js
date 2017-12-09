@@ -5,7 +5,7 @@ module.exports = {
   siteLogo: "/favico.ico", // Logo used for SEO and manifest.
   siteUrl: "http://mdzhang.com", // Domain of your website without pathPrefix.
   pathPrefix: "/gatsby-material-starter", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
-  fixedFooter: false, // Whether the footer component is fixed, i.e. always visible
+  fixedFooter: true, // Whether the footer component is fixed, i.e. always visible
   siteDescription: "Michelle D. Zhang is a full stack software engineer", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
   siteFBAppID: "TODO", // FB Application ID for using app insights
@@ -15,8 +15,8 @@ module.exports = {
   userName: "Michelle D Zhang", // Username to display in the author segment.
   // userTwitter: "michelledzhang", // Optionally renders "Follow Me" in the UserInfo segment.
   userLocation: "Remote", // User location to display in the author segment.
-  userAvatar: "http://www.gravatar.com/avatar/6ec7da55967198680c3c4c81f880ab0c?s=144", // User avatar to display in the author segment.
-  userDescription: "Hi! I'm Michelle, a software engineer at Flashpoint, a business risk intelligence firm.", // User description to display in the author segment.
+  userAvatar: "http://www.gravatar.com/avatar/6ec7da55967198680c3c4c81f880ab0c?s=1028", // User avatar to display in the author segment.
+  userDescription: "Hi! I'm Michelle, a software engineer. I currently work remotely for Flashpoint, a business risk intelligence firm.", // User description to display in the author segment.
   // Links to social profiles/projects you want to display in the author segment/navigation bar.
   userLinks: [
     {
@@ -33,6 +33,11 @@ module.exports = {
       label: "Email",
       url: "mailto:zhang.michelle.d@gmail.com",
       iconClassName: "fa fa-envelope"
+    },
+    {
+      label: "LinkedIn",
+      url: "https://linkedin.com/in/mdzhang",
+      iconClassName: "fa fa-linkedin"
     }
   ],
   copyright: "Copyright © 2017. Michelle D Zhang" // Copyright string for the footer of the website and RSS feed.
