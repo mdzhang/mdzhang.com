@@ -11,3 +11,6 @@ lint:
 format:
 	npm run format:js
 
+# build static assets to be uploaded to S3 into public/
+build:
+	gatsby build
