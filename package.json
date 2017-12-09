@@ -49,6 +49,8 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
     "gh-pages": "^1.0.0",
+    "grunt": "^1.0.1",
+    "grunt-aws-s3": "^2.0.0",
     "prettier": "^1.5.3",
     "remark-cli": "^4.0.0",
     "remark-preset-lint-recommended": "^3.0.1",
@@ -63,6 +65,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
+    "deploy": "gatsby build && grunt deploy",
     "develop": "gatsby develop",
     "dev": "npm run develop",
     "serve": "gatsby serve",

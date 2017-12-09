@@ -1,3 +1,6 @@
+# install dependencies
+install:
+	yarn
 
 # start a local development server
 start:
@@ -17,3 +20,6 @@ build:
 
 clean:
 	rm -rf public .cache
+
+deploy:
+	npm run deploy

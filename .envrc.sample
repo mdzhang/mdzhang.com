@@ -1,0 +1,17 @@
+##################################
+# Local development
+##################################
+
+export PATH=$(npm bin):$PATH
+export NODE_ENV=development
+
+##################################
+# Deploying
+##################################
+
+# With AWS
+export AWS_ACCESS_KEY_ID=xxxxxx
+export AWS_SECRET_ACCESS_KEY=xxxxxx
+export AWS_S3_BUCKET=xxxxxx
+export AWS_REGION=xxxxxx
+
