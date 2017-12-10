@@ -14,6 +14,7 @@ $hybrid-light-green: #b5bd68;
 
 $hybrid-light-orange: #f0c674;
 $hybrid-dark-orange: #de935f;
+$hybrid-light-purple: #b294bb;
 
 $md-primary-color: $hybrid-darker-grey;
 $md-secondary-color: $hybrid-blue;
@@ -30,7 +31,7 @@ $md-chip-dark-theme-bg-color: $hybrid-light-orange;
 $md-chip-dark-theme-color: $hybrid-darker-grey;
 
 body {
-    color: #fff;
+    color: $hybrid-light-orange;
 }
 
 .main-container,
@@ -38,7 +39,11 @@ body {
     background-color: $hybrid-darker-grey;
 }
 
-a:link {
-    color: $hybrid-blue;
+a {
+    color: $hybrid-light-blue;
     text-decoration: none;
+}
+
+a:visited {
+    color: $hybrid-light-purple;
 }
