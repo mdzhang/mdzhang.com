@@ -1,5 +1,0 @@
---color
---format documentation
--I .
---require spec/spec_helper
---order rand
