@@ -4,10 +4,12 @@ cover: "https://cdn-images-1.medium.com/max/1262/1*qkfh8Ya9io6F4joucU0eqg.png"
 date: "10/12/2017"
 category: "tech"
 tags:
-  - programming
-  - javascript
-  - gatsby
+    - programming
+    - javascript
+    - gatsby
 ---
+
+How I migrated my personal site, <http://mdzhang.com> from using [Middleman][middleman] to [GatsbyJS][gatsby]
 
 [See the source][source]
 
