@@ -9,7 +9,7 @@ tags:
     - gatsby
 ---
 
-How I migrated my personal site, <http://mdzhang.com> from using [Middleman][middleman] to [GatsbyJS][gatsby]
+How I migrated my personal site, <http://mdzhang.com> using [Middleman][middleman] to [GatsbyJS][gatsby]
 
 [See the source][source]
 
@@ -27,14 +27,16 @@ How I migrated my personal site, <http://mdzhang.com> from using [Middleman][mid
 
 I came across [GatsbyJS][gatsy] when perusing my Github ["Discover Repositories" feed](https://github.com/dashboard/discover) on a lark. It didn't take much link surfing to soon find myself reading about the [JAMStack][jamstack], and not much more time after that to be convinced enough that I was ready to move my personal site off [Middleman][middleman].
 
-I should caveat that my personal site has never been that big - doing more tech blogging has been more of an aspiration than a reality, so really I only use the site for establishing an online presence and linking out to my other social media accounts. I also wasn't tied to the visual design and was ready to try and create something new based on wherever Gatsby dropped me off, rather than try and recreate the original site exactly.
+I should caveat that my personal site has never been that big - it was just a few static pages - and I wasn't tied to the visual design of my old site, which made the switch much simpler than if e.g. I was trying to recreate my original site exactly or if I was trying to recreate an enterprise site.
 
-I've always tended to use tools for my personal site that align with the tools I'm using at work - I originally switched to Middleman when I had been working at [Blue Apron](https://www.blueapron.com/), a Rails shop. After switching, my main gripes with Middleman were that:
+At any rate, I had originally switched to Middleman since it was Ruby based and because I've always tended to use tools for my personal site that align with the tools I'm using at work (at the time, I had been working at [Blue Apron](https://www.blueapron.com/), a Rails shop).
 
-1. I've never liked mixing Ruby and NodeJS for a purely frontend website. Ruby has some more sane language constructs and standard libraries, for sure, but it feels to me like it's meant for devs that want the right tool _in Ruby_ for the job rather than the right tool for the job _period_.
+But after a little over a year with it, my main gripes with Middleman and how I was using it were that:
+
+1. I've never liked mixing Ruby and NodeJS for static websites, or websites with no backend. Ruby has some more sane language constructs and standard libraries, for sure, but it feels to me like it's meant for devs that want the right tool _in Ruby_ for the job rather than the right tool for the job _period_.
 1. Using `.haml` templates felt outdated and constrictive, but adding React seemed like a pain. I've used React for my last two jobs as well as a couple side projects - the issue wasn't React and it's ecosystem (at least not for me), but figuring out how to tie it into a framework (i.e. Middleman) I didn't really feel it needed to be tied into given the problem at hand.
 
-All in all, I was more than happy to move over to a pure JS solution, especially if I could leverage a mature library that would make the process easy.
+All in all, I was more than happy to move over to a pure JS solution, especially if I could leverage a library that would make the process easy.
 
 ## Initial exploration
 
@@ -78,7 +80,12 @@ And then following the actual docs:
   gatsby develop
   ```
 
-  And then I poked around the UI and the code. When everything, as far as I was concerned, checked out (e.g. things worked as promised, the code and organization were sane, etc.), I wanted to try looking at some of the other [starters](https://www.gatsbyjs.org/docs/gatsby-starters/) they had mentioned on that same tutorial page. The demos they link out to helped speed up the process of evaluating the UIs, and I ended up settling on the [`gatsby-material-starter`](https://github.com/Vagr9K/gatsby-material-starter) which covered a lot of the SEO concerns I had already built into my personal site, <http://mdzhang.com>.
+And then I poked around the UI and the code, mostly to make sure that:
+
+1. Everything Just Worked ™ (which, for the most part, it did!)
+1. The starter code itself and project organization was sane
+
+When everything checked out, I wanted to try looking at some of the other [starters](https://www.gatsbyjs.org/docs/gatsby-starters/) they had mentioned on that same tutorial page. The demos they link out to helped speed up the process of evaluating the UIs, and I ended up settling on the [`gatsby-material-starter`](https://github.com/Vagr9K/gatsby-material-starter) which covered a lot of the SEO concerns I had already built into my personal site, <http://mdzhang.com>.
 
 ## Initial scaffolding
 
@@ -119,6 +126,10 @@ So I went ahead and:
       "url": "git+https://github.com/mdzhang/mdzhang.com"
     }
   ```
+1. Updated the dependencies to their latest versions (I _really_ recommend this, as I ran into markdown rendering issues with remark that were fixed in later versions)
+  ```sh
+  yarn upgrade --latest
+  ```
 1. Reverted to my original `README.md`, instead of the Gatsby provided one
 1. Re-added some old static files I kept around e.g.
     - A `keybase.txt` verification file
@@ -149,6 +160,8 @@ This boiled down to customizing [react-md](https://react-md.mlaursen.com/), whic
 
     otherwise all the defaults in `react-md`'s `scss` file are used to set variables, instead of the overrides I added in `theme.scss`
 
+I would also point out that some aspects of the UI (specifically `gatsby-material-starter`'s usage of CSS flexbox) was a little off - but that's more bug-fixing than it is theming.
+
 On a sidenote, I ended up opting for a color palette like the one used by [`vim-hybrid`](https://github.com/w0ng/vim-hybrid) and used <https://terminal.sexy> to pull the hex codes.
 
 ## Code customizations
@@ -157,29 +170,44 @@ These are probably too specific to my project/starter to be worth going into muc
 
 1. Added a [`404.jsx` page](https://github.com/mdzhang/mdzhang.com/blob/2.4.0/src/pages/404.jsx) so my S3 bucket could use `404.html` as its error page
 1. Added a [placeholder card](https://github.com/mdzhang/mdzhang.com/blob/2.4.0/src/components/PostListing/PostListing.jsx#L23) to show when there were no blog posts since I wasn't adding any during that first iteration
-1. Edited how posts were rendered when they didn't have preceding or ensuing posts
-1. Finagled with how CSS flexbox was used to get components respecting the header and footer properly
+1. Edited how posts were rendered when they didn't have preceding or ensuing posts (the default behavior was to have the next and previous post default to the current post, which was odd)
 
 ## Deploying it
 
-I already had my site configured to deploy to an S3 bucket beforehand, and since `gatsby build` was already outputting a `public` directory I could upload directly, I went ahead and threw in a quick [Grunt task](https://github.com/mdzhang/mdzhang.com/blob/2.4.0/Gruntfile.js), updated my project dependencies, [aliased `gatsby build && grunt deploy` to `npm run deploy`](https://github.com/mdzhang/mdzhang.com/blob/2.4.0/package.json#L69), and called it a day.
+I had previously already configured my site to deploy to an S3 bucket (more on that [here](https://github.com/mdzhang/mdzhang.com/tree/2.4.0#deployment-setup), so instead of using Middleman to do the build and S3 upload, I moved to having Gatsby do the build and Grunt do the upload.
 
-(I had the AWS environment variables I used to deploy from my host set using [`direnv`](https://direnv.net/)).
+Specifically to do the build into a `public` directory:
+  ```sh
+  gatsby build
+  ```
+
+And, given [this Gruntfile.js](https://github.com/mdzhang/mdzhang.com/blob/2.4.0/Gruntfile.js) which registers a `deploy` task leveraging [`grunt-aws-s3`](https://github.com/MathieuLoutre/grunt-aws-s3):
+  ```sh
+  grunt deploy
+  ```
+
+(I had the AWS environment variables needed in my Grunt task set locally using [`direnv`](https://direnv.net/)).
 
 ### Continuously deploying it
 
-I tinkered with updating to Circle 2.0, and while it is _way_ faster than it's 1.0 counterpart, I found myself running into issue after issue, many of which were known bugs with hacky solutions (like having to `yarn install global node-gyp` to get `yarn` commands to work), or counterintuitive behaviors (like not being able to pull a `node:8.9.3` docker image ).
+TL;DR I used this [circle.yml](https://github.com/mdzhang/mdzhang.com/blob/2.4.0/circle.yml).
 
-So once my patience ran out I just re-used my old CircleCI config, with a [couple of changes](https://github.com/mdzhang/mdzhang.com/blob/2.4.0/circle.yml) to account for deploying via grunt instead of Middleman.
+I tinkered with updating to Circle 2.0, and while it is _way_ faster than it's 1.0 counterpart, I found myself running into issue after issue including:
+
+* having to `yarn install global node-gyp` to get `yarn` commands to work
+* being forced to use CircleCI's docker images (which have no clear source code) because CircleCI couldn't pull a simple `node:8.9.3` docker image
+* it not being clear via the documentation how to set environment variables based on workflow filters e.g. `NODE_ENV=staging` when on the `development` branch
+* etc.
+
+So once my patience ran out I just re-used my old CircleCI config, with a couple of changes to account for deploying via grunt instead of Middleman (made easy by using make-like build utilities for different languages whenever possible e.g. `rake`, `npm`, etc).
 
 A somewhat tangential thought - after revisiting CircleCI 1.0, trying out CircleCI 2.0, and then briefly considering using Travis, I am especially appreciative of being able to use [GitLab CI](https://about.gitlab.com/features/gitlab-ci-cd/) at work.
 
 ## Final Thoughts
 
-Transitioning to use GatsbyJS was seamless, and I find being able to use all the latest tooling (though some of it happens under the covers) refreshing. I'd like to dig into how Gatsby leverages [GraphQL](http://graphql.org/) a bit more, but the nice thing is that because everything Just Worked ™, I didn't _have_ to in order to get this project out. And the same way I believe in iterative software development, I believe in iteratively working through your toolchain and all the blackboxes therein and continually more fully understanding it.
+Transitioning to use GatsbyJS was relatively seamless, with only a few small oddities that were either (1) due to the underlying starter or (2) easily googled and fixed. I find using all the latest tooling refreshing, and could certainly imagine myself using Gatsby in a work setting, and having the static files routed to via Nginx.
 
 [See the source][source]
-
 
 [gatsby]: https://www.gatsbyjs.org/
 [jamstack]: https://jamstack.org
