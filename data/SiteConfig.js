@@ -10,9 +10,9 @@ const defaultConfig = {
   fixedFooter: true, // Whether the footer component is fixed, i.e. always visible
   siteDescription: "Michelle D. Zhang is a full stack software engineer", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
-  siteFBAppID: "TODO", // FB Application ID for using app insights
+  siteFBAppID: "1970951636452525", // FB Application ID for using app insights
   siteGATrackingID: "UA-66633424-1", // Tracking code ID for google analytics.
-  disqusShortname: "mdzhang (TODO)", // Disqus shortname.
+  disqusShortname: "mdzhang", // Disqus shortname.
   postDefaultCategoryID: "Tech", // Default category for posts.
   userName: "Michelle D Zhang", // Username to display in the author segment.
   // userTwitter: "michelledzhang", // Optionally renders "Follow Me" in the UserInfo segment.

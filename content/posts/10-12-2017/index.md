@@ -153,10 +153,12 @@ On a sidenote, I ended up opting for a color palette like the one used by [`vim-
 
 ## Code customizations
 
-These are probably too specific to my project to be worth really going into, but I would throw out that I:
+These are probably too specific to my project/starter to be worth going into much detail, but I would throw out that I:
 
 1. Added a [`404.jsx` page](https://github.com/mdzhang/mdzhang.com/blob/2.4.0/src/pages/404.jsx) so my S3 bucket could use `404.html` as its error page
 1. Added a [placeholder card](https://github.com/mdzhang/mdzhang.com/blob/2.4.0/src/components/PostListing/PostListing.jsx#L23) to show when there were no blog posts since I wasn't adding any during that first iteration
+1. Edited how posts were rendered when they didn't have preceding or ensuing posts
+1. Finagled with how CSS flexbox was used to get components respecting the header and footer properly
 
 ## Deploying it
 
