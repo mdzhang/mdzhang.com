@@ -5,7 +5,7 @@ const defaultConfig = {
   siteTitle: "Michelle D Zhang", // Site title.
   siteTitleAlt: "Michelle D Zhang Personal Site", // Alternative site title for SEO.
   siteLogo: "/logos/logo-1028.png", // Logo used for SEO and manifest.
-  siteUrl: "http://localhost:8080", // Domain of your website without pathPrefix.
+  // siteUrl: "", // Domain of your website without pathPrefix.
   pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
   fixedFooter: true, // Whether the footer component is fixed, i.e. always visible
   siteDescription: "Michelle D. Zhang is a full stack software engineer", // Website description used for RSS feeds/meta description tag.
@@ -55,5 +55,9 @@ const configs = {
 };
 
 const env = process.env.NODE_ENV || 'development';
+const config = {};
 
-module.exports = _defaultsDeep(configs[env.toLowerCase] || {}, defaultConfig);
+_defaultsDeep(config, defaultConfig, configs[env.toLowerCase()] || {});
+
+module.exports = config;
+

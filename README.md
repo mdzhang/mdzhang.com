@@ -24,9 +24,9 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
 
 * Ensure you have Node version 8.9.2
 
-* Ensure you have yarn
+* Ensure you have `yarn` and `gatsby-cli` installed
     ```sh
-    npm install -g yarn
+    npm install -g yarn gatsby-cli
     ```
 
 * Install packages
