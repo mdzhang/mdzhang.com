@@ -18,8 +18,8 @@ deployment:
   production:
     branch: master
     commands:
-      - AWS_BUCKET_NAME=mdzhang.com NODE_ENV=production yarn deploy
+      - AWS_S3_BUCKET=mdzhang.com NODE_ENV=production yarn deploy
   staging:
     branch: development
     commands:
-      - AWS_BUCKET_NAME=staging-1.mdzhang.com NODE_ENV=staging yarn deploy
+      - AWS_S3_BUCKET=staging-1.mdzhang.com NODE_ENV=staging yarn deploy
