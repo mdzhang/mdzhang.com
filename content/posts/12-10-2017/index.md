@@ -1,7 +1,7 @@
 ---
 title: "Migrate from Middleman to Gatsby"
 cover: "https://cdn-images-1.medium.com/max/1262/1*qkfh8Ya9io6F4joucU0eqg.png"
-date: "10/12/2017"
+date: "12/10/2017"
 category: "tech"
 tags:
     - programming
@@ -9,7 +9,7 @@ tags:
     - gatsby
 ---
 
-How I migrated my personal site, <http://mdzhang.com> using [Middleman][middleman] to [GatsbyJS][gatsby]
+How I migrated my personal site, <http://mdzhang.com> from[Middleman][middleman] to [GatsbyJS][gatsby]
 
 [See the source][source]
 
@@ -174,7 +174,7 @@ These are probably too specific to my project/starter to be worth going into muc
 
 ## Deploying it
 
-I had previously already configured my site to deploy to an S3 bucket (more on that [here](https://github.com/mdzhang/mdzhang.com/tree/2.4.0#deployment-setup), so instead of using Middleman to do the build and S3 upload, I moved to having Gatsby do the build and Grunt do the upload.
+I had previously already configured my site to deploy to an S3 bucket (more on that [here](https://github.com/mdzhang/mdzhang.com/tree/2.4.0#deployment-setup)), so instead of using Middleman to do the build and S3 upload, I moved to having Gatsby do the build and Grunt do the upload.
 
 Specifically to do the build into a `public` directory:
   ```sh
