@@ -1,7 +1,7 @@
 ---
 title: "Sending emails from the terminal in OS X High Sierra"
 cover: "https://support.apple.com/content/dam/edam/applecare/images/en_US/macos/highsierra/macos-high-sierra-banner-hero.image.large_2x.jpg"
-date: "12/10/2017"
+date: "12/11/2017"
 category: "tech"
 tags:
     - developer
