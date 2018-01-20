@@ -1,4 +1,4 @@
-const _defaultsDeep = require('lodash/defaultsDeep');
+const _defaultsDeep = require("lodash/defaultsDeep");
 
 const defaultConfig = {
   blogPostDir: "posts", // The name of directory that contains your posts.
@@ -17,8 +17,10 @@ const defaultConfig = {
   userName: "Michelle D Zhang", // Username to display in the author segment.
   // userTwitter: "michelledzhang", // Optionally renders "Follow Me" in the UserInfo segment.
   userLocation: "Remote", // User location to display in the author segment.
-  userAvatar: "http://www.gravatar.com/avatar/6ec7da55967198680c3c4c81f880ab0c?s=1028", // User avatar to display in the author segment.
-  userDescription: "Hi! I'm Michelle, a software engineer. I currently work remotely for Flashpoint, a business risk intelligence firm.", // User description to display in the author segment.
+  userAvatar:
+    "http://www.gravatar.com/avatar/6ec7da55967198680c3c4c81f880ab0c?s=1028", // User avatar to display in the author segment.
+  userDescription:
+    "Hi! I'm Michelle, a software engineer. I currently work remotely for Flashpoint, a business risk intelligence firm.", // User description to display in the author segment.
   // Links to social profiles/projects you want to display in the author segment/navigation bar.
   userLinks: [
     {
@@ -26,10 +28,10 @@ const defaultConfig = {
       url: "https://github.com/mdzhang",
       iconClassName: "fa fa-github"
     },
-/*     { */
-      // label: "Twitter",
-      // url: "https://twitter.com/michelledzhang",
-      // iconClassName: "fa fa-twitter"
+    /*     { */
+    // label: "Twitter",
+    // url: "https://twitter.com/michelledzhang",
+    // iconClassName: "fa fa-twitter"
     /* }, */
     {
       label: "Email",
@@ -42,22 +44,21 @@ const defaultConfig = {
       iconClassName: "fa fa-linkedin"
     }
   ],
-  copyright: "Copyright © 2017. Michelle D Zhang" // Copyright string for the footer of the website and RSS feed.
+  copyright: "Copyright © 2018. Michelle D Zhang" // Copyright string for the footer of the website and RSS feed.
 };
 
 const configs = {
   staging: {
-    siteUrl: 'http://staging-1.mdzhang.com',
+    siteUrl: "http://staging-1.mdzhang.com"
   },
   production: {
-    siteUrl: 'http://mdzhang.com',
+    siteUrl: "http://mdzhang.com"
   }
 };
 
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || "development";
 const config = {};
 
 _defaultsDeep(config, defaultConfig, configs[env.toLowerCase()] || {});
 
 module.exports = config;
-
