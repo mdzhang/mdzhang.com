@@ -16,7 +16,9 @@ class PostListing extends React.Component {
         timeToRead: postEdge.node.timeToRead
       });
     });
-    return postList;
+    return postList.sort(
+      (a, b) => new Date(a.date).getTime() < new Date(b.date).getTime()
+    );
   }
   render() {
     const postList = this.getPostList();
@@ -32,9 +34,9 @@ class PostListing extends React.Component {
     return (
       <div className="md-grid md-grid--no-spacing md-cell--middle">
         <div className="md-grid md-cell--8 mobile-fix">
-          {postList.map(post =>
+          {postList.map(post => (
             <PostPreview key={post.title} postInfo={post} />
-          )}
+          ))}
         </div>
       </div>
     );
