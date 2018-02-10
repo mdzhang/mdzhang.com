@@ -16,7 +16,7 @@ dependencies:
 test:
   override:
     - git clone https://github.com/mdzhang/hugo-code-editor-theme themes/code-editor
-    - hugo
+    - HUGO_BASEURL=http://example.com hugo
 
 deployment:
   production:
