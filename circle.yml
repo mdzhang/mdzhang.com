@@ -5,6 +5,8 @@ machine:
     version: 8.9.2
 
 dependencies:
+  pre:
+    - sudo apt-get update; sudo apt-get install hugo
   override:
     - yarn install
   cache_directories:
@@ -12,14 +14,16 @@ dependencies:
 
 test:
   override:
-    - yarn build
+    - hugo
 
 deployment:
   production:
     branch: master
     commands:
-      - AWS_S3_BUCKET=mdzhang.com NODE_ENV=production yarn deploy
+      - HUGO_BASEURL=http://mdzhang.com hugo
+      - AWS_S3_BUCKET=mdzhang.com yarn deploy
   staging:
     branch: development
     commands:
-      - AWS_S3_BUCKET=staging-1.mdzhang.com NODE_ENV=staging yarn deploy
+      - HUGO_BASEURL=http://staging-1.mdzhang.com hugo
+      - AWS_S3_BUCKET=staging-1.mdzhang.com yarn deploy
