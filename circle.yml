@@ -5,6 +5,9 @@ machine:
     version: 8.9.2
 
 dependencies:
+  pre:
+    - wget https://github.com/gohugoio/hugo/releases/download/v0.36/hugo_0.36_Linux-64bit.deb
+    - sudo dpkg -i hugo*.deb
   override:
     - yarn install
   cache_directories:
@@ -12,14 +15,19 @@ dependencies:
 
 test:
   override:
-    - yarn build
+    - git clone https://github.com/mdzhang/hugo-code-editor-theme themes/code-editor
+    - HUGO_BASEURL=http://example.com hugo
 
 deployment:
   production:
     branch: master
     commands:
-      - AWS_S3_BUCKET=mdzhang.com NODE_ENV=production yarn deploy
+      - git clone https://github.com/mdzhang/hugo-code-editor-theme themes/code-editor
+      - HUGO_BASEURL=http://mdzhang.com hugo
+      - AWS_S3_BUCKET=mdzhang.com yarn deploy
   staging:
     branch: development
     commands:
-      - AWS_S3_BUCKET=staging-1.mdzhang.com NODE_ENV=staging yarn deploy
+      - git clone https://github.com/mdzhang/hugo-code-editor-theme themes/code-editor
+      - HUGO_BASEURL=http://staging-1.mdzhang.com hugo
+      - AWS_S3_BUCKET=staging-1.mdzhang.com yarn deploy

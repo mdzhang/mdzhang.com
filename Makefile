@@ -1,25 +1,11 @@
-# install dependencies
-install:
-	yarn
 
-# start a local development server
 start:
-	gatsby develop
+	hugo server -D
 
-lint:
-	npm run lint:js
-	npm run lint:md
-	npm run lint-good
-
-format:
-	npm run format:js
-
-# build static assets to be uploaded to S3 into public/
+# set HUGO_BASEURL
 build:
-	gatsby build
-
-clean:
-	rm -rf public .cache
+	hugo
 
 deploy:
-	npm run deploy
+	yarn run deploy
+

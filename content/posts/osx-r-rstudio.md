@@ -1,12 +1,10 @@
 ---
-title: "Setting up R on OS X using Homebrew"
-cover: "http://cdn.mdzhang.com/images/rlogo_wide_white.png"
-date: "01/27/2018"
+title: "Setting up R and R Studio on OS X using Homebrew"
+date: 2018-01-27T14:39:41-05:00
+draft: false
 category: "tech"
 tags:
-    - programming
-    - osx
-    - statistics
+    - macOS
     - r
 ---
 

@@ -1,13 +1,12 @@
 ---
 title: "Sending emails from the terminal in OS X High Sierra"
-cover: "https://support.apple.com/content/dam/edam/applecare/images/en_US/macos/highsierra/macos-high-sierra-banner-hero.image.large_2x.jpg"
-date: "12/11/2017"
+date: 2017-12-11T14:34:06-05:00
+draft: false
 category: "tech"
 tags:
-    - developer
-    - environment
-    - osx
+    - macOS
     - email
+    - cli
 ---
 
 I became curious about sending mail using OS X's `mail` command line utility, but it didn't work out of the box. To get it to work I followed [this reference][reference], though I swapped out using my password with a google app password so that `mail` would work with my account despite it using [2fa](https://www.turnon2fa.com/).
@@ -83,3 +82,4 @@ In short, make sure that:
 
 
 [reference]: http://www.developerfiles.com/how-to-send-emails-from-localhost-mac-os-x-el-capitan/
+
