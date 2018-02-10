@@ -2,7 +2,16 @@ baseURL = "http://mdzhang.com/"
 languageCode = "en-US"
 title = "Michelle D Zhang"
 theme = "code-editor"
+disqusShortname = "mdzhang"
+googleAnalytics: "UA-66633424-1"
 
+# for rss
+[author]
+    author = "Michelle D Zhang"
+
+# for theme
 [params]
     author = "Michelle D Zhang"
     locale = "en-US"
+
+
