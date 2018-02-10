@@ -1,4 +1,4 @@
-baseURL = "http://mdzhang.com/"
+# baseURL = "http://mdzhang.com/"
 languageCode = "en-US"
 title = "Michelle D Zhang"
 theme = "code-editor"
