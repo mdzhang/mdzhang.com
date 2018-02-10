@@ -1,6 +1,6 @@
 # [mdzhang.com](http://mdzhang.com)
 
-This repository holds the code for my personal website, [mdzhang.com](http://mdzhang.com). Built using [Gatsby](https://www.gatsbyjs.org).
+This repository holds the code for my personal website, [mdzhang.com](http://mdzhang.com). Built using [Hugo](https://gohugo.io/)
 
 | Circle CI | Dependencies | Code Climate | Test Coverage | Documentation | License |
 | --------- | ------------ | ------------ | ------------- | ------------- | ------- |
@@ -24,14 +24,19 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
 
 * Ensure you have Node version 8.9.2
 
-* Ensure you have `yarn` and `gatsby-cli` installed
+* Ensure you have `yarn` installed
     ```sh
-    npm install -g yarn gatsby-cli
+    npm install -g yarn
     ```
 
-* Install packages
+* Install dependencies
     ```sh
-    make install
+    yarn
+    ```
+
+* Ensure you have `hugo` installed
+    ```sh
+    brew install hugo
     ```
 
 * Start a local server
@@ -41,15 +46,11 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
 
 ### Code Linting
 
-**TODO**: Add back to CI
-
-```sh
-make lint
-```
+TODO
 
 ### Testing
 
-N/A beyond making sure the `gatsby build` passes.
+N/A beyond making sure the `hugo` build passes.
 
 ## Deployment Setup
 
@@ -63,10 +64,14 @@ Get S3 credentials to deploy your site. Either ask a project admin for `$AWS_ACC
 
 #### Manual Deployment From Host Machine
 
+* Build the site
+    ```sh
+    HUGO_BASEURL=http://mdzhang.com hugo
+    ```
 * Ensure `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` are defined in your environment
 * Run e.g.
     ```sh
-    NODE_ENV=staging make deploy
+    yarn deploy
     ```
 
 #### Continuous Deployment
@@ -83,4 +88,4 @@ Get S3 credentials to deploy your site. Either ask a project admin for `$AWS_ACC
 
 ## License
 
-Copyright (c) 2013-2017 Michelle D. Zhang. MIT Licensed, see [LICENSE](LICENSE) for details.
+Copyright (c) 2013-2018 Michelle D. Zhang. MIT Licensed, see [LICENSE](LICENSE) for details.
