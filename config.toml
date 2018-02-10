@@ -1,3 +1,8 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL = "http://mdzhang.com/"
+languageCode = "en-US"
+title = "Michelle D Zhang"
+theme = "code-editor"
+
+[params]
+    author = "Michelle D Zhang"
+    locale = "en-US"
