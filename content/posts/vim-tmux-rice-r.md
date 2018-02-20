@@ -1,5 +1,5 @@
 ---
-title: "Replacing R Studio with vim and tmux"
+title: "Replacing R Studio with vim, tmux, and rice"
 date: 2018-02-19T14:39:41-05:00
 draft: false
 category: "tech"
@@ -15,7 +15,7 @@ tags:
 
 [See a screenshot][screenshot]
 
-[RStudio][rstudio] is an IDE for the R programming language. I've found that, OOTB, it's missing a number of vim features I regularly rely on (keyboard shortcuts for moving between windows, [ctrlp-like fast global search][ctrlp], [nerdtree-like directory navigation][nerdtree], etc.), or at least vim keybindings for them (even with the core editor's [lightweight vim key bindings][rstudio-vim] enabled).
+[RStudio][rstudio] is an IDE for the R programming language. I've found that, OOTB, it's missing a number of vim features I regularly rely on (keyboard shortcuts for moving between windows, [ctrlp-like fast global search][ctrlp], [nerdtree-like directory navigation][nerdtree], etc.) when developing in other languages, or at least vim keybindings for them (even with the core editor's [lightweight vim key bindings][rstudio-vim] enabled).
 
 As a result, and particularly because I wasn't looking to introduce a new IDE/editor into my life, I wanted to recreate the parts of RStudio that I _did_ find useful as a novice R programmer, namely:
 
@@ -27,9 +27,9 @@ As a result, and particularly because I wasn't looking to introduce a new IDE/ed
 
 ### tmux for splitting a terminal window
 
-I ended up ramping up my [tmux][tmux] for this.
+I've long been familiar with [tmux][tmux], but hadn't really used it much until I started using R and wanted a REPL in the same window, not just in another tab.
 
-First I found a [handy cheatsheet](https://gist.github.com/michaellihs/b6d46fa460fa5e429ea7ee5ff8794b96) that covers basics like:
+Here's a [handy cheatsheet](https://gist.github.com/michaellihs/b6d46fa460fa5e429ea7ee5ff8794b96) that covers basics like:
 
 - Opening tmux with `tmux`
 - Creating a pane in a vertical window split with `<C-b> %` aka `Ctrl` + `b` + `shift` + `5`
@@ -38,7 +38,7 @@ First I found a [handy cheatsheet](https://gist.github.com/michaellihs/b6d46fa46
 
 ### vim on the left, rice on the right
 
-For an R shell, I ended up going with [rice][rice] for the autocompletion and as-you-type syntax highlighting. To colorize the output of commands, I also created an `~/.RProfile` file with:
+For an R shell, I chose [rice][rice] for the autocompletion and as-you-type syntax highlighting. To colorize the output of commands, I also created an `~/.RProfile` file with:
 
 ```
 library("colorout")
@@ -65,7 +65,7 @@ options(
 
 ### piping text between vim and rice
 
-While you can just copy in one tmux pane and paste into another (more on that later), it saves keystrokes to use something like [vim-slime][vim-slime], which lets you select text in vim and then press `<C-c> <C-c>` to send it to a "slime paste" file which e.g. tmux can pickup and send to a different pane.
+While you can just copy from one tmux pane and paste into another (more on that later), it saves keystrokes to use something like [vim-slime][vim-slime], which lets you select text in vim and then press `<C-c> <C-c>` to send it to a "slime paste" file which e.g. tmux can read from and use to send text to a different pane.
 
 Install `vim-slime` with [Vundle][Vundle] by adding the following to your `.vimrc`:
 
