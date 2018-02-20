@@ -1,6 +1,6 @@
 
 start:
-	hugo server -D
+	HUGO_BASEURL=http://mdzhang.com hugo server -D --ignoreCache
 
 # set HUGO_BASEURL
 build:
@@ -9,3 +9,5 @@ build:
 deploy:
 	yarn run deploy
 
+init:
+	git submodule init && git submodule update --init --recursive
