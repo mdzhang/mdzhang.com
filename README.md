@@ -39,6 +39,11 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
     brew install hugo
     ```
 
+* Init the git submodule with the theme
+    ```sh
+    make init
+    ```
+
 * Start a local server
     ```sh
     make start
