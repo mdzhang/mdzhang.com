@@ -23,11 +23,11 @@ deployment:
     branch: master
     commands:
       - git submodule init && git submodule update --init --recursive
-      - HUGO_BASEURL=http://mdzhang.com hugo
+      - HUGO_BASEURL=http://mdzhang.com/ hugo
       - AWS_S3_BUCKET=mdzhang.com yarn deploy
   staging:
     branch: development
     commands:
       - git submodule init && git submodule update --init --recursive
-      - HUGO_BASEURL=http://staging-1.mdzhang.com hugo
+      - HUGO_BASEURL=http://staging-1.mdzhang.com/ hugo
       - AWS_S3_BUCKET=staging-1.mdzhang.com yarn deploy
