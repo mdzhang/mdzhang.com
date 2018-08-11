@@ -82,13 +82,3 @@ Get S3 credentials to deploy your site. Either ask a project admin for `$AWS_ACC
 * Reuse the existing `circle.yml` file, which will redeploy staging when the `development` branch is updated, and will redeploy production when the `master` branch is updated.
 * [Add `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` to CircleCI](https://circleci.com/docs/environment-variables/#setting-environment-variables-for-all-commands-without-adding-them-to-git
 ).
-
-## Authors
-
-**Michelle D. Zhang**
-
-  * <http://github.com/mdzhang>
-
-## License
-
-Copyright (c) 2013-2018 Michelle D. Zhang. MIT Licensed, see [LICENSE](LICENSE) for details.
