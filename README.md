@@ -10,8 +10,6 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
 * [Development](#development)
 * [Deployment Setup](#deployment-setup)
 * [Deployment](#deployment)
-* [Authors](#authors)
-* [License](#license)
 
 ## Installation
 
@@ -69,7 +67,7 @@ Get S3 credentials to deploy your site. Either ask a project admin for `$AWS_ACC
 
 * Build the site
     ```sh
-    HUGO_BASEURL=http://mdzhang.com hugo
+    HUGO_BASEURL=http://mdzhang.com/ hugo
     ```
 * Ensure `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` are defined in your environment
 * Run e.g.
