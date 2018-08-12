@@ -11,7 +11,7 @@ googleAnalytics = "UA-66633424-1"
   author = "Michelle D Zhang"
   locale = "en-US"
   description = "Michelle D Zhang Personal Site"
-  shortBio = "I currently work remotely for Flashpoint, a business risk intelligence firm"
+  shortBio = "a software engineer"
 
 [params.social]
   Github        = "mdzhang"
