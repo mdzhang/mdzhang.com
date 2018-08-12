@@ -7,7 +7,7 @@ googleAnalytics = "UA-66633424-1"
 
 # for theme
 [params]
-  avatar = "https://s.gravatar.com/avatar/6ec7da55967198680c3c4c81f880ab0c?s=80"
+  avatar = "https://s.gravatar.com/avatar/6ec7da55967198680c3c4c81f880ab0c?s=160"
   author = "Michelle D Zhang"
   locale = "en-US"
   description = "Michelle D Zhang Personal Site"
