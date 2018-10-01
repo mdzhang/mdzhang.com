@@ -14,7 +14,7 @@ googleAnalytics = "UA-66633424-1"
   contactNote = ""
   profileImage = "https://s.gravatar.com/avatar/6ec7da55967198680c3c4c81f880ab0c?s=160"
   email = "zhang.michelle.d@gmail.com"
-  description = "Senior software engineer with experience in full stack web development, data engineering, devops, CI/CD, and project and team management at small, medium, and large startups"
+  description = ""
   favicon = "favicon.ico"
 
   showSkills = true
