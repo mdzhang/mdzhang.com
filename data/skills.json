@@ -1,7 +1,7 @@
 [
   {
     "grouping": "Programming Languages",
-    "skills": ["Python", "Node", "Ruby", "Javascript", "Java"]
+    "skills": ["Python", "NodeJS", "Ruby", "Javascript", "Groovy", "Java"]
   },
   {
     "grouping": "Operating Systems & Command Line Tools",
@@ -21,7 +21,7 @@
   },
   {
     "grouping": "Technologies & Libraries: Web Frameworks & Development",
-    "skills": ["Flask", "Ruby on Rails", "Express.js", "Swagger", "OpenAPI", "JWTs", "JSON-API", "Gunicorn", "Nginx", "Oauth", "OpenID"]
+    "skills": ["Flask", "Ruby on Rails", "Express.js", "Swagger", "OpenAPI", "JWTs", "JSON-API", "Gunicorn", "Nginx", "Oauth", "OpenID", "Grails"]
   },
   {
     "grouping": "Technologies & Libraries: DevOps",
