@@ -1,0 +1,23 @@
+[
+  {
+    "school": "Barnard College at Columbia University",
+    "degree": "Bachelor of Arts",
+    "major": "Computer Science",
+    "notes": "Cum Laude",
+    "range": "2011 - 2015"
+  },
+  {
+    "school": "Datacamp",
+    "degree": "Certification",
+    "major": "Data Analyst with Python",
+    "notes": "",
+    "range": "2018"
+  },
+  {
+    "school": "Datacamp",
+    "degree": "Certification",
+    "major": "Data Scientist with Python",
+    "notes": "",
+    "range": "2018"
+  }
+]

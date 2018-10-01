@@ -1,4 +1,3 @@
-
 start:
 	HUGO_BASEURL=http://mdzhang.com hugo server -D --ignoreCache
 

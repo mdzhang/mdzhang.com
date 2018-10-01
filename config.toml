@@ -1,20 +1,51 @@
 # baseurl = "http://mdzhang.com/"
 languageCode = "en-US"
 title = "Michelle D Zhang"
-theme = "hugo-sustain"
+theme = "hugo-resume"
 disqusShortname = "mdzhang"
 googleAnalytics = "UA-66633424-1"
 
 # for theme
 [params]
-  avatar = "https://s.gravatar.com/avatar/6ec7da55967198680c3c4c81f880ab0c?s=160"
-  author = "Michelle D Zhang"
-  locale = "en-US"
-  description = "Michelle D Zhang Personal Site"
-  shortBio = "a software engineer"
+  firstName = "Michelle"
+  lastName = "Zhang"
+  address = "Northampton, MA"
+  phone = "1-201-290-4969"
+  contactNote = ""
+  profileImage = "https://s.gravatar.com/avatar/6ec7da55967198680c3c4c81f880ab0c?s=160"
+  email = "zhang.michelle.d@gmail.com"
+  description = "Senior software engineer with experience in full stack web development, data engineering, devops, CI/CD, and project and team management at small, medium, and large startups"
+  favicon = "favicon.ico"
 
-[params.social]
-  Github        = "mdzhang"
-  Email         = "zhang.michelle.d@gmail.com"
-  LinkedIn      = "mdzhang"
-  Keybase       = "mdzhang"
+  showSkills = true
+  showProjects = false
+  showOpenSource = false
+  showPublications = false
+  showExperience = true
+  showEducation = true
+  showQr = false
+
+[[params.handles]]
+    name = "LinkedIn"
+    link = "https://www.linkedin.com/in/mdzhang/"
+
+[[params.handles]]
+    name = "GitHub"
+    link = "https://github.com/mdzhang/"
+
+[[params.handles]]
+    name = "Bitbucket"
+    link = "https://bitbucket.org/mdzhang/"
+
+[[params.handles]]
+    name = "Stack Overflow"
+    link = "https://stackoverflow.com/users/story/2699835"
+    icon = "stack-overflow"
+
+[[params.handles]]
+    name = "Keybase"
+    link = "https://keybase.io/mdzhang"
+    icon = "key"
+
+[params.google.analytics]
+    trackerID = "UA-66633424-1"

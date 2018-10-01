@@ -1,0 +1,44 @@
+[
+  {
+    "role": "Senior Software Engineer, Tech Lead",
+    "company": "Flashpoint Intel",
+    "summary": "Lead contributor to systems alerting off of business risk intelligence collected on the dark web; heavily leverage Python and Google Cloud Platform services; build out, lead, and manage the Alerting team; work remotely with a distributed team",
+    "range": "July 2017 - present"
+  },
+  {
+    "role": "Full-Stack Software Engineer",
+    "company": "Blue Apron",
+    "summary": "Lead contributor to web-based, internal supply chain tools at a mealkit delivery startup; dabbled in Ruby on Rails, React, containerized services, RPC APIs, and designing and integrating with complex data systems with Airflow and Kafka",
+    "range": "June 2015 - June 2016"
+  },
+  {
+    "role": "Full-Stack Software Engineer",
+    "company": "Abacus Labs",
+    "summary": "Rapidly and autonomously developed numerous product features (Node/Express, Angular) while adhering to developer best practices for an expense management startup",
+    "range": "June 2015 - June 2016"
+  },
+  {
+    "role": "Software Engineering Intern",
+    "company": "Whisk (formerly Zypsee, acquired by Deem)",
+    "summary": "Developed full stack (Groovy on Grails, Angular) features for a NYC Uber competitor",
+    "range": "May 2014 - May 2015"
+  },
+  {
+    "role": "Programming Assistant",
+    "company": "Memorial Sloan Kettering Cancer Center, Developmental Biology Program",
+    "summary": " Built features for visualizing the embryogenesis of C. elegans (a very popular worm) at a research lab",
+    "range": "December 2013 - May 2014"
+  },
+  {
+    "role": "Teaching Assistant",
+    "company": "Columbia University",
+    "summary": "TA'd for an intro computer science course",
+    "range": "September 2013 - May 2014"
+  },
+  {
+    "role": "Co-coordinator",
+    "company": "Artemis@Columbia",
+    "summary": "Taught computer science and programming fundamentals to rising high school girls",
+    "range": "March 2013 - August 2014"
+  }
+]
