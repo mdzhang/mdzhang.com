@@ -1,0 +1,34 @@
+[
+  {
+    "grouping": "Programming Languages",
+    "skills": ["Python", "Node", "Ruby", "Javascript", "Java"]
+  },
+  {
+    "grouping": "Operating Systems & Command Line Tools",
+    "skills": ["macOS", "linux", "git", "vim", "bash", "zsh", "awk", "sed", "grep", "tr", "ack", "jq", "z", "etc."]
+  },
+  {
+    "grouping": "Platforms",
+    "skills": ["GitHub", "Slack", "GSuite", "Confluence", "JIRA", "AWS", "GCP", "CircleCI", "Heroku", "GitLab", "Datadog", "PagerDuty", "Rollbar", "Jenkins", "Papertrail", "Zoom"]
+  },
+  {
+    "grouping": "Technologies & Libraries: Data stores & ORMs",
+    "skills": ["Postgresql", "MySQL", "Redis", "Kafka", "Google Datastore", "Elasticsearch", "SQLAlchemy", "sequelize"]
+  },
+  {
+    "grouping": "Technologies & Libraries: Data flow",
+    "skills": ["Airflow", "Google Cloud Functions", "Google PubSub", "Google Dataflow", "Celery", "Kue", "crontab"]
+  },
+  {
+    "grouping": "Technologies & Libraries: Web Frameworks & Development",
+    "skills": ["Flask", "Ruby on Rails", "Express.js", "Swagger", "OpenAPI", "JWTs", "JSON-API", "Gunicorn", "Nginx", "Oauth", "OpenID"]
+  },
+  {
+    "grouping": "Technologies & Libraries: DevOps",
+    "skills": ["Docker", "Kubernetes", "Helm", "Ansible", "Vault", "Consul", "Jenkins", "DC/OS", "Marathon", "GCP GCE", "AWS EC2", "Heroku", "CircleCI", "systemd", "Deployinator"]
+  },
+  {
+    "grouping": "Technologies & Libraries: Frontend",
+    "skills": ["React", "Redux", "Webpack", "Grunt", "Jest", "Bower", "Angular", "jQuery", "Stylus", "SASS", "Mocha", "Chai", "pm2", "supertest", "Protractor", "Selenium", "Phantom"]
+  }
+]
