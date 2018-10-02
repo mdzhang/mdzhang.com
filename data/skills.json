@@ -20,15 +20,15 @@
     "skills": ["Airflow", "Google Cloud Functions", "Google PubSub", "Google Dataflow", "Celery", "Kue", "crontab"]
   },
   {
-    "grouping": "Technologies & Libraries: Web Frameworks & Development",
-    "skills": ["Flask", "Ruby on Rails", "Express.js", "Swagger", "OpenAPI", "JWTs", "JSON-API", "Gunicorn", "Nginx", "Oauth", "OpenID", "Grails"]
+    "grouping": "Technologies & Libraries: Web Backend",
+    "skills": ["Flask", "Ruby on Rails", "Express.js", "Swagger/OpenAPI", "JWTs", "JSON-API", "Gunicorn", "Nginx", "OAuth", "OpenID", "Grails"]
   },
   {
     "grouping": "Technologies & Libraries: DevOps",
     "skills": ["Docker", "Kubernetes", "Helm", "Ansible", "Vault", "Consul", "Jenkins", "DC/OS", "Marathon", "GCP GCE", "AWS EC2", "Heroku", "CircleCI", "systemd", "Deployinator"]
   },
   {
-    "grouping": "Technologies & Libraries: Frontend",
+    "grouping": "Technologies & Libraries: Web Frontend",
     "skills": ["React", "Redux", "Webpack", "Grunt", "Jest", "Bower", "Angular", "jQuery", "Stylus", "SASS", "Mocha", "Chai", "pm2", "supertest", "Protractor", "Selenium", "Phantom"]
   }
 ]
