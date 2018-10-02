@@ -9,6 +9,7 @@ jobs:
       only:
         - master
         - development
+        - feature/circle-2
 
     steps:
       - checkout
