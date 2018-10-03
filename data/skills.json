@@ -12,12 +12,8 @@
     "skills": ["GitHub", "Slack", "GSuite", "Confluence", "JIRA", "AWS", "GCP", "CircleCI", "Heroku", "GitLab", "Datadog", "PagerDuty", "Rollbar", "Jenkins", "Papertrail", "Zoom"]
   },
   {
-    "grouping": "Technologies & Libraries: Data stores & ORMs",
-    "skills": ["Postgresql", "MySQL", "Redis", "Kafka", "Google Datastore", "Elasticsearch", "SQLAlchemy", "sequelize"]
-  },
-  {
-    "grouping": "Technologies & Libraries: Data flow",
-    "skills": ["Airflow", "Google Cloud Functions", "Google PubSub", "Google Dataflow", "Celery", "Kue", "crontab"]
+    "grouping": "Technologies & Libraries: Data Storage, Flow, & ORMs",
+    "skills": ["Postgresql", "MySQL", "Redis", "Kafka", "Google Datastore", "Elasticsearch", "Google Cloud Storage", "S3", "Airflow", "Google Cloud Functions", "Google PubSub", "Google Dataflow", "Celery", "Kue", "crontab", "SQLAlchemy", "sequelize"]
   },
   {
     "grouping": "Technologies & Libraries: Web Backend",
