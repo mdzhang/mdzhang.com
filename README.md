@@ -3,6 +3,7 @@
 This repository holds the code for my personal website, [mdzhang.com](http://mdzhang.com). Built using [Hugo](https://gohugo.io/)
 
 [![CircleCI](https://circleci.com/gh/mdzhang/mdzhang.com.svg?style=shield)](https://circleci.com/gh/mdzhang/mdzhang.com)
+[![Vulnerabilities](https://snyk.io/test/github/mdzhang/mdzhang.com/badge.svg)](https://snyk.io/test/github/mdzhang/mdzhang.com)
 
 ## Table of Contents
 
