@@ -1,7 +1,7 @@
 [
   {
     "grouping": "Programming Languages",
-    "skills": ["Python", "NodeJS", "Ruby", "Javascript", "Groovy", "Java"]
+    "skills": ["Python", "NodeJS", "Ruby", "Javascript", "Groovy", "Java", "Scala"]
   },
   {
     "grouping": "Operating Systems & Command Line Tools",
@@ -9,7 +9,7 @@
   },
   {
     "grouping": "Platforms",
-    "skills": ["GitHub", "Slack", "GSuite", "Confluence", "JIRA", "AWS", "GCP", "CircleCI", "Heroku", "GitLab", "Datadog", "PagerDuty", "Rollbar", "Jenkins", "Papertrail", "Zoom"]
+    "skills": ["GitHub", "Slack", "GSuite", "Confluence", "JIRA", "AWS", "GCP", "CircleCI", "Heroku", "GitLab", "Datadog", "PagerDuty", "Rollbar", "Jenkins", "Papertrail", "Zoom", "Phabricator"]
   },
   {
     "grouping": "Technologies & Libraries: Data Storage, Flow, & ORMs",

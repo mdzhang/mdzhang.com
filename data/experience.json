@@ -1,9 +1,15 @@
 [
   {
+    "role": "Senior Data Engineer",
+    "company": "HackerOne",
+    "summary": "",
+    "range": "October 2018 - present"
+  },
+  {
     "role": "Senior Software Engineer, Tech Lead",
     "company": "Flashpoint Intel",
     "summary": "Lead contributor to systems alerting off of business risk intelligence collected on the dark web; heavily leverage Python and Google Cloud Platform services; build out, lead, and manage the Alerting team; work remotely with a distributed team",
-    "range": "July 2017 - present"
+    "range": "July 2017 - October 2018"
   },
   {
     "role": "Software Engineer",
