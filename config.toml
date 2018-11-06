@@ -48,5 +48,9 @@ googleAnalytics = "UA-66633424-1"
     link = "https://keybase.io/mdzhang"
     icon = "key"
 
+[[params.handles]]
+    name = "GitLab"
+    link = "https://gitlab.com/mdzhang"
+
 [params.google.analytics]
     trackerID = "UA-66633424-1"
