@@ -9,4 +9,4 @@ outputs:
 - rss
 - json
 ---
-<p>Senior software engineer with experience in full stack web development, data engineering, devops, CI/CD, and project and team management at small, medium, and large startups.</p>
+<p>Senior software engineer with experience in full stack web development, data engineering, devops, and project and team management at small, medium, and large startups.</p>
