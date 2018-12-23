@@ -1,7 +1,7 @@
 [
   {
     "grouping": "Programming Languages",
-    "skills": ["Python", "NodeJS", "Ruby", "Javascript", "Groovy", "Java", "Scala"]
+    "skills": ["Python", "NodeJS", "Ruby", "Javascript", "Groovy", "Java", "Scala", "R"]
   },
   {
     "grouping": "Operating Systems & Command Line Tools",
