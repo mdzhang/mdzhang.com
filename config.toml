@@ -34,10 +34,6 @@ googleAnalytics = "UA-66633424-1"
     link = "https://github.com/mdzhang/"
 
 [[params.handles]]
-    name = "Bitbucket"
-    link = "https://bitbucket.org/mdzhang/"
-
-[[params.handles]]
     name = "Stack Overflow"
     link = "https://stackoverflow.com/users/story/2699835"
     icon = "stack-overflow"
@@ -48,8 +44,9 @@ googleAnalytics = "UA-66633424-1"
     icon = "key"
 
 [[params.handles]]
-    name = "GitLab"
-    link = "https://gitlab.com/mdzhang"
+    name = "PGP Key"
+    link = "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x8B87E1491655C95A"
+    icon = "key"
 
 [params.google.analytics]
     trackerID = "UA-66633424-1"
