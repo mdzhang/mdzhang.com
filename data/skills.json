@@ -21,7 +21,7 @@
   },
   {
     "grouping": "Technologies & Libraries: DevOps",
-    "skills": ["Docker", "Kubernetes", "Helm", "Ansible", "Vault", "Consul", "Jenkins", "DC/OS", "Marathon", "GCP GCE", "AWS EC2", "Heroku", "CircleCI", "systemd", "Deployinator"]
+    "skills": ["Docker", "Kubernetes", "Helm", "Ansible", "Vault", "Consul", "Jenkins", "DC/OS", "Marathon", "GCP", "AWS EC2", "Heroku", "CircleCI", "systemd", "Deployinator", "Terraform"]
   },
   {
     "grouping": "Technologies & Libraries: Web Frontend",
