@@ -1,30 +1,54 @@
 [
   {
-    "grouping": "Programming Languages",
-    "skills": ["Python", "NodeJS", "Ruby", "Javascript", "Groovy", "Java", "Scala", "R"]
+    "grouping": "Languages",
+    "skills": ["Python", "NodeJS", "Ruby", "Javascript", "Groovy", "Java", "Scala", "R", "SQL", "bash"]
   },
   {
     "grouping": "Operating Systems & Command Line Tools",
-    "skills": ["macOS", "linux", "git", "vim", "bash", "zsh", "awk", "sed", "grep", "tr", "ack", "jq", "z", "etc."]
+    "skills": ["macOS", "linux", "git", "vim", "bash", "zsh", "awk", "sed", "grep", "tr", "ack", "jq", "z", "systemd", "etc."]
   },
   {
-    "grouping": "Platforms",
-    "skills": ["GitHub", "Slack", "GSuite", "Confluence", "JIRA", "AWS", "GCP", "CircleCI", "Heroku", "GitLab", "Datadog", "PagerDuty", "Rollbar", "Jenkins", "Papertrail", "Zoom", "Phabricator"]
+    "grouping": "Storage & ORMs",
+    "skills": ["Postgresql", "MySQL", "Redis", "Kafka", "Google Datastore", "Elasticsearch", "Google Cloud Storage", "S3", "SQLAlchemy", "sequelize", "ActiveRecord", "Google PubSub", "AWS SQS"]
   },
   {
-    "grouping": "Technologies & Libraries: Data Storage, Flow, & ORMs",
-    "skills": ["Postgresql", "MySQL", "Redis", "Kafka", "Google Datastore", "Elasticsearch", "Google Cloud Storage", "S3", "Airflow", "Google Cloud Functions", "Google PubSub", "Google Dataflow", "Celery", "Kue", "crontab", "SQLAlchemy", "sequelize"]
+    "grouping": "Scheduling",
+    "skills": ["crontab", "Airflow", "Kubernetes CronJob", "Celery", "Kue", "Sidekiq"]
   },
   {
-    "grouping": "Technologies & Libraries: Web Backend",
+    "grouping": "Compute",
+    "skills": ["AWS EC2", "Google Compute Engine", "Google App Engine", "AWS Lambda", "Google Cloud Functions", "Kubernetes", "Heroku", "Google Dataflow"]
+  },
+  {
+    "grouping": "Provisioning & Configuration Management",
+    "skills": ["Terraform", "Ansible", "AWS AMI", "packer", "Docker", "Serverless", "Helm", "Vault", "DC/OS", "Marathon"]
+  },
+  {
+    "grouping": "CI/CD",
+    "skills": ["Jenkins", "CircleCI", "Travis", "GitLab", "GitHub", "Deployinator", "systemd", "Capistrano", "pm2", "Phabricator", "Grunt", "Docker"]
+  },
+  {
+    "grouping": "Observability & Monitoring",
+    "skills": ["Datadog", "Pagerduty", "Papertrail", "fluentd", "Google Stackdriver", "journalctl", "monit", "Sentry", "Rollbar", "Logstash"]
+  },
+  {
+    "grouping": "Web Backend",
     "skills": ["Flask", "Ruby on Rails", "Express.js", "Swagger/OpenAPI", "JWTs", "JSON-API", "Gunicorn", "Nginx", "OAuth", "OpenID", "Grails"]
   },
   {
-    "grouping": "Technologies & Libraries: DevOps",
-    "skills": ["Docker", "Kubernetes", "Helm", "Ansible", "Vault", "Consul", "Jenkins", "DC/OS", "Marathon", "GCP", "AWS EC2", "Heroku", "CircleCI", "systemd", "Deployinator", "Terraform"]
+    "grouping": "Web Frontend",
+    "skills": ["React", "Redux", "Webpack", "Bower", "Angular", "jQuery", "Stylus", "SASS"]
   },
   {
-    "grouping": "Technologies & Libraries: Web Frontend",
-    "skills": ["React", "Redux", "Webpack", "Grunt", "Jest", "Bower", "Angular", "jQuery", "Stylus", "SASS", "Mocha", "Chai", "pm2", "supertest", "Protractor", "Selenium", "Phantom"]
+    "grouping": "BI & Analytical",
+    "skills": ["Looker", "Kibana", "pandas", "ggplot2", "Jupyter", "tidyverse", "scikit-learn", "SQL"]
+  },
+  {
+    "grouping": "Testing",
+    "skills": ["Jest", "Mocha", "Chai", "supertest", "Protractor", "Selenium", "Phantom", "Molecule", "pytest", "testinfra", "rspec"]
+  },
+  {
+    "grouping": "Enterprise SaaS Tools",
+    "skills": ["Slack", "GSuite", "Confluence", "JIRA"]
   }
 ]
