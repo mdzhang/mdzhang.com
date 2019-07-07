@@ -9,7 +9,7 @@ googleAnalytics = "UA-66633424-1"
 [params]
   firstName = "Michelle"
   lastName = "Zhang"
-  address = "Northampton, MA"
+  address = "New York City, NY"
   phone = "1-201-290-4969"
   contactNote = ""
   profileImage = "https://s.gravatar.com/avatar/6ec7da55967198680c3c4c81f880ab0c?s=160"
