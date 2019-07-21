@@ -773,13 +773,14 @@ graphlib@^2.1.1, graphlib@^2.1.5:
   dependencies:
     lodash "^4.17.5"
 
-grunt-aws-s3@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/grunt-aws-s3/-/grunt-aws-s3-2.0.0.tgz#0262203d43646ca7bd92b2e1d2e71a2820edf9f5"
+grunt-aws-s3@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/grunt-aws-s3/-/grunt-aws-s3-2.0.1.tgz#d7156ea2cb128f6e26690f0de0050cb2cac2c432"
+  integrity sha512-V3US+iZjTfX15QFgtsHLntJi9Nmq43xLQ97pl9dLFo4RtvlNGMpyiFEB/wVfgct+cTg2wSciPwfTJOfxTV/8Ag==
   dependencies:
     async "0.9.x"
     aws-sdk "2.0.x"
-    lodash "2.4.x"
+    lodash "4.17.x"
     mime-types "2.0.x"
     progress "1.1.x"
 
@@ -1216,13 +1217,14 @@ lodash.set@^4.3.2:
   resolved "https://registry.yarnpkg.com/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
   integrity sha1-2HV7HagH3eJIFrDWqEvqGnYjCyM=
 
-lodash@2.4.x:
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-2.4.2.tgz#fadd834b9683073da179b3eae6d9c0d15053f73e"
-
 lodash@4.17.11, lodash@^4, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.5, lodash@~4.17.10, lodash@~4.17.5:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
+
+lodash@4.17.x:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
+  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
 loud-rejection@^1.0.0:
   version "1.6.0"
