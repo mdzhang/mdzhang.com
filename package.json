@@ -2,7 +2,7 @@
   "dependencies": {
     "grunt": "^1.0.4",
     "grunt-aws-s3": "^2.0.1",
-    "snyk": "^1.230.5"
+    "snyk": "^1.232.0"
   },
   "scripts": {
     "deploy": "grunt deploy",
