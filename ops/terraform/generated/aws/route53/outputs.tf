@@ -30,24 +30,24 @@ output "aws_route53_record_tfer--Z165JNQYTZW714_email-002E-mdzhang-002E-com-002E
   value = "${aws_route53_record.tfer--Z165JNQYTZW714_email-002E-mdzhang-002E-com-002E-_CNAME_.id}"
 }
 
-output "aws_route53_record_tfer--Z165JNQYTZW714_mdzhang-002E-com-002E-_A__id" {
-  value = "${aws_route53_record.tfer--Z165JNQYTZW714_mdzhang-002E-com-002E-_A_.id}"
+output "aws_route53_record_mdzhang_com-002E-_A__id" {
+  value = "${aws_route53_record.mdzhang_com-002E-_A_.id}"
 }
 
-output "aws_route53_record_tfer--Z165JNQYTZW714_mdzhang-002E-com-002E-_MX__id" {
-  value = "${aws_route53_record.tfer--Z165JNQYTZW714_mdzhang-002E-com-002E-_MX_.id}"
+output "aws_route53_record_mdzhang_com-002E-_MX__id" {
+  value = "${aws_route53_record.mdzhang_com-002E-_MX_.id}"
 }
 
-output "aws_route53_record_tfer--Z165JNQYTZW714_mdzhang-002E-com-002E-_NS__id" {
-  value = "${aws_route53_record.tfer--Z165JNQYTZW714_mdzhang-002E-com-002E-_NS_.id}"
+output "aws_route53_record_mdzhang_com-002E-_NS__id" {
+  value = "${aws_route53_record.mdzhang_com-002E-_NS_.id}"
 }
 
-output "aws_route53_record_tfer--Z165JNQYTZW714_mdzhang-002E-com-002E-_SOA__id" {
-  value = "${aws_route53_record.tfer--Z165JNQYTZW714_mdzhang-002E-com-002E-_SOA_.id}"
+output "aws_route53_record_mdzhang_com-002E-_SOA__id" {
+  value = "${aws_route53_record.mdzhang_com-002E-_SOA_.id}"
 }
 
-output "aws_route53_record_tfer--Z165JNQYTZW714_mdzhang-002E-com-002E-_TXT__id" {
-  value = "${aws_route53_record.tfer--Z165JNQYTZW714_mdzhang-002E-com-002E-_TXT_.id}"
+output "aws_route53_record_mdzhang_com-002E-_TXT__id" {
+  value = "${aws_route53_record.mdzhang_com-002E-_TXT_.id}"
 }
 
 output "aws_route53_record_tfer--Z165JNQYTZW714_pic-002E-_domainkey-002E-mdzhang-002E-com-002E-_TXT__id" {
@@ -66,6 +66,6 @@ output "aws_route53_record_tfer--Z165JNQYTZW714_www-002E-mdzhang-002E-com-002E-_
   value = "${aws_route53_record.tfer--Z165JNQYTZW714_www-002E-mdzhang-002E-com-002E-_A_.id}"
 }
 
-output "aws_route53_zone_tfer--Z165JNQYTZW714_mdzhang-002E-com_id" {
-  value = "${aws_route53_zone.tfer--Z165JNQYTZW714_mdzhang-002E-com.id}"
+output "aws_route53_zone_mdzhang_com_id" {
+  value = "${aws_route53_zone.mdzhang_com.id}"
 }
