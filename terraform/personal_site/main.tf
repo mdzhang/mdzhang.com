@@ -23,6 +23,7 @@ resource "aws_route53_record" "www_personal_site_a" {
 }
 
 resource "aws_s3_bucket" "personal_site_logs" {
+  acl    = "private"
   bucket = "logs.${var.domain}"
 
   grant {
@@ -41,6 +42,7 @@ resource "aws_s3_bucket" "personal_site_logs" {
 }
 
 resource "aws_s3_bucket" "personal_site" {
+  acl            = "public-read"
   bucket         = var.domain
   hosted_zone_id = var.zone_id
   force_destroy  = "false"
@@ -72,6 +74,7 @@ resource "aws_s3_bucket" "personal_site" {
 }
 
 resource "aws_s3_bucket" "www_personal_site" {
+  acl            = "public-read"
   arn            = "arn:aws:s3:::www.${var.domain}"
   bucket         = "www.${var.domain}"
   force_destroy  = "false"
