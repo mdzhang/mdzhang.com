@@ -7,15 +7,12 @@ googleAnalytics = "UA-66633424-1"
 # for theme
 
 [params]
-  address = "New York City, NY"
   email = "zhang.michelle.d@gmail.com"
   favicon = "favicon.ico"
   firstName = "Michelle"
   footerText = "say hi."
   homepage = "a place called home"
   lastName = "Zhang"
-  phone = "1-201-290-4969"
-  profileImage = "https://s.gravatar.com/avatar/6ec7da55967198680c3c4c81f880ab0c?s=160"
   title = "Michelle D Zhang"
 
 [[params.mainMenu]]

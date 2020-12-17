@@ -23,7 +23,6 @@ resource "aws_route53_record" "www_personal_site_a" {
 }
 
 resource "aws_s3_bucket" "personal_site_logs" {
-  acl    = "private"
   bucket = "logs.${var.domain}"
 
   grant {
@@ -46,11 +45,6 @@ resource "aws_s3_bucket" "personal_site" {
   bucket         = var.domain
   hosted_zone_id = var.zone_id
   force_destroy  = "false"
-
-  grant {
-    permissions = ["WRITE_ACP", "READ_ACP", "WRITE", "READ"]
-    type        = "CanonicalUser"
-  }
 
   logging {
     target_bucket = "logs.${var.domain}"

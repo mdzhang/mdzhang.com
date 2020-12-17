@@ -22,7 +22,6 @@ See S3 setup instructions [here](http://docs.aws.amazon.com/AmazonS3/latest/dev/
     token = "xxx"
   }
   ```
-* update variables in `terraform/variables.tf`
 
 ## Deployment
 

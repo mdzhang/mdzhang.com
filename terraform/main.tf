@@ -9,10 +9,10 @@ terraform {
 
   backend "remote" {
     hostname     = "app.terraform.io"
-    organization = "mdzhang"
+    organization = var.tfc_org
 
     workspaces {
-      name = "mdzhang-com"
+      name = var.tfc_workspace
     }
   }
 }
@@ -45,7 +45,7 @@ module "personal_site_prod" {
   source = "./personal_site"
 
   aws_region = var.aws_region
-  domain     = "mdzhang.com"
+  domain     = var.domain
   zone_id    = aws_route53_zone.personal_site.zone_id
 }
 
@@ -53,6 +53,6 @@ module "personal_site_staging" {
   source = "./personal_site"
 
   aws_region = var.aws_region
-  domain     = "staging-1.mdzhang.com"
+  domain     = var.domain_staging
   zone_id    = aws_route53_zone.personal_site.zone_id
 }
