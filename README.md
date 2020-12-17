@@ -12,7 +12,7 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
 * [Deployment Setup](#deployment-setup)
 * [Deployment](#deployment)
 
-## Installation
+## Setup
 
 * Clone the repository
     ```sh
@@ -23,6 +23,9 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
     ```sh
     brew install asdf
     asdf plugin-add nodejs
+    asdf plugin-add terraform
+    asdf plugin-add terraform-docs
+    asdf plugin-add tflint
     asdf install
     ```
 
@@ -46,6 +49,8 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
     make init
     ```
 
+## Development
+
 * Start a local server
     ```sh
     make start
@@ -58,31 +63,3 @@ TODO
 ### Testing
 
 N/A beyond making sure the `hugo` build passes.
-
-## Deployment Setup
-
-This project uses [S3](https://aws.amazon.com/s3/) to store the generated static site files, and [Route 53](https://aws.amazon.com/route53/) as a DNS service.
-
-See S3 setup instructions [here](http://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html)
-
-## Deployment
-
-Get S3 credentials to deploy your site. Either ask a project admin for `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` or [generate them yourself](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey).
-
-#### Manual Deployment From Host Machine
-
-* Build the site
-    ```sh
-    HUGO_BASEURL=http://mdzhang.com/ hugo
-    ```
-* Ensure `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` are defined in your environment
-* Run e.g.
-    ```sh
-    yarn deploy
-    ```
-
-#### Continuous Deployment
-
-* Reuse the existing [`./.circleci/config.yml`](./.circleci/config.yml) file, which will redeploy staging when the `development` branch is updated, and will redeploy production when the `master` branch is updated.
-* [Add `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` to CircleCI](https://circleci.com/docs/environment-variables/#setting-environment-variables-for-all-commands-without-adding-them-to-git
-).
