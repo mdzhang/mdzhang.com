@@ -19,9 +19,14 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
     git clone https://github.com/mdzhang/mdzhang.com.git
     ```
 
-* Ensure you have Node version 8.9.2
+* Install `node`
+    ```sh
+    brew install asdf
+    asdf plugin-add nodejs
+    asdf install
+    ```
 
-* Ensure you have `yarn` installed
+* Install `yarn`
     ```sh
     npm install -g yarn
     ```
@@ -31,7 +36,7 @@ This repository holds the code for my personal website, [mdzhang.com](http://mdz
     yarn
     ```
 
-* Ensure you have `hugo` installed
+* Install `hugo`
     ```sh
     brew install hugo
     ```
