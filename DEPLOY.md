@@ -6,13 +6,23 @@ Follow Setup in the README first.
 
 This project uses [S3](https://aws.amazon.com/s3/) to store the generated static site files, and [Route 53](https://aws.amazon.com/route53/) as a DNS service.
 
-### Manually
+### Manually via Web UI
 
 See S3 setup instructions [here](http://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html)
 
 ### With Terraform
 
-TODO
+* Create a [Terraform Cloud](https://www.terraform.io/cloud) account
+* Create an API token
+* Setup VCS tracking
+* Set AWS environment variables: `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY`
+* Locally, update `~/.terraformrc` with the above token
+  ```hcl
+  credentials "app.terraform.io" {
+    token = "xxx"
+  }
+  ```
+* update variables in `terraform/variables.tf`
 
 ## Deployment
 
