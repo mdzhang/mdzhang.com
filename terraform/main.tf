@@ -48,3 +48,11 @@ module "personal_site_prod" {
   domain     = "mdzhang.com"
   zone_id    = aws_route53_zone.personal_site.zone_id
 }
+
+module "personal_site_staging" {
+  source = "./personal_site"
+
+  aws_region = var.aws_region
+  domain     = "staging-1.mdzhang.com"
+  zone_id    = aws_route53_zone.personal_site.zone_id
+}
