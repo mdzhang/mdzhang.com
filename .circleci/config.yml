@@ -47,5 +47,7 @@ jobs:
             fi
 
             source $BASH_ENV
+            yarn global add postcss-cli --prefix /usr/local
+            yarn global add autoprefixer  --prefix /usr/local
             hugo
             yarn deploy
