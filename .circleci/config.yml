@@ -39,7 +39,7 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               export HUGO_BASEURL=http://mdzhang.com/
-              export AWS_S3_BUCKET=mdzhang.com'
+              export AWS_S3_BUCKET=mdzhang.com
             fi
 
             if [ "${CIRCLE_BRANCH}" == "development" ]; then
