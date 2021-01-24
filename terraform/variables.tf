@@ -19,12 +19,3 @@ variable "domain_staging" {
   default = "staging-1.mdzhang.com"
 }
 
-variable "tfc_org" {
-  description = "Terraform Cloud organization name"
-  default     = "mdzhang"
-}
-
-variable "tfc_workspace" {
-  description = "Terraform Cloud workspace name"
-  default     = "mdzhang-com"
-}

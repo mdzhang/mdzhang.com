@@ -1,5 +1,4 @@
 terraform {
-  required_version = "~> 0.12.0"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -9,10 +8,10 @@ terraform {
 
   backend "remote" {
     hostname     = "app.terraform.io"
-    organization = var.tfc_org
+    organization = "mdzhang"
 
     workspaces {
-      name = var.tfc_workspace
+      name = "mdzhang-com"
     }
   }
 }
