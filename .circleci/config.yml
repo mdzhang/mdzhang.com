@@ -1,14 +1,16 @@
+---
 version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:12.20.0
+      - image: cibuilds/hugo:0.80
     working_directory: ~/repo
 
     branches:
       only:
         - master
         - development
+        - feature/circle
 
     steps:
       - checkout
@@ -29,9 +31,6 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-
-      # install hugo
-      - run: wget https://github.com/gohugoio/hugo/releases/download/v0.80.0/hugo_0.80.0_Linux-64bit.deb && sudo dpkg -i hugo*.deb
 
       - deploy:
           command: |
