@@ -44,7 +44,7 @@ jobs:
 
             if [ "${CIRCLE_BRANCH}" == "development" ]; then
               export HUGO_BASEURL=http://staging-1.mdzhang.com/
-              AWS_S3_BUCKET=staging-1.mdzhang.com
+              export AWS_S3_BUCKET=staging-1.mdzhang.com
               echo $'User-agent: *\nDisallow: /' > static/robots.txt
             fi
 
