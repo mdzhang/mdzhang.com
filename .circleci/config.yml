@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.19
+      - image: circleci/node:12.20.0
     working_directory: ~/repo
 
     branches:
@@ -23,7 +23,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: yarn install
+      - run: npm install
 
       - save_cache:
           paths:
@@ -31,7 +31,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # install hugo
-      - run: wget https://github.com/gohugoio/hugo/releases/download/v0.65.3/hugo_0.65.3_Linux-64bit.deb && sudo dpkg -i hugo*.deb
+      - run: wget https://github.com/gohugoio/hugo/releases/download/v0.80.0/hugo_0.80.0_Linux-64bit.deb && sudo dpkg -i hugo*.deb
 
       - deploy:
           command: |
@@ -47,7 +47,5 @@ jobs:
             fi
 
             source $BASH_ENV
-            yarn global add postcss-cli --prefix /usr/local
-            yarn global add autoprefixer  --prefix /usr/local
             hugo
-            yarn deploy
+            npm run deploy

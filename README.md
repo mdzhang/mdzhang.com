@@ -22,14 +22,9 @@ Built using [Hugo](https://gohugo.io/)
     asdf install
     ```
 
-* Install `yarn`
-    ```sh
-    npm install -g yarn
-    ```
-
 * Install dependencies
     ```sh
-    yarn
+    npm i
     ```
 
 * Install `hugo`

@@ -36,7 +36,7 @@ Get S3 credentials to deploy your site. Either ask a project admin for `$AWS_ACC
 * Ensure `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` are defined in your environment
 * Run e.g.
     ```sh
-    yarn deploy
+    npm run deploy
     ```
 
 ### Continuously
