@@ -1,3 +1,4 @@
+---
 version: 2
 jobs:
   build:
@@ -20,9 +21,9 @@ jobs:
       # install and cache node dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
 
       - run: npm install
 
@@ -37,16 +38,15 @@ jobs:
       - deploy:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              echo 'export HUGO_BASEURL=http://mdzhang.com/' >> $BASH_ENV
-              echo 'export AWS_S3_BUCKET=mdzhang.com' >> $BASH_ENV
+              export HUGO_BASEURL=http://mdzhang.com/
+              export AWS_S3_BUCKET=mdzhang.com'
             fi
 
             if [ "${CIRCLE_BRANCH}" == "development" ]; then
-              echo 'export HUGO_BASEURL=http://staging-1.mdzhang.com/' >> $BASH_ENV
-              echo 'export AWS_S3_BUCKET=staging-1.mdzhang.com' >> $BASH_ENV
+              export HUGO_BASEURL=http://staging-1.mdzhang.com/
+              AWS_S3_BUCKET=staging-1.mdzhang.com
               echo $'User-agent: *\nDisallow: /' > static/robots.txt
             fi
 
-            source $BASH_ENV
             hugo
             npm run deploy
