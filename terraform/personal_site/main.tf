@@ -2,7 +2,7 @@ resource "aws_route53_record" "personal_site_a" {
   alias {
     evaluate_target_health = "false"
     name                   = "s3-website-${var.aws_region}.amazonaws.com"
-    zone_id                = var.zone_id
+    zone_id                = var.aws_s3_zone_ids_by_region[var.aws_region]
   }
 
   name    = var.domain
@@ -14,7 +14,8 @@ resource "aws_route53_record" "www_personal_site_a" {
   alias {
     evaluate_target_health = "false"
     name                   = "s3-website-${var.aws_region}.amazonaws.com"
-    zone_id                = var.zone_id
+    zone_id                = var.aws_s3_zone_ids_by_region[var.aws_region]
+
   }
 
   name    = "www.${var.domain}"
@@ -23,39 +24,21 @@ resource "aws_route53_record" "www_personal_site_a" {
 }
 
 resource "aws_s3_bucket" "personal_site_logs" {
-  bucket = "logs.${var.domain}"
+  acl            = "log-delivery-write"
+  bucket         = "logs.${var.domain}"
+  hosted_zone_id = var.aws_s3_zone_ids_by_region[var.aws_region]
 
-  grant {
-    permissions = ["READ_ACP", "WRITE"]
-    type        = "Group"
-    uri         = "http://acs.amazonaws.com/groups/s3/LogDelivery"
-  }
-
-  grant {
-    permissions = ["FULL_CONTROL"]
-    type        = "CanonicalUser"
-  }
-
-  hosted_zone_id = var.zone_id
-  request_payer  = "BucketOwner"
+  force_destroy = false
 }
 
 resource "aws_s3_bucket" "personal_site" {
   acl            = "public-read"
   bucket         = var.domain
-  hosted_zone_id = var.zone_id
-  force_destroy  = "false"
+  hosted_zone_id = var.aws_s3_zone_ids_by_region[var.aws_region]
 
   logging {
     target_bucket = "logs.${var.domain}"
     target_prefix = "root/"
-  }
-
-  request_payer = "BucketOwner"
-
-  versioning {
-    enabled    = "false"
-    mfa_delete = "false"
   }
 
   website {
@@ -72,8 +55,9 @@ resource "aws_s3_bucket" "www_personal_site" {
   arn            = "arn:aws:s3:::www.${var.domain}"
   bucket         = "www.${var.domain}"
   force_destroy  = "false"
-  hosted_zone_id = var.zone_id
-  request_payer  = "BucketOwner"
+  hosted_zone_id = var.aws_s3_zone_ids_by_region[var.aws_region]
+
+  request_payer = "BucketOwner"
 
   versioning {
     enabled    = "false"

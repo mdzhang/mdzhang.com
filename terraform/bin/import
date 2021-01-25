@@ -1,0 +1,17 @@
+#!/bin/bash
+
+terraform import module.personal_site.aws_s3_bucket.personal_site mdzhang.com
+
+terraform import module.personal_site.aws_s3_bucket.personal_site_logs logs.mdzhang.com
+
+terraform import module.personal_site.aws_s3_bucket.www_personal_site www.mdzhang.com
+
+
+terraform import module.personal_site.aws_route53_record.personal_site_a  Z165JNQYTZW714_mdzhang.com_A
+
+terraform import module.personal_site.aws_route53_record.www_personal_site_a  Z165JNQYTZW714_www.mdzhang.com_A
+
+
+terraform import module.personal_site.aws_s3_bucket_policy.personal_site mdzhang.com
+
+terraform import aws_route53_zone.primary "Z165JNQYTZW714"

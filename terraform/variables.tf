@@ -12,10 +12,5 @@ variable "aws_dns_ns" {
 }
 
 variable "domain" {
-  default = "mdzhang.com"
-}
-
-variable "domain_staging" {
   default = "staging-1.mdzhang.com"
 }
-

@@ -1,14 +1,10 @@
-version: 2
+---
+version: 2.1
 jobs:
   build:
     docker:
       - image: circleci/node:12.20.0
     working_directory: ~/repo
-
-    branches:
-      only:
-        - master
-        - development
 
     steps:
       - checkout
@@ -19,9 +15,9 @@ jobs:
       # install and cache node dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
 
       - run: npm install
 
@@ -31,21 +27,39 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # install hugo
-      - run: wget https://github.com/gohugoio/hugo/releases/download/v0.80.0/hugo_0.80.0_Linux-64bit.deb && sudo dpkg -i hugo*.deb
+      - run: wget https://github.com/gohugoio/hugo/releases/download/v0.80.0/hugo_extended_0.80.0_Linux-64bit.deb && sudo dpkg -i hugo*.deb
+
+      - run:
+          name: "Setup custom environment variables"
+          command: |
+            echo 'export HUGO_BASEURL=http://mdzhang.com/' >> $BASH_ENV
+            echo 'export AWS_S3_BUCKET=mdzhang.com' >> $BASH_ENV
+          filters:
+            branches:
+              only:
+                - master
+
+      - run:
+          name: "Setup custom environment variables"
+          command: |
+            echo 'export HUGO_BASEURL=http://staging-1.mdzhang.com/' >> $BASH_ENV
+            echo 'export AWS_S3_BUCKET=staging-1.mdzhang.com' >> $BASH_ENV
+            echo $'User-agent: *\nDisallow: /' > static/robots.txt
+          filters:
+            branches:
+              only:
+                - development
 
       - deploy:
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              echo 'export HUGO_BASEURL=http://mdzhang.com/' >> $BASH_ENV
-              echo 'export AWS_S3_BUCKET=mdzhang.com' >> $BASH_ENV
-            fi
-
-            if [ "${CIRCLE_BRANCH}" == "development" ]; then
-              echo 'export HUGO_BASEURL=http://staging-1.mdzhang.com/' >> $BASH_ENV
-              echo 'export AWS_S3_BUCKET=staging-1.mdzhang.com' >> $BASH_ENV
-              echo $'User-agent: *\nDisallow: /' > static/robots.txt
-            fi
-
-            source $BASH_ENV
+            echo "Using bucket: $AWS_S3_BUCKET"
+            npm install --prefix=$HOME/.local --global postcss-cli
+            npm install --prefix=$HOME/.local --global autoprefixer
             hugo
             npm run deploy
+
+          filters:
+            branches:
+              only:
+                - master
+                - development
