@@ -6,12 +6,6 @@ jobs:
       - image: circleci/node:12.20.0
     working_directory: ~/repo
 
-    branches:
-      only:
-        - master
-        - development
-        - feature/circle
-
     steps:
       - checkout
 
@@ -58,3 +52,10 @@ jobs:
             npm install --prefix=$HOME/.local --global autoprefixer
             hugo
             npm run deploy
+
+          filters:
+            branches:
+              only:
+                - master
+                - development
+                - feature/circle
