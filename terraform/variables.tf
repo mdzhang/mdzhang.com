@@ -14,4 +14,3 @@ variable "aws_dns_ns" {
 variable "domain" {
   default = "mdzhang.com"
 }
-

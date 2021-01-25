@@ -6,18 +6,14 @@ terraform {
     }
   }
 
-  backend "local" {
-    path = "terraform.tfstate"
-  }
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "mdzhang"
 
-  #   backend "remote" {
-  # hostname     = "app.terraform.io"
-  # organization = "mdzhang"
-  #
-  # workspaces {
-  #   name = "mdzhang-com"
-  # }
-  # }
+    workspaces {
+      name = "mdzhang-com"
+    }
+  }
 }
 
 provider "aws" {
