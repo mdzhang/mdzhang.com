@@ -1,5 +1,5 @@
 ---
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
@@ -53,6 +53,7 @@ jobs:
 
       - deploy:
           command: |
+            echo "Using bucket: $AWS_S3_BUCKET"
             npm install --prefix=$HOME/.local --global postcss-cli
             npm install --prefix=$HOME/.local --global autoprefixer
             hugo
