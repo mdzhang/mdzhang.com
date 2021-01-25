@@ -49,7 +49,6 @@ jobs:
             branches:
               only:
                 - development
-                - feature/circle
 
       - deploy:
           command: |
@@ -64,4 +63,3 @@ jobs:
               only:
                 - master
                 - development
-                - feature/circle
