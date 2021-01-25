@@ -35,10 +35,9 @@ jobs:
       # install hugo
       - run: wget https://github.com/gohugoio/hugo/releases/download/v0.80.0/hugo_extended_0.80.0_Linux-64bit.deb && sudo dpkg -i hugo*.deb
 
-      - deploy:
+      - run:
+          name: "Setup custom environment variables"
           command: |
-
-            touch $BASH_ENV
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               echo "On master branch."
               echo 'export HUGO_BASEURL=http://mdzhang.com/' >> $BASH_ENV
@@ -52,8 +51,8 @@ jobs:
               echo $'User-agent: *\nDisallow: /' > static/robots.txt
             fi
 
-            source $BASH_ENV
-
+      - deploy:
+          command: |
             npm install --prefix=$HOME/.local --global postcss-cli
             npm install --prefix=$HOME/.local --global autoprefixer
             hugo
