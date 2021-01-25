@@ -20,3 +20,8 @@
   ```sh
   terraform login
   ```
+* Proceed with planning:
+  ```sh
+  terraform init
+  terraform plan
+  ```

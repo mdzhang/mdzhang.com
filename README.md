@@ -16,9 +16,6 @@ Built using [Hugo](https://gohugo.io/)
     ```sh
     brew install asdf
     asdf plugin-add nodejs
-    asdf plugin-add terraform
-    asdf plugin-add terraform-docs
-    asdf plugin-add tflint
     asdf install
     ```
 
