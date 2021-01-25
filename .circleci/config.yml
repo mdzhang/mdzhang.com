@@ -48,6 +48,8 @@ jobs:
               echo $'User-agent: *\nDisallow: /' > static/robots.txt
             fi
 
+            source $BASH_ENV
+
             npm install --prefix=$HOME/.local --global postcss-cli
             npm install --prefix=$HOME/.local --global autoprefixer
             hugo
