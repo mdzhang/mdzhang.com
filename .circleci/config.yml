@@ -38,13 +38,13 @@ jobs:
       - deploy:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              export HUGO_BASEURL=http://mdzhang.com/
-              export AWS_S3_BUCKET=mdzhang.com
+              echo 'export HUGO_BASEURL=http://mdzhang.com/' >> $BASH_ENV
+              echo 'export AWS_S3_BUCKET=mdzhang.com' >> $BASH_ENV
             fi
 
             if [ "${CIRCLE_BRANCH}" == "development" ]; then
-              export HUGO_BASEURL=http://staging-1.mdzhang.com/
-              export AWS_S3_BUCKET=staging-1.mdzhang.com
+              echo 'export HUGO_BASEURL=http://staging-1.mdzhang.com/' >> $BASH_ENV
+              echo 'export AWS_S3_BUCKET=staging-1.mdzhang.com' >> $BASH_ENV
               echo $'User-agent: *\nDisallow: /' > static/robots.txt
             fi
 

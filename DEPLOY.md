@@ -24,7 +24,7 @@ Get S3 credentials to deploy your site. Either ask a project admin for `$AWS_ACC
     ```sh
     HUGO_BASEURL=http://mdzhang.com/ hugo
     ```
-* Ensure `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` are defined in your environment
+* Ensure `$AWS_ACCESS_KEY_ID`, `$AWS_SECRET_ACCESS_KEY`, and `$AWS_S3_BUCKET` are defined in your environment
 * Run e.g.
     ```sh
     npm run deploy
