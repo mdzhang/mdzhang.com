@@ -10,3 +10,7 @@ variable "aws_dns_ns" {
     "ns-1066.awsdns-05.org."
   ]
 }
+
+variable "domain" {
+  default = "staging-1.mdzhang.com"
+}
