@@ -37,12 +37,16 @@ jobs:
 
       - deploy:
           command: |
+
+            touch $BASH_ENV
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              echo "On master branch."
               echo 'export HUGO_BASEURL=http://mdzhang.com/' >> $BASH_ENV
               echo 'export AWS_S3_BUCKET=mdzhang.com' >> $BASH_ENV
             fi
 
             if [ "${CIRCLE_BRANCH}" == "development" ]; then
+              echo "On development branch."
               echo 'export HUGO_BASEURL=http://staging-1.mdzhang.com/' >> $BASH_ENV
               echo 'export AWS_S3_BUCKET=staging-1.mdzhang.com' >> $BASH_ENV
               echo $'User-agent: *\nDisallow: /' > static/robots.txt
