@@ -36,7 +36,6 @@ resource "aws_s3_bucket" "personal_site" {
   bucket         = var.domain
   hosted_zone_id = var.aws_s3_zone_ids_by_region[var.aws_region]
 
-
   logging {
     target_bucket = "logs.${var.domain}"
     target_prefix = "root/"
@@ -49,7 +48,6 @@ resource "aws_s3_bucket" "personal_site" {
 
   website_domain   = "s3-website-${var.aws_region}.amazonaws.com"
   website_endpoint = "${var.domain}.s3-website-${var.aws_region}.amazonaws.com"
-
 }
 
 resource "aws_s3_bucket" "www_personal_site" {
