@@ -32,23 +32,14 @@ jobs:
       - run:
           name: "Setup custom environment variables"
           command: |
-            echo 'export HUGO_BASEURL=http://mdzhang.com/' >> $BASH_ENV
-            echo 'export AWS_S3_BUCKET=mdzhang.com' >> $BASH_ENV
-          filters:
-            branches:
-              only:
-                - master
-
-      - run:
-          name: "Setup custom environment variables"
-          command: |
-            echo 'export HUGO_BASEURL=http://staging-1.mdzhang.com/' >> $BASH_ENV
-            echo 'export AWS_S3_BUCKET=staging-1.mdzhang.com' >> $BASH_ENV
-            echo $'User-agent: *\nDisallow: /' > static/robots.txt
-          filters:
-            branches:
-              only:
-                - development
+            if [[ "$CIRCLE_BRANCH" = "master" ]]; then
+              echo 'export HUGO_BASEURL=http://mdzhang.com/' >> $BASH_ENV
+              echo 'export AWS_S3_BUCKET=mdzhang.com' >> $BASH_ENV
+            else
+              echo 'export HUGO_BASEURL=http://staging-1.mdzhang.com/' >> $BASH_ENV
+              echo 'export AWS_S3_BUCKET=staging-1.mdzhang.com' >> $BASH_ENV
+              echo $'User-agent: *\nDisallow: /' > static/robots.txt
+            fi
 
       - deploy:
           command: |
@@ -58,8 +49,13 @@ jobs:
             hugo
             npm run deploy
 
+workflows:
+  deploy:
+    jobs:
+      - build:
           filters:
             branches:
               only:
                 - master
                 - development
+                - ci-fix
