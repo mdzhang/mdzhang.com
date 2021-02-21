@@ -32,6 +32,8 @@ jobs:
       - run:
           name: "Setup custom environment variables"
           command: |
+            echo "Branch is: $CIRCLE_BRANCH"
+
             if [[ "$CIRCLE_BRANCH" = "master" ]]; then
               echo 'export HUGO_BASEURL=http://mdzhang.com/' >> $BASH_ENV
               echo 'export AWS_S3_BUCKET=mdzhang.com' >> $BASH_ENV
