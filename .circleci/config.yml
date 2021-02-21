@@ -60,4 +60,3 @@ workflows:
               only:
                 - master
                 - development
-                - ci-fix
