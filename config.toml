@@ -1,23 +1,23 @@
 # baseurl = "http://mdzhang.com/"
 languageCode = "en-US"
-title = "Michelle D Zhang"
+title = "M D Zhang"
 theme = "sam"
 googleAnalytics = "UA-66633424-1"
 
 # for theme
 
 [params]
-  email = "zhang.michelle.d@gmail.com"
+  email = "md.zhang.aka@gmail.com"
   favicon = "favicon.ico"
-  firstName = "Michelle"
+  firstName = "M"
   footerText = "say hi."
   homepage = "a place called home"
   lastName = "Zhang"
-  title = "Michelle D Zhang"
+  title = "M D Zhang"
 
 [[params.mainMenu]]
   link = "about"
-  text = "i'm michelle"
+  text = "i'm m"
 
 [[params.mainMenu]]
   link = "thoughts"
