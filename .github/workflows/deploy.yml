@@ -24,12 +24,10 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          role-to-assume: arn:aws:iam::111111111111:role/my-github-actions-role-test
-          aws-region: us-east-1
-
       - name: Copy files AWS using CLI
         run: |
           aws s3 sync --acl public-read ./public s3://$HUGO_BASEURL
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: 'us-west-1'
