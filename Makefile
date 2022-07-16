@@ -12,4 +12,4 @@ init:
 	git submodule init && git submodule update --init --recursive
 
 clean:
-	rm -rf resources
+	rm -rf resources public
