@@ -4,8 +4,6 @@ title = "M D Zhang"
 theme = "cactus"
 googleAnalytics = "UA-66633424-1"
 
-# for theme
-
 [params]
 
   colortheme = "white"
