@@ -12,7 +12,7 @@ Built using [Hugo](https://gohugo.io/)
     git clone https://github.com/mdzhang/mdzhang.com.git
     ```
 
-* Install `node`
+* Install `node` e.g. using [anyenv](https://github.com/anyenv/anyenv)
     ```sh
     brew install anyenv
     anyenv install nodenv
@@ -25,7 +25,7 @@ Built using [Hugo](https://gohugo.io/)
     npm i
     ```
 
-* Install `hugo`
+* Install [`hugo`](https://gohugo.io/)
     ```sh
     brew install hugo
     ```
