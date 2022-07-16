@@ -3,10 +3,13 @@ start:
 
 # set HUGO_BASEURL
 build:
-	hugo
+	hugo --minify
 
 deploy:
 	yarn run deploy
 
 init:
 	git submodule init && git submodule update --init --recursive
+
+clean:
+	rm -rf resources

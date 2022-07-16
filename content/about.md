@@ -1,5 +1,4 @@
 ---
-title: hi, friend.
 ---
 
 Come find me on the interwebs:

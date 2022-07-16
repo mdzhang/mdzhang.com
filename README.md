@@ -14,9 +14,10 @@ Built using [Hugo](https://gohugo.io/)
 
 * Install `node`
     ```sh
-    brew install asdf
-    asdf plugin-add nodejs
-    asdf install
+    brew install anyenv
+    anyenv install nodenv
+    nodenv install 18.2.0
+    nodenv rehash
     ```
 
 * Install dependencies

@@ -1,27 +1,34 @@
 # baseurl = "http://mdzhang.com/"
 languageCode = "en-US"
 title = "M D Zhang"
-theme = "sam"
+theme = "cactus"
 googleAnalytics = "UA-66633424-1"
 
 # for theme
 
 [params]
-  email = "md.zhang.aka@gmail.com"
-  favicon = "favicon.ico"
-  firstName = "M"
-  footerText = "say hi."
-  homepage = "a place called home"
-  lastName = "Zhang"
-  title = "M D Zhang"
 
-[[params.mainMenu]]
-  link = "about"
-  text = "i'm m"
+  colortheme = "white"
+  description = "Hi 👋, I'm Meesh."
+  googleAnalyticsAsync = true
+  rss = true
 
-[[params.mainMenu]]
-  link = "thoughts"
-  text = "here are some thoughts"
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
 
-[imaging]
-  quality = 75
+[[menu.main]]
+name = "Posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 3
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 4
