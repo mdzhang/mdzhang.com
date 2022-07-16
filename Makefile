@@ -6,7 +6,7 @@ build:
 	hugo --minify
 
 deploy:
-	yarn run deploy
+	aws s3 sync --acl public-read ./public s3://$$HUGO_BASEURL
 
 init:
 	git submodule init && git submodule update --init --recursive
