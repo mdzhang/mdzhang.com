@@ -26,7 +26,18 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      - name: Copy files AWS using CLI
+      - name: Deploy to staging
+        if: github.ref == 'refs/heads/development'
+        run: |
+          aws s3 sync --acl public-read ./public s3://$HUGO_BASEURL
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: 'us-west-1'
+          HUGO_BASEURL: staging-1.mdzhang.com
+
+      - name: Deploy to prod
+        if: github.ref == 'refs/heads/master'
         run: |
           aws s3 sync --acl public-read ./public s3://$HUGO_BASEURL
         env:
