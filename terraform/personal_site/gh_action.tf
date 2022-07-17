@@ -19,7 +19,7 @@ data "aws_iam_policy_document" "github_oidc_provider_s3_policy" {
       "s3:ListAllMyBuckets"
     ]
     resources = [
-      "s3:*"
+      "*"
     ]
   }
 }
