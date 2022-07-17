@@ -17,11 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          # enable push later
-          token: ${{ secrets.GITHUB_TOKEN }}
           # fetch hugo themes
           submodules: true
           fetch-depth: 0
+          # enable branch push below
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          persist-credentials: true
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -40,6 +41,7 @@ jobs:
           # branch: deploy/production/site
           branch: deploy/gh-act-push/site
           force: true
+          ssh: true
 
       - name: Configure AWS credentials
         if: github.ref == 'refs/heads/main'
