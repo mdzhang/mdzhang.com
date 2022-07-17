@@ -6,7 +6,6 @@
   * Create an API token
   * Setup VCS tracking
   * Create an organization and workspace
-  * Set AWS environment variables: `$AWS_ACCESS_KEY_ID`, `$AWS_SECRET_ACCESS_KEY`, and `$AWS_REGION`
 * Install [`asdf`](https://asdf-vm.com/)
 * Install `terraform`
   ```sh
@@ -25,6 +24,7 @@
   terraform init
   terraform plan
   ```
+* Applies can only occur through TF cloud when manually triggered after a successful plan
 
 ## Tips
 
