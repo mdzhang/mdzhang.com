@@ -1,7 +1,7 @@
 name: deploy
 
-# for AWS
 permissions:
+  # for AWS
   id-token: write
   contents: read
 
@@ -20,6 +20,9 @@ jobs:
           # fetch hugo themes
           submodules: true
           fetch-depth: 0
+          # enable branch push below
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          persist-credentials: true
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -31,7 +34,15 @@ jobs:
       - name: Build
         run: hugo --minify
 
+      - name: Push changes to deploy branch
+        if: github.ref == 'refs/heads/main'
+        uses: ad-m/github-push-action@master
+        with:
+          ssh: true
+          branch: refs/heads/deploy/production/site
+
       - name: Configure AWS credentials
+        if: github.ref == 'refs/heads/main'
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::644266224997:role/github-action--mdzhang-com--role
