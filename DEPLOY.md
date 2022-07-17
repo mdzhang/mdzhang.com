@@ -37,4 +37,8 @@ Get S3 credentials to deploy your site. Either ask a project admin for `$AWS_ACC
 
 ### Continuously
 
-* See [Github Actions](https://github.com/mdzhang/mdzhang.com/actions) for this project, which will redeploy production when the `main` branch is updated.
+See [Github Actions](https://github.com/mdzhang/mdzhang.com/actions) for this project.
+
+TL;DR site is built and sync'd to AWS S3. Pushes to `main` include a `terraform plan` which then needs to be manually applied in Terraform Cloud.
+
+Further, when `main` branch is updated, the `deploy/production/site` and `deploy/production/terraform` branches will be updated to reflect latest built site and applied Terraform code.
