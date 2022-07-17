@@ -81,8 +81,7 @@ resource "aws_s3_bucket_versioning" "www_personal_site" {
   bucket = aws_s3_bucket.www_personal_site.id
 
   versioning_configuration {
-    status     = "Disabled"
-    mfa_delete = "Disabled"
+    status = "Disabled"
   }
 }
 
