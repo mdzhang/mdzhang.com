@@ -10,6 +10,7 @@ googleAnalytics = "UA-66633424-1"
   description = "Hi 👋, I'm Meesh."
   googleAnalyticsAsync = true
   rss = true
+  gravatar = "md.zhang.aka@gmail.com"
 
 [[menu.main]]
 name = "Home"
