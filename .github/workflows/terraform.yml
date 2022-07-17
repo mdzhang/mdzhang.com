@@ -115,9 +115,8 @@ jobs:
         run: exit 1
 
       - name: Push changes to deploy branch
-        # if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main'
         uses: ad-m/github-push-action@master
         with:
           ssh: true
-          # branch: refs/heads/deploy/production/terraform
-          branch: refs/heads/deploy/gh-act-push/terraform
+          branch: refs/heads/deploy/production/terraform
