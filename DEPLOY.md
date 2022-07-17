@@ -16,8 +16,6 @@ See [here](terraform/README.md)
 
 ## Site Deployment
 
-Get S3 credentials to deploy your site. Either ask a project admin for `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` or [generate them yourself](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey).
-
 ### Manually
 
 * Install `awscli`
@@ -28,8 +26,8 @@ Get S3 credentials to deploy your site. Either ask a project admin for `$AWS_ACC
     ```sh
     HUGO_BASEURL=http://mdzhang.com/ make build
     ```
-* Ensure `$AWS_ACCESS_KEY_ID`, `$AWS_SECRET_ACCESS_KEY`, and `$AWS_S3_BUCKET` are defined in your environment
-  - or that `~/.aws/config` and `~/.aws/credentials` are set appropriately
+* Get S3 credentials to deploy your site. Either ask a project admin for `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` or [generate them yourself](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey).
+* Ensure `$AWS_ACCESS_KEY_ID`, `$AWS_SECRET_ACCESS_KEY`, and `$AWS_S3_BUCKET` are defined in your environment or that `~/.aws/config` and `~/.aws/credentials` are set appropriately
 * Run e.g.
     ```sh
     HUGO_BASEURL=mdzhang.com make deploy
@@ -39,6 +37,6 @@ Get S3 credentials to deploy your site. Either ask a project admin for `$AWS_ACC
 
 See [Github Actions](https://github.com/mdzhang/mdzhang.com/actions) for this project.
 
-TL;DR site is built and sync'd to AWS S3. Pushes to `main` include a `terraform plan` which then needs to be manually applied in Terraform Cloud.
+TL;DR site is built and sync'd to AWS S3. Pushes with Terraform changes to `main` include a `terraform plan` which then needs to be manually applied in Terraform Cloud.
 
-Further, when `main` branch is updated, the `deploy/production/site` and `deploy/production/terraform` branches will be updated to reflect latest built site and applied Terraform code.
+Further, when `main` branch is updated, the `deploy/production/site` branch is updated to reflect latest built site.
