@@ -31,7 +31,17 @@ jobs:
       - name: Build
         run: hugo --minify
 
+      - name: Push changes to deploy branch
+        if: github.ref == 'refs/heads/gh-act-push'
+        uses: ad-m/github-push-action@0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # branch: deploy/production/site
+          branch: deploy/gh-act-push/site
+          force_with_lease: true
+
       - name: Configure AWS credentials
+        if: github.ref == 'refs/heads/main'
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::644266224997:role/github-action--mdzhang-com--role
