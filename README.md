@@ -1,9 +1,8 @@
 # [mdzhang.com](http://mdzhang.com)
 
-[![Site](https://github.com/mdzhang/mdzhang.com/actions/workflows/deploy.yml/badge.svg)](https://github.com/mdzhang/mdzhang.com/actions/workflows/deploy.yml) [![Infra](https://github.com/mdzhang/mdzhang.com/actions/workflows/terraform.yml/badge.svg)](https://github.com/mdzhang/mdzhang.com/actions/workflows/terraform.yml)
+[![Deploy](https://github.com/mdzhang/mdzhang.com/actions/workflows/deploy.yml/badge.svg)](https://github.com/mdzhang/mdzhang.com/actions/workflows/deploy.yml)
 
-
-This repository holds the code for my personal website, [mdzhang.com](http://mdzhang.com).
+Source code for [mdzhang.com](http://mdzhang.com).
 
 Built using [Hugo](https://gohugo.io/)
 
