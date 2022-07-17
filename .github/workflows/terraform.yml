@@ -6,6 +6,7 @@ on:
     branches:
       - main
     paths:
+      # sync this w/ TF Cloud
       - 'terraform/**'
       - '.github/workflows/terraform.yml'
   pull_request:
