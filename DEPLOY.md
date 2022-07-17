@@ -1,7 +1,5 @@
 # Deploy
 
-TODO
-
 Follow Setup in the README first.
 
 ## Infrastructure Deployment
@@ -22,18 +20,22 @@ Get S3 credentials to deploy your site. Either ask a project admin for `$AWS_ACC
 
 ### Manually
 
+* Install `awscli`
+    ```sh
+    brew install awscli
+    ```
 * Build the site
     ```sh
-    HUGO_BASEURL=http://mdzhang.com/ hugo
+    HUGO_BASEURL=http://mdzhang.com/ make build
     ```
 * Ensure `$AWS_ACCESS_KEY_ID`, `$AWS_SECRET_ACCESS_KEY`, and `$AWS_S3_BUCKET` are defined in your environment
+  - or that `~/.aws/config` and `~/.aws/credentials` are set appropriately
 * Run e.g.
     ```sh
-    npm run deploy
+    HUGO_BASEURL=mdzhang.com make deploy
     ```
 
 ### Continuously
 
-* Reuse the existing [`./.circleci/config.yml`](./.circleci/config.yml) file, which will redeploy staging when the `development` branch is updated, and will redeploy production when the `master` branch is updated.
-* [Add `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` to CircleCI](https://circleci.com/docs/environment-variables/#setting-environment-variables-for-all-commands-without-adding-them-to-git
-).
+* See [Github Actions](https://github.com/mdzhang/mdzhang.com/actions) for this project, which will redeploy staging when the `development` branch is updated, and will redeploy production when the `master` branch is updated.
+* [Add `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` to repository secrets](https://github.com/mdzhang/mdzhang.com/settings/secrets/actions).
