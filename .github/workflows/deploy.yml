@@ -35,7 +35,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::644266224997:role/github-oidc-assume-iam-role
+          role-to-assume: arn:aws:iam::644266224997:role/github-action--mdzhang-com--role
           aws-region: us-west-1
 
       - name: Deploy to prod
