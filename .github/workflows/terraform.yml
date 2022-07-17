@@ -6,16 +6,10 @@ on:
     branches:
       - main
       - development
-      # TODO: revert
-      - tf-gh-action
     paths:
       - 'terraform/**'
       - '.github/workflows/terraform.yml'
   pull_request:
-    branches:
-      - main
-      - development
-      - tf-gh-action
     paths:
       - 'terraform/**'
       - '.github/workflows/terraform.yml'
