@@ -1,13 +1,24 @@
-# taken from https://github.com/marketplace/actions/hashicorp-setup-terraform
-name: "Terraform"
+# Adapted from https://github.com/marketplace/actions/hashicorp-setup-terraform
+name: terraform
 
 on:
   push:
     branches:
       - main
+      - development
       # TODO: revert
       - tf-gh-action
+    paths:
+      - 'terraform/**'
+      - '.github/workflows/terraform.yml'
   pull_request:
+    branches:
+      - main
+      - development
+      - tf-gh-action
+    paths:
+      - 'terraform/**'
+      - '.github/workflows/terraform.yml'
 
 jobs:
   terraform:
