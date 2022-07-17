@@ -3,9 +3,14 @@ data "aws_iam_policy_document" "s3_policy" {
   statement {
     effect = "Allow"
     actions = [
-      "s3:PutObject",
+      "s3:DeleteObject",
+      "s3:GetObject",
+      "s3:GetBucketLocation",
+      "s3:ListBucket",
       "s3:ListBucketVersions",
-      "s3:ListBucket"
+      "s3:PutBucketWebsite",
+      "s3:PutObject",
+      "s3:PutObjectAcl"
     ]
     resources = [
       aws_s3_bucket.personal_site.arn,
@@ -19,7 +24,7 @@ data "aws_iam_policy_document" "s3_policy" {
       "s3:ListAllMyBuckets"
     ]
     resources = [
-      "*"
+      "arn:aws:s3:::*"
     ]
   }
 }
