@@ -15,11 +15,14 @@ jobs:
   deploy:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           # fetch hugo themes
           submodules: true
           fetch-depth: 0
+          # enable branch push below
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          persist-credentials: true
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -32,12 +35,13 @@ jobs:
         run: hugo --minify
 
       - name: Push changes to deploy branch
-        uses: ad-m/github-push-action@21d44fe9270fd489e49fb30c9590d40adb3abc40
+        uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # branch: deploy/production/site
           branch: deploy/gh-act-push/site
           force: true
+          ssh: true
 
       - name: Configure AWS credentials
         if: github.ref == 'refs/heads/main'
