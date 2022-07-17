@@ -17,7 +17,6 @@ on:
 
 jobs:
   format_and_validate:
-    name: "Terraform"
     runs-on: ubuntu-latest
     defaults:
       run:
