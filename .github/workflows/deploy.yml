@@ -39,15 +39,8 @@ jobs:
           role-to-assume: arn:aws:iam::644266224997:role/github-oidc-assume-iam-role
           aws-region: us-west-1
 
-      - name: Deploy to staging
-        if: github.ref == 'refs/heads/tf-gh-aws-role'
-        run: |
-          aws s3 sync --acl public-read ./public s3://$HUGO_BASEURL
-        env:
-          HUGO_BASEURL: staging-1.mdzhang.com
-
       - name: Deploy to prod
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/tf-gh-aws-role'
         run: |
           aws s3 sync --acl public-read ./public s3://$HUGO_BASEURL
         env:
