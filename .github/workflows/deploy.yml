@@ -35,11 +35,12 @@ jobs:
         run: hugo --minify
 
       - name: Push changes to deploy branch
+        # if: github.ref == 'refs/heads/main'
         uses: ad-m/github-push-action@master
         with:
           ssh: true
-          # branch: deploy/production/site
-          branch: deploy/gh-act-push/site
+          # branch: refs/heads/deploy/production/site
+          branch: refs/heads/deploy/gh-act-push/site
 
       - name: Configure AWS credentials
         if: github.ref == 'refs/heads/main'
