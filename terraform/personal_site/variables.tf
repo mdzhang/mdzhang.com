@@ -13,3 +13,5 @@ variable "aws_s3_zone_ids_by_region" {
     us-west-1 = "Z2F56UZL2M1ACD"
   }
 }
+
+variable "gh_action_role" {}

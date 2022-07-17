@@ -1,5 +1,5 @@
 # Create policy allowing write to S3 to GH action role
-data "aws_iam_policy_document" "github_oidc_provider_s3_policy" {
+data "aws_iam_policy_document" "s3_policy" {
   statement {
     effect = "Allow"
     actions = [
@@ -24,13 +24,12 @@ data "aws_iam_policy_document" "github_oidc_provider_s3_policy" {
   }
 }
 
-resource "aws_iam_policy" "github_oidc_provider_s3_policy" {
-  name   = "github-oidc-assume-iam-role-mdzhang-com-policy"
-  policy = data.aws_iam_policy_document.github_oidc_provider_s3_policy.json
+resource "aws_iam_policy" "s3_policy" {
+  name   = "github-action-mdzhang-com-s3-policy"
+  policy = data.aws_iam_policy_document.s3_policy.json
 }
 
-# Attach the policy created in previous step
-resource "aws_iam_role_policy_attachment" "github_oidc_provider_s3_policy_attachment" {
-  role       = "github-oidc-assume-iam-role"
-  policy_arn = aws_iam_policy.github_oidc_provider_s3_policy.arn
+resource "aws_iam_role_policy_attachment" "attachment" {
+  role       = var.gh_action_role
+  policy_arn = aws_iam_policy.s3_policy.arn
 }
