@@ -114,7 +114,7 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
 
-      - name: Push changes to deploy branch
+      - name: Push changes to deploy terraform branch
         if: github.ref == 'refs/heads/main'
         uses: ad-m/github-push-action@master
         with:
