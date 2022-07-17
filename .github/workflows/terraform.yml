@@ -29,7 +29,7 @@ jobs:
           persist-credentials: true
 
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
+        uses: hashicorp/setup-terraform@v2
         with:
           # sync this w/ TF Cloud
           terraform_version: 1.2.5
@@ -41,7 +41,7 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init
+        run: terraform init -input=false -migrate-state -force-copy
 
       - name: Terraform Validate
         id: validate
