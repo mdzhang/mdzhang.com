@@ -1,6 +1,13 @@
+# IDE
+.vscode/
+
 # Dependency directories
-node_modules
+node_modules/
 
 # Build Files
 public/
 resources/_gen/
+
+# Terraform
+**/.terraform/*
+.terraform.lock.hcl

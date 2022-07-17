@@ -24,52 +24,79 @@ resource "aws_route53_record" "www_personal_site_a" {
 }
 
 resource "aws_s3_bucket" "personal_site_logs" {
-  acl            = "log-delivery-write"
   bucket         = "logs.${var.domain}"
   hosted_zone_id = var.aws_s3_zone_ids_by_region[var.aws_region]
 
   force_destroy = false
 }
 
+resource "aws_s3_bucket_acl" "personal_site_logs" {
+  acl    = "log-delivery-write"
+  bucket = aws_s3_bucket.personal_site_logs.id
+}
+
 resource "aws_s3_bucket" "personal_site" {
-  acl            = "public-read"
   bucket         = var.domain
   hosted_zone_id = var.aws_s3_zone_ids_by_region[var.aws_region]
+}
 
-  logging {
-    target_bucket = "logs.${var.domain}"
-    target_prefix = "root/"
+resource "aws_s3_bucket_logging" "personal_site" {
+  bucket = aws_s3_bucket.personal_site.id
+
+  target_bucket = "logs.${var.domain}"
+  target_prefix = "root/"
+}
+
+resource "aws_s3_bucket_website_configuration" "personal_site" {
+  bucket = aws_s3_bucket.personal_site.id
+
+  index_document {
+    suffix = "index.html"
   }
 
-  website {
-    error_document = "404.html"
-    index_document = "index.html"
+  error_document {
+    key = "404.html"
   }
+}
 
-  website_domain   = "s3-website-${var.aws_region}.amazonaws.com"
-  website_endpoint = "${var.domain}.s3-website-${var.aws_region}.amazonaws.com"
+resource "aws_s3_bucket_acl" "personal_site" {
+  acl    = "public-read"
+  bucket = aws_s3_bucket.personal_site.id
 }
 
 resource "aws_s3_bucket" "www_personal_site" {
-  acl            = "public-read"
   arn            = "arn:aws:s3:::www.${var.domain}"
   bucket         = "www.${var.domain}"
   force_destroy  = "false"
   hosted_zone_id = var.aws_s3_zone_ids_by_region[var.aws_region]
+}
 
-  request_payer = "BucketOwner"
+resource "aws_s3_bucket_request_payment_configuration" "www_personal_site" {
+  bucket = aws_s3_bucket.www_personal_site.id
 
-  versioning {
-    enabled    = "false"
-    mfa_delete = "false"
+  payer = "Requester"
+}
+
+resource "aws_s3_bucket_versioning" "www_personal_site" {
+  bucket = aws_s3_bucket.www_personal_site.id
+
+  versioning_configuration {
+    status     = "Disabled"
+    mfa_delete = "Disabled"
   }
+}
 
-  website {
-    redirect_all_requests_to = var.domain
+resource "aws_s3_bucket_website_configuration" "www_personal_site" {
+  bucket = aws_s3_bucket.www_personal_site.id
+
+  redirect_all_requests_to {
+    host_name = var.domain
   }
+}
 
-  website_domain   = "s3-website-${var.aws_region}.amazonaws.com"
-  website_endpoint = "www.${var.domain}.s3-website-${var.aws_region}.amazonaws.com"
+resource "aws_s3_bucket_acl" "www_personal_site" {
+  acl    = "public-read"
+  bucket = aws_s3_bucket.www_personal_site.id
 }
 
 data "aws_iam_policy_document" "public" {
