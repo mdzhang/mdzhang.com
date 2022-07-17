@@ -1,9 +1,14 @@
 name: deploy
 
-# for AWS
 permissions:
+  # for AWS
   id-token: write
   contents: read
+
+  # for GH branch push
+  pull-requests: write
+  issues: write
+  repository-projects: write
 
 on:
   push:
