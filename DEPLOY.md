@@ -37,5 +37,4 @@ Get S3 credentials to deploy your site. Either ask a project admin for `$AWS_ACC
 
 ### Continuously
 
-* See [Github Actions](https://github.com/mdzhang/mdzhang.com/actions) for this project, which will redeploy staging when the `development` branch is updated, and will redeploy production when the `main` branch is updated.
-* [Add `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` to repository secrets](https://github.com/mdzhang/mdzhang.com/settings/secrets/actions).
+* See [Github Actions](https://github.com/mdzhang/mdzhang.com/actions) for this project, which will redeploy production when the `main` branch is updated.
