@@ -16,7 +16,7 @@ on:
       - '.github/workflows/terraform.yml'
 
 jobs:
-  terraform:
+  format_and_validate:
     name: "Terraform"
     runs-on: ubuntu-latest
     defaults:
