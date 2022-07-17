@@ -23,10 +23,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          # enable branch push below
-          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          persist-credentials: true
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
@@ -113,10 +109,3 @@ jobs:
       - name: Terraform Plan Status
         if: steps.plan.outcome == 'failure'
         run: exit 1
-
-      - name: Push changes to deploy terraform branch
-        if: github.ref == 'refs/heads/main'
-        uses: ad-m/github-push-action@master
-        with:
-          ssh: true
-          branch: refs/heads/deploy/production/terraform
