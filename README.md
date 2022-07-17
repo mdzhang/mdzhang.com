@@ -1,8 +1,9 @@
 # [mdzhang.com](http://mdzhang.com)
 
-[![CircleCI](https://circleci.com/gh/mdzhang/mdzhang.com.svg?style=shield)](https://circleci.com/gh/mdzhang/mdzhang.com)
+[![GH Action](https://github.com/mdzhang/mdzhang.com/actions/workflows/deploy.yml/badge.svg)](https://github.com/mdzhang/mdzhang.com/actions/workflows/deploy.yml)
 
 This repository holds the code for my personal website, [mdzhang.com](http://mdzhang.com).
+
 Built using [Hugo](https://gohugo.io/)
 
 ## Setup
@@ -10,19 +11,6 @@ Built using [Hugo](https://gohugo.io/)
 * Clone the repository
     ```sh
     git clone https://github.com/mdzhang/mdzhang.com.git
-    ```
-
-* Install `node` e.g. using [anyenv](https://github.com/anyenv/anyenv)
-    ```sh
-    brew install anyenv
-    anyenv install nodenv
-    nodenv install 18.2.0
-    nodenv rehash
-    ```
-
-* Install dependencies
-    ```sh
-    npm i
     ```
 
 * Install [`hugo`](https://gohugo.io/)
