@@ -42,7 +42,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # branch: deploy/production/site
           branch: deploy/gh-act-push/site
-          force_with_lease: true
+          force: true
 
       - name: Configure AWS credentials
         if: github.ref == 'refs/heads/main'
