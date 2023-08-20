@@ -1,12 +1,11 @@
 start:
-	HUGO_BASEURL=http://mdzhang.com hugo server -D --ignoreCache
+	yarn dev
 
-# set HUGO_BASEURL
 build:
-	hugo --minify
+	astro build
 
 deploy:
-	aws s3 sync --acl public-read ./public s3://$$HUGO_BASEURL
+	aws s3 sync --acl public-read ./dist s3://$$BASEURL
 
 clean:
-	rm -rf resources public
+	rm -rf dist

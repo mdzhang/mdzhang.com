@@ -4,7 +4,7 @@
 
 Source code for [mdzhang.com](http://mdzhang.com).
 
-Built using [Hugo](https://gohugo.io/)
+Built using [Astro](https://astro.build/)
 
 ## Setup
 
@@ -13,25 +13,19 @@ Built using [Hugo](https://gohugo.io/)
     git clone https://github.com/mdzhang/mdzhang.com.git
     ```
 
-* Install [`hugo`](https://gohugo.io/)
-    ```sh
-    brew install hugo
-    ```
-
-* Init the git submodule with the theme
-    ```sh
-    make init
-    ```
-
 ## Development
 
 * Enter frontend repo
     ```sh
     cd frontend
     ```
+* Install deps
+    ```sh
+    yarn
+    ```
 * Start a local server
     ```sh
-    make start
+    yarn dev
     ```
 
 ### Code Linting
@@ -40,7 +34,7 @@ TODO
 
 ### Testing
 
-N/A beyond making sure the `hugo` build passes.
+N/A beyond making sure the build passes.
 
 ## Deploy
 
