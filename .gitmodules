@@ -1,3 +1,3 @@
 [submodule "themes/cactus"]
-	path = themes/cactus
+	path = frontend/themes/cactus
 	url = https://github.com/monkeyWzr/hugo-theme-cactus
