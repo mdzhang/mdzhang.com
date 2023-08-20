@@ -25,7 +25,6 @@ resource "aws_route53_record" "www_personal_site_a" {
 
 resource "aws_s3_bucket" "personal_site_logs" {
   bucket         = "logs.${var.domain}"
-  hosted_zone_id = var.aws_s3_zone_ids_by_region[var.aws_region]
 
   force_destroy = false
 }
@@ -37,7 +36,6 @@ resource "aws_s3_bucket_acl" "personal_site_logs" {
 
 resource "aws_s3_bucket" "personal_site" {
   bucket         = var.domain
-  hosted_zone_id = var.aws_s3_zone_ids_by_region[var.aws_region]
 }
 
 resource "aws_s3_bucket_logging" "personal_site" {
@@ -65,10 +63,8 @@ resource "aws_s3_bucket_acl" "personal_site" {
 }
 
 resource "aws_s3_bucket" "www_personal_site" {
-  arn            = "arn:aws:s3:::www.${var.domain}"
   bucket         = "www.${var.domain}"
   force_destroy  = "false"
-  hosted_zone_id = var.aws_s3_zone_ids_by_region[var.aws_region]
 }
 
 resource "aws_s3_bucket_request_payment_configuration" "www_personal_site" {

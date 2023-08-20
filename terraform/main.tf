@@ -4,7 +4,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.22"
+      version = "~> 5.0"
     }
   }
 
@@ -31,7 +31,7 @@ locals {
 }
 
 module "github_oidc" {
-  source = "github.com/moritzheiber/terraform-aws-oidc-github-actions-module?ref=v0.2.2"
+  source = "github.com/moritzheiber/terraform-aws-oidc-github-actions-module?ref=v0.3.1"
 
   github_repositories = toset(["mdzhang/mdzhang.com"])
   role_names          = toset([local.gh_action_role_name])
