@@ -30,10 +30,9 @@ export const get: APIRoute = async ({ params, props }) => {
       <div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; filter: drop-shadow()">
         <div style="display: flex; justify-content: space-between;">
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <p style="font-size: 48px;">Brutal theme for Astro</p>
+            <p style="font-size: 48px;">meesh</p>
             <p style="font-size: 38px;">${title}</p>
           </div>
-          <img src="https://www.gravatar.com/avatar/20dc6af3ce18a2a42be4cc84ee9241d5?s=100&d=identicon" width="200px" height="200px" style="border: 3px solid black; border-radius: 0.5rem;" />
         </div>
         <div style="display: flex;">
           <p style="font-size: 24px;">${description}</p>
