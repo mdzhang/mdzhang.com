@@ -7,12 +7,7 @@ export default defineConfig({
     assets: true,
   },
   // used to generate images
-  site:
-    process.env.VERCEL_ENV === 'production'
-      ? 'https://mdzhang.com/'
-      : process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}/`
-      : 'https://localhost:3000/',
+  site: `http://${process.env.BASEURL}/`,
   trailingSlash: 'ignore',
   integrations: [sitemap(), UnoCSS({ injectReset: true })],
   vite: {
