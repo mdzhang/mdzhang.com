@@ -25,6 +25,10 @@ Built using [Hugo](https://gohugo.io/)
 
 ## Development
 
+* Enter frontend repo
+    ```sh
+    cd frontend
+    ```
 * Start a local server
     ```sh
     make start
