@@ -14,6 +14,8 @@ export default defineConfig({
           import('@iconify-json/logos/icons.json').then((i) => i.default),
         uil: () =>
           import('@iconify-json/uil/icons.json').then((l) => l.default),
+        brands: () =>
+          import('@iconify-json/fa-brands/icons.json').then((l) => l.default),
       },
     }),
     presetTypography(),

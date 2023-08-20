@@ -631,6 +631,13 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@iconify-json/fa-brands@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@iconify-json/fa-brands/-/fa-brands-1.1.5.tgz#9873b2e546edc94c8f95ef94f148106a6ce61bd3"
+  integrity sha512-sXxGoXEsHMZrUQYvzfmPBEuoqEIv/PqqtpW5vNqbHU8p9CiU718SV+JI26ARnypGmQjlK0pKHV7kUykIVD2X6w==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify-json/logos@^1.1.34":
   version "1.1.34"
   resolved "https://registry.yarnpkg.com/@iconify-json/logos/-/logos-1.1.34.tgz#c3eeddbfe889384c6969f4e809e279c70b16fa3c"
