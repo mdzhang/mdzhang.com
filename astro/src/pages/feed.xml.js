@@ -4,8 +4,8 @@ import { getCollection } from 'astro:content';
 export async function get(context) {
   const blog = await getCollection('blog');
   return rss({
-    title: 'Brutal Blog',
-    description: 'Brutal is a theme for Astro',
+    title: 'M D Zhang',
+    description: 'human',
     stylesheet: false,
     site: context.site,
     items: blog.map((post) => ({
@@ -15,6 +15,6 @@ export async function get(context) {
       link: `/blog/${post.slug}/`,
     })),
     customData: '<language>en-us</language>',
-    canonicalUrl: 'https://brutal.elian.codes',
+    canonicalUrl: 'https://mdzhang.com',
   });
 }

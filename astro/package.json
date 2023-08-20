@@ -1,14 +1,13 @@
 {
-  "name": "solar-sphere",
+  "name": "mdzhang",
   "version": "0.2.1",
   "type": "module",
-  "packageManager": "pnpm@8.6.0",
   "author": {
-    "name": "Elian Van Cutsem",
-    "email": "hello@elian.codes",
-    "url": "https://www.elian.codes/"
+    "name": "meesh",
+    "email": "md.aka.zhang@gmail.com",
+    "url": "https://mdzhang.com/"
   },
-  "homepage": "https://brutal.elian.codes",
+  "homepage": "https://mdzhang.com",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
