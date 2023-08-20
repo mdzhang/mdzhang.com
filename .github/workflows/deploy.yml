@@ -49,6 +49,8 @@ jobs:
 
       - name: Build
         run: yarn build
+        env:
+          BASEURL: mdzhang.com
 
       - name: Push changes to deploy branch
         if: github.ref == 'refs/heads/main'
