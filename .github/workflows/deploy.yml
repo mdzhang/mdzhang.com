@@ -27,8 +27,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          # fetch hugo themes
-          submodules: true
           fetch-depth: 0
 
       - uses: actions/setup-node@v2
