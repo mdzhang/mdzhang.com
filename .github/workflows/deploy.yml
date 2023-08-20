@@ -1,9 +1,9 @@
 name: deploy
 
 permissions:
+  contents: write
   # for AWS
   id-token: write
-  contents: read
 
 on:
   push:
@@ -47,7 +47,8 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      - name: Push changes to staging branch
+      - name: Push changes to deploy branch
+        if: github.ref == 'refs/heads/main'
         uses: ad-m/github-push-action@21d44fe9270fd489e49fb30c9590d40adb3abc40
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
