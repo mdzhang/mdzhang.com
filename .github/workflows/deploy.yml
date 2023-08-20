@@ -12,18 +12,18 @@ on:
     paths:
       - 'config.toml'
       - '.hugo*'
-      - 'content'
-      - 'static'
-      - 'themes'
+      - 'content/**'
+      - 'static/**'
+      - 'themes/**'
       - '.gitmodules'
       - '.github/workflows/deploy.yml'
   pull_request:
     paths:
       - 'config.toml'
       - '.hugo*'
-      - 'content'
-      - 'static'
-      - 'themes'
+      - 'content/**'
+      - 'static/**'
+      - 'themes/**'
       - '.gitmodules'
       - '.github/workflows/deploy.yml'
 
