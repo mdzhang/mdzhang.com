@@ -45,7 +45,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-site-
 
-      - run: yarn install --ignore-optional --prefer-offline --frozen-lockfile
+      - run: yarn install
 
       - name: Build
         run: yarn build
