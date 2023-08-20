@@ -24,13 +24,14 @@ See [here](terraform/README.md)
     ```
 * Build the site
     ```sh
-    HUGO_BASEURL=http://mdzhang.com/ make build
+    $ cd frontend
+    $ BASEURL=http://mdzhang.com/ make build
     ```
 * Get S3 credentials to deploy your site. Either ask a project admin for `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` or [generate them yourself](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey).
 * Ensure `$AWS_ACCESS_KEY_ID`, `$AWS_SECRET_ACCESS_KEY`, and `$AWS_S3_BUCKET` are defined in your environment or that `~/.aws/config` and `~/.aws/credentials` are set appropriately
 * Run e.g.
     ```sh
-    HUGO_BASEURL=mdzhang.com make deploy
+    BASEURL=mdzhang.com make deploy
     ```
 
 ### Continuously
