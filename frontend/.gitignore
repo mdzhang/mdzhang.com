@@ -1,6 +1,3 @@
-# Dependency directories
-node_modules/
-
-# Build Files
-public/
-resources/_gen/
+.astro
+node_modules
+dist
