@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/mdzhang
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://mdzhang.com
+  * I am mdzhang (https://keybase.io/mdzhang) on keybase.
+  * I have a public key ASDNnkEnI34vSbc8M9SFBt40V9If62nPjkAwIIzH3KUDOAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120cd9e4127237e2f49b73c33d48506de3457d21feb69cf8e4030208cc7dca503380a",
+      "host": "keybase.io",
+      "kid": "0120cd9e4127237e2f49b73c33d48506de3457d21feb69cf8e4030208cc7dca503380a",
+      "uid": "ee7288fd4b51ae66f4e09936bd584319",
+      "username": "mdzhang"
+    },
+    "merkle_root": {
+      "ctime": 1613846187,
+      "hash": "0e87e6584daf02e09cd382f5725ed28b0f1b0108649c9776b1e0963ee4f86994295d6fb91e73df0dd8f54c12a88bb57156095ce764c17b2bd619d34b653820c7",
+      "hash_meta": "b20e7e0f381a31f2bdd752267373505afbee41ebb3b98d6909c0d9f2d183976d",
+      "seqno": 19173926
+    },
+    "service": {
+      "entropy": "zE7cfS3UedeyXdRDA9zuAqVL",
+      "hostname": "mdzhang.com",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.6.2"
+  },
+  "ctime": 1613846206,
+  "expire_in": 504576000,
+  "prev": "e9b250756dfcf418ecce0707492fd489930214354315db44c6b0e2fd3ea06b45",
+  "seqno": 64,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgzZ5BJyN+L0m3PDPUhQbeNFfSH+tpz45AMCCMx9ylAzgKp3BheWxvYWTESpcCQMQg6bJQdW389BjszgcHSS/UiZMCFDVDFdtExrDi/T6ga0XEINLmdp9gNw/DdtgSOqPbF5CEkfVBPFUx1ysJ+WLQu63ZAgHCo3NpZ8RACiVvf9DquAvxshnq6PPwISfibDp6FxoXj1XzOuaiz9Z4dG3BVufPqr3hHu2UA0vU69ggUYOhxn5SpWqKrsJDC6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIOtgi2EKpphe1aG4mR/4qu62V9fkfWUTXoFrB1gvpOyPo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mdzhang
+
+==================================================================
