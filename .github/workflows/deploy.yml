@@ -47,7 +47,7 @@ jobs:
 
       - run: yarn install
 
-      - run: Lint
+      - name: Lint
         run: yarn lint
 
       - name: Build
