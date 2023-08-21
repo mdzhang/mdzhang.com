@@ -1,6 +1,6 @@
 # [mdzhang.com](http://mdzhang.com)
 
-[![Deploy](https://github.com/mdzhang/mdzhang.com/actions/workflows/deploy.yml/badge.svg)](https://github.com/mdzhang/mdzhang.com/actions/workflows/deploy.yml)
+[![Deploy](https://github.com/mdzhang/mdzhang.com/actions/workflows/frontend.yml/badge.svg)](https://github.com/mdzhang/mdzhang.com/actions/workflows/frontend.yml)
 
 Source code for [mdzhang.com](http://mdzhang.com).
 
@@ -30,7 +30,9 @@ Built using [Astro](https://astro.build/) using [Brutal](https://github.com/elia
 
 ### Code Linting
 
-TODO
+Using eslint & prettier:
+
+`cd frontend && yarn lint`
 
 ### Testing
 
