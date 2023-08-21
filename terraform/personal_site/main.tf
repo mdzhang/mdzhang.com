@@ -53,7 +53,7 @@ resource "aws_s3_bucket_website_configuration" "personal_site" {
   }
 
   error_document {
-    key = "404/index.html"
+    key = "404.html"
   }
 }
 
