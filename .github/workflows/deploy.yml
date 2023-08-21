@@ -31,7 +31,7 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: "18"
+          node-version: '18'
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -46,6 +46,9 @@ jobs:
             ${{ runner.os }}-yarn-site-
 
       - run: yarn install
+
+      - run: Lint
+        run: yarn lint
 
       - name: Build
         run: yarn build

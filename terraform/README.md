@@ -8,8 +8,8 @@ GitHub actions run commands that don't require accessing TF Cloud.
 
 ## Setup
 
-* Install [`asdf`](https://asdf-vm.com/)
-* Install `terraform`
+- Install [`asdf`](https://asdf-vm.com/)
+- Install `terraform`
   ```sh
   brew install asdf
   asdf plugin-add terraform
@@ -17,17 +17,17 @@ GitHub actions run commands that don't require accessing TF Cloud.
   asdf plugin-add tflint
   asdf install
   ```
-* Login from CLI
+- Login from CLI
   ```sh
   terraform login
   ```
-* Proceed with planning:
+- Proceed with planning:
   ```sh
   terraform init
   terraform plan # triggers run in TF cloud
   ```
-* Push changes up and create a pull request to have Terraform Cloud automatically trigger a run
-* Applies can only occur through TF cloud when manually triggered after a successful plan on a run triggered by a commit to the `main` branch
+- Push changes up and create a pull request to have Terraform Cloud automatically trigger a run
+- Applies can only occur through TF cloud when manually triggered after a successful plan on a run triggered by a commit to the `main` branch
 
 ## Tips
 

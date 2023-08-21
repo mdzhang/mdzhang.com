@@ -4,9 +4,7 @@ import { getCollection } from 'astro:content';
 import satori from 'satori';
 import { html as toReactElement } from 'satori-html';
 
-const fontFile = await fetch(
-  'https://og-playground.vercel.app/inter-latin-ext-700-normal.woff'
-);
+const fontFile = await fetch('https://og-playground.vercel.app/inter-latin-ext-700-normal.woff');
 const fontData: ArrayBuffer = await fontFile.arrayBuffer();
 
 const height = 630;
@@ -21,7 +19,7 @@ export function getStaticPaths() {
   }));
 }
 
-export const get: APIRoute = async ({ params, props }) => {
+export const get: APIRoute = async ({ props }) => {
   const title = props.title.trim() ?? 'Blogpost';
   const description = props.description ?? null;
   const html = toReactElement(`
