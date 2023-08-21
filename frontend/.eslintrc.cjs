@@ -21,14 +21,15 @@ module.exports = {
   },
   plugins: ['astro', '@typescript-eslint', 'unused-imports', 'prettier'],
   rules: {
-    'no-underscore-dangle': 'off',
-    '@typescript-eslint/no-unsafe-return': 'warn',
-    '@typescript-eslint/no-unsafe-assignment': 'warn',
-    '@typescript-eslint/no-unsafe-member-access': 'warn',
-    '@typescript-eslint/no-unsafe-call': 'warn',
     '@typescript-eslint/no-explicit-any': 'warn',
-    'import/prefer-default-export': 'off',
+    '@typescript-eslint/no-unsafe-argument': 'warn',
+    '@typescript-eslint/no-unsafe-assignment': 'warn',
+    '@typescript-eslint/no-unsafe-call': 'warn',
+    '@typescript-eslint/no-unsafe-member-access': 'warn',
+    '@typescript-eslint/no-unsafe-return': 'warn',
     'import/no-unresolved': 'off',
+    'import/prefer-default-export': 'off',
+    'no-underscore-dangle': 'off',
   },
   overrides: [
     {
