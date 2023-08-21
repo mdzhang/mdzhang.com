@@ -2,6 +2,7 @@
   "name": "mdzhang",
   "version": "0.2.1",
   "type": "module",
+  "license": "MIT",
   "author": {
     "name": "meesh",
     "email": "md.aka.zhang@gmail.com",
@@ -13,7 +14,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint --ext .astro,.ts,.tsx . --quiet",
+    "format": "eslint . --ext astro,ts,tsx --fix && prettier . --write"
   },
   "dependencies": {
     "@astrojs/rss": "^2.4.4",
@@ -30,11 +33,17 @@
     "unocss": "^0.54.3"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^6.3.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "astro-eslint-parser": "^0.14.0",
     "eslint": "^8.46.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-astro": "^0.28.0",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "prettier": "^3.0.1",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "prettier": "^3.0.2",
     "prettier-plugin-astro": "^0.11.0"
   }
 }

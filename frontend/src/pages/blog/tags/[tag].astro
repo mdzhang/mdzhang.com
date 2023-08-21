@@ -18,17 +18,15 @@ export async function getStaticPaths() {
     });
   });
 
-  return Array.from(new Set(tags)).map((tag) => {
-    return {
-      params: { tag },
-      props: {
-        tag,
-        blogposts: allPosts.filter((post) =>
-          post.data.tags.map((tag) => tag.toLowerCase()).includes(tag)
-        ),
-      },
-    };
-  });
+  return Array.from(new Set(tags)).map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      blogposts: allPosts.filter((post) =>
+        post.data.tags.map((t) => t.toLowerCase()).includes(tag)
+      ),
+    },
+  }));
 }
 
 interface Props {
@@ -42,7 +40,7 @@ const { tag, blogposts } = Astro.props;
 <Layout
   title={`Blog: ${tag}`}
   description={`Blog | All posts tagged with ${tag}`}
-  pageTitle={`Blog | Blogposts tagged with ${tag}`}
+  pageTitle={`Blog | Blogposts tagged with ${tag}`}
 >
   <main class="p-6 bg-purple grid gap-4">
     <div>

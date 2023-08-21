@@ -1,8 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { Pill } from '@eliancodes/brutal-ui';
+import { Button, Pill } from '@eliancodes/brutal-ui';
 import SummaryCard from '../generic/SummaryCard.astro';
-import { Button } from '@eliancodes/brutal-ui';
 
 interface Props {
   post: CollectionEntry<'blog'>;
@@ -26,15 +25,13 @@ const { post } = Astro.props;
     <div class='flex justify-between items-center'>
       <ul class='flex gap-4 mt-2'>
         {
-          post.data.tags.map((tag) => {
-            return (
-              <li>
-                <a class="sanchez" href={`/blog/tags/${tag.toLowerCase()}/`}>
-                  <Pill>{tag}</Pill>
-                </a>
-              </li>
-            );
-          })
+          post.data.tags.map((tag) => (
+            <li>
+              <a class="sanchez" href={`/blog/tags/${tag.toLowerCase()}/`}>
+                <Pill>{tag}</Pill>
+              </a>
+            </li>
+          ))
         }
       </ul>
       {
