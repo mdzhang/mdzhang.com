@@ -18,12 +18,12 @@ export default defineType({
     defineField({
       name: 'isbn',
       title: 'ISBN',
-      type: 'string',
+      type: 'number',
     }),
     defineField({
       name: 'isbn13',
       title: 'ISBN13',
-      type: 'string',
+      type: 'number',
     }),
     defineField({
       name: 'pages',

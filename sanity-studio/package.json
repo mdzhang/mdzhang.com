@@ -9,7 +9,8 @@
     "start": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "deploy-graphql": "sanity graphql deploy",
+    "open-graphql": "open https://n3ww3z3p.api.sanity.io/v2023-08-01/graphql/production/default"
   },
   "keywords": [
     "sanity"
