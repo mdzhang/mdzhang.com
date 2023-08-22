@@ -17,6 +17,7 @@ on:
     paths:
       - 'frontend/**'
       - '.github/workflows/deploy.yml'
+  repository_dispatch:
 
 jobs:
   build_and_deploy:
