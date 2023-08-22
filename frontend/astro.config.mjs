@@ -17,7 +17,7 @@ export default defineConfig({
       injectReset: true
     }),
     sanity({
-      projectId: "TODO",
+      projectId: "n3ww3z3p",
       dataset: "next",
       useCdn: true,
     }),
