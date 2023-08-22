@@ -1,13 +1,43 @@
-import { request, gql } from 'graphql-request'
-
 const GRAPHQL_API_BASE_URL = 'https://n3ww3z3p.api.sanity.io/v1/graphql/production/default'
 
-const POST_QUERY = gql`
-{
-  allBook(where: {readAt: {gt:"2022-01-01T00:00:00Z"}}) {
-    title
-  }
-}
-`
+export async function getSanityContent({ query, variables = {} }: { query: string, variables?: Record<string, any> }) {
+  const { data } = await fetch(
+    GRAPHQL_API_BASE_URL,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query,
+        variables,
+      }),
+    },
+  ).then((response) => response.json());
 
-export const getPosts = async () => request(`${GRAPHQL_API_BASE_URL}/`, POST_QUERY)
+  return data;
+}
+
+export async function getPosts() {
+  return getSanityContent({
+    query: `
+      {
+        allPost {
+          title
+          slug {
+            source
+          }
+          bodyRaw
+          author {
+            name
+          }
+          tags {
+            name
+          }
+          publishedAt
+        }
+      }`
+  });
+};
+
+
