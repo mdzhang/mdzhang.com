@@ -46,3 +46,5 @@ Further, when `main` branch is updated, the `deploy/production/site` branch is u
 
 - Update content in [Sanity](https://www.sanity.io/) directly
 - See [Sanity README](./sanity-studio/README.md) for importing data otherwise.
+- A Sanity webhook to hit a [Pipedream](https://pipedream.com/) endpoint on content update has been setup; this in turns triggers the frontend deploy GitHub workflow using [`repository_dispatch`](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-dispatch-event)
+  - _NB_: pipedream needed b/c Sanity's webhook body is always the document being updated, & doesn't have the `{"event_type"}` required by the GH webhook
