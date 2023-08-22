@@ -1,14 +1,12 @@
 ---
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
-import Layout from "@layouts/Default.astro";
-import BlogList from "@components/blog/BlogList.astro";
-import { Button } from "@eliancodes/brutal-ui";
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import Layout from '@src/layouts/Default.astro';
+import BlogList from '@src/components/blog/BlogList.astro';
+import { Button } from '@eliancodes/brutal-ui';
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection("blog").then((collection) =>
-    collection.reverse()
-  );
+  const allPosts = await getCollection('blog').then((collection) => collection.reverse());
 
   const tags: string[] = [];
 
@@ -22,16 +20,14 @@ export async function getStaticPaths() {
     params: { tag },
     props: {
       tag,
-      blogposts: allPosts.filter((post) =>
-        post.data.tags.map((t) => t.toLowerCase()).includes(tag)
-      ),
+      blogposts: allPosts.filter((post) => post.data.tags.map((t) => t.toLowerCase()).includes(tag)),
     },
   }));
 }
 
 interface Props {
   tag: string;
-  blogposts: CollectionEntry<"blog">[];
+  blogposts: CollectionEntry<'blog'>[];
 }
 
 const { tag, blogposts } = Astro.props;

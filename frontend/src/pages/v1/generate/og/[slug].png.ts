@@ -28,7 +28,6 @@ export const get: APIRoute = async ({ props }) => {
       <div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; filter: drop-shadow()">
         <div style="display: flex; justify-content: space-between;">
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <p style="font-size: 48px;">meesh</p>
             <p style="font-size: 38px;">${title}</p>
           </div>
         </div>
