@@ -18,7 +18,8 @@ export default defineConfig({
     }),
     sanity({
       projectId: "n3ww3z3p",
-      dataset: "next",
+      dataset: "production",
+      apiVersion: '2023-02-08',
       useCdn: true,
     }),
   ],
