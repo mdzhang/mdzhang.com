@@ -1,18 +1,18 @@
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import { getPosts } from '@src/lib/api';
 
 export async function get(context) {
-  const blog = await getCollection('blog');
+  const posts = await getPosts();
   return rss({
     title: 'M D Zhang',
     description: 'human',
     stylesheet: false,
     site: context.site,
-    items: blog.map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.pubDate,
-      description: post.data.description,
-      link: `/blog/${post.slug}/`,
+    items: posts.map((post) => ({
+      title: post.title,
+      pubDate: post.publishedAt,
+      description: post.description,
+      link: `/blog/${post.slug.current}/`,
     })),
     customData: '<language>en-us</language>',
     canonicalUrl: 'https://mdzhang.com',

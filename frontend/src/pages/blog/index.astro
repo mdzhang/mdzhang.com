@@ -1,14 +1,13 @@
 ---
-import { getCollection } from "astro:content";
-import Layout from "@layouts/Default.astro";
-import BlogList from "@components/blog/BlogList.astro";
+import Layout from '@src/layouts/Default.astro';
+import BlogList from '@src/components/blog/BlogList.astro';
 
-const posts = await getCollection("blog").then((collection) =>
-  collection.reverse()
-);
+import { getPosts } from '@src/lib/api';
+
+const posts = await getPosts();
 ---
 
-<Layout title="Blog" description="Blog | Thoughts on things" pageTitle="Blog">
+<Layout title="Blog" description="Blog | Thoughts on things" pageTitle="Blog">
   <main class="bg-green p-6">
     <BlogList posts={posts} />
   </main>

@@ -1,8 +1,9 @@
 import { Resvg, ResvgRenderOptions } from '@resvg/resvg-js';
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
 import satori from 'satori';
 import { html as toReactElement } from 'satori-html';
+import { getPosts } from '@src/lib/api';
+import type { Post } from '@src/gql/graphql';
 
 const fontFile = await fetch('https://og-playground.vercel.app/inter-latin-ext-700-normal.woff');
 const fontData: ArrayBuffer = await fontFile.arrayBuffer();
@@ -10,17 +11,27 @@ const fontData: ArrayBuffer = await fontFile.arrayBuffer();
 const height = 630;
 const width = 1200;
 
-const posts = await getCollection('blog');
+const posts = await getPosts();
 
-export function getStaticPaths() {
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { title: post.data.title, description: post.data.description },
-  }));
+interface PathProps {
+  params: {
+    slug?: string;
+  };
+  props: Post;
 }
 
-export const get: APIRoute = async ({ props }) => {
-  const title = props.title.trim() ?? 'Blogpost';
+export function getStaticPaths(): PathProps[] {
+  return posts.map(
+    (post: Post) =>
+      ({
+        params: { slug: post.slug!.current },
+        props: post,
+      } as PathProps)
+  );
+}
+
+export const get: APIRoute = async ({ props }: PathProps) => {
+  const title = props.title?.trim() ?? 'Blogpost';
   const description = props.description ?? null;
   const html = toReactElement(`
   <div style="background-color: white; display: flex; flex-direction: column; height: 100%; padding: 3rem; width: 100%">
@@ -28,7 +39,6 @@ export const get: APIRoute = async ({ props }) => {
       <div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; filter: drop-shadow()">
         <div style="display: flex; justify-content: space-between;">
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <p style="font-size: 48px;">meesh</p>
             <p style="font-size: 38px;">${title}</p>
           </div>
         </div>

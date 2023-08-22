@@ -5,9 +5,7 @@
     "jsx": "preserve",
     "target": "es6",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@pages/*": ["src/pages/*"]
+      "@src/*": ["src/*"]
     }
   }
 }
