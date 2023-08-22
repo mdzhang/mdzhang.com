@@ -18,7 +18,7 @@ interface Props {
 
 const { post } = Astro.props;
 
-const content = marked.parse(post.body || 'unknown');
+const content = marked.parse(post.body ?? 'unknown');
 ---
 
 <Layout content={post} headings={[]}>

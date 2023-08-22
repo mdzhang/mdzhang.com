@@ -12,7 +12,7 @@ module.exports = {
     'plugin:@typescript-eslint/stylistic-type-checked',
     'plugin:astro/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'env.d.ts'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'env.d.ts', 'gql'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',

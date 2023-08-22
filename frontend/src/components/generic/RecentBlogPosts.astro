@@ -1,6 +1,6 @@
 ---
 import { Button, Card } from '@eliancodes/brutal-ui';
-import BlogList from '../blog/BlogList.astro';
+import BlogList from '@src/components/blog/BlogList.astro';
 import { getPosts } from '@src/lib/api';
 
 interface Props {
@@ -10,7 +10,6 @@ interface Props {
 const { count } = Astro.props;
 
 const allPosts = await getPosts();
-debugger;
 const posts = allPosts.reverse().slice(0, count ?? 3);
 ---
 
