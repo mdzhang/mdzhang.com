@@ -1,18 +1,18 @@
 ---
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
 import Layout from '@src/layouts/Default.astro';
 import BlogList from '@src/components/blog/BlogList.astro';
 import { Button } from '@eliancodes/brutal-ui';
+import { getPosts } from '@src/lib/api';
+import type { Post } from '@src/gql/graphql';
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('blog').then((collection) => collection.reverse());
+  const posts = await getPosts();
 
   const tags: string[] = [];
 
-  allPosts.forEach((post) => {
-    post.data.tags.forEach((tag) => {
-      tags.push(tag.toLowerCase());
+  posts.forEach((post) => {
+    (post.tags ?? []).forEach((tag) => {
+      tags.push(tag!.name!.toLowerCase());
     });
   });
 
@@ -20,28 +20,28 @@ export async function getStaticPaths() {
     params: { tag },
     props: {
       tag,
-      blogposts: allPosts.filter((post) => post.data.tags.map((t) => t.toLowerCase()).includes(tag)),
+      posts: posts.filter((post) => (post.tags ?? []).map((t) => t?.name?.toLowerCase()).includes(tag)),
     },
   }));
 }
 
 interface Props {
   tag: string;
-  blogposts: CollectionEntry<'blog'>[];
+  posts: Post[];
 }
 
-const { tag, blogposts } = Astro.props;
+const { tag, posts } = Astro.props;
 ---
 
 <Layout
   title={`Blog: ${tag}`}
   description={`Blog | All posts tagged with ${tag}`}
-  pageTitle={`Blog | Blogposts tagged with ${tag}`}
+  pageTitle={`Blog | Posts tagged with ${tag}`}
 >
   <main class="p-6 bg-purple grid gap-4">
     <div>
       <Button href="/blog/">&larr; Back to blog</Button>
     </div>
-    <BlogList posts={blogposts} />
+    <BlogList posts={posts} />
   </main>
 </Layout>
