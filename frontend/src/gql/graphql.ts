@@ -75,8 +75,6 @@ export type Block = {
   style?: Maybe<Scalars['String']['output']>;
 };
 
-export type BlockOrImage = Block | Image;
-
 export type Book = Document & {
   __typename?: 'Book';
   /** Date the document was created */
@@ -369,7 +367,8 @@ export type Post = Document & {
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars['DateTime']['output']>;
   author?: Maybe<Author>;
-  bodyRaw?: Maybe<Scalars['JSON']['output']>;
+  body?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
   mainImage?: Maybe<Image>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   slug?: Maybe<Slug>;
@@ -387,6 +386,8 @@ export type PostFilter = {
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
   author?: InputMaybe<AuthorFilter>;
+  body?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
   mainImage?: InputMaybe<ImageFilter>;
   publishedAt?: InputMaybe<DatetimeFilter>;
   slug?: InputMaybe<SlugFilter>;
@@ -400,6 +401,8 @@ export type PostSorting = {
   _rev?: InputMaybe<SortOrder>;
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
+  body?: InputMaybe<SortOrder>;
+  description?: InputMaybe<SortOrder>;
   mainImage?: InputMaybe<ImageSorting>;
   publishedAt?: InputMaybe<SortOrder>;
   slug?: InputMaybe<SlugSorting>;

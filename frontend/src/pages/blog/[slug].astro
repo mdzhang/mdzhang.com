@@ -1,21 +1,26 @@
 ---
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
+import { getPosts } from '@src/lib/api';
+import type { Post } from '@src/gql/graphql';
+import { marked } from 'marked';
+import Layout from '@src/layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog');
-  return blogEntries.map((blogpost) => ({
-    params: { slug: blogpost.slug },
-    props: { blogpost },
+  const posts = await getPosts();
+  return posts.map((post) => ({
+    params: { slug: post.slug!.current },
+    props: { post },
   }));
 }
 
 interface Props {
-  blogpost: CollectionEntry<'blog'>;
+  post: Post;
 }
 
-const { blogpost } = Astro.props;
-const { Content } = await blogpost.render();
+const { post } = Astro.props;
+
+const content = marked.parse(post.body || 'unknown');
 ---
 
-<Content />
+<Layout content={post} headings={[]}>
+  <div set:html={content} />
+</Layout>

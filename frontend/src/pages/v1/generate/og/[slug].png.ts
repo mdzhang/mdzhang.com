@@ -1,8 +1,9 @@
 import { Resvg, ResvgRenderOptions } from '@resvg/resvg-js';
 import type { APIRoute } from 'astro';
-import { getPosts } from '@src/lib/api';
 import satori from 'satori';
 import { html as toReactElement } from 'satori-html';
+import { getPosts } from '@src/lib/api';
+import type { Post } from '@src/gql/graphql'
 
 const fontFile = await fetch('https://og-playground.vercel.app/inter-latin-ext-700-normal.woff');
 const fontData: ArrayBuffer = await fontFile.arrayBuffer();
@@ -12,15 +13,22 @@ const width = 1200;
 
 const posts = await getPosts();
 
-export function getStaticPaths() {
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { title: post.data.title, description: post.data.description },
-  }));
+interface PathProps {
+  params: {
+    slug?: string
+  },
+  props: Post,
 }
 
-export const get: APIRoute = async ({ props }) => {
-  const title = props.title.trim() ?? 'Blogpost';
+export function getStaticPaths(): PathProps[] {
+  return posts.map((post: Post) => ({
+    params: { slug: post.slug!.current },
+    props: post,
+  } as PathProps));
+}
+
+export const get: APIRoute = async ({ props }: PathProps ) => {
+  const title = props.title?.trim() ?? 'Blogpost';
   const description = props.description ?? null;
   const html = toReactElement(`
   <div style="background-color: white; display: flex; flex-direction: column; height: 100%; padding: 3rem; width: 100%">
