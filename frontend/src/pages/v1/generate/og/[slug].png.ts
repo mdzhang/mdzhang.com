@@ -1,6 +1,6 @@
 import { Resvg, ResvgRenderOptions } from '@resvg/resvg-js';
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
+import { getPosts } from '@src/lib/api';
 import satori from 'satori';
 import { html as toReactElement } from 'satori-html';
 
@@ -10,7 +10,7 @@ const fontData: ArrayBuffer = await fontFile.arrayBuffer();
 const height = 630;
 const width = 1200;
 
-const posts = await getCollection('blog');
+const posts = await getPosts();
 
 export function getStaticPaths() {
   return posts.map((post) => ({
