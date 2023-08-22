@@ -3,7 +3,7 @@ import type { APIRoute } from 'astro';
 import satori from 'satori';
 import { html as toReactElement } from 'satori-html';
 import { getPosts } from '@src/lib/api';
-import type { Post } from '@src/gql/graphql'
+import type { Post } from '@src/gql/graphql';
 
 const fontFile = await fetch('https://og-playground.vercel.app/inter-latin-ext-700-normal.woff');
 const fontData: ArrayBuffer = await fontFile.arrayBuffer();
@@ -15,19 +15,22 @@ const posts = await getPosts();
 
 interface PathProps {
   params: {
-    slug?: string
-  },
-  props: Post,
+    slug?: string;
+  };
+  props: Post;
 }
 
 export function getStaticPaths(): PathProps[] {
-  return posts.map((post: Post) => ({
-    params: { slug: post.slug!.current },
-    props: post,
-  } as PathProps));
+  return posts.map(
+    (post: Post) =>
+      ({
+        params: { slug: post.slug!.current },
+        props: post,
+      } as PathProps)
+  );
 }
 
-export const get: APIRoute = async ({ props }: PathProps ) => {
+export const get: APIRoute = async ({ props }: PathProps) => {
   const title = props.title?.trim() ?? 'Blogpost';
   const description = props.description ?? null;
   const html = toReactElement(`
