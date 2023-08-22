@@ -41,3 +41,8 @@ See [Github Actions](https://github.com/mdzhang/mdzhang.com/actions) for this pr
 TL;DR site is built and sync'd to AWS S3. Pushes with Terraform changes to `main` include a `terraform plan` which then needs to be manually applied in Terraform Cloud.
 
 Further, when `main` branch is updated, the `deploy/production/site` branch is updated to reflect latest built site.
+
+## Content Deployment
+
+- Update content in [Sanity](https://www.sanity.io/) directly
+- See [Sanity README](./sanity-studio/README.md) for importing data otherwise.

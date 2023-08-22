@@ -4,7 +4,7 @@
 
 Source code for [mdzhang.com](http://mdzhang.com).
 
-Built using [Astro](https://astro.build/) using [Brutal](https://github.com/eliancodes/brutal) theme.
+Built using [Astro](https://astro.build/) using the [Brutal](https://github.com/eliancodes/brutal) theme. Content powered by [Sanity](https://www.sanity.io/) and [GraphQL](https://graphql.org/).
 
 ## Setup
 
