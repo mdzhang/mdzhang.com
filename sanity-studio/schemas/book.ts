@@ -26,6 +26,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'pages',
+      title: 'Pages',
+      type: 'number',
+    }),
+    defineField({
       name: 'publisher',
       title: 'Publisher',
       type: 'string',
