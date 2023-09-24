@@ -52,5 +52,6 @@
     "graphql": "^16.8.0",
     "prettier": "^3.0.2",
     "prettier-plugin-astro": "^0.11.0"
-  }
+  },
+  "packageManager": "yarn@3.6.3"
 }
