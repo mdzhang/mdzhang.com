@@ -1582,6 +1582,11 @@
     fflate "^0.7.3"
     string.prototype.codepointat "^0.2.1"
 
+"@statsy/astro@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@statsy/astro/-/astro-0.1.3.tgz#dd914cb6d3ba8f557967c4172a7ac46a13b38414"
+  integrity sha512-tHO9IJP9xwZgDPitjh0zSdIaGaclUGMs9ZfGFRPNvATNVTzd6gwp8VRAaw5gXf4mDso9pLzGVppVUW6OT/6RQw==
+
 "@types/babel__core@^7.20.1":
   version "7.20.2"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.20.2.tgz#215db4f4a35d710256579784a548907237728756"
