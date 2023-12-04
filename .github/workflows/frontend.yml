@@ -58,7 +58,7 @@ jobs:
 
       - name: Push changes to deploy branch
         if: github.ref == 'refs/heads/main'
-        uses: ad-m/github-push-action@9a2e3c14aaecf56d5816dc3a54514f82050820b2
+        uses: ad-m/github-push-action@c8e916676288f4db183792490450557e2d4296ef
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: deploy/production/site
